@@ -1,0 +1,32 @@
+Bar#USBStorageModePageScreenLeft Label#LabelLeft
+{
+    height: 24;
+    outer-margin-top: 72;
+
+    font-name: $fontPragmatica;
+    font-size: 21;
+    foreground-color: $colorWhite;
+
+    vertical-alignment: center;
+    horizontal-alignment: center;
+}
+
+Bar#USBStorageModePageScreenRight MultilineLabel#LabelRight
+{
+    height: 96;
+    outer-margin-top: 53;
+
+    font-name: $fontPragmatica;
+    font-size: 21;
+    foreground-color: $colorWhite;
+
+    vertical-alignment: center;
+    horizontal-alignment: center;
+}
+
+Bar#USBStorageModePageScreenLeft Bar#Icon
+{
+    image: url("Maschine/HW/Shared/Error.png");
+    outer-margin-top: 18;
+    outer-margin-left: 204;
+}

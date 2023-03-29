@@ -1,0 +1,21 @@
+//----------------------------------------------------------------------------------------------------------------------
+// MatrixWidget
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// MatrixWidget::Label#draglabel
+// {
+//     image:                  no;
+//     foreground-color:       no;
+//     background-color:       rgba(255,255,255,200);
+//     margin:					0;
+// }
+
+// MatrixWidget::Label#draglabel[between_rows=true]
+// {
+//     image:                  no;
+//     background-color:       rgba(0, 255, 0, 128);
+//     foreground-color:       rgba(255, 0, 0, 128);
+//     width:                  4;
+//     min-height:             4;
+// }

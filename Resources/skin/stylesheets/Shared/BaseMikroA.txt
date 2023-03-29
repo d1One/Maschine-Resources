@@ -1,0 +1,255 @@
+@define $screenWidth     128;
+@define $screenHeight    32;
+@define $lineHeight      16;
+
+@define $fontMikroAStandard      url("Shared/MikroAseries-Medium.ttf");
+@define $fontMikroABold          url("Shared/MikroAseries-Bold.ttf");
+@define $fontMikroABoldCondensed url("Shared/MikroAseries-BoldCondensed.ttf");
+@define $fontMikroASizeDefault 14;
+
+//------------------------------------------------------------------------------------------
+
+Stack.MikroASeries
+{
+    min-width: $screenWidth;
+    min-height: $screenHeight;
+    max-width: $screenWidth;
+    max-height: $screenHeight;
+}
+
+Bar.IconCaptionBar Label.MikroASeries
+{
+    foreground-color: $colorWhite;
+    background-color: no;
+
+    font-name: $fontMikroAStandard;
+    font-size: $fontMikroASizeDefault;
+
+    horizontal-alignment: left;
+    margin: 0;
+}
+
+Scrollbar.MikroASeries
+{
+    background-color: $colorBlack;
+    outer-margin-left: 2;
+    height: 32;
+    width: 2;
+}
+
+Scrollbar.MikroASeries Grip
+{
+    min-height: 8;
+    background-color: $colorWhite;
+}
+
+//------------------------------------------------------------------------------------------
+
+Bar#Main
+{
+    height: $screenHeight;
+}
+
+//------------------------------------------------------------------------------------------
+
+Bar.IconCaptionBar
+{
+    background-color: $colorBlack;
+    height: $lineHeight;
+}
+
+//------------------------------------------------------------------------------------------
+
+Label.Icon
+{
+    background-color: $colorWhite;
+    foreground-color: $colorBlack;
+
+    image: no;
+
+    font-name: $fontMikroABoldCondensed;
+    font-size: $fontMikroASizeDefault;
+
+    horizontal-alignment: center;
+    vertical-alignment: top;
+
+    outer-margin-right: 3;
+    outer-margin-bottom: 3;
+
+    width: 15;
+    height: 14;
+
+    margin-right: 0;
+}
+
+// this is needed in order to display the "1" and "11" centered
+Label.Icon[one=true]
+{
+    margin-right: 1;
+}
+
+//------------------------------------------------------------------------------------------
+// Icon used for text only, no picture
+
+Label.Icon[icon=labelBoldCenter]
+{
+    font-name: $fontMikroABold;
+    font-size: $fontMikroASizeDefault;
+
+    vertical-alignment:     center;
+    horizontal-alignment:   center;
+
+    image: no;
+
+    margin-right: 1;
+}
+
+Label.Icon[icon=labelCenter]
+{
+    vertical-alignment:     center;
+    horizontal-alignment:   center;
+
+    image: no;
+
+    margin-right: 0;
+}
+
+Label.Icon[icon=muted]
+{
+    background-color:           $colorBlack;
+    foreground-color:           $colorWhite;
+    background-border-color:    $colorWhite;
+
+    image:                      no;
+}
+
+//------------------------------------------------------------------------------------------
+
+Label.Icon[icon=effect]
+{
+    foreground-color: no;
+    background-color: no;
+    image: $icon-effect;
+}
+
+Label.Icon[icon=instrument]
+{
+    foreground-color: no;
+    background-color: no;
+    image: $icon-instrument;
+}
+
+Label.Icon[icon=effect_Bypassed]
+{
+    foreground-color: no;
+    background-color: no;
+    image: $icon-effect-bypassed;
+}
+
+Label.Icon[icon=instrument_Bypassed]
+{
+    foreground-color: no;
+    background-color: no;
+    image: $icon-instrument-bypassed;
+}
+
+Label.Icon[icon=project]
+{
+    foreground-color: no;
+    background-color: no;
+    image: $icon-project;
+}
+
+Label.Icon[icon=group]
+{
+    foreground-color: no;
+    background-color: no;
+    image: $icon-group;
+}
+
+Label.Icon[icon=sound]
+{
+    foreground-color: no;
+    background-color: no;
+    image: $icon-sound;
+}
+
+Label.Icon[icon=loop]
+{
+    foreground-color: no;
+    background-color: no;
+    image: $icon-loop;
+}
+
+Label.Icon[icon=one-shot]
+{
+    foreground-color: no;
+    background-color: no;
+    image: $icon-sample;
+}
+
+Label.Icon[icon=missing]
+{
+    foreground-color: no;
+    background-color: no;
+    image: url("Shared/HW/KH1062/Icon_Missing.png");
+}
+
+Label.Icon[icon=favorite]
+{
+    foreground-color: no;
+    background-color: no;
+    image: url("Shared/HW/KH1062/Icon_Favorite.png");
+}
+
+Label#StarIcon
+{
+    margin-top: 1;
+    image: url("Shared/HW/KH1062/Icon_Star.png");
+}
+
+//------------------------------------------------------------------------------------------
+
+Bar.IconCaptionBar Label.MikroASeries
+{
+    vertical-alignment: top;
+    horizontal-alignment: left;
+}
+
+Bar.IconCaptionBar Label.MikroASeries[style=bold]
+{
+    font-name: $fontMikroABold;
+    font-size: $fontMikroASizeDefault;
+}
+
+Bar.IconCaptionBar Label.MikroASeries[style=boldCenter]
+{
+    font-name: $fontMikroABold;
+    font-size: $fontMikroASizeDefault;
+    vertical-alignment:   center;
+    horizontal-alignment: center;
+}
+
+Label#ParameterName
+{
+    min-width: 42;
+}
+
+Bar.IconCaptionBar[with-icon=true] Label#ParameterName
+{
+    min-width: 34;
+}
+
+Label#ParameterValue
+{
+    horizontal-alignment: right;
+    outer-margin-left: 5;
+    max-width: 81;
+}
+
+Bar.IconCaptionBar[with-icon=true] Label#ParameterValue
+{
+    max-width: 74;
+}
+
+//------------------------------------------------------------------------------------------

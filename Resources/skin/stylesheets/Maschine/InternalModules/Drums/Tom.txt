@@ -1,0 +1,403 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// TOM
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+TomEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_logo_tom.png");
+    x:                                  $X-Drums-Logo;
+    y:                                  $Y-Drums-Logo;
+}
+
+//--------------------------------------------------------------------------------------------------------
+// DISPLAY DRUM MODELS
+//--------------------------------------------------------------------------------------------------------
+
+TomEditor Bar#m_pInstrumentForeground
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_model_tom_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_model_tom_dye.png");
+    dye-color-palette:                  1;
+    x:                                  259;
+    y:                                  80;
+}
+
+
+//---------------------------------------------------------------------------------------------------------
+// TRONIC MODE
+//---------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+TomEditor[Mode=Tronic] Bar#TomMode 
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_tronic_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_tronic_dyemask.png");
+}
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+TomEditor#m_pEditor[Mode=Tronic] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-2-4;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+TomEditor#m_pEditor[Mode=Tronic] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_harmonics.png");
+    x:                                  $X-Drums-SubheadlineB-2-4;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+TomEditor#m_pEditor[Mode=Tronic] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-2-4;
+    y:                                  $Y-Drums-Separator;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// Bend
+TomEditor[Mode=Tronic] Bar#TomBend
+{
+    x:                                  $X-Drums-2-4-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Impact
+TomEditor[Mode=Tronic] Bar#TomImpact
+{
+    x:                                  $X-Drums-2-4-Knob2;
+    y:                                  $Y-Drums;
+}
+
+// Interval
+TomEditor Bar#DustyTomInterval
+{
+    x:                                  $X-Drums-2-4-Knob3;
+    y:                                  $Y-Drums;
+}
+
+// Freq
+TomEditor Bar#DustyTomFMP
+{
+    x:                                  $X-Drums-2-4-Knob4;
+    y:                                  $Y-Drums;
+}
+
+// Decay
+TomEditor Bar#DustyTomFMD
+{
+    x:                                  $X-Drums-2-4-Knob5;
+    y:                                  $Y-Drums;
+}
+
+// FM Amount
+TomEditor Bar#DustyTomFMA
+{
+    x:                                  $X-Drums-2-4-Knob6;
+    y:                                  $Y-Drums;
+}
+
+
+//---------------------------------------------------------------------------------------------------------
+// FRACTAL (FM) MODE
+//---------------------------------------------------------------------------------------------------------
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+TomEditor#m_pEditor[Mode=Fractal] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  55;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+TomEditor#m_pEditor[Mode=Fractal] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_harmonics.png");
+    x:                                  359;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+TomEditor[Mode=Fractal] Bar#TomMode 
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_fractal_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_fractal_dyemask.png");
+}
+
+
+//Glide
+TomEditor Bar#FBMatrixTomGlide
+{
+    x:                                  36;
+    y:                                  $Y-Drums-PotiSmall_Top;
+}
+
+//Bend
+TomEditor[Mode=Fractal] Bar#TomBend
+{
+    x:                                  36;
+    y:                                  $Y-Drums-PotiSmall_Bottom;
+}
+
+//Impact
+TomEditor[Mode=Fractal] Bar#TomImpact
+{
+    x:                                  119;
+    y:                                  $Y-Drums-PotiSmall_Bottom;
+}
+
+//Color
+TomEditor[Mode=Fractal] Bar#FBMatrixTomColor
+{
+    x:                                  119;
+    y:                                  $Y-Drums-PotiSmall_Top;
+}
+
+// Transpose
+TomEditor Bar#FBMatrixTomTrans
+{
+    x:                                  516;
+    y:                                  $Y-Drums;
+}
+
+// Mix
+TomEditor Bar#FBMatrixTomToneHarm
+{
+    x:                                  253;
+    y:                                  $Y-Drums;
+}
+
+// Freq A
+TomEditor Bar#FBMatrixTomPA
+{
+    x:                                  343;
+    y:                                  $Y-Drums-PotiSmall_Top;
+}
+
+// Freq B
+TomEditor Bar#FBMatrixTomPB
+{
+    x:                                  343;
+    y:                                  $Y-Drums-PotiSmall_Bottom;
+}
+
+// FM
+TomEditor Bar#FBMatrixTomFM
+{
+    x:                                  426;
+    y:                                  $Y-Drums-PotiSmall_Bottom;
+}
+
+// AM
+TomEditor Bar#FBMatrixTomAM
+{
+    x:                                  426;
+    y:                                  $Y-Drums-PotiSmall_Top;
+}
+
+TomEditor#m_pEditor[Mode=Fractal] Bar#m_pParamSeparator
+
+{
+    x:                                  209;
+    y:                                  $Y-Drums-Separator;
+}
+
+TomEditor#m_pEditor[Mode=Fractal] Bar#m_pDottedLine
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_dotline_tomFractal.png");
+    x:                                  404;
+    y:                                  332;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------
+// FLOOR MODE
+//---------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+TomEditor[Mode=Floor] Bar#TomMode 
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_floor_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_floor_dyemask.png");
+}
+
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+TomEditor#m_pEditor[Mode=Floor] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-3-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+TomEditor#m_pEditor[Mode=Floor] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_mute.png");
+    x:                                  $X-Drums-SubheadlineB-3-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+TomEditor#m_pEditor[Mode=Floor] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-3-2;
+    y:                                  $Y-Drums-Separator;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+// Tension
+TomEditor Bar#TomTension
+{
+    x:                                  $X-Drums-3-2-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Impact
+TomEditor[Mode=Floor] Bar#TomImpact
+{
+    x:                                  $X-Drums-3-2-Knob2;
+    y:                                  $Y-Drums;
+}
+
+// Flex
+TomEditor Bar#FloorTomFlex
+{
+    x:                                  $X-Drums-3-2-Knob3;
+    y:                                  $Y-Drums;
+}
+
+// Skin
+TomEditor Bar#FloorTomSkinMute
+{
+    x:                                  $X-Drums-3-2-Knob4;
+    y:                                  $Y-Drums;
+}
+
+// Air
+TomEditor Bar#FloorTomAirMute
+{
+    x:                                  $X-Drums-3-2-Knob5;
+    y:                                  $Y-Drums;
+}
+
+
+//---------------------------------------------------------------------------------------------------------
+// 
+
+
+// HIGH MODE
+//---------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+TomEditor[Mode=High] Bar#TomMode
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_high_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_high_dyemask.png");
+}
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+TomEditor#m_pEditor[Mode=High] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-0-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// Tension
+TomEditor[Mode=High] Bar#TomTension
+{
+    x:                                  $X-Drums-0-2-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Impact
+TomEditor[Mode=High] Bar#TomImpact
+{
+    x:                                  $X-Drums-0-2-Knob2;
+    y:                                  $Y-Drums;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

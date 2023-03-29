@@ -1,0 +1,35 @@
+// Coordinates for SHARED Side Chain Effects
+
+// Row 1
+Bar#SideChainSource
+{
+    x:                                  $InternalModule-W2-3C-X1;
+    y:                                  28;
+}
+
+Bar#SideChainFilter
+{
+    x:                                  100;
+    y:                                  50;
+    width:                              $widthBoolBar;
+    height:                             $heightBoolBar;
+}
+
+Bar#SideChainGain
+{
+    x:                                  $InternalModule-W2-3C-X3;
+    y:                                  28;
+}
+
+//Row 2
+Bar#SideChainCenterFreq
+{
+    x:                                  $InternalModule-W2-3C-X1;
+    y:                                  105;
+}
+
+Bar#SideChainWidth
+{
+    x:                                  $InternalModule-W2-3C-X3;
+    y:                                  105;
+}

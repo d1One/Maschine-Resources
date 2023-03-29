@@ -1,0 +1,58 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Level Meter Default
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Level Meter Small
+//----------------------------------------------------------------------------------------------------------------------
+
+LevelMeter.Small
+{
+    foreground-color-palette:           1;
+    foreground-color:	                $colorWhite;
+ 
+    margin:                             0;
+    width:                              1;
+    height:                             12;
+    outer-margin-top:                   3;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Level Meter Compact
+//----------------------------------------------------------------------------------------------------------------------
+
+LevelMeter.Compact
+{
+    image:                  					no;
+    picture-includes-margin:					true;
+    foreground-color:       					rgb(240,240,240);
+    background-color:       					rgb(0,0,0);
+    fixed-bottom:           					1;
+    fixed-left:             					1;
+    fixed-right:            					0;
+    fixed-top:              					1;
+    margin:                 					0;
+    width:                  					9;
+    height:                 					84;
+}
+
+LevelMeter.Compact[color=color1]  { foreground-color: $color1; }
+LevelMeter.Compact[color=color2]  { foreground-color: $color2; }
+LevelMeter.Compact[color=color3]  { foreground-color: $color3; }
+LevelMeter.Compact[color=color4]  { foreground-color: $color4; }
+LevelMeter.Compact[color=color5]  { foreground-color: $color5; }
+LevelMeter.Compact[color=color6]  { foreground-color: $color6; }
+LevelMeter.Compact[color=color7]  { foreground-color: $color7; }
+LevelMeter.Compact[color=color8]  { foreground-color: $color8; }
+LevelMeter.Compact[color=color9]  { foreground-color: $color9; }
+LevelMeter.Compact[color=color10] { foreground-color: $color10; }
+LevelMeter.Compact[color=color11] { foreground-color: $color11; }
+LevelMeter.Compact[color=color12] { foreground-color: $color12; }
+LevelMeter.Compact[color=color13] { foreground-color: $color13; }
+LevelMeter.Compact[color=color14] { foreground-color: $color14; }
+LevelMeter.Compact[color=color15] { foreground-color: $color15; }
+LevelMeter.Compact[color=color16] { foreground-color: $color16; }

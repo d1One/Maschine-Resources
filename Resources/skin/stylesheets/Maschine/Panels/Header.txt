@@ -1,0 +1,890 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// MAIN HEADER
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Main Background Bar
+//----------------------------------------------------------------------------------------------------------------------
+
+Stack#root::Bar#pMain::Bar#m_pHead
+{
+    image:                      url("Maschine/Header/HDR_FE_MainBackground.png");
+    fixed-left:                 300;
+    fixed-right:                300;
+
+    maschine-logo-threshold:    1299;
+    engine-button-threshold:    1157;
+    outer-margin-bottom:        2;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Resizing Labels
+//----------------------------------------------------------------------------------------------------------------------
+
+// Left
+Stack#root Bar#pMain Bar#m_pHead Label#m_pFlexLeft
+{
+    min-width:                  2;
+}
+
+// Right
+Stack#root Bar#pMain Bar#m_pHead Label#m_pFlexRight
+{
+    min-width:                  2;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Shared Elements
+//----------------------------------------------------------------------------------------------------------------------
+
+// Main Header Vertical Separator Line
+Bar#m_pHead Label#pSeparator,
+Bar#m_pHead Label#m_pControllerSeparatorMAS,
+Bar#m_pHead Label#m_pControllerSeparatorKKS,
+Bar#m_pHead Label#m_pControllerSeparatorJam,
+Bar#m_pHead Label#m_pEngineSeperator
+{
+    image:                      url("Maschine/Header/HDR_FE_MainSeparator.png");
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// LEFT AREA
+//----------------------------------------------------------------------------------------------------------------------
+
+// MASCHINE LOGO
+Bar#m_pHead Button#m_pLogoMaschine
+{
+    image:                      url("Maschine/Header/HDR_LOGO_MAS_Main.png");
+    outer-margin-top:           5;
+    outer-margin-left:          6;
+    outer-margin-right:         23;
+}
+
+
+Bar#m_pHead Button#m_pLogoMaschine[size=small]
+{
+    image:                      url("Maschine/Header/HDR_LOGO_MAS_Picto.png");
+    outer-margin-left:          6;
+    outer-margin-right:         5;
+}
+
+
+//BETA LOGO
+Bar#m_pHead Button#m_pLogoMaschine[isBetaVersion=true]
+{
+    image:                      url("Maschine/Header/HDR_LOGO_MAS_BetaMain.png");
+    outer-margin-top:           5;
+    outer-margin-left:          6;
+    outer-margin-right:         23;
+}
+
+Bar#m_pHead Button#m_pLogoMaschine[size=small][isBetaVersion=true]
+{
+    image:                      url("Maschine/Header/HDR_LOGO_MAS_BetaPicto.png");
+    outer-margin-left:          6;
+    outer-margin-right:         5;
+}
+
+
+// SD Logo
+Bar#m_pHead Label#m_pSDLogo
+{
+    image:                      url("Maschine/Header/HDR_LOGO_MAS_ContentProducer.png");
+    outer-margin-top:           7;
+    outer-margin-right:         15;
+}
+
+
+// MAIN MENU
+Bar#m_pHead ButtonMenu#m_pOpenMenu
+{
+    image:                      url("Maschine/Header/HDR_BTN_Menu.png");
+    animations:                 7;
+    foreground-color:           no;
+
+    menu-offset-x:              -9;
+    menu-offset-y:              3;
+}
+
+
+// BROWSER BUTTON
+Bar#m_pHead Button#m_pBrowserVisible
+{
+    image:                      url("Maschine/Header/HDR_BTN_Browser.png");
+    animations:                 7;
+    foreground-color:           no;
+}
+
+
+// MIXER BUTTON
+Bar#m_pHead Button#m_pMixerVisible
+{
+    image:                      url("Maschine/Header/HDR_BTN_Mixer.png");
+    animations:                 7;
+    foreground-color:           no;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// TRANSPORT SECTION
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pHead Bar#m_pTransportBar
+{
+    margin-top:                 4;
+}
+
+
+// Rewind Button
+Bar#m_pHead Bar#m_pTransportBar Button#m_pRewind
+{
+    image:                      url("Maschine/Header/HDR_BTN_TransportRewind.png");
+    animations:                 7;
+}
+
+
+// Play Button
+Bar#m_pHead Bar#m_pTransportBar Button#m_pPlay
+{
+    foreground-color:           no;
+    image:                      url("Maschine/Header/HDR_BTN_TransportPlay.png");
+    animations:                 7;
+}
+
+
+Bar#m_pHead Bar#m_pTransportBar Button#m_pPlay:!enabled
+{
+    animation-index:            6;
+}
+
+
+// Loop
+Bar#m_pHead Bar#m_pTransportBar Button#m_pLoopActive
+{
+    foreground-color:           no;
+    image:                      url("Maschine/Header/HDR_BTN_TransportLoop.png");
+    animations:                 7;
+}
+
+
+// Record
+Bar#m_pHead Bar#m_pTransportBar Button#m_pRecord
+{
+    foreground-color:           no;
+    image:                      url("Maschine/Header/HDR_BTN_TransportRecord.png");
+    animations:                 7;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Transport Mode Section
+//----------------------------------------------------------------------------------------------------------------------
+
+// Background
+Bar#m_pHead Bar#m_pTransportModesBar
+{
+    image:                      url("Maschine/Header/HDR_FE_DisplayBackground.png");
+    picture-includes-margin:    true;
+    fixed-left:                 20;
+    fixed-right:                20;
+    margin-left:                2;
+    margin-right:               2;
+    outer-margin-top:           3;
+    outer-margin-left:          2;
+}
+
+
+// Separator Labels
+Bar#m_pHead Bar#m_pTransportModesBar Label#pTransportModesSeparator
+{
+    image:                      url("Maschine/Header/HDR_FE_DisplaySeparator.png");
+    picture-includes-margin:    true;
+    outer-margin-right:         0;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Shared Properties
+//----------------------------------------------------------------------------------------------------------------------
+
+// Small Grey Parameter Name Labels
+Bar#m_pHead Bar#m_pTransportModesBar Label
+{
+    font-name:                  $fontPragmatica;
+    font-size:                  9;
+    foreground-color:           $colorWhite40;
+    margin-top:                 4;
+    outer-margin-right:         8;               // Main spacing
+}
+
+
+// Buttons
+Bar#m_pHead Bar#m_pTransportModesBar::Button
+{
+    foreground-color:           no;
+    outer-margin-top:           8;
+}
+
+
+// Draggers
+Dragger.HeadDisplay
+{
+    font-name:                  $fontPragmatica;
+    foreground-color:           $colorWhite80;
+    font-size:                  12;
+    vertical-alignment:         center;
+    outer-margin-top:           1;
+    height:                     26;
+}
+
+
+
+
+//======================================================================================================================
+// Transport Mode Elements Layout and Styling
+//======================================================================================================================
+
+//----------------------------------------------------------------------------------------------------------------------
+// Link Status Icon
+//----------------------------------------------------------------------------------------------------------------------
+
+
+//BASIC STYLING
+Bar#m_pLinkStatus
+{
+    margin-top:                 1;
+    margin-left:                0;
+    min-width:                  30;
+    image:                      no;
+    height:                     25;
+    background-color:           no;
+}
+
+
+Bar#m_pLinkStatus[enabled=false]
+{
+    width:                      46;
+    image:                      no;
+}
+
+
+Bar#m_pLinkStatus Bar#m_pLinkStatus[enabled=true]
+{
+    width:                      45;
+    image:                      no;
+}
+
+
+Bar#m_pLinkStatus[enabled=true] Button#m_pStatusIcon
+{
+    foreground-color:           $colorWhite80;
+}
+
+
+Bar#m_pLinkStatus Button#m_pStatusIcon
+{
+    height:                     25;
+    width:                      45;
+    image:                      no;
+    foreground-color:           $colorWhite40;
+    horizontal-alignment:       center;
+    font-size:                  9;
+    font-name:                  $fontPragmatica;
+    margin-top:                 4;
+    z-index:                    1;
+}
+
+
+// STATES
+Bar#m_pLinkStatus[enabled=false] Button#m_pStatusIcon:over
+{
+    foreground-color:                   $colorWhite50;
+}
+
+
+Bar#m_pLinkStatus[enabled=true] Button#m_pStatusIcon:over
+{
+    foreground-color:                   $colorWhite90;
+}
+
+
+Bar#m_pLinkStatus Bar#m_pPhaseMeter
+{
+    max-width:                  46;
+    outer-margin-top:           1;
+    outer-margin-left:          -45;
+    horizontal-alignment:       center;
+    image:                      no;
+    height:                     23;
+    background-color:           $colorWhite20;
+    min-width:                  0;
+    z-index:                    0;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Metronome Button
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pHead Bar#m_pTransportModesBar Button#m_pMetronome
+{
+    image:	                            url("Maschine/Header/HDR_BTN_Metronome.png");
+    animations:                         7;
+    outer-margin-left:                  6;
+    outer-margin-right:                 4;
+    outer-margin-top:                   7;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Tempo
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pHead Bar#m_pTransportModesBar DraggerableValueEdit#m_pTempo
+{
+    min-width:                  39;
+    outer-margin-left:          6;
+    outer-margin-right:         3;
+}
+
+
+// Tempo Label in Slave Mode, Replaces Song Tempo Dragger
+Bar#m_pHead Bar#m_pTransportModesBar Label#m_pSlaveTempoLabel
+{
+    image:                      no;
+    font-name:                  $fontPragmatica;
+    font-size:                  12;
+    width:                      40;
+    margin-top:                 1;
+    outer-margin-left:          7;
+    outer-margin-right:         2;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Swing
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pHead Bar#m_pTransportModesBar DraggerableValueEdit#m_pSwing
+{
+    width:                      47;
+    outer-margin-right:         3;
+    outer-margin-left:          2;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Time Signature
+//----------------------------------------------------------------------------------------------------------------------
+
+// Time
+Bar#m_pHead Bar#m_pTransportModesBar DraggerableValueEdit#m_pNumerator
+{
+    outer-margin-left:          4;
+}
+
+
+Bar#m_pHead Bar#m_pTransportModesBar DraggerableValueEdit#m_pNumerator Dragger:!enabled,
+Bar#m_pHead Bar#m_pTransportModesBar DraggerableValueEdit#m_pDenominator Dragger:!enabled
+{
+    foreground-color:           $colorWhite40;
+}
+
+
+Bar#m_pHead Bar#m_pTransportModesBar DraggerableValueEdit#m_pNumerator,
+Bar#m_pHead Bar#m_pTransportModesBar DraggerableValueEdit#m_pDenominator
+{
+    width:                      16;
+    outer-margin-right:         2;
+}
+
+
+Bar#m_pHead Bar#m_pTransportModesBar Label#pTimeSigLabel
+{
+    outer-margin-right:         4;
+    outer-margin-left:          6;
+}
+
+
+// Slash
+Bar#m_pHead Bar#m_pTransportModesBar Label#m_pTimeSigSeparator
+{
+    min-width:                  5;
+    font-name:                  $fontPragmatica;
+    font-size:                  12;
+    foreground-color:           $colorWhite80;
+    margin-top:                 0;
+    outer-margin-right:         0;
+}
+
+
+Bar#m_pHead Bar#m_pTransportModesBar Label#pTimeSigSeparator:!enabled
+{
+    foreground-color:           $colorWhite40;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Play Position
+//----------------------------------------------------------------------------------------------------------------------
+
+
+Bar#m_pHead Bar#m_pTransportModesBar Bar#pTransportDisplay
+{
+    min-width:                  90;
+}
+
+
+// Container for Play Position
+Bar#m_pHead Bar#m_pTransportModesBar Bar#pTransportDisplay Label#pDraggerContainer
+{
+    width:                      50;
+    outer-margin-top:           1;
+    outer-margin-left:          6;
+    outer-margin-right:         1;
+}
+
+
+// Play Position Display
+Bar#m_pHead Bar#m_pTransportModesBar Bar#pTransportDisplay Label#m_pLabel
+{
+    width:                              50;
+    height:                             18;
+    font-name:                          $fontPragmatica;
+    font-size:                          12;
+    foreground-color:                   $colorWhite80;
+    horizontal-alignment:               center;
+    margin-bottom:                      4;
+}
+
+
+// Play Position Dragger
+Bar#m_pHead Bar#m_pTransportModesBar Bar#pTransportDisplay Dragger#m_pDragger,
+Bar#m_pHead Bar#m_pTransportModesBar Bar#pTransportDisplay TextEdit#m_pTextEdit
+{
+    width:                              50;
+    height:                             18;
+}
+
+
+// Transport Position Bar/Time
+Bar#m_pHead Bar#m_pTransportModesBar Bar#pTransportDisplay Label#m_pTypeLabel
+{
+    outer-margin-left:                  2;
+    outer-margin-right:                 2;
+    width:                              30;
+}
+
+
+// SCENE NAME (ICS PLAYBACK)
+Bar#m_pHead Bar#m_pTransportModesBar Bar#pTransportDisplay Button#m_pSceneName
+{
+    width:                              90;
+    height:                             17;
+    outer-margin-top:                   6;
+    margin-left:                        8;
+    margin-right:                       6;
+    horizontal-alignment:               left;
+    vertical-alignment:                 center;
+    foreground-color-palette:           1;
+    foreground-color:                   $colorWhite;
+    image:                              no;
+    font-size:                          $fontSize12;
+    font-name:                          $fontPragmatica;
+}
+
+
+// SCENE NAME TEXT EDIT ALINGMENT
+Bar#m_pHead Bar#m_pTransportModesBar Bar#pTransportDisplay TextEdit#m_pSceneNameTextEdit
+{
+    outer-margin-left:                  6;
+    outer-margin-right:                 6;
+    width:                              76;
+}
+
+
+// Follow Button
+Bar#m_pHead Bar#m_pTransportModesBar Button#m_pFollowPlayPosition
+{
+    image:                      url("Maschine/Header/HDR_BTN_FollowPlay.png");
+    animations:                 7;
+    outer-margin-left:          8;
+    outer-margin-right:         6;
+}
+
+
+
+// Grid
+Bar#m_pHead Bar#m_pTransportModesBar Button#m_performButtonMenu
+{
+    image:                              no;
+    font-name:                          $fontPragmatica;
+    font-size:                          12;
+    foreground-color:                   $colorWhite80;
+    horizontal-alignment:               center;
+    width:                              43;
+    outer-margin-left:                  6;
+    outer-margin-right:                 6;
+    outer-margin-top:                   no;
+    margin-top:                         1;
+}
+
+// Computer MIDI Keyboard Toggle
+Bar#m_pHead Bar#m_pTransportModesBar Button#m_keyboardMidiInputToggle
+{
+    image:	                            url("Maschine/Header/HDR_BTN_ComputerMidiKeyboard.png");
+    animations:                         7;
+    outer-margin-left:                  2;
+    outer-margin-right:                 2;
+    outer-margin-top:                   2;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Right part
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// KKS HW ICON
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// Not Connected
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerKKS
+{
+    image:                              no;
+    width:                              33;
+//     outer-margin-top:                   3;
+}
+
+
+// S25 and A25
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerKKS[ControllerModel=KompleteKontrol25],
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerKKS[ControllerModel=kh1062_small]
+{
+    image:                              url("Maschine/Header/HDR_BTN_KB25.png");
+    animations:                         7;
+    foreground-color:                   no;
+}
+
+
+// S49 and A49
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerKKS[ControllerModel=KompleteKontrol49],
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerKKS[ControllerModel=kh1062_medium]
+{
+    image:                              url("Maschine/Header/HDR_BTN_KB49.png");
+    animations:                         7;
+    foreground-color:                   no;
+}
+
+
+// S61 and A61
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerKKS[ControllerModel=KompleteKontrol61],
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerKKS[ControllerModel=kh1062_large]
+{
+    image:                              url("Maschine/Header/HDR_BTN_KB61.png");
+    animations:                         7;
+    foreground-color:                   no;
+}
+
+
+// S88
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerKKS[ControllerModel=KompleteKontrol88]
+{
+    image:                              url("Maschine/Header/HDR_BTN_KB88.png");
+    animations:                         7;
+    foreground-color:                   no;
+}
+
+// MK2
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerKKS[ControllerModel=KompleteKontrol49MK2]
+{
+    image:                              url("Maschine/Header/HDR_BTN_KB49.png");
+    animations:                         7;
+    foreground-color:                   no;
+}
+
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerKKS[ControllerModel=KompleteKontrol61MK2]
+{
+    image:                              url("Maschine/Header/HDR_BTN_KB61.png");
+    animations:                         7;
+    foreground-color:                   no;
+}
+
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerKKS[ControllerModel=KompleteKontrol88MK2]
+{
+    image:                              url("Maschine/Header/HDR_BTN_KB88.png");
+    animations:                         7;
+    foreground-color:                   no;
+}
+
+// M32
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerKKS[ControllerModel=KompleteKontrolM32]
+{
+    image:                              url("Maschine/Header/HDR_BTN_KB32.png");
+    animations:                         7;
+    foreground-color:                   no;
+}
+
+// Maschine HW Icon
+//----------------------------------------------------------------------------------------------------------------------
+
+// NOT CONNECTED
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerMAS
+{
+    image:                              no;
+    width:                              33;
+}
+
+
+// MASCHINE
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerMAS[ControllerModel=maschine]
+{
+    image:                              url("Maschine/Header/HDR_BTN_Maschine.png");
+    animations:                         7;
+}
+
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerMAS[ControllerModel=maschine3],
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerMAS[ControllerModel=mh1071]
+{
+    image:                              url("Maschine/Header/HDR_BTN_MaschineMK3.png");
+    animations:                         7;
+}
+
+
+// MIKRO
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerMAS[ControllerModel=mikro]
+{
+    image:                              url("Maschine/Header/HDR_BTN_MaschineMikro.png");
+    animations:                         7;
+}
+
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerMAS[ControllerModel=mh1041]
+{
+    image:                              url("Maschine/Header/HDR_BTN_Maschine1041.png");
+    animations:                         7;
+}
+
+
+// STUDIO
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerMAS[ControllerModel=studio]
+{
+    image:                              url("Maschine/Header/HDR_BTN_MaschineStudio.png");
+    animations:                         7;
+}
+
+
+
+
+// Maschine Jam HW Icon
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// NOT CONNECTED
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerJam
+{
+    image:                              no;
+    width:                              33;
+}
+
+// Jam MK1
+Bar#m_pHead Bar#m_pRightBar Button#m_pControllerJam[ControllerModel=JamMk1]
+{
+    image:                              url("Maschine/Header/HDR_BTN_MaschineJam.png");
+    animations:                         7;
+}
+
+
+
+
+//======================================================================================================================
+// Master Level Meter & CPU Meter
+//======================================================================================================================
+
+//----------------------------------------------------------------------------------------------------------------------
+// Level Meter
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// Container for Level Meter an CPU Meter
+Bar#m_pHead Bar#m_pRightBar Bar#pLevelMeterContainer
+{
+    image:                              url("Maschine/Header/HDR_FE_DisplayBackground.png");
+    picture-includes-margin:            true;
+    width:                              95;
+    fixed-left:                         20;
+    fixed-right:                        20;
+
+    margin-left:                        2;
+    margin-right:                       6;
+    margin-top:                         5;
+    margin-bottom:                      3;
+
+    outer-margin-top:                   3;
+    outer-margin-left:                  2;
+    outer-margin-right:                 2;
+
+    spacing:                            2;
+}
+
+
+// Container
+Bar#m_pHead Bar#m_pRightBar MasterLevelMeter#m_pMasterLevelMeter
+{
+    width:                              74;
+    height:                             19;
+    spacing:                            1;
+}
+
+
+// Left Right Background
+Bar#m_pHead Bar#m_pRightBar MasterLevelMeter#m_pMasterLevelMeter Bar#pChannelLeft,
+Bar#m_pHead Bar#m_pRightBar MasterLevelMeter#m_pMasterLevelMeter Bar#pChannelRight
+{
+    image:                              url("Maschine/Header/HDR_MTR_MasterBackground.png");
+    outer-margin-left:                  4;
+}
+
+
+// Left Right Meter LED
+Bar#m_pHead Bar#m_pRightBar MasterLevelMeter#m_pMasterLevelMeter Bar#pChannelLeft LevelMeter,
+Bar#m_pHead Bar#m_pRightBar MasterLevelMeter#m_pMasterLevelMeter Bar#pChannelRight LevelMeter
+{
+    image:                                      url("Maschine/Header/HDR_MTR_MasterLed.png");
+    animations:                                 2;
+    animation-index:                            0;
+}
+
+
+// Clipping
+Bar#m_pHead Bar#m_pRightBar MasterLevelMeter#m_pMasterLevelMeter Bar#pChannelLeft Label,
+Bar#m_pHead Bar#m_pRightBar MasterLevelMeter#m_pMasterLevelMeter Bar#pChannelRight Label
+{
+    image:                              url("Maschine/Header/HDR_MTR_MasterClip.png");
+    animations:                         2;
+    animation-index:                    0;
+ }
+
+
+Bar#m_pHead Bar#m_pRightBar MasterLevelMeter#m_pMasterLevelMeter Bar#pChannelLeft Label:selected,
+Bar#m_pHead Bar#m_pRightBar MasterLevelMeter#m_pMasterLevelMeter Bar#pChannelRight Label:selected
+{
+    animation-index:                            1;
+}
+
+
+// Slider
+Bar#m_pHead Bar#m_pRightBar MasterLevelMeter#m_pMasterLevelMeter Slider
+{
+    background-color:                   no;
+    width:                              74;
+}
+
+Bar#m_pHead Bar#m_pRightBar MasterLevelMeter#m_pMasterLevelMeter Grip
+{
+    image:                              url("Maschine/Header/HDR_MTR_MasterGrip.png");
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// CPU METER
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// Container
+Bar#m_pHead Bar#m_pRightBar Bar#pCpuMeterContainer
+{
+    height:                             19;
+    width:                              11;
+    spacing:                            2;
+}
+
+
+// CPU Meter Wrapper
+Bar#m_pHead Bar#m_pRightBar Bar#pCpuMeterContainer Label#pCpuMeterOverlayContainer
+{
+    height:                             11;
+    width:                              11;
+}
+
+
+// CPU Meter Outline
+Bar#m_pHead Bar#m_pRightBar Label#pCpuMeterOverlay
+{
+    image:                              url("Maschine/Header/HDR_MTR_CPUBackground.png");
+}
+
+
+// CPU Meter Peak Background
+Bar#m_pHead Bar#m_pRightBar LevelMeter#m_pCPUMeter
+{
+    background-color:                   $colorWhite30;
+    foreground-color:                   $colorWhite80;
+    width:                              11;
+    height:                             11;
+}
+
+
+// CPU Meter Label
+Bar#m_pHead Bar#m_pRightBar Label#pCpuLabel
+{
+    image:                              url("Maschine/Header/HDR_MTR_CPULabel.png");
+}
+
+
+
+
+//-------------------------------------------------------------------------------------------------------
+
+// Button Engine ON/OFF
+Bar#m_pHead Bar#m_pRightBar Button#m_pEngine
+{
+    image:                              url("Maschine/Header/HDR_BTN_Bypass.png");
+    animations:                         7;
+    foreground-color:                   no;
+}
+
+
+// NI Logo
+Button#pLogoNI
+{
+    image:                              url("Maschine/Header/HDR_LOGO_NI.png");
+    foreground-color:                   no;
+    outer-margin-left:                  7;
+    outer-margin-right:                 8;
+    outer-margin-top:                   4;
+}
+
+
+ButtonMenu#m_pNudgeSnap
+{
+    width:                              80;
+    outer-margin-left:                  8;
+    outer-margin-top:                   8;
+}

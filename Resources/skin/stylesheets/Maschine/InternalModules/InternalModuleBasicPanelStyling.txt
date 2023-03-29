@@ -1,0 +1,212 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// GENERAL KPI MODULE STYLING
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//Module & module header container
+ModuleEditorFrame Bar#m_pFrame
+{
+    image:                              url("Maschine/InternalModules/IntMod_DropShadow.png");
+
+    picture-includes-margin:            true;
+    fixed-left:                         25;
+    fixed-right:                        25;
+    fixed-bottom:                       30;
+    fixed-top:                          30;
+
+    margin-top:                 		10; //must match drop shadow *image*
+    margin-bottom:                      17; //must match drop shadow *image*
+
+    min-width:                          24;
+}
+
+ModuleEditorFrame Bar#m_pEditorContainer
+{
+    outer-margin-top:                   23; //space for the header!!
+
+    outer-margin-left:                  14;
+    outer-margin-right:                 14;
+    background-color:                   no;
+
+    min-width:                          24;
+}
+
+ModuleEditorFrame Bar#m_pLoadingLogo
+{
+    image:                              url("Maschine/KPI/KPI_BG_LOADING.png");
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// INTERNAL MODULE HEADER
+//----------------------------------------------------------------------------------------------------------------------
+
+ModuleEditorHeader
+{
+    image:                              url("Maschine/InternalModules/Framework/IntMod_BG_Header.png");
+    animations:                         2;
+    picture-includes-margin:            true;
+    fixed-left:                         4;
+    fixed-right:                        4;
+    background-color:                   no;
+    height:                             23;
+    min-width:                          24;
+
+    outer-margin-left:                  14;
+    outer-margin-right:                 14;
+}
+
+ModuleEditorHeader[Windowed=true]
+{
+    outer-margin-left:                  0;
+    outer-margin-right:                 0;
+    margin-left:                        4;
+}
+
+ModuleEditorFrame[HasFocus=true] ModuleEditorHeader
+{
+    animation-index:                    1;
+}
+
+
+
+ModuleEditorFrame[HasFocus=false] ModuleEditorHeader
+{
+    animation-index:                    0;
+}
+
+
+// BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// UNDOCK MODULE
+ModuleEditorHeader Button#m_pDock
+{
+    image:                              url("Maschine/InternalModules/Framework/KPI_BTN_Header_Undock.png");
+    animations:                         7;
+    foreground-color:                   no;
+    outer-margin-top:                   1;
+}
+
+
+
+// PIN MODULE (UNDOCKED ONLY)
+ModuleEditorHeader Button#m_pPin
+{
+    image:                              url("Maschine/InternalModules/Framework/IntMod_BTN_Header_Pin.png");
+    animations:                         7;
+    foreground-color:                   no;
+    outer-margin-top:                   1;
+    outer-margin-right:                 4;
+}
+
+
+
+// VIEW MODE (STANDARD / EXTENDED) (UNDOCKED ONLY)
+ModuleEditorHeader Button#m_pMode
+{
+    image:                              url("Maschine/InternalModules/Framework/IntMod_BTN_Header_ViewMode.png");
+    animations:                         7;
+    foreground-color:                   no;
+    outer-margin-top:                   2;
+    outer-margin-left:                  2;
+}
+
+
+
+// EDIT MODE (STANDARD / EXTENDED) (UNDOCKED ONLY)
+ModuleEditorHeader Button#m_pEdit
+{
+    image:                              url("Maschine/InternalModules/Framework/IntMod_BTN_Header_EditMode.png");
+    animations:                         7;
+    foreground-color:                   no;
+    outer-margin-top:                   1;
+}
+
+
+
+// PRESET
+ModuleEditorHeader Button#m_pPreset
+{
+    image:                              no;
+    horizontal-alignment:               left;
+    foreground-color:                   $colorWhite60;
+    height:                             16;
+
+    outer-margin-left:                  6;
+    outer-margin-top:                   4;
+}
+
+
+
+// QUICK BROWSE
+ModuleEditorHeader Button#m_pQuickBrowse
+{
+    image:                              url("Maschine/SharedButtons/shared_button_browse.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+    foreground-color:                   no;
+    outer-margin-right:                 8;
+    outer-margin-top:                   5;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// MODULE SCROLLBAR
+//----------------------------------------------------------------------------------------------------------------------
+ModuleEditorFrame Scrollbar#m_pScrollbar Slider
+{
+    background-color:                   no;
+    margin-left:                        5;
+    margin-top:                         1;
+    margin-bottom:                      1;
+    width:                              11;
+}
+
+
+ModuleEditorFrame Scrollbar#m_pScrollbar Grip
+{
+    image:                              url("Maschine/Scrollbars/scrollbar_KPI_vertical_slider.png");
+    fixed-top:                          4;
+    fixed-bottom:                       4;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// LOWER PANEL SEPARATORS
+//--------------------------------------------------------------------------------------------------------
+
+KickEditor#m_pEditor Bar#m_pParamSeparator,
+SnareEditor#m_pEditor Bar#m_pParamSeparator,
+HihatEditor#m_pEditor Bar#m_pParamSeparator,
+TomEditor#m_pEditor Bar#m_pParamSeparator,
+PercEditor#m_pEditor Bar#m_pParamSeparator,
+SamplerEditor Label.SamplerMainTabSpacer,
+CymbalEditor#m_pEditor Bar#m_pParamSeparator,
+CymbalEditor#m_pEditor Bar#m_pParamSeparator2
+{
+    image:                              url("Maschine/InternalModules/SharedPanelElements/intmod_knob_separator1.png");
+}
+
+// ToDo: Remove Separator via Code
+
+KickEditor#m_pEditor[Mode=Push] Bar#m_pParamSeparator,
+KickEditor#m_pEditor[Mode=Bold] Bar#m_pParamSeparator,
+SnareEditor#m_pEditor[Mode=Pow] Bar#m_pParamSeparator,
+SnareEditor#m_pEditor[Mode=Clap] Bar#m_pParamSeparator,
+SnareEditor#m_pEditor[Mode=Sharp] Bar#m_pParamSeparator,
+HihatEditor#m_pEditor[Mode=Silver] Bar#m_pParamSeparator,
+HihatEditor#m_pEditor[Mode=Circuit] Bar#m_pParamSeparator,
+PercEditor#m_pEditor[Mode=Kettle] Bar#m_pParamSeparator,
+TomEditor#m_pEditor[Mode=High] Bar#m_pParamSeparator
+
+{
+    image:                              no;
+}
+
+PercEditor#m_pEditor Bar#m_pParamSeparatorShort1,
+PercEditor#m_pEditor Bar#m_pParamSeparatorShort2
+{
+    image:                              url("Maschine/InternalModules/SharedPanelElements/intmod_knob_separator3.png");
+}

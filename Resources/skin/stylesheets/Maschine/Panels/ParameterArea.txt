@@ -1,0 +1,1227 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// MIDDLE AREA AKA PARAMETER AREA
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+Bar#m_pChainPanel
+{
+    background-color:                   no;
+    background-border-color:            no;     //sets the color for the border when focused
+    margin:                             0;
+
+    spacing:                            1;
+}
+
+
+
+Bar#m_pChainPanel[Height=Normal]
+{
+    height:                             127;
+}
+
+
+
+Bar#m_pChainPanel[Height=Maximized]
+{
+    height:                             174;
+}
+
+
+
+// CONTROLS PANEL AND ASSIGNMENT AREA CONTAINER
+//-----------------------------------------------------------------------------------------------------------------------
+Bar#m_pChainPanel Bar#pColumnEditors
+{
+    spacing:                            1;
+}
+
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// MIDDLE AREA MANAGER
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#m_pChainPanel Bar#m_pColumnsManager
+{
+    spacing:                            0;
+    background-color:                   $colorBlack;
+}
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// TAB BUTTONS, MASTER GROUP SOUND
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+//-----------------------------------------------------------------------------------------------------------------------
+Bar#m_pChainPanel Bar#m_pColumnsManager Bar#pTabArea
+{
+    image:                              url("Maschine/ParameterArea/PA_BG_MGSTab.png");
+    picture-includes-margin:            true;
+    fixed-left:                         2;
+    fixed-right:                        2;
+    margin-left:                        2;
+    margin-top:                         1;
+    spacing:                            10;
+}
+
+
+
+// TAB BUTTONS ( MASTER, GROUP, SOUND)
+//-----------------------------------------------------------------------------------------------------------------------
+Bar#m_pChainPanel Bar#m_pColumnsManager Bar#pTabArea Button
+{
+    font-name:                          $fontPragmatica;
+    font-size:                          10;
+    foreground-color:                   $colorWhite40;
+    image:                              no;
+    height:                             21;
+}
+
+
+
+Bar#m_pChainPanel Bar#m_pColumnsManager Bar#pTabArea Button:over
+{
+    foreground-color:                   $colorWhite70;
+}
+
+
+
+Bar#m_pChainPanel Bar#m_pColumnsManager Bar#pTabArea Button:selected,
+Bar#m_pChainPanel Bar#m_pColumnsManager Bar#pTabArea Button:selected:over
+{
+    foreground-color:                   $colorWhite;
+}
+
+
+
+// FINETUNING
+//-----------------------------------------------------------------------------------------------------------------------
+
+// MASTER
+Bar#m_pChainPanel Bar#m_pColumnsManager Bar#pTabArea Button#m_pMasterTabButton
+{
+    width:                              48;
+}
+
+
+
+// GROUP
+Bar#m_pChainPanel Bar#m_pColumnsManager Bar#pTabArea Button#m_pGroupTabButton
+{
+    width:                              42;
+}
+
+
+
+// SOUND
+Bar#m_pChainPanel Bar#m_pColumnsManager Bar#pTabArea Button#m_pSoundTabButton
+{
+    width:                              43;
+}
+
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// TITLE AREA
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+//-----------------------------------------------------------------------------------------------------------------------
+Bar#m_pChainPanel Bar#m_pColumnsManager Bar#pTitleArea
+{
+    image:                              url("Maschine/ParameterArea/PA_BG_MGSTitle.png");
+    picture-includes-margin:            true;
+    fixed-left:                         2;
+    fixed-right:                        2;
+    outer-margin-bottom:                1;
+}
+
+
+
+// TITLE LABEL
+//-----------------------------------------------------------------------------------------------------------------------
+Bar#m_pChainPanel Bar#m_pColumnsManager Bar#pTitleArea Label#m_pInfo
+{
+    font-name:                          $fontPragmatica;
+    font-size:                          14;
+    height:                             22;
+    outer-margin-left:                  6;
+    margin-bottom:                      1;
+}
+
+
+
+// COLORED QUICKBROWSE BUTTON
+//-----------------------------------------------------------------------------------------------------------------------
+Bar#m_pChainPanel Bar#m_pColumnsManager Bar#pTitleArea Button#m_pQuickBrowse
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_QuickBrowseColored.png");
+    picture-includes-margin:            true;
+    background-color-palette:           2;
+    foreground-color:                   no;
+    outer-margin-top:                   4;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// PLUGIN LIST / CHANNEL MODE VIEW AREA
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pChainPanel Bar#m_pColumnsManager Stack#m_pModes
+{
+    background-color:                   rgb(60,60,60);
+    height:                             77;
+    outer-margin-bottom:                1;
+}
+
+
+// SMALL TEXTURE BELOW Stack#m_pModes
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pChainPanel Bar#m_pColumnsManager Label#pSpacer
+{
+    image:                              url("Maschine/ParameterArea/PA_BG_ColumsManagerSpacer.png");
+    fixed-left:                         5;
+    fixed-right:                        5;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// "Slots Area"
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pChainPanel  Stack#m_pModes Bar#pPageGroups
+{
+    spacing:                                      2;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Plug-in List
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Vector<Bar>#m_pSlotVector::Bar#widgets
+{
+    spacing:                            2;
+    margin-left:                        6;
+    margin-right:                       6;
+    margin-top:                         2;
+    margin-bottom:                      2;
+}
+
+
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Vector<Bar>#m_pSlotVector::Bar#widgets::Bar             // [HasFocus=true] is also possible on this element
+{
+    background-color:                   no;
+    height:                             17;
+}
+
+
+
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Bar[HasFocus=true]
+{
+    image:                              url("Maschine/ParameterArea/PA_BG_PluginListFocus.png");
+    picture-includes-margin:            true;
+    fixed-left:                         2;
+    fixed-right:                        2;
+}
+
+
+
+
+// PLUGIN ICON BUTTON
+//----------------------------------------------------------------------------------------------------------------------
+
+// MISSING PLUGIN
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pActive
+{
+    foreground-color:                   no;
+    image:                              url("Maschine/ParameterArea/pa_button_active_missing.png");
+    animations:                         7;
+    animation-index:                    0;
+}
+
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pActive[type=fail]
+{
+    animation-index:                    0;
+}
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pActive[type=fail][active=true][HasFocus=true]
+{
+    animation-index:                    1;
+}
+
+
+
+// FX DEFAULT
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pActive[type=effect]
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_PluginIcon_FX.png");
+    animations:                         7;
+    animation-index:                    0;
+}
+
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pActive[type=effect][active=true]
+{
+    animation-index:                    1;
+}
+
+
+
+// FX FOCUS
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pActive[type=effect][HasFocus=true]
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_PluginIcon_FX_Focus.png");
+    animations:                         7;
+    animation-index:                    0;
+}
+
+
+
+// INSTRUMENT DEFAULT
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pActive[type=instrument]
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_PluginIcon_Instr.png");
+    animations:                         7;
+    animation-index:                    0;
+}
+
+
+
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pActive[type=instrument][active=true]
+{
+    animation-index:                    1;
+}
+
+// INSTRUMENT FOCUS
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pActive[type=instrument][HasFocus=true]
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_PluginIcon_Instr_Focus.png");
+    animations:                         7;
+    animation-index:                    0;
+}
+
+
+
+// AUDIO MODULE DEFAULT
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pActive[type=audio]
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_PluginIcon_Audio.png");
+    animations:                         7;
+    animation-index:                    0;
+}
+
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pActive[type=audio][active=true]
+{
+    animation-index:                    1;
+}
+
+// AUDIO MODULE FOCUS
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pActive[type=audio][HasFocus=true]
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_PluginIcon_Audio_Focus.png");
+    animations:                         7;
+    animation-index:                    0;
+}
+
+// PLUGIN NAME
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pName
+{
+    image:                              no;
+    foreground-color:                   $colorWhite70;
+    vertical-alignment:                 center;
+    horizontal-alignment:               left;
+    margin-bottom:                      0;
+    margin-left:                        10;
+}
+
+
+
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pName[active=true]
+{
+    foreground-color:                  $colorWhite70;
+}
+
+
+
+
+
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pName[active=false]
+{
+    foreground-color:                   $colorWhite30;
+}
+
+
+
+
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pName[active=true][HasFocus=true]
+{
+    foreground-color:                   $colorWhite;
+}
+
+
+
+
+// DROPDOWN MENU
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pOpenContextMenu
+{
+    foreground-color:                   no;
+    background-color:                   no;
+    image:                              url("Maschine/ParameterArea/pa_button_contextmenu.png");
+    animations:                         3;
+    animation-index:                    0;
+}
+
+
+
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pOpenContextMenu:over
+{
+    animation-index:                    1;
+}
+
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pOpenContextMenu:down
+{
+    animation-index:                    2;
+}
+
+
+
+// ADD BUTTON
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pAddSlot
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_Plugin_Add.png");
+    animations:                         7;
+    fixed-left:                         12;
+    fixed-right:                        2;
+    foreground-color:                   no;
+    width:                              160;
+}
+
+
+
+Bar#m_pChainPanel Stack#m_pModes Bar#m_pSlotManager Bar#widgets Button#m_pAddSlot[HasFocus=true]
+{
+    animation-index:                    1;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// PAGE MODE BUTTONS (BIG DIVIDED BY FOUR BUTTON AREA)
+//----------------------------------------------------------------------------------------------------------------------
+
+// PAGE MODE BUTTON GENERAL STYLING AND ALIGNMENT
+Bar#m_pChainPanel Stack#m_pModes Bar#pPageGroups
+{
+    margin:                             3;
+    spacing:                            1;
+}
+
+
+
+Bar#m_pChainPanel Stack#m_pModes Bar#pPageGroups Bar
+{
+    spacing:                            7;
+}
+
+
+
+
+Bar#m_pChainPanel Stack#m_pModes Bar#pPageGroups Button
+{
+    foreground-color:                   no;
+}
+
+
+
+// INPUT
+Bar#m_pChainPanel Stack#m_pModes Bar#pPageGroups Button#Input
+{
+    image:                              url("Maschine/ParameterArea/pa_button_tile_in.png");
+    animations:                         7;
+}
+
+
+
+// OUTPUT
+Bar#m_pChainPanel Stack#m_pModes Bar#pPageGroups Button#Output
+{
+    image:                              url("Maschine/ParameterArea/pa_button_tile_out.png");
+    animations:                         7;
+}
+
+
+
+// GROOVE
+Bar#m_pChainPanel Stack#m_pModes Bar#pPageGroups Button#Groove
+{
+    image:                              url("Maschine/ParameterArea/pa_button_tile_groove.png");
+    animations:                         7;
+}
+
+
+
+// MACRO
+Bar#m_pChainPanel Stack#m_pModes Bar#pPageGroups Button#Macro
+{
+    image:                              url("Maschine/ParameterArea/pa_button_tile_macro.png");
+    animations:                         7;
+}
+
+
+
+// WILL BE REMOVED; NO RESIZING ANYMORE
+
+//Splitter Between Browser Panel and Main Panel
+Bar#m_pChainPanel Bar#pColumns Splitter#pSplitter
+{
+    background-color:                               $colorBlack;
+    width:                                          1;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// ACTUAL PARAMETER AREA
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#m_pChainPanel Bar#pColumnEditors Bar#pParameterEditor
+{
+    image:                              url("Maschine/ParameterArea/pa_bg_main.png");
+    picture-includes-margin:            true;
+    fixed-left:                         150;
+    height:                             127;
+    spacing:                            0;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// TOP BUTTON ROW
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// MAIN CONTAINER
+Bar#m_pChainPanel Bar#pParameterEditor Bar#m_pHeader
+{
+    spacing:                            0;
+    height:                             23;
+    margin-left:                        4;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// UNDOCK AND SCROLL BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// UNDOCK BUTTON
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pChainPanel Bar#pParameterEditor Button#m_pOpenEditor
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_Undock.png");
+    picture-includes-margin:            false;
+    animations:                         7;
+    background-color:                   no;
+    foreground-color:                   no;
+    outer-margin-right:                 5;
+}
+
+
+
+// PAGE SCROLL BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// SCROLL LEFT BUTTON
+Bar#m_pChainPanel Bar#pParameterEditor ScrollableTab#ScrollableTab Button#m_pScrollLeft
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_PageScrollLeft.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+    background-color:                   no;
+    foreground-color:                   no;
+
+    outer-margin-top:                   -1;
+}
+
+
+
+// SCROLL RIGHT BUTTON
+Bar#m_pChainPanel Bar#pParameterEditor ScrollableTab#ScrollableTab Button#m_pScrollRight
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_PageScrollRight.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+    foreground-color:                   no;
+
+    outer-margin-top:                   -1;
+    outer-margin-right:                 7;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// VARIOUS BUTTONS THAT ARE SHOWN DEPENDING ON MODE
+//----------------------------------------------------------------------------------------------------------------------
+
+// QUICK BROWSE
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pChainPanel Button#m_pQuickBrowse
+{
+    foreground-color:                   no;
+    image:                              url("Maschine/SharedButtons/shared_button_browse.png");
+    animations:                         7;
+    background-color-palette:           1;
+
+    outer-margin-top:                   4;
+    outer-margin-right:                 8;
+}
+
+
+// PLUS BUTTON
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pChainPanel Bar#pParameterEditor Bar#m_pHeader ScrollableTab#ScrollableTab Button#m_pAddTab
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_AddPage.png");
+    animations:                         7;
+    foreground-color:                   no;
+}
+
+
+
+// PRESET NAME LABEL
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pChainPanel Bar#pParameterEditor Bar#m_pHeader Label#m_pPresetName
+{
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    foreground-color:                   $colorWhite75;
+    max-width:                          190;
+    margin-bottom:                      2;
+    outer-margin-left:                  10;
+    outer-margin-right:                 10;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// PAGE TAB BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// PAGE TAB BUTTONS CONTAINER
+Bar#m_pChainPanel Bar#pParameterEditor ScrollableTab#ScrollableTab
+{
+//     spacing:                            10;
+    outer-margin-top:                   3;
+//     outer-margin-left:                  4;
+}
+
+
+
+// WRAPPER AROUND ONE BUTTON
+Bar#m_pChainPanel Bar#pParameterEditor ScrollableTab#ScrollableTab Bar#pTab
+{
+    height:                             15;
+    outer-margin-right:                 10;
+}
+
+
+
+
+// PAGE TAB BUTTONS DEFAULT MODE
+//----------------------------------------------------------------------------------------------------------------------
+
+// Tab Buttons
+Button.Tab
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_PageTab.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+    margin-left:                        10;
+    margin-right:                       10;
+    fixed-left:                         1;
+    fixed-right:                        1;
+    foreground-color:                   $colorWhite75;
+    min-width:                          10;
+}
+
+
+Button.Tab:selected
+{
+    foreground-color:                   rgb(82,82,82);
+}
+
+
+Button.Tab:over
+{
+    foreground-color:                   $colorWhite90   ;
+}
+
+
+
+// PAGE TAB BUTTONS IN EDIT MODE
+//----------------------------------------------------------------------------------------------------------------------
+
+Button.Tab[Edit=true]
+{
+    margin-left:                        10;
+    margin-right:                       17;
+}
+
+
+// REMOVE BUTTON
+Bar#m_pChainPanel Bar#pParameterEditor ScrollableTab#ScrollableTab Button#pRemove
+{
+    outer-margin-left:                  -15;
+    image:                              url("Maschine/ParameterArea/PA_BTN_PageRemove.png");
+    animations:                         7;
+    foreground-color:                   no;
+}
+
+
+// REMOVE BUTTON FOCUS
+Bar#m_pChainPanel Bar#pParameterEditor ScrollableTab#ScrollableTab Button#pRemove[HasFocus=true]
+{
+    outer-margin-left:                  -15;
+    image:                              url("Maschine/ParameterArea/PA_BTN_PageRemoveFocus.png");
+    animations:                         7;
+    foreground-color:                   no;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// CONTROL SECTIONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// Bar around Potis and Switches and Labelling sections
+Bar#m_pChainPanel Bar#pColumnEditors Bar#pPanel
+{
+    max-height:                         103;
+}
+
+
+
+// SECTION HEADLINES
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#m_pChainPanel Bar#pParameterEditor Bar#m_pSections
+{
+    height:                             20;
+    margin-top:                         3;
+    margin-left:                        8;
+    spacing:                            13;
+}
+
+
+
+// SECTION HEADLINE BUTTONS
+Button.AssignmentAreaItem[Edit=false]
+{
+    image:                              url("Maschine/ParameterArea/pa_BTN_Section_Underline.png");
+    picture-includes-margin:            true;
+    fixed-left:                         5;
+    fixed-right:                        5;
+    foreground-color:                   $colorWhite75;
+    horizontal-alignment:               left;
+
+    min-width:                          $metricSectionGrid;
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    margin-top:                         0;
+    margin-bottom:                      1;
+    margin-top:                         0;
+    margin-left:                        0;
+}
+
+
+
+// SECTION HEADLINE BUTTONS IN PAGE EDIT MODE
+Button.AssignmentAreaItem[Edit=true]
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_SectionLabel.png");
+    animations:                         7;
+    picture-includes-margin:            true;
+    fixed-left:                         5;
+    fixed-right:                        5;
+
+    foreground-color:                   $colorWhite75;
+
+    horizontal-alignment:               left;
+    margin-top:                         3;
+    margin-left:                        3;
+}
+
+Button.AssignmentAreaItem[Edit=true]:over
+{
+    foreground-color:                   $colorWhite80;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// CONTROL ELEMENTS
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// Control Container Row
+Bar#m_pChainPanel Bar#pParameterEditor Bar#m_pParameters
+{
+    height:                             84;
+    margin-left:                        8;
+    spacing:                            13;
+}
+
+
+
+//BASIC PARAMETER CONTAINER PROPERTIES
+//----------------------------------------------------------------------------------------------------------------------
+
+// Parameter Widget
+Bar#m_pChainPanel Bar#pParameterEditor Bar#m_pParameterWidget
+{
+    width:                              70;
+    height:                             84;
+    margin-top:                         7;
+}
+
+
+
+// Parameter Widget Focus State, when in Macro Edit Mode
+Bar#m_pChainPanel Bar#pParameterEditor Bar#m_pParameterWidget:selected
+{
+    image:                              url("Maschine/ParameterArea/PA_BG_ControlFocus.png");
+    picture-includes-margin:            true;
+    fixed-left:                         7;
+    fixed-right:                        7;
+    background-color-palette:           1;
+}
+
+
+Bar#m_pChainPanel Bar#pParameterEditor Bar#m_pParameterWidget[color=color0]:selected
+{
+    background-color:                   $colorWhite;
+}
+
+
+// Parameter Stack
+Bar#m_pChainPanel Bar#pParameterEditor Stack#m_pParameterStack
+{
+    height:                             62;
+}
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Potis
+//----------------------------------------------------------------------------------------------------------------------
+
+//Poti Container
+Bar#m_pChainPanel ParameterDragger#m_pNumericDragger
+{
+    image:                              url("Maschine/ParameterArea/pa_knob_bg.png");
+    picture-includes-margin:            true;
+    background-color-palette:           1;
+    background-color:                   $colorWhite;
+
+
+    diameter-inner:                     40;
+    diameter-outer:                     50;
+    center-x:                           30;
+    center-y:                           26;
+
+    outer-margin-top:                   2;
+    outer-margin-left:                  5;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// INCREASE / DECREASE BUTTON
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pChainPanel Bar#pParameterEditor Bar#m_pParameters Bar#m_pEnumBar
+{
+    height:                             46;
+    outer-margin-top:                   5;
+}
+
+
+// VALUE DISPLAY
+Bar#m_pChainPanel Bar#pParameterEditor Bar#m_pParameters Button#m_pEnumValue
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_EnumDisplay.png");
+    picture-includes-margin:            true;
+    foreground-color-palette:           12;
+    margin-top:                         1;
+}
+
+
+
+// UP / DOWN BUTTON STYLING
+Bar#m_pChainPanel Bar#pParameterEditor Bar#m_pParameters Button#m_pEnumInc,
+Bar#m_pChainPanel Bar#pParameterEditor Bar#m_pParameters Button#m_pEnumDec
+{
+    foreground-color:                   no;
+    background-color-palette:           1;
+    background-color:                   $colorWhite;
+}
+
+
+// DECREASE
+Bar#m_pChainPanel Bar#pParameterEditor Bar#m_pParameters Button#m_pEnumDec
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_EnumDec.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+}
+
+
+
+// INCREASE
+Bar#m_pChainPanel Bar#pParameterEditor Bar#m_pParameters Button#m_pEnumInc
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_EnumInc.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// DRAGGER
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#m_pChainPanel Bar#pParameterEditor DraggerableValueEdit
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_EnumDisplay.png");
+    picture-includes-margin:            true;
+    outer-margin-top:                   20;
+}
+
+// ACTUAL DRAGGER
+Bar#m_pChainPanel Bar#pParameterEditor DraggerableValueEdit Dragger
+{
+    image:                              no;
+    foreground-color-palette:           1;
+    height:                             16;
+    margin-top:                         2;
+}
+
+// DRAGGER TEXT EDIT
+Bar#m_pChainPanel Bar#pParameterEditor DraggerableValueEdit TextEdit
+{
+    height:                             16;
+    background-color:                   rgb(38,38,38);
+    margin:                             1;
+    foreground-relative-top:            1;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// On/Off button
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pChainPanel Bar#pParameterEditor Bar#m_pParameters Bar#m_pBoolBar
+{
+    width:                              29;
+    height:                             18;
+    outer-margin-left:                  20;
+    outer-margin-top:                   20;
+}
+
+Bar#m_pChainPanel Bar#pParameterEditor Bar#m_pParameters Button#m_pBoolButton
+{
+    image:                              url("Maschine/ParameterArea/pa_button_on_off.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+    foreground-color:                   no;
+    background-color-palette:           1;
+    background-color:                   $colorWhite;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Name Labels
+//----------------------------------------------------------------------------------------------------------------------
+
+// NAME STACK
+Bar#m_pChainPanel Stack#m_pNameStack
+{
+    height:                             16;
+//     outer-margin-bottom:                6;
+    outer-margin-top:                   -8;
+}
+
+
+
+Bar#m_pChainPanel Stack#m_pNameStack Button
+{
+    height:                             16;
+    foreground-color:                   $colorWhite80;
+    vertical-alignment:                 center;
+}
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// MIDI CC / MIDI CC / HOST AUTOMATION ASSIGNMENT AREA - can be hidden or extended on bottom of the chain panel
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// EXTERNAL CONTROL / PAGE TOGGLE (Below Plugin List)
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#m_pChainPanel Bar#m_pAssignmentAreaControl
+{
+    image:                              url("Shared/Dialogs/SharedDialogTexture/Shared_ContrLine_White5.png");
+    picture-includes-margin:            true;
+    fixed-left:                         5;
+    fixed-right:                        5;
+    fixed-top:                          5;
+    fixed-bottom:                       5;
+
+    background-color:                   $colorLightBackgroundGrey;
+
+    outer-margin-top:                   1;
+    height:                             46;
+
+    margin-left:                        6;
+    margin-right:                       6;
+    margin-top:                         7;
+
+    spacing:                            2;
+}
+
+
+// ASSIGNMENT TYPE SELECTOR BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pChainPanel Bar#m_pAssignmentAreaControl Button#m_aTabButtons
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_AssignmentType.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+    fixed-left:                         5;
+    fixed-right:                        5;
+    horizontal-alignment:               left;
+
+    foreground-color:                   $colorWhite80;
+    foreground-color-palette:           no;
+
+    width:                              151;
+    margin-left:                        4;
+}
+
+
+Bar#m_pChainPanel Bar#m_pAssignmentAreaControl Button#m_aTabButtons:selected
+{
+    foreground-color-palette:           no;
+    foreground-color:                   $colorBlack65;
+}
+
+
+Bar#m_pChainPanel Bar#m_pAssignmentAreaControl Button#m_aTabButtons:over
+{
+    foreground-color:                   $colorWhite;
+}
+
+
+Bar#m_pChainPanel Bar#m_pAssignmentAreaControl Button#m_aTabButtons:!enabled
+{
+    foreground-color:                   $colorWhite20;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// MIDI CC / HOST AUTOMATION ASSIGNMENT AREA
+//----------------------------------------------------------------------------------------------------------------------
+// Container
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor
+{
+    image:                              url("Shared/Dialogs/SharedDialogTexture/Shared_ContrLine_White5.png");
+    picture-includes-margin:            true;
+    fixed-left:                         5;
+    fixed-right:                        5;
+    fixed-top:                          5;
+    fixed-bottom:                       5;
+
+    background-color:                   $colorLightBackgroundGrey;
+
+    height:                             46;
+    margin-right:                       12;
+}
+
+
+
+// MIDI CC / HORST AUTOMATION TYPE BUTTONS
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor Bar#pRemote Bar#pTabButtons
+{
+    spacing:                            10;
+    height:                             18;
+    margin-left:                        20;
+}
+
+
+
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor Bar#pRemote Bar#pTabButtons Button#m_pTabButtons
+{
+    image:                              no;
+    foreground-color:                   $colorWhite40;
+    foreground-color-palette:           no;
+    horizontal-alignment:               left;
+//     vertical-alignment:                 top;
+//     margin-top:                         1;
+    margin-bottom:                      3;
+    width:                              40;
+    height:                             16;
+}
+
+
+
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor Bar#pRemote Bar#pTabButtons Button#m_pTabButtons:selected
+{
+    foreground-color-palette:            no;
+    foreground-color:                    $colorWhite;
+}
+
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor Bar#pRemote Bar#pTabButtons Button#m_pTabButtons:over
+{
+    foreground-color:                    $colorWhite60;
+}
+
+
+
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor Bar#pRemote Bar#pTabButtons Button#m_pTabButtons:!enabled
+{
+    foreground-color:                   $colorWhite20;
+}
+
+
+
+
+
+// MIDI CC / HORST AUTOMATION LEARN BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor Bar#pRemote Stack#m_pStack Bar#m_pRemoteTab
+{
+    height:                             28;
+    margin-top:                         6;
+    margin-left:                        18;
+    spacing:                            27;
+}
+
+
+
+// MIDI CC / Horst Automation Labels
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor Bar#pRemote Stack#m_pStack Bar#m_pRemoteTab Button#m_pRemoteSources
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_Assignment_Learn.png");
+    animations:                         7;
+    foreground-color:                   $colorBlack50;
+}
+
+
+
+
+// MIDI CC / Horst Automation Labels
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor Bar#pRemote Stack#m_pStack Bar#m_pRemoteTab Button#m_pRemoteSources[IsLearning=true]
+{
+//     image:                              url("Maschine/ParameterArea/pa_button_section_lbl_learning.png");
+    foreground-color:                   $colorBlack80;
+    animation-index:                    1;
+}
+
+
+
+
+// MACRO ASSIGNMENT BREADCRUMB BUTTONS CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor Bar#pPages
+{
+    margin-top:                         15;
+    margin-left:                        11;
+    spacing:                            0;
+}
+
+
+
+// LEARN/ REST BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// GENARAL BUTTON STYLING
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor Button#m_pLearnFocusParameter
+{
+    outer-margin-left:                 12;
+}
+
+
+
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor Button#m_pLearnFocusParameter,
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor Button#m_pReset
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_Generic.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+    fixed-left:                         4;
+    fixed-right:                        4;
+    foreground-color:                   $colorWhite70;
+    width:                              62;
+}
+
+
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor Button#m_pLearnFocusParameter:over,
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor Button#m_pReset:over
+{
+    foreground-color:                   $colorWhite85;
+}
+
+
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor Button#m_pLearnFocusParameter:over:down,
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor Button#m_pReset:over:down
+{
+    foreground-color:                   $colorWhite;
+}
+
+
+// LEARN BUTTON SPECIFIC
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor Button#m_pLearnFocusParameter:selected
+{
+    foreground-color:                   $colorBlack80;
+}
+
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor Button#m_pLearnFocusParameter:selected:over
+{
+    foreground-color:                   $colorBlack90;
+}
+
+Bar#m_pChainPanel Stack#m_pAssignmentAreaEditor Button#m_pLearnFocusParameter:selected:over:down
+{
+    foreground-color:                   $colorBlack;
+}

@@ -1,0 +1,158 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Overlays
+//----------------------------------------------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------------------------------------------
+
+
+Bar#ParametersOverlay
+{
+    width:                          960;
+    height:                         272;
+}
+
+Bar#ParametersOverlay Bar#LabelBar
+{
+    background-color:               $colorBlack;
+    image:                          no;
+
+    height:                         29;
+}
+
+Bar#ParametersOverlayScreenLeft,
+Bar#ParametersOverlayScreenRight
+{
+    background-color:               rgba(0,0,0,200);
+}
+
+// TOP BAR
+Bar#ParametersOverlayScreenLeft Bar#ButtonBar,
+Bar#ParametersOverlayScreenRight Bar#ButtonBar
+{
+    image:                          no;
+    fixed-top:                      2;
+    fixed-right:                    1;
+    fixed-left:                     1;
+    fixed-bottom:                   1;
+    height:                         36;
+    background-color:               $colorBlack;
+}
+
+Bar#ParametersOverlayScreenLeft Bar#ParamBar,
+Bar#ParametersOverlayScreenRight Bar#ParamBar
+{
+    y:                              205;
+    width:                          480;
+    image:                          no;
+    fixed-top:                      2;
+    fixed-right:                    1;
+    fixed-left:                     1;
+    fixed-bottom:                   1;
+    height:                         67;
+}
+
+Bar#ParametersOverlay Bar#ParamBar Bar#ParamWidgetBar::Bar
+{
+    background-color:               $colorBlack;
+}
+
+Bar#ParametersOverlay Label.ParameterGroupName
+{
+    margin-top:                     2;
+}
+
+
+Bar#ParametersOverlay Bar#ParamBar Bar#ParamWidgetBar::Bar
+{
+    margin-top:                     1;
+}
+
+// GROUP OVERLAY
+Bar#ParametersOverlay Vector<MixerBar>#GroupVector
+{
+    width:                          960;
+    height:                         62;
+
+    background-color:               $colorBlack;
+}
+
+Bar#ParametersOverlay Vector<MixerBar>#GroupVector MixerBar
+{
+    background-color:               $colorBlack;
+    image:                          no;
+
+}
+
+Bar#ParametersOverlay Vector<MixerBar>#GroupVector MixerBar[IsEmpty=true]
+{
+    image:                          no;
+    height:                         61;
+    background-color:               $colorStandardBGColor;
+    fixed-top:                      2;
+    fixed-right:                    1;
+    fixed-left:                     1;
+    fixed-bottom:                   2;
+    picture-includes-margin:        true;
+}
+
+Bar#ParametersOverlay Vector<MixerBar>#GroupVector MixerBar[IsSelected=false] Bar#m_pHeader
+{
+    image:                          no;
+    fixed-top:                      2;
+    fixed-right:                    1;
+    fixed-left:                     1;
+    fixed-bottom:                   2;
+    picture-includes-margin:        true;
+
+    height:                         61;
+    background-color:               $colorStandardBGColor;
+    margin-top:                     1;
+}
+
+Bar#ParametersOverlay Vector<MixerBar>#GroupVector MixerBar[IsSelected=true] Bar#m_pHeader
+{
+    image:                          no;
+    fixed-top:                      2;
+    fixed-right:                    1;
+    fixed-left:                     1;
+    fixed-bottom:                   2;
+    picture-includes-margin:        true;
+
+    height:                         60;
+    background-color-palette:       2;
+    margin-top:                     0;
+    outer-margin-top:               1;
+    spacing:                        0;
+}
+
+Bar#ParametersOverlay Label#m_pNameShort
+{
+    margin-top:                     9;
+}
+
+Bar#ParametersOverlay MultilineTextEdit#m_pNameLong
+{
+    margin-top:                     6;
+    margin-right: 5;
+}
+Bar#ParametersOverlay Vector<MixerBar>#GroupVector MixerBar[IsEmpty=false][IsAdd=true]
+{
+    height:                         61;
+    image:                          no;
+    background-color:               $colorStandardBGColor;
+}
+
+Bar#ParametersOverlay Vector<MixerBar>#GroupVector MixerBar[IsEmpty=false][IsAdd=true] Bar#m_pHeader
+{
+    image:                          url("Shared/HW/Studio/ParameterArea/pa_overlay_addGroup.png");
+    width:                          120;
+}
+
+// Bottom part
+Bar#ParametersOverlay Bar#ParamBar Bar#ParamWidgetBar
+{
+    outer-margin-top:               0;
+    height:                         40;
+    background-color:               $colorBlack;
+
+}

@@ -1,0 +1,9 @@
+Bar#WelcomeSplashPageScreenLeft Bar#StudioDisplayBar
+{
+    image: url("Maschine/HW/MH1071/Welcome/OOB_Welcome_L.png");
+}
+
+Bar#WelcomeSplashPageScreenRight Bar#StudioDisplayBar
+{
+    image: url("Maschine/HW/MH1071/Welcome/OOB_Welcome_R.png");
+}

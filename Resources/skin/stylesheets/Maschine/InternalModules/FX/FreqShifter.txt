@@ -1,0 +1,77 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// FREQUENCY SHIFTER
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+FreqShifterEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png");
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-316;   
+}
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+FreqShifterEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_freqshifter.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+//--------------------------------------------------------------------------------------------------------
+// CONTROLS
+//--------------------------------------------------------------------------------------------------------
+
+// TOP ROW
+//--------------------------------------------------------------------------------------------------------
+
+// COARSE
+FreqShifterEditor Bar#Coarse
+{
+    x:                                  31;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// FEEDBACK
+FreqShifterEditor Bar#Amount
+{
+    x:                                  121;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// MIX
+FreqShifterEditor Bar#Mix
+{
+    x:                                  211;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+// TOP ROW
+//--------------------------------------------------------------------------------------------------------
+
+// FINE
+FreqShifterEditor Bar#Fine
+{
+    x:                                  31;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// STEREO
+FreqShifterEditor Bar#Stereo
+{
+    x:                                  121;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// INVERT SWITCH
+FreqShifterEditor Bar#Invert
+{
+    x:                                  210;
+    y:                                  132;
+}
+
+

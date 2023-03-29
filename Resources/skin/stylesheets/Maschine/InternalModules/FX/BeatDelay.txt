@@ -1,0 +1,109 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// BEAT DELAY
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+BeatDelayEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png");
+    //image:                              url("Maschine/InternalModules/FX/xx_dummy_beatdelay.png"); 
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-474;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+BeatDelayEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_beatdelay.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// POTIS
+//--------------------------------------------------------------------------------------------------------
+
+// TOP ROW
+//--------------------------------------------------------------------------------------------------------
+
+
+// TIME SELECTOR SWITCH (Enum)
+BeatDelayEditor Bar#Time
+{
+    x:                                  51;
+    y:                                  52;
+}
+
+// OFFSET SELECTOR SWITCH (Enum)
+BeatDelayEditor Bar#Offset
+{
+    x:                                  51;
+    y:                                  97;
+}
+
+// UNIT SELECTOR SWITCH (Enum)
+BeatDelayEditor Bar#Unit
+{
+    x:                                  51;
+    y:                                  146;
+}
+
+
+// FEEDBACK
+BeatDelayEditor Bar#Amount
+{
+    x:                                  156;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// COLOR
+BeatDelayEditor Bar#Color
+{
+    x:                                  256;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// MIX
+BeatDelayEditor Bar#Mix
+{
+    x:                                  356;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+// BOTTOM ROW
+//--------------------------------------------------------------------------------------------------------
+
+
+// CROSSOVER
+BeatDelayEditor Bar#Crossover
+{
+    x:                                  156;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// SPLIT
+BeatDelayEditor Bar#Split
+{
+    x:                                  256;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// STEREO
+BeatDelayEditor Bar#Stereo
+{
+    x:                                  356;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+
+
+
+

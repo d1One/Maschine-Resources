@@ -1,0 +1,82 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Splash Screen
+//----------------------------------------------------------------------------------------------------------------------
+
+// Size
+Bar.SplashScreen
+{
+	width:								482;
+	height:								338;
+}
+
+// BG Image
+Bar.SplashScreen Bar#pMainBar
+{
+	image:								url("Maschine/Dialogs/Splash/Background.png");
+}
+
+Bar.SplashScreen[isBetaVersion=true] Bar#pMainBar
+{
+    background-color:                   no;
+    image:                              url("Maschine/Dialogs/Splash/Background_beta.png");
+}
+
+
+// Labels
+Bar.SplashScreen Label
+{
+	font-name:							url("Shared/stan0755j.ttf");
+	font-size:							12;
+	height:								14;
+	margin-left:						4;
+	margin-right:						4;
+}
+
+// HEADER
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.SplashScreen Bar#pVersionBar
+{
+	width:								70;
+}
+
+Bar.SplashScreen Bar#pStatusBar
+{
+	width:194;
+}
+
+Bar.SplashScreen Bar#pCopyrightBar
+{
+	width:180;
+}
+
+// Left Part (Version)
+Bar.SplashScreen Label#pVersionLabel,
+Bar.SplashScreen Label#pVersionValue
+{
+	foreground-color:					rgb(204, 204, 204);
+}
+
+// Right Part
+Bar.SplashScreen Label.Text,
+Bar.SplashScreen Label#pStatusLabel,
+Bar.SplashScreen Label#pCopyrightUpperLabel
+{
+	foreground-color:					rgb(140, 140, 140);
+}
+
+
+// BODY
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.SplashScreen Bar#pBody
+{
+	outer-margin-top:25;
+	outer-margin-left:16;
+	outer-margin-right:16;
+	margin-left:0;
+	width:482;
+	height:28;
+}
+
+

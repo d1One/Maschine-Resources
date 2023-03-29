@@ -1,0 +1,470 @@
+//--------------------------------------------------------------------------------------------------------
+// Background
+//--------------------------------------------------------------------------------------------------------
+
+// Panel Background Picture
+KickEditor,
+SnareEditor,
+HihatEditor,
+TomEditor,
+PercEditor,
+CymbalEditor
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_bg_main.png");
+    //background-color:                 rgb(128,128,128);
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// DISPLAY MIDDLE BACKGROUND
+//--------------------------------------------------------------------------------------------------------
+
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pInstrumentBackground
+{
+    x:                                  174;
+    y:                                  46;
+}
+
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pInstrumentBackground[SoundColorIndex=color1] { image: url("Maschine/InternalModules/Drums/intmod_drums_display_middle_bg_1.png"); }
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pInstrumentBackground[SoundColorIndex=color2] { image: url("Maschine/InternalModules/Drums/intmod_drums_display_middle_bg_2.png"); }
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pInstrumentBackground[SoundColorIndex=color3] { image: url("Maschine/InternalModules/Drums/intmod_drums_display_middle_bg_3.png"); }
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pInstrumentBackground[SoundColorIndex=color4] { image: url("Maschine/InternalModules/Drums/intmod_drums_display_middle_bg_4.png"); }
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pInstrumentBackground[SoundColorIndex=color5] { image: url("Maschine/InternalModules/Drums/intmod_drums_display_middle_bg_5.png"); }
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pInstrumentBackground[SoundColorIndex=color6] { image: url("Maschine/InternalModules/Drums/intmod_drums_display_middle_bg_6.png"); }
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pInstrumentBackground[SoundColorIndex=color7] { image: url("Maschine/InternalModules/Drums/intmod_drums_display_middle_bg_7.png"); }
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pInstrumentBackground[SoundColorIndex=color8] { image: url("Maschine/InternalModules/Drums/intmod_drums_display_middle_bg_8.png"); }
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pInstrumentBackground[SoundColorIndex=color9] { image: url("Maschine/InternalModules/Drums/intmod_drums_display_middle_bg_9.png"); }
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pInstrumentBackground[SoundColorIndex=color10] { image: url("Maschine/InternalModules/Drums/intmod_drums_display_middle_bg_10.png"); }
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pInstrumentBackground[SoundColorIndex=color11] { image: url("Maschine/InternalModules/Drums/intmod_drums_display_middle_bg_11.png"); }
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pInstrumentBackground[SoundColorIndex=color12] { image: url("Maschine/InternalModules/Drums/intmod_drums_display_middle_bg_12.png"); }
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pInstrumentBackground[SoundColorIndex=color13] { image: url("Maschine/InternalModules/Drums/intmod_drums_display_middle_bg_13.png"); }
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pInstrumentBackground[SoundColorIndex=color14] { image: url("Maschine/InternalModules/Drums/intmod_drums_display_middle_bg_14.png"); }
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pInstrumentBackground[SoundColorIndex=color15] { image: url("Maschine/InternalModules/Drums/intmod_drums_display_middle_bg_15.png"); }
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pInstrumentBackground[SoundColorIndex=color16] { image: url("Maschine/InternalModules/Drums/intmod_drums_display_middle_bg_16.png"); }
+
+
+//--------------------------------------------------------------------------------------------------------
+// DISPLAY HEADLINES
+//--------------------------------------------------------------------------------------------------------
+
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pTuneLabel
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_display_tune.png");
+    x:                                  82;
+    y:                                  56;
+}
+
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pDecayFilterLabel
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_display_decay.png");
+    x:                                  515;
+    y:                                  56;
+}
+
+Bar#m_pEditorContainer *.DrumSynth PercEditor[Mode=Shaker] Bar#m_pDecayFilterLabel
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_display_filter.png");
+    x:                                  515;
+    y:                                  56;
+}
+
+Bar#m_pEditorContainer *.DrumSynth PercEditor[Mode=ShakerPerformer] Bar#m_pDecayFilterLabel
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_display_filter.png");
+    x:                                  515;
+    y:                                  56;
+}
+
+//--------------------------------------------------------------------------------------------------------
+// DISPLAY CONTROLS
+//--------------------------------------------------------------------------------------------------------
+
+// Tune
+//--------------------------------------------------------------------------------------------------------
+
+Bar#m_pEditorContainer *.DrumSynth DraggerableValueEdit#TuneDragger
+{
+    x:                                  23;
+    y:                                  103;
+    width:                              150;
+    height:                             40;
+}
+
+Bar#m_pEditorContainer *.DrumSynth DraggerableValueEdit#TuneDragger Dragger
+{
+    image:                              no;
+    background-color:                   no;
+    background-border-color:            no;
+    font-size:                          38;
+    font-name:                          $fontPragmaticaLight;
+    horizontal-alignment:               center;
+    foreground-color:                   $colorDyeTest;
+    foreground-color-palette:           11;
+    foreground-relative-left:           -2;
+    x:                                  0;
+    y:                                  0;
+    width:                              150;
+    height:                             40;
+
+    selection-background-color:         $colorWhite15;
+    selection-foreground-color:         $colorDyeTest; // cursor
+    cursor-width:                       2;
+}
+
+
+// Decay Curve
+//--------------------------------------------------------------------------------------------------------
+
+Bar#m_pEditorContainer *.DrumSynth CurveDisplayWidget#DecayCurve
+{
+    x:                                  475;
+    y:                                  91;
+    height:                             64;
+    width:                              117;
+    background-color:                   rgb(38,38,38);
+    fill-color-palette:                 8;
+    line-color-palette:                 11;
+    draw-margin-bottom:                 10;
+    draw-margin-right:                  8;
+    draw-margin-left:                   8;
+    draw-margin-top:                    5;
+    line-width:                         2;
+}
+
+Bar#m_pEditorContainer *.DrumSynth CurveDisplayWidget XYDragger#m_pHandle
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_slider_mod_thumb_black.png");
+    dye-mask:                           url("Shared/InternalModules/SharedControls/intmod_slider_mod_thumb_dyemask.png");
+    dye-color:                          $colorDyeTest;
+    dye-color-palette:                  11;
+}
+
+
+// Mode Name
+//--------------------------------------------------------------------------------------------------------
+
+KickEditor Bar#KickMode,
+SnareEditor Bar#SnareMode,
+HihatEditor Bar#HiHatMode,
+TomEditor Bar#TomMode,
+PercEditor Bar#PercMode,
+CymbalEditor Bar#CymbalMode
+
+{
+    dye-color:                          $colorDyeTest;
+    dye-color-palette:                  11;
+
+}
+
+KickEditor Bar#KickMode Stack#m_pNameStack Button#m_pName,
+SnareEditor Bar#SnareMode Stack#m_pNameStack Button#m_pName,
+HihatEditor Bar#HiHatMode Stack#m_pNameStack Button#m_pName,
+TomEditor Bar#TomMode Stack#m_pNameStack Button#m_pName,
+PercEditor Bar#PercMode Stack#m_pNameStack Button#m_pName,
+CymbalEditor Bar#CymbalMode Stack#m_pNameStack Button#m_pName
+{
+    foreground-color:                   no;
+}
+
+KickEditor Bar#KickMode Bar#m_pShadowOverlay,
+SnareEditor Bar#SnareMode Bar#m_pShadowOverlay,
+HihatEditor Bar#HiHatMode Bar#m_pShadowOverlay,
+TomEditor Bar#TomMode Bar#m_pShadowOverlay,
+PercEditor Bar#PercMode Bar#m_pShadowOverlay,
+CymbalEditor Bar#CymbalMode Bar#m_pShadowOverlay
+{
+    image:                              no;
+}
+
+// Mode Selector Switch
+//--------------------------------------------------------------------------------------------------------
+
+KickEditor Bar#KickMode,
+SnareEditor Bar#SnareMode,
+HihatEditor Bar#HiHatMode,
+TomEditor Bar#TomMode,
+PercEditor Bar#PercMode,
+CymbalEditor Bar#CymbalMode
+{
+    x:                                  203;
+    y:                                  46;
+    height:                             78;
+    width:                              225;
+
+    foreground-color:                   $colorWhite50;
+}
+
+SnareEditor Bar#SnareMode Bar#m_pEnumBar,
+HihatEditor Bar#HiHatMode Bar#m_pEnumBar,
+TomEditor Bar#TomMode Bar#m_pEnumBar,
+PercEditor Bar#PercMode Bar#m_pEnumBar,
+CymbalEditor Bar#CymbalMode Bar#m_pEnumBar
+{
+    width:                              225;
+}
+
+KickEditor Bar#KickMode Button#m_pEnumValue,
+SnareEditor Bar#SnareMode Button#m_pEnumValue,
+HihatEditor Bar#HiHatMode Button#m_pEnumValue,
+TomEditor Bar#TomMode Button#m_pEnumValue,
+PercEditor Bar#PercMode Button#m_pEnumValue,
+CymbalEditor Bar#CymbalMode Button#m_pEnumValue
+{
+    image:                              no;
+    x:                                  63;
+    y:                                  4;
+    width:                              100;
+    height:                             22;
+
+    font-size:                          9;
+    font-name:                          $fontPragmatica;
+    foreground-color:                   no;
+    horizontal-alignment:               left;
+}
+
+KickEditor Bar#KickMode Button#m_pEnumInc,
+SnareEditor Bar#SnareMode Button#m_pEnumInc,
+HihatEditor Bar#HiHatMode Button#m_pEnumInc,
+TomEditor Bar#TomMode Button#m_pEnumInc,
+PercEditor Bar#PercMode Button#m_pEnumInc,
+CymbalEditor Bar#CymbalMode Button#m_pEnumInc
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modebutton_right_stroke.png");
+    animations:                         7;
+
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modebutton_right_dyemask.png");
+    dye-color-palette:                  11;
+    dye-mask-animations:                7;
+
+    x:                                  164;
+    y:                                  6;
+    foreground-color:                   no;
+}
+
+KickEditor Bar#KickMode Button#m_pEnumDec,
+SnareEditor Bar#SnareMode Button#m_pEnumDec,
+HihatEditor Bar#HiHatMode Button#m_pEnumDec,
+TomEditor Bar#TomMode Button#m_pEnumDec,
+PercEditor Bar#PercMode Button#m_pEnumDec,
+CymbalEditor Bar#CymbalMode Button#m_pEnumDec
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modebutton_left_stroke.png");
+    animations:                         7;
+
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modebutton_left_dyemask.png");
+    dye-color-palette:                  11;
+    dye-mask-animations:                7;
+
+    x:                                  44;
+    y:                                  6;
+    foreground-color:                   no;
+}
+
+
+// Tune
+KickEditor Bar#KickTune,
+SnareEditor Bar#SnareTune,
+HihatEditor Bar#HiHatTune,
+TomEditor Bar#TomTune,
+PercEditor Bar#PercTune
+{
+    x:                                  55;
+    y:                                  $Y-Drums-TuneDecay;
+}
+
+// Decay
+KickEditor Bar#KickDecay,
+SnareEditor Bar#SnareDecay,
+HihatEditor Bar#HiHatDecay,
+TomEditor Bar#TomDecay,
+PercEditor Bar#PercDecay
+{
+    x:                                  500;
+    y:                                  $Y-Drums-TuneDecay;
+}
+
+// Filter
+PercEditor Bar#ShakerFilt
+{
+    x:                                  500;
+    y:                                  $Y-Drums-TuneDecay;
+}
+
+//ToDo: Remove
+
+// Velocity Scale
+KickEditor Bar#KickVelocityScale,
+SnareEditor Bar#SnareVelScale,
+HihatEditor Bar#HiHatVelocityScale,
+TomEditor Bar#TomVelScale,
+PercEditor Bar#PercVelocityScale,
+// Tune & Decay Display
+Bar#KickTune,
+Bar#KickDecay
+{
+    width:                              1;
+    height:                             1;
+}
+
+//-----------------------------------------------------------------------------------------------------------------------
+// SLIDER VELOCITY
+//-----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pEditorContainer *.DrumSynth Slider#VelocitySlider
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_bg_fader_velocity.png");
+    x:                                  248;
+    y:                                  204;
+    margin-top:                         9;
+    picture-includes-margin:            true;
+    background-color-palette:           9;
+    indicator-y:                        16;
+    indicator-height:                   3;
+}
+
+Bar#m_pEditorContainer *.DrumSynth Slider#VelocitySlider Grip#thumb
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_slider_mod_thumb_black.png");
+    dye-mask:                           url("Shared/InternalModules/SharedControls/intmod_slider_mod_thumb_dyemask.png");
+    dye-color:                          $colorDyeTest;
+    dye-color-palette:                  11;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// DISPLAY FOOTER
+//-----------------------------------------------------------------------------------------------------------------------
+
+// Tune
+//-----------------------------------------------------------------------------------------------------------------------
+
+// 2d Poti
+Bar#m_pEditorContainer *.DrumSynth Bar#Tune //[HoldVisible=false]
+{
+    x:                                  69;
+    y:                                  203;
+}
+
+// 2d Poti
+Bar#m_pEditorContainer *.DrumSynth Bar#Tune[HoldVisible=true]
+{
+    x:                                  93;
+    y:                                  203;
+}
+
+// Tune Headline
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pTuneSmallLabel
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_display_note.png");
+    x:                                  103;
+    y:                                  204;
+}
+
+// Tune Headline
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pTuneSmallLabel[HoldVisible=true]
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_display_note.png");
+    x:                                  127;
+    y:                                  204;
+}
+
+// Dragger
+Bar#m_pEditorContainer *.DrumSynth DraggerableValueEdit#SmallTuneDragger
+{
+    x:                                  103;
+    y:                                  212;
+}
+
+// Dragger
+Bar#m_pEditorContainer *.DrumSynth DraggerableValueEdit#SmallTuneDragger[HoldVisible=true]
+{
+    x:                                  127;
+    y:                                  212;
+}
+
+
+// Gate & Hold
+//-----------------------------------------------------------------------------------------------------------------------
+
+// Headlines
+//-----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pGateLabel
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_display_gate.png");
+    x:                                  553;
+    y:                                  204;
+}
+
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pHoldLabel
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_display_hold.png");
+    x:                                  47;
+    y:                                  204;
+}
+
+// Switches
+//-----------------------------------------------------------------------------------------------------------------------
+
+Bar#ClassicSnareGate,
+Bar#HiHatGate
+{
+    x:                                  552;
+    y:                                  212;
+}
+
+Bar#FBMatrixHold
+{
+    x:                                  46;
+    y:                                  212;
+}
+
+Bar#ClassicSnareGate,
+Bar#ClassicSnareGate Stack#m_pParameterStack,
+Bar#HiHatGate,
+Bar#HiHatGate Stack#m_pParameterStack,
+Bar#FBMatrixHold,
+Bar#FBMatrixHold Stack#m_pParameterStack,
+Bar.DrumSynth Bar#m_pBoolBar
+{
+    width:                              27;
+    height:                             17;
+}
+
+// Decay (Percent)
+//-----------------------------------------------------------------------------------------------------------------------
+
+// Dragger
+Bar#m_pEditorContainer *.DrumSynth DraggerableValueEdit#DecayDragger[GateVisible=true]
+{
+    x:                                  491;
+    y:                                  212;
+    margin-left:                        0;
+}
+
+// Dragger
+Bar#m_pEditorContainer *.DrumSynth DraggerableValueEdit#DecayDragger //[GateVisible=false]
+{
+    x:                                  515;
+    y:                                  212;
+    margin-left:                        0;
+}
+
+//Percent Label
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pDecayPercentLabel[GateVisible=true]
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_display_percent.png");
+    x:                                  491;
+    y:                                  204;
+}
+
+//Percent Label
+Bar#m_pEditorContainer *.DrumSynth Bar#m_pDecayPercentLabel //[GateVisible=false]
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_display_percent.png");
+    x:                                  515;
+    y:                                  204;
+}
+
+
+

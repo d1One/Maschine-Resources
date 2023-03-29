@@ -1,0 +1,160 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// COMPRESSOR
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+CompressorEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png"); 
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-396;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+CompressorEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_compressor.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// POTIS & CONTROLS
+//--------------------------------------------------------------------------------------------------------
+
+// MODE SWITCH (Enum)
+CompressorEditor Bar#Mode
+{
+    x:                                  280;
+    y:                                  16;
+}
+
+
+// THRESHOLD (INPUT) METER
+//--------------------------------------------------------------------------------------------------------
+
+// Parent
+CompressorEditor Bar#ThresholdLevelMeterBar
+{
+    x:                                  34;
+    y:                                  $Y-FX-Meter;
+}
+
+// Slider
+CompressorEditor Bar#ThresholdSlider
+{
+    x:                                  34;
+    y:                                  $Y-FX-Meter;
+}
+
+// Mask
+CompressorEditor Bar#ThresholdLevelMeterBar Label.InternalFXLevelMeterMask
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_mask_compressor_threshold.png");
+    x:                                  0;
+    y:                                  0;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// GAIN
+//--------------------------------------------------------------------------------------------------------
+
+// Parent
+CompressorEditor Bar#GainLevelMeterBar
+{
+    x:                                  305;
+    y:                                  $Y-FX-Meter;
+}
+
+// Slider
+CompressorEditor Bar#GainSlider
+{
+    x:                                  305;
+    y:                                  $Y-FX-Meter;
+}
+
+// Mask
+CompressorEditor Bar#GainLevelMeterBar Label.InternalFXLevelMeterMask
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_mask_compressor_gain.png");
+    x:                                  0;
+    y:                                  0;
+}
+
+
+// TOP ROW
+//--------------------------------------------------------------------------------------------------------
+
+// KNEE
+CompressorEditor Bar#Knee
+{
+    x:                                  133;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// AMOUNT
+CompressorEditor Bar#Amount
+{
+    x:                                  219;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+// BOTTOM ROW
+//--------------------------------------------------------------------------------------------------------
+
+// ATTACK
+CompressorEditor Bar#Attack
+{
+    x:                                  133;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+// RELEASE
+CompressorEditor Bar#Release
+{
+    x:                                  219;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+// GAIN REDUCTION METER
+//--------------------------------------------------------------------------------------------------------
+
+Bar#GainReductionLevelMeterBar
+{
+    x:                                  92;
+    y:                                  $Y-FX-Meter;
+    width:                              26;
+    height:                             148;
+}
+
+
+Bar#GainReductionLevelMeterBar Label#pLevelMeterBackground
+{
+    image:                              url("Maschine/InternalModules/FX/IntFX_MTR_NoScale_BG.png");
+    x:                                  0;
+    y:                                  0;
+}
+
+// GP METER MASK
+Bar#GainReductionLevelMeterBar Label#pLevelMeterMask
+{
+    image:                              url("Maschine/InternalModules/FX/IntFX_MTR_NoScale_Mask.png"); 
+    x:                                  0;
+    y:                                  0;
+}
+
+// GAIN LABEL
+CompressorEditor Label#GainReductionLabel
+{
+    x:                                  92;
+    y:                                  172;
+}

@@ -1,0 +1,18 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SCREEN BACKGROUNDS
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Bar#ArpPageScreenLeft Bar.StudioDisplay,
+Bar#ArpPageScreenRight Bar.StudioDisplay,
+Bar#ScaleChordPageScreenLeft Bar.StudioDisplay,
+Bar#ScaleChordPageScreenRight Bar.StudioDisplay,
+Bar#ScenePageScreenLeft Bar.StudioDisplay,
+Bar#ScenePageScreenRight Bar.StudioDisplay,
+Bar#PatternPageScreenLeft Bar.StudioDisplay,
+Bar#PatternPageScreenRight Bar.StudioDisplay
+{
+    background-color:                                                           $colorStandardBGColor;
+    outer-margin-top:                                                           1;
+}
+

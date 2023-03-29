@@ -1,0 +1,69 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// CHORUS
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+CabinetEmulationEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png"); 
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-474;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+CabinetEmulationEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_cabinet.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// POTIS
+//--------------------------------------------------------------------------------------------------------
+
+
+CabinetEmulationEditor Bar#Cabinet
+{
+    x:                                  $X-FX-4-Control1;
+    y:                                  $Y-FX-BigKnob-Middle;
+}
+
+
+
+CabinetEmulationEditor Bar#Microphone
+{
+    x:                                  $X-FX-4-Control2;
+    y:                                  $Y-FX-BigKnob-Middle;
+}
+
+CabinetEmulationEditor Bar#Distance
+{
+    x:                                  $X-FX-4-Control3;
+    y:                                  $Y-FX-BigKnob-Middle;
+}
+
+
+
+
+CabinetEmulationEditor Bar#Mix
+{
+    x:                                  $X-FX-4-Control4;
+    y:                                  $Y-FX-BigKnob-Middle;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+CabinetEmulationEditor#m_pEditor Bar#m_pParamSeparator
+
+{
+    x:                                  335;
+    y:                                  0;
+}

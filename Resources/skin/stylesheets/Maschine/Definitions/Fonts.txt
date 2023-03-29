@@ -1,0 +1,38 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Fonts
+//----------------------------------------------------------------------------------------------------------------------
+
+// Typeface Definitions
+@define $fontPixelId                    1;
+@define $fontPixelSize                  12;
+
+@define $fontRaldoId                    2;
+@define $fontRaldoSize                  11;
+@define $fontRaldoSizeBig               14;
+
+@define $fontClearName                  url("Shared/stan0755j.ttf");
+@define $fontClearSize                  12;
+
+@define $fontMonoName                   url("Shared/Mono0755.ttf");
+@define $fontMonoSize                   8;
+
+
+// PRAGMATICA
+@define $fontPragmatica                 url("Shared/prg65_j.ttf");
+@define $fontPragmaticaLight            url("Shared/PragmaticaLight.ttf");
+
+
+
+
+
+// STANDARD
+@define $fontStandard                    url("Shared/Standard0756vR1.ttf");
+
+
+// Font Sizes
+@define $fontSize12                     12;
+@define $fontTitleSize                  15;
+@define $fontBrowserTabSize             14;
+@define $fontRegSize                    10;
+@define $fontSmallSize                  9;
+@define $fontSizeInstructions           18;

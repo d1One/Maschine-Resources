@@ -1,0 +1,33 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Custom Widget Example, see GUI/Developer/WidgetGallery
+//----------------------------------------------------------------------------------------------------------------------
+
+WidgetXY
+{
+    background-color:							$colorWidget;
+    foreground-color:       					$colorWidgetText;
+    margin:                 					2;
+    min-width:              					$defaultWidth;
+    font-resid:             					$fontRaldoId;
+    font-size:              					64;
+    horizontal-alignment:   					center;
+}
+WidgetXY:over
+{
+    background-color:       					$colorWidgetOver;
+}
+WidgetXY:down
+{
+    background-color:       					$colorWidgetDown;
+}
+WidgetXY[button=left]
+{
+    horizontal-alignment:   					left;
+}
+WidgetXY[button=right]
+{
+    horizontal-alignment:   					right;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------

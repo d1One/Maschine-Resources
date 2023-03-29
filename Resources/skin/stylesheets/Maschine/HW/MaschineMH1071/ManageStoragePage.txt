@@ -1,0 +1,55 @@
+Bar#ManageStoragePageScreenLeft MultilineLabel#Message
+{
+    outer-margin-left:            5;
+    outer-margin-right:           5;
+    outer-margin-top:             5;
+    outer-margin-bottom:          5;
+
+    font-name:                    $fontPragmatica;
+    font-size:                    24;
+    foreground-color:             $colorWhite;
+
+    vertical-alignment:           center;
+    horizontal-alignment:         center;
+}
+
+Bar#ManageStoragePageScreenRight Bar#LeftContainer,
+Bar#ManageStoragePageScreenRight Bar#RightContainer
+{
+    width: 240;
+}
+
+ExternalVolumesList#VolumesList Vector<Label>
+{
+    margin-top: 8;
+    margin-bottom: 26;
+
+    margin-left: 1;
+    spacing: 0;
+    outer-margin-top: 0;
+
+    focus-anim: $animtype-none;
+}
+
+Label.VolumesListLabel
+{
+    height: 24;
+
+    font-name: $fontPragmatica;
+    font-size: 14;
+
+    horizontal-alignment: right;
+    foreground-color: $colorWhite;
+
+    outer-margin-bottom: 5;
+
+    margin-left: 9;
+    margin-right: 8;
+}
+
+Label.VolumesListLabel[HasFocus=true]
+{
+    background-color: $colorWhite;
+    foreground-color: $colorBlack;
+}
+

@@ -1,0 +1,128 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// DIALOG WELCOME SCREEN
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+DialogWelcomeScreen
+{
+    width:                          360;
+    height:                         400;
+    background-color:               rgb(79, 79, 79);
+}
+
+
+DialogWelcomeScreen Bar#headerContainer
+{
+    height:                         32;
+    outer-margin-top:               40;
+    outer-margin-left:              60;
+    outer-margin-right:             60;
+    outer-margin-bottom:            24;
+}
+
+
+DialogWelcomeScreen Bar#headerContainer Label#m_titleHeader
+{
+    font-name:                      $fontPragmatica;
+    font-size:                      18;
+    horizontal-alignment:           left;
+    margin-left:                    8;
+    foreground-color:               $colorWhite75;
+    background-color:               no;
+}
+
+
+DialogWelcomeScreen Bar#headerContainer Bar#m_logo
+{
+    margin-top:                     4;
+    image:                          url("Maschine/Dialogs/Welcome/WLCM_LOGO_MaschinePicto.png");
+}
+
+
+DialogWelcomeScreen Bar#demoProjects
+{
+
+    height:                         148;
+    outer-margin-left:              60;
+    outer-margin-right:             60;
+    outer-margin-bottom:            16;
+}
+
+
+DialogWelcomeScreen Bar#demoProjects Label#m_titleDemo
+{
+    height:                         18;
+    font-name:                      $fontPragmatica;
+    font-size:                      12;
+    foreground-color:               $colorWhite75;
+    horizontal-alignment:           left;
+    background-color:               no;
+}
+
+
+DialogWelcomeScreen Bar#demoProjects Label#separator
+{
+    height:                         1;
+    background-color:               $colorWhite75;
+    outer-margin-top:               2;
+    outer-margin-bottom:            8;
+}
+
+
+DialogWelcomeScreen Bar#demoProjects Vector<Button>#m_demoProjects
+{
+    spacing:                        4;
+}
+
+
+DialogWelcomeScreen Bar#demoProjects Vector<Button>#m_demoProjects Bar#widgets Button
+{
+    image:                          url("Maschine/Dialogs/Welcome/WLCM_LST_DemoProjects.png");
+    animations:                     7;
+    fixed-left:                     2;
+    fixed-right:                    17;
+    horizontal-alignment:           left;
+    margin-left:                    5;
+    foreground-color:               $colorWhite50;
+}
+
+
+DialogWelcomeScreen Bar#linksContainer
+{
+    height:                         20;
+    fixed-right:                    19;
+    outer-margin-left:              60;
+    outer-margin-right:             60;
+    image:                          url("Maschine/Dialogs/Welcome/WLCM_STRCT_LinkUnderline.png");
+}
+
+
+DialogWelcomeScreen Bar#linksContainer Button#m_buttonGettingStarted
+{
+    image:                          no;
+    font-name:                      $fontPragmatica;
+    font-size:                      12;
+    foreground-color:               $colorWhite75;
+    horizontal-alignment:           left;
+}
+
+
+DialogWelcomeScreen Bar#closeContainer
+{
+    height:                         24;
+    outer-margin-top:               20;
+    outer-margin-left:              120;
+    outer-margin-right:             120;
+}
+
+
+DialogWelcomeScreen Bar#closeContainer Button#m_buttonClose
+{
+    image:                          url("Maschine/Dialogs/Welcome/WLCM_BTN_Close.png");
+    animations:                     7;
+    fixed-left:                     4;
+    fixed-right:                    4;
+    horizontal-alignment:           center;
+    foreground-color:               $colorWhite75;
+}

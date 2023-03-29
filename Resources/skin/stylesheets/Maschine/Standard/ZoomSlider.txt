@@ -1,0 +1,85 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ZOOM SLIDER
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Horizontal Zoom Slider
+ZoomSlider
+{
+    margin-left:                        5;
+    margin-right:                       5;
+    outer-margin-top:                   1;
+}
+
+
+
+ZoomGrip#ZoomGrip
+{
+    image:                              url("Maschine/ZoomSlider/zoom_grip.png");
+    animations:                         2;
+    animation-index:                    0;
+    picture-includes-margin:            true;
+    fixed-left:                         8;
+    fixed-right:                        8;
+    min-width:                          30;
+}
+
+
+
+ZoomGrip#ZoomGrip[HasMinimumSize=true]
+{
+    animation-index:                    1;
+}
+
+
+
+ZoomHandle#ZoomGrip-LeftHandle
+{
+    image:                              url("Maschine/ZoomSlider/zoom_handle_left.png");
+}
+
+
+
+ZoomHandle#ZoomGrip-RightHandle
+{
+    image:                              url("Maschine/ZoomSlider/zoom_handle_right.png");
+}
+
+
+// Vertical Zoom Slider
+ZoomSlider.VerticalZoomSlider
+{
+    background-color:                   $StandardBackgroundGrey;
+    width:                              16;
+    margin-top:                         5;
+    margin-bottom:                      5;
+    margin-left:                        0;
+    margin-right:                       0;
+    outer-margin-left:                  1;
+    outer-margin-top:                   0;
+}
+
+
+
+ZoomSlider.VerticalZoomSlider::ZoomGrip#ZoomGrip
+{
+    image:                              url("Maschine/ZoomSlider/zoom_grip_vertical.png");
+    picture-includes-margin:            true;
+    fixed-top:                          8;
+    fixed-bottom:                       8;
+    min-height:                         30;
+}
+
+
+
+ZoomSlider.VerticalZoomSlider ZoomHandle#ZoomGrip-RightHandle
+{
+    image:                              url("Maschine/ZoomSlider/zoom_handle_bottom.png");
+}
+
+
+
+ZoomSlider.VerticalZoomSlider ZoomHandle#ZoomGrip-LeftHandle
+{
+    image:                              url("Maschine/ZoomSlider/zoom_handle_top.png");
+}

@@ -1,0 +1,211 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ABOUTSCREEN
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+DialogAbout
+{
+    min-width:                          482;
+    min-height:                         338;
+}
+
+DialogAbout *
+{
+    background-color:                   no;
+    font-name:                          $fontClearName;
+    font-size:                          $fontClearSize;
+}
+
+DialogAbout Bar#pMainBar
+{
+    image:                              url("Maschine/Dialogs/About/Background.png");
+}
+
+DialogAbout[isBetaVersion=true] Bar#pMainBar
+{
+    background-color:                   no;
+    image:                              url("Maschine/Dialogs/About/Background_beta.png");
+}
+
+DialogAbout[isKompleteKontrol=true][isBetaVersion=false] Bar#pMainBar
+{
+    image:                              url("Komplete/Dialogs/About/Background.png");
+}
+
+DialogAbout[isKompleteKontrol=true][isBetaVersion=true] Bar#pMainBar
+{
+    background-color:                   no;
+    image:                              url("Komplete/Dialogs/About/Background_beta.png");
+}
+
+// HEADER
+//----------------------------------------------------------------------------------------------------------------------
+
+DialogAbout Bar#pHeadBar
+{
+    outer-margin-left:                  14;
+    min-width:                          455;
+    min-height:                         57;
+}
+
+DialogAbout Bar#pHeadLeftBar
+{
+    margin-top:                         11;
+    min-width:                          75;
+    min-height:                         60;
+    horizontal-alignment:               right;
+}
+
+DialogAbout Bar#pHeadMiddleBar
+{
+    margin-top:                         11;
+    margin-left:                        0;
+    min-width:                          280;
+    min-height:                         56;
+    spacing:                            0;
+}
+
+DialogAbout[isKompleteKontrol=true] Bar#pHeadLeftBar,
+DialogAbout[isKompleteKontrol=true] Bar#pHeadMiddleBar
+{
+    margin-top:                         16;
+}
+
+// Header Labels
+DialogAbout Bar#pHeadMiddleBar Label
+{
+    foreground-color:                   rgb(140, 140, 140);
+}
+
+DialogAbout[isKompleteKontrol=true] Bar#pHeadMiddleBar Label
+{
+    foreground-color:                   $colorWhite;
+}
+
+DialogAbout Bar#pHeadMiddleBar Label#pValueLicenseType,
+DialogAbout Bar#pHeadMiddleBar Label#pValueProcessor,
+DialogAbout Bar#pHeadMiddleBar Label#pValueSerialNumber
+{
+    min-width:                          200;
+}
+
+// Left Part (Version)
+DialogAbout Bar#pHeadLeftBar::Label
+{
+    outer-margin-left:                  6;
+    height:                             14;
+    foreground-color:                   rgb(204, 204, 204);
+}
+
+DialogAbout[isKompleteKontrol=true] Bar#pHeadLeftBar::Label
+{
+    foreground-color:                   $colorWhite;
+}
+
+DialogAbout Bar#pBodyBar
+{
+    outer-margin-left:                  14;
+    outer-margin-right:                 14;
+    outer-margin-top:                   43;
+    background-color:                   no;
+    min-width:                          400;
+    height:                             153;
+    spacing:                            8;
+}
+
+DialogAbout[isKompleteKontrol=true] Bar#pBodyBar
+{
+    outer-margin-left:                  20;
+    outer-margin-right:                 14;
+    outer-margin-top:                   61;
+    background-color:                   no;
+    min-width:                          400;
+    height:                             140;
+    spacing:                            8;
+}
+
+DialogAbout Bar#pBodyBar *
+{
+    background-color:no;
+}
+
+
+// Credits
+Credits#Credits MultilineLabel#CreditsLabel
+{
+    font-name: $fontClearName;
+    font-size: $fontClearSize;
+    foreground-color: $colorWhite;
+    horizontal-alignment: left;
+    vertical-alignment: center;
+}
+
+DialogAbout Bar#pHeadMiddleBar::Bar
+{
+    outer-margin-left:                  1;
+    height:                             14;
+}
+
+DialogAbout Label
+{
+    min-width:                          65;
+    min-height:                         12;
+    max-height:                         18;
+    font-name:                          $fontClearName;
+    font-size:                          $fontClearSize;
+    foreground-color:                   $colorWhite60;
+}
+
+// Copyright
+DialogAbout[isKompleteKontrol=true] Bar#pCopyrightBar
+{
+   outer-margin-right:                 6;
+   outer-margin-top:                   8;
+   height:                             28;
+}
+
+DialogAbout Label#pCopyrightUpperLabel,
+DialogAbout Label#pCopyrightLowerLabel
+{
+    height:                             14;
+    horizontal-alignment:               right;
+    font-name:                          $fontClearName;
+    font-size:                          $fontClearSize;
+    foreground-color:                   $colorWhite;
+}
+
+// Scrollbar
+DialogAbout Bar#pBodyBar Scrollbar
+{
+    width:                              12;
+    outer-margin-top:                   0;
+    image:                              no;
+    margin:                             2;
+    margin-bottom:                      3;
+    margin-top:                         3;
+}
+
+DialogAbout Bar#pBodyBar Scrollbar Button#dec
+{
+    height:                             1;
+    outer-margin-top:                   -1;
+    image:                              no;
+}
+
+DialogAbout Bar#pBodyBar Scrollbar Button#inc
+{
+    height:                             1;
+    outer-margin-bottom:                -1;
+    image:                              no;
+}
+
+DialogAbout Bar#pBodyBar Scrollbar Grip
+{
+    width:                              8;
+    background-color:                   $colorWhite;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------

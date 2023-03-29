@@ -1,0 +1,14 @@
+Bar.TwoLineMessagePageFullScreenBar
+{
+    width:                      $defaultWidth;
+    height:                     $defaultHeight;
+}
+
+Bar.TwoLineMessagePageFullScreenBar Label.TwoLineMessageLabelStyle
+{
+    width:                      $defaultWidth;
+    height:                     $halfHeight;
+    font-name:                  $fontDefaultBold;
+    font-size:                  $fontSize;
+    horizontal-alignment:       center;
+}

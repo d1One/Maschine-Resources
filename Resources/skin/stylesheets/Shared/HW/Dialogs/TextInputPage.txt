@@ -1,0 +1,78 @@
+Bar#TextInputPageScreenLeft MultilineLabel#LabelLeft
+{
+    font-name: $fontPragmatica;
+    font-size: 21;
+    foreground-color: $colorWhite;
+
+    horizontal-alignment: center;
+
+    outer-margin-left: 20;
+    outer-margin-right: 20;
+}
+
+Bar#TextInputPageScreenLeft[Style=Empty] MultilineLabel#LabelLeft
+{
+    vertical-alignment: center;
+}
+
+Bar#TextInputPageScreenLeft[Style=Password] MultilineLabel#LabelLeft,
+Bar#TextInputPageScreenLeft[Style=User] MultilineLabel#LabelLeft
+{
+    vertical-alignment: top;
+}
+
+Bar#TextInputPageScreenLeft[Style=Password] Bar#Icon
+{
+    image: url("Maschine/HW/Shared/Key.png");
+
+    outer-margin-top: 65;
+    outer-margin-left: 204;
+    outer-margin-bottom: 24;
+}
+
+Bar#TextInputPageScreenLeft[Style=User] Bar#Icon
+{
+    image: url("Maschine/HW/Shared/User.png");
+
+    outer-margin-top: 65;
+    outer-margin-left: 204;
+    outer-margin-bottom: 24;
+}
+
+Bar#TextInputPageScreenRight Bar#Container
+{
+    spacing: 15;
+    outer-margin-bottom: 5;
+}
+
+Label.TextInputTextField
+{
+    vertical-alignment: center;
+    outer-margin-top: 24;
+    outer-margin-left: 5;
+    outer-margin-right: 5;
+    background-color: $colorWhite;
+    font-name: $fontPragmatica;
+    font-size: 15;
+    height: 32;
+    foreground-color: $colorBlack;
+}
+
+Bar.TextInputKeyboardLine
+{
+    height: 24;
+    outer-margin-left: 5;
+    outer-margin-right: 5;
+}
+
+Label.TextInputLetter
+{
+    foreground-color: $colorWhite;
+    font-name: $fontPragmatica;
+    font-size: 15;
+}
+
+Label.TextInputLetter:selected
+{
+    background-border-color: $colorWhite;
+}

@@ -1,0 +1,38 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// REC MODE PAGE
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// background
+Bar#RecModePageStudioScreenLeft Bar.StudioDisplay,
+Bar#RecModePageStudioScreenRight Bar.StudioDisplay,
+Bar#RecModePageMK3ScreenLeft Bar.StudioDisplay,
+Bar#RecModePageMK3ScreenRight Bar.StudioDisplay
+{
+    image:                          no;
+    width:                          480;
+    background-color:               $colorStandardBGColor;
+    outer-margin-top:               1;
+}
+
+// background right screen
+Bar#RecModePageStudioScreenRight Bar#StudioDisplayBar,
+Bar#RecModePageMK3ScreenRight Bar#StudioDisplayBar
+{
+    height:                         169;
+    outer-margin-top:               1;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// PATTERN LENGTH PAGE
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#PatternLengthPageStudioScreenLeft Bar#StudioDisplayBar
+{
+    background-color:               $colorStandardBGColor;
+    outer-margin-top:               1;
+}
+Bar#PatternLengthPageStudioScreenRight
+{
+    image:                          no;
+}

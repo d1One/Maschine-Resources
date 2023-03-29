@@ -1,0 +1,33 @@
+//----------------------------------------------------------------------------------------------------------------------
+// KPI Plug-in Window
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#PluginWindowKPI_Root
+{
+    background-color:   $colorPanel;
+    spacing:            0;
+}
+
+Bar#PluginWindowKPI_Root Bar#pBody Scrollbar#m_pScrollbar
+{
+    background-color:                   no;
+    margin-top:                         5;
+    margin-bottom:                      5;
+}
+
+Bar#PluginWindowKPI_Root Bar#pBody Scrollbar#m_pScrollbar Slider
+{
+    background-color:                   no;
+    margin-left:                        5;
+    margin-top:                         1;
+    margin-bottom:                      1;
+    width:                              11;
+}
+
+
+Bar#PluginWindowKPI_Root Bar#pBody Scrollbar#m_pScrollbar Grip
+{
+    image:                              url("Maschine/Scrollbars/scrollbar_KPI_vertical_slider.png");
+    fixed-top:                          4;
+    fixed-bottom:                       4;                           
+}

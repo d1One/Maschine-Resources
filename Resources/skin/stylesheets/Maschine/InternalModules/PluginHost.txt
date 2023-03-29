@@ -1,0 +1,91 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// GENERIC VST / AU
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+GenericPluginEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png"); 
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $InternalModule-W4;
+}
+
+GenericPluginEditor Bar#pRoot
+{
+    width:                            $InternalModule-W4;
+    height:                           200;
+}
+
+// Plugin Name
+GenericPluginEditor Label#pPluginName
+{
+    font-resid:                         $fontRaldoId;
+    font-size:                          24;
+    foreground-color:                   $colorWhite50; 
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;  
+    height:                             19;
+    width:                              275;
+    foreground-relative-left:           1;      
+}
+
+GenericPluginEditor ButtonMenu#m_pPresetMenu
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_bg_enum_dark_large_arrow.png");
+    fixed-left:                         5;
+    fixed-right:                        20;
+    width:                              234;
+    font-name:                          $fontPragmatica;
+    font-size:                          13;
+    foreground-color:                   $colorWhite45; 
+    foreground-color-palette:           11;
+    x:                                  41;
+    y:                                  65;  
+     
+}
+
+// AU
+GenericPluginEditor Bar#pRoot Label#pPluginTechnology[AU=true]
+{
+    image:                              url("Maschine/InternalModules/PluginHost/intmod_pluginhost_au.png");
+    foreground-color:                   no;
+    x:                                  139;
+    y:                                  106;
+}
+
+// AU
+GenericPluginEditor Bar#pRoot Label#pPluginTechnology[AU=false]
+{
+    image:                              url("Maschine/InternalModules/PluginHost/intmod_pluginhost_vst.png");
+    foreground-color:                   no;
+    x:                                  139;
+    y:                                  106;
+}
+
+// FX
+GenericPluginEditor Bar#pRoot Label#pPluginType[FX=true]
+{
+    image:                              url("Maschine/InternalModules/PluginHost/intmod_pluginhost_fx.png");
+    foreground-color:                   no;
+    x:                                  139;
+    y:                                  128;
+}
+
+//Instrument
+GenericPluginEditor Bar#pRoot Label#pPluginType[FX=false]
+{
+    image:                              url("Maschine/InternalModules/PluginHost/intmod_pluginhost_instrument.png");
+    foreground-color:                   no;
+    x:                                  139;
+    y:                                  128;
+}
+
+// Popup
+GenericPluginEditor ButtonMenu#m_pPresetMenu
+{
+    menu-offset-x:                      -8;
+    menu-offset-y:                      3;
+}
+
+

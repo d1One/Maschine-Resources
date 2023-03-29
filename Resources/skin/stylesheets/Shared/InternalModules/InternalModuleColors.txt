@@ -1,0 +1,26 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// INTERNAL MODULE COLORS
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//--------------------------------------------------------------------------------------------------------
+// Background Colors
+//--------------------------------------------------------------------------------------------------------
+
+// Modulation Effects
+@define $colorModulationFX              rgb(174,94,255);
+
+// Reverb Effects
+@define $colorReverbFX                  rgb(58,136,255);
+
+// Dynamics Effects
+@define $colorDynamicFX                 rgb(255,45,41);
+
+// Delay Effects
+@define $colorDelayFX                   rgb(55,161,55);
+
+// Distortion Effects
+@define $colorDistortionFX              rgb(252,141,13);
+
+// Test Color DYE Mask
+@define $colorDyeTest 		            rgb (255, 221, 26);//rgb(0,232,153);

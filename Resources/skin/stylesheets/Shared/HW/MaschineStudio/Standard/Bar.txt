@@ -1,0 +1,216 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Bar
+//----------------------------------------------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.Page
+{
+    width:                          $defaultWidth;
+    height:                         $defaultHeight;
+
+    spacing:                        0;
+
+    background-color:               $colorStandardBGColor;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.HalfPage
+{
+    background-color:               $colorBlack;
+    image:                          no;
+
+    width:                          $halfWidth;
+    height:                         $defaultHeight;
+}
+
+Bar.HalfOverlay
+{
+    background-color:               no;
+    image:                          no;
+
+    width:                          $halfWidth;
+    height:                         $defaultHeight;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.Parameter
+{
+    height:                         20;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.ParameterNames
+{
+    height:                         9;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.ParameterValues
+{
+    height:                         9;
+}
+
+
+Bar.PadRow
+{
+    width:                          464;
+    height:                         50;
+    spacing:                        8;
+}
+
+
+Bar.Grid4Rows
+{
+    height:                         15;
+}
+
+// HeadButton
+Bar.HeadButton
+{
+    height:                         24;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.BankAttributeBar
+{
+    height:                         29;
+    width:                          192;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// PAD PAGES / DISPLAY BAR
+//----------------------------------------------------------------------------------------------------------------------
+
+// GRID BUTTON
+Bar.GroupBar,
+Bar.GridPad
+{
+    background-color-palette:       2;
+
+    image:                          url("Shared/HW/Studio/DisplayBar/dispb_back_groupButton.png");
+    animations:                     4;
+    picture-includes-margin:        true;
+
+    fixed-top:                      3;
+    fixed-bottom:                   3;
+    fixed-left:                     3;
+    fixed-right:                    3;
+
+    animation-index:                0;
+}
+
+// GRID BUTTON
+Bar#DuplicatePageStudio Bar.GroupBar:!selected:!enabled
+{
+    background-color:               rgb(42,42,42);
+    background-color-palette:       2;
+}
+
+Bar#SamplingPageSliceApplyStudio Bar.GroupBar:!selected:!enabled
+{
+    background-color:               rgb(110,110,110);
+    background-color-palette:       no;
+}
+
+Bar#DuplicatePageStudio Bar.GroupBar Label:!enabled,
+Bar#DuplicatePageStudio Bar.GroupBar MultilineTextEditContentArea:!enabled
+{
+    foreground-color:               rgb(42,42,42);
+    foreground-color-palette:       2;
+}
+
+Bar#SamplingPageSliceApplyStudio Bar.GroupBar Label:!enabled,
+Bar#SamplingPageSliceApplyStudio Bar.GroupBar MultilineTextEditContentArea:!enabled
+{
+    foreground-color:               rgb(42,42,42);
+    foreground-color-palette:       no;
+}
+
+// SELECTED
+Bar.GroupBar:selected,
+Bar.GridPad:selected
+{
+    animation-index:                1;
+    foreground-color-palette:       1;
+}
+
+// FOCUSED
+Bar.GroupBar[isFocused=true]:enabled,
+Bar.GridPad[isFocused=true]:enabled
+{
+    animation-index:                2;
+    foreground-color:               no;
+}
+
+// EMPTY
+// specific case of the grid page
+Bar#ClipPageStudioScreenRight Bar.GridPad:!selected:!enabled,
+Bar#GridPageStudioScreenRight Bar.GridPad:!selected:!enabled,
+Bar#GridPageMK3ScreenRight Bar.GridPad:!selected:!enabled,
+Bar#ScenePageStudioScreenRight Bar.GridPad:!selected:!enabled,
+Bar#DuplicatePageStudioScreenRight Bar.GridPad[DisabledPads=true]:!selected:!enabled
+{
+    background-color-palette:       no;
+    background-color:               $PadGridDisabledBG;
+    foreground-color:               $colorBlack;
+}
+
+// Groups
+Bar#StudioDisplayBar Bar#GroupRow Bar.GroupBar[isEmpty=true]
+{
+    background-color-palette:       no;
+    background-color:               $PadGridDisabledBG;
+    foreground-color:               no;
+    animation-index:                2;
+}
+
+// Sounds
+Bar.GridPad:!selected:!enabled
+{
+    animation-index:                2;
+    background-color-palette:       no;
+    background-color:               $PadGridBG;
+    foreground-color:               no;
+}
+
+Bar#DuplicatePageStudioScreenRight Bar.GridPad:!selected:!enabled
+{
+    animation-index:                2;
+    background-color-palette:       no;
+    background-color:               $PadGridBG;
+    foreground-color:               no;
+}
+
+// PLUS
+Bar#StudioDisplayBar Bar#GroupRow Bar.GroupBar[isPlus=true]
+{
+    animation-index:                2;
+    background-color-palette:       no;
+    background-color:               $PadGridBG;
+    foreground-color:               $colorBlack;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Busy page
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#BusyPageStudio Bar#LabelBar,
+Bar#BusyPageStudio Label
+{
+    background-color:               $colorStandardBGColor;
+    width:                          $halfWidth;
+    height:                         $defaultHeight;
+}

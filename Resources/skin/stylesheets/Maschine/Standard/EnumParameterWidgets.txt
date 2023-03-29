@@ -1,0 +1,69 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Default
+//----------------------------------------------------------------------------------------------------------------------
+
+EnumParameterWidget
+{
+    image:                  url("Shared/Global/Button_18.png");
+    picture-includes-margin:true;
+    animations:             7;
+    animation:              0;
+    fixed-left:             4;
+    fixed-right:            4;
+    fixed-top:              4;
+    fixed-bottom:           4;
+    foreground-color:       $colorWidgetText;
+    font-resid:             $fontRaldoId;
+    font-size:              $fontRaldoSize;
+    horizontal-alignment:   center;
+    margin:                 2;
+    margin-left:            2;
+    margin-right:           2;
+    min-width:              $defaultWidth;
+    min-height:             $metricGrid;
+}
+EnumParameterWidget:selected
+{
+    animation-index:        1;
+    foreground-color:       $colorWidgetTextSelected;
+}
+EnumParameterWidget:down
+{
+    animation-index:        2;
+}
+EnumParameterWidget:selected:down
+{
+    animation-index:        3;
+    foreground-color:       $colorWidgetTextSelected;
+}
+EnumParameterWidget:over
+{
+    animation-index:        4;
+}
+EnumParameterWidget:over:selected
+{
+    animation-index:        5;
+}
+EnumParameterWidget:!enabled
+{
+    animation-index:        6;
+    foreground-color:       $colorWidgetTextDisabled;
+}
+
+EnumParameterWidget[color=color1]  { foreground-color: $color1; }
+EnumParameterWidget[color=color2]  { foreground-color: $color2; }
+EnumParameterWidget[color=color3]  { foreground-color: $color3; }
+EnumParameterWidget[color=color4]  { foreground-color: $color4; }
+EnumParameterWidget[color=color5]  { foreground-color: $color5; }
+EnumParameterWidget[color=color6]  { foreground-color: $color6; }
+EnumParameterWidget[color=color7]  { foreground-color: $color7; }
+EnumParameterWidget[color=color8]  { foreground-color: $color8; }
+EnumParameterWidget[color=color9]  { foreground-color: $color9; }
+EnumParameterWidget[color=color10] { foreground-color: $color10; }
+EnumParameterWidget[color=color11] { foreground-color: $color11; }
+EnumParameterWidget[color=color12] { foreground-color: $color12; }
+EnumParameterWidget[color=color13] { foreground-color: $color13; }
+EnumParameterWidget[color=color14] { foreground-color: $color14; }
+EnumParameterWidget[color=color15] { foreground-color: $color15; }
+EnumParameterWidget[color=color16] { foreground-color: $color16; }
+

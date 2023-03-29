@@ -1,0 +1,9 @@
+Bar#DataTrackingDialogPageScreenLeft Bar#StudioDisplayBar
+{
+    image: url("Shared/HW/Dialogs/Usage_Data_Tracking_L.png");
+}
+
+Bar#DataTrackingDialogPageScreenRight Bar#StudioDisplayBar
+{
+    image: url("Shared/HW/Dialogs/Usage_Data_Tracking_R.png");
+}

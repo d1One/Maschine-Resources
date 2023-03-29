@@ -1,0 +1,22 @@
+
+@import url("Shared/HW/MaschineStudio/Colors.txt");
+
+@import url("Shared/HW/MaschineStudio/Standard.txt");
+@import url("Shared/HW/MaschineStudio/Standard/Bar.txt");
+@import url("Shared/HW/MaschineStudio/Standard/Button.txt");
+@import url("Shared/HW/MaschineStudio/Standard/Label.txt");
+@import url("Shared/HW/MaschineStudio/Standard/Overlay.txt");
+@import url("Shared/HW/MaschineStudio/Standard/Scrollbars.txt");
+
+@import url("Shared/HW/MaschineStudio/Panels/ButtonBar.txt");
+
+@import url("Shared/HW/MaschineStudio/CapacitiveOverlays.txt");
+
+@import url("Shared/HW/KompleteMK2/DisplayBar.txt");
+
+@import url("Shared/HW/MaschineStudio/BrowsePage.txt");
+@import url("Shared/HW/MaschineStudio/ControlPage.txt");
+
+@import url("Shared/HW/MaschineStudio/Panels/InfoBar.txt");
+@import url("Shared/HW/MaschineStudio/Panels/DisplayBar.txt");
+@import url("Shared/HW/MaschineStudio/Panels/ParamBar.txt");

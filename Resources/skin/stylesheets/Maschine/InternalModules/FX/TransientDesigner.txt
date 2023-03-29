@@ -1,0 +1,62 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// TRANSIENT DESIGNER
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+TransientDesignerEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png"); 
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-396;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+TransientDesignerEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_transientmaster.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// CONTROLS
+//--------------------------------------------------------------------------------------------------------
+
+// GAIN
+TransientDesignerEditor Bar#InputGain
+{
+    x:                                  39;
+    y:                                  $Y-FX-BigKnob-Middle;
+}
+
+// ATTACK
+TransientDesignerEditor Bar#Attack
+{
+    x:                                  131;
+    y:                                  $Y-FX-BigKnob-Middle;
+}
+
+// SUSTAIN
+TransientDesignerEditor Bar#Sustain
+{
+    x:                                  223;
+    y:                                  $Y-FX-BigKnob-Middle;
+}
+
+// SMOOTH SWITCH (Limit right now --> FIX THIS!)
+TransientDesignerEditor Bar#Limit
+{
+    x:                                  300;
+    y:                                  $Y-FX-BigKnob-Middle;
+}
+
+// SMOOTH SWITCH centered BoolButton positioning
+TransientDesignerEditor Bar#Limit Bar#m_pBoolBar Button
+{
+    outer-margin-top:                   3;
+}

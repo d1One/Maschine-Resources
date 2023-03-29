@@ -1,0 +1,81 @@
+//----------------------------------------------------------------------------------------------------------------------
+// OSO HEADER
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// MAIN CONTAINER
+OnScreenOverlayHeader
+{
+    image:                      url("Shared/OSO/Header/OSO_HDR_BG.png");
+    fixed-left:                 10;
+    fixed-right:                10;
+    picture-includes-margin:    true;
+}
+
+
+
+// KOMPLETE LOGO
+OnScreenOverlayHeader Label#m_pProductLogo[Product=KompleteKontrol]
+{
+    image:                      url("Shared/OSO/Header/OSO_HDR_LBL_LogoKomplete.png");
+    foreground-color:           no;
+    outer-margin-left:          1;
+}
+
+OnScreenOverlayHeader Label#m_pProductLogo[Product=Jam]
+{
+    image:                      url("Maschine/OSO/Header/OSO_HDR_LBL_LogoMaschine.png");
+    foreground-color:           no;
+    outer-margin-left:          1;
+}
+
+
+
+// HARDWARE MODEL
+OnScreenOverlayHeader Label#m_pHardwareModel[ControllerModel=KompleteKontrol25]
+{
+    image:                      url("Shared/OSO/Header/OSO_HDR_LBL_LogoS25.png");
+}
+
+OnScreenOverlayHeader Label#m_pHardwareModel[ControllerModel=KompleteKontrol49]
+{
+    image:                      url("Shared/OSO/Header/OSO_HDR_LBL_LogoS49.png");
+}
+
+OnScreenOverlayHeader Label#m_pHardwareModel[ControllerModel=KompleteKontrol61]
+{
+    image:                      url("Shared/OSO/Header/OSO_HDR_LBL_LogoS61.png");
+}
+
+OnScreenOverlayHeader Label#m_pHardwareModel[ControllerModel=KompleteKontrol88]
+{
+    image:                      url("Shared/OSO/Header/OSO_HDR_LBL_LogoS88.png");
+}
+
+OnScreenOverlayHeader Label#m_pHardwareModel[ControllerModel=JamMk1]
+{
+    image:                      url("Maschine/OSO/Header/OSO_HDR_LBL_LogoMaschineJam.png");
+}
+
+
+// PRESET NAME
+OnScreenOverlayHeader Label#m_pPresetName
+{
+    foreground-color:           $colorWhite90;
+    horizontal-alignment:       left;
+    width:                      415;
+    outer-margin-left:          255;
+    margin-left:                23;
+    margin-top:                 1;
+    font-name:                  $fontPragmatica;
+    font-size:                  16;
+}
+
+
+
+// NI LOGO
+OnScreenOverlayHeader Label#pNILogo
+{
+    image:                      url("Shared/OSO/Header/OSO_HDR_LBL_LogoNI.png");
+    foreground-color:           no;
+}

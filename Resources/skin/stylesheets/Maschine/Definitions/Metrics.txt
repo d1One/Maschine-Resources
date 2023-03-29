@@ -1,0 +1,39 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Metrics
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Chain Panel
+//----------------------------------------------------------------------------------------------------------------------
+
+// Control Section Grid Width
+@define $metricSectionGrid      64;
+
+@define $metricMini             6;
+@define $metricGrid             18;
+@define $metricBig              96;
+
+@define $spacingGroup           3;
+@define $spacingPanel           2;
+@define $sizeSplitter           2;
+@define $sizeSplitterPanel      3;
+
+@define $defaultWidth           64;
+@define $halfWidth              36;
+@define $doubleWidth            128;
+
+@define $colorpicker-width      131;
+@define $colorpicker-height     128;
+
+@define $bankmanager-width      319;
+@define $bankmanager-height     319;
+
+
+
+// SOUND & GROUP PANEL
+//----------------------------------------------------------------------------------------------------------------------
+
+@define $sizeTrackHeight            21;
+@define $sizeTrackHeight-x2         42;
+
+@define $sizeTrackContentHeight     20;
+@define $sizeTrackContentHeight-x2  41;

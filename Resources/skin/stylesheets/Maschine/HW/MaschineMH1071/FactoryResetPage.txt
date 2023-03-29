@@ -1,0 +1,34 @@
+Bar#FactoryResetPageScreenRight MultilineLabel#LabelRight
+{
+    height: 96;
+    outer-margin-top: 53;
+
+    font-name: $fontPragmatica;
+    font-size: 21;
+    foreground-color: $colorWhite;
+
+    vertical-alignment: center;
+    horizontal-alignment: center;
+}
+
+Bar#FactoryResetPageScreenLeft Label#LabelLeft
+{
+    height: 54;
+    outer-margin-bottom: 70;
+
+    font-name: $fontPragmatica;
+    font-size: 21;
+    foreground-color: $colorWhite;
+
+    vertical-alignment: top;
+    horizontal-alignment: center;
+}
+
+Bar#FactoryResetPageScreenLeft Bar#Icon
+{
+    image: url("Shared/HW/Theme/Icons/ICN_About_L.png");
+    outer-margin-top: 60;
+    outer-margin-left: 192;
+    foreground-color: $colorWhite;
+    opacity: 100;
+}

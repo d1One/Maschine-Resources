@@ -1,0 +1,1606 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// INTERNAL MODULE CONTROLS
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// BUTTON STATES
+//-----------------------------------------------------------------------------------------------------------------------
+
+// Image
+ModuleEditorsView Button:selected {         animation-index:1;}
+ModuleEditorsView Button:!selected:down {   animation-index:2;}
+ModuleEditorsView Button:selected:down {    animation-index:3;}
+ModuleEditorsView Button:!selected:over {   animation-index:4;}
+ModuleEditorsView Button:selected:over  {   animation-index:5;}
+ModuleEditorsView Button:!enabled {         animation-index:6;}
+
+// Dye mask
+ModuleEditorsView Button:selected,
+KPI_Panel *#ToolBar Button:selected
+{dye-mask-animation-index:1;}
+
+ModuleEditorsView Button:!selected:down,
+KPI_Panel *#ToolBar Button:!selected:down
+{dye-mask-animation-index:2;}
+
+ModuleEditorsView Button:selected:down,
+KPI_Panel *#ToolBar Button:selected:down
+{dye-mask-animation-index:3;}
+
+ModuleEditorsView Button:over,
+KPI_Panel *#ToolBar Button:over
+{dye-mask-animation-index:4;}
+
+ModuleEditorsView Button:over,
+KPI_Panel *#ToolBar Button:over
+{dye-mask-animation-index:5;}
+
+ModuleEditorsView Button:!enabled,
+KPI_Panel *#ToolBar Button:!enabled
+{dye-mask-animation-index:6;}
+
+
+// Button States for FX Switches (change state on hover already as in midarea)
+//-----------------------------------------------------------------------------------------------------------------------
+
+// Image
+ModuleEditorsView Bar.InternalFXSwitch Button:selected {         animation-index:1;}
+ModuleEditorsView Bar.InternalFXSwitch Button:!selected:down {   animation-index:1;}
+ModuleEditorsView Bar.InternalFXSwitch Button:selected:down {    animation-index:0;}
+ModuleEditorsView Bar.InternalFXSwitch Button:!selected:over {   animation-index:4;}
+ModuleEditorsView Bar.InternalFXSwitch Button:selected:over  {   animation-index:5;}
+ModuleEditorsView Bar.InternalFXSwitch Button:!enabled {         animation-index:6;}
+
+// Dye mask
+ModuleEditorsView Bar.InternalFXSwitch Button:selected {         dye-mask-animation-index:1;}
+ModuleEditorsView Bar.InternalFXSwitch Button:!selected:down {   dye-mask-animation-index:1;}
+ModuleEditorsView Bar.InternalFXSwitch Button:selected:down {    dye-mask-animation-index:0;}
+ModuleEditorsView Bar.InternalFXSwitch Button:over {             dye-mask-animation-index:4;}
+ModuleEditorsView Bar.InternalFXSwitch Button:over {             dye-mask-animation-index:5;}
+ModuleEditorsView Bar.InternalFXSwitch Button:!enabled {         dye-mask-animation-index:6;}
+
+
+//=======================================================================================================================
+// POTI BIG
+//=======================================================================================================================
+
+Bar.DrumSynth,
+Bar.InternalFXPotiBig,
+Bar.DrumSynthPotiBigFM,
+Bar.BassSynth,
+Bar.BassSynthPotiBigFM
+{
+    height:                             84;
+    width:                              74;
+    margin:                             0;
+}
+
+Bar.DrumSynth Stack#m_pParameterStack,
+Bar.InternalFXPotiBig Stack#m_pParameterStack,
+Bar.DrumSynthPotiBigFM Stack#m_pParameterStack,
+Bar.BassSynth Stack#m_pParameterStack,
+Bar.BassSynthPotiBigFM Stack#m_pParameterStack
+{
+    height:                             53;
+}
+
+Bar.DrumSynth ParameterDragger#m_pNumericDragger,
+Bar.InternalFXPotiBig ParameterDragger#m_pNumericDragger,
+Bar.DrumSynthPotiBigFM ParameterDragger#m_pNumericDragger,
+Bar.BassSynth ParameterDragger#m_pNumericDragger,
+Bar.BassSynthPotiBigFM ParameterDragger#m_pNumericDragger
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_knob_large.png");
+
+    diameter-inner:                     54; // Diameter Poti Ring
+    diameter-outer:                     0;  // ?
+
+    center-x:                           27; // Reacts on margin (-left) --> -10px
+    center-y:                           26;
+
+    margin-left:                        10;
+    picture-includes-margin:            true;
+}
+
+// Shadow to cover Labels
+Bar.DrumSynth Bar#m_pShadowOverlay,
+Bar.InternalFXPotiBig Bar#m_pShadowOverlay,
+Bar.DrumSynthPotiBigFM Bar#m_pShadowOverlay,
+Bar.BassSynth Bar#m_pShadowOverlay,
+Bar.BassSynthPotiBigFM Bar#m_pShadowOverlay
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_knob_large_shadow.png");
+    height:                             31;
+}
+
+// Unipolar Potis
+Bar.DrumSynth Dragger#m_pKnob,
+Bar.InternalFXPotiBig Dragger#m_pKnob,
+Bar.DrumSynthPotiBigFM Dragger#m_pKnob,
+Bar.BassSynth Dragger#m_pKnob,
+Bar.BassSynthPotiBigFM Dragger#m_pKnob
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_knob_large_indicator_stroke.png");
+    animations_for_range:               129;
+    animations:                         129;
+    dye-mask:                           url("Shared/InternalModules/SharedControls/intmod_knob_large_dyemask.png");
+    dye-color:                          $colorWhite;
+    dye-color-palette:                  11;
+    dye-mask-animations:                129;
+
+    fixed-left:                         no;
+    fixed-top:                          no;
+    fixed-right:                        no;
+    fixed-bottom:                       no;
+    picture-includes-margin:            false;
+
+    foreground-color:                   no;
+
+    width:                              54;
+    height:                             54;
+}
+
+// Bipolar Potis
+SnareEditor Bar#ClapBend Dragger#m_pKnob,
+TomEditor[Mode=Tronic] Bar#TomBend Dragger#m_pKnob,
+TomEditor[Mode=Fractal] Bar#FBMatrixTomTrans Dragger#m_pKnob,
+SamplerEditor Bar#Tune Dragger#m_pKnob,
+ResochordEditor Bar#Transpose Dragger#m_pKnob,
+SaturatorEditor Bar#TubeGain Dragger#m_pKnob,
+GrainDelayEditor Bar#Pitch Dragger#m_pKnob,
+TransientDesignerEditor Bar#Attack Dragger#m_pKnob,
+TransientDesignerEditor Bar#Sustain Dragger#m_pKnob,
+FilterEditor Bar#Amount Dragger#m_pKnob,
+SaturatorEditor Bar#TapeWarmth Dragger#m_pKnob,
+FlangerEditor Bar#Modulation Dragger#m_pKnob,
+PhaserEditor Bar#ModAmount Dragger#m_pKnob,
+EQEditor Bar#LowGain Dragger#m_pKnob,
+EQEditor Bar#Mid1Gain Dragger#m_pKnob,
+EQEditor Bar#Mid2Gain Dragger#m_pKnob,
+EQEditor Bar#HighGain Dragger#m_pKnob
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_knob_large_indicator_stroke.png");
+    animations_for_range:               129;
+    animations:                         129;
+    dye-mask:                           url("Shared/InternalModules/SharedControls/intmod_knob_large_bi_dyemask.png");
+    dye-color:                          $colorWhite;
+    dye-color-palette:                  11;
+    dye-mask-animations:                129;
+
+    fixed-left:                         no;
+    fixed-top:                          no;
+    fixed-right:                        no;
+    fixed-bottom:                       no;
+    picture-includes-margin:            false;
+
+    foreground-color:                   no;
+
+    width:                              54;
+    height:                             54;
+}
+
+
+Bar.DrumSynth Dragger#m_pRing,
+Bar.InternalFXPotiBig Dragger#m_pRing,
+Bar.DrumSynthPotiBigFM Dragger#m_pRing,
+Bar.BassSynth Dragger#m_pRing,
+Bar.BassSynthPotiBigFM Dragger#m_pRing,
+PerformanceFXEditor Bar#FilterMinFreq Dragger#m_pRing,
+PerformanceFXEditor Bar#FilterMaxFreq Dragger#m_pRing,
+PerformanceFXEditor Bar#FlangerSaturation Dragger#m_pRing,
+PerformanceFXEditor Bar#FlangerStereo Dragger#m_pRing,
+PerformanceFXEditor Bar#Filter Dragger#m_pRing,
+PerformanceFXEditor Bar#ResoEchoDelayTime Dragger#m_pRing,
+PerformanceFXEditor Bar#ResoEchoFeedback Dragger#m_pRing,
+PerformanceFXEditor Bar#ResoEchoPump Dragger#m_pRing,
+PerformanceFXEditor Bar#StutterLength Dragger#m_pRing,
+PerformanceFXEditor Bar#RingReverbTime Dragger#m_pRing,
+PerformanceFXEditor Bar#RingReverbMix Dragger#m_pRing,
+PerformanceFXEditor Bar#BurstEchoFeed Dragger#m_pRing,
+PerformanceFXEditor Bar#ScratcherDelayTime Dragger#m_pRing,
+PerformanceFXEditor Bar#ScratcherFeedback Dragger#m_pRing
+{
+    image:                              no;
+}
+
+
+//=======================================================================================================================
+// POTI SMALL
+//=======================================================================================================================
+
+Bar.InternalFXPotiSmall,
+Bar.DrumSynthPotiSmall,
+Bar.DrumSynthPotiSmallFM,
+Bar.BassSynthPotiSmall,
+Bar.BassSynthPotiSmallFM,
+PerformanceFXEditor Bar#FilterResonance,
+PerformanceFXEditor Bar#FilterOutLevel,
+PerformanceFXEditor Bar#BurstEchoFeedback,
+PerformanceFXEditor Bar#BurstEchoWetLevel,
+PerformanceFXEditor Bar#StutterLength,
+PerformanceFXEditor Bar#FlangerWetLevel,
+PerformanceFXEditor Bar#ResoEchoWetLevel,
+PerformanceFXEditor Bar#ResoEchoSaturation,
+PerformanceFXEditor Bar#ResoEchoResonance,
+PerformanceFXEditor Bar#RingSpread,
+PerformanceFXEditor Bar#TremoloTremVibr,
+PerformanceFXEditor Bar#TremoloAttRel,
+PerformanceFXEditor Bar#TremoloStereo,
+Bar.BassSynthPotiSmall Bar#Drive
+{
+    width:                              74;
+    height:                             66;
+    margin:                             0;
+}
+
+Bar.InternalFXPotiSmall Stack#m_pParameterStack,
+Bar.DrumSynthPotiSmall Stack#m_pParameterStack,
+Bar.DrumSynthPotiSmallFM Stack#m_pParameterStack,
+Bar.BassSynthPotiSmall Stack#m_pParameterStack,
+Bar.BassSynthPotiSmallFM Stack#m_pParameterStack,
+PerformanceFXEditor Bar#FilterSaturation Stack#m_pParameterStack,
+PerformanceFXEditor Bar#FilterResonance Stack#m_pParameterStack,
+PerformanceFXEditor Bar#FilterOutLevel Stack#m_pParameterStack,
+PerformanceFXEditor Bar#StutterGate Stack#m_pParameterStack,
+PerformanceFXEditor Bar#BurstEchoFeedback Stack#m_pParameterStack,
+PerformanceFXEditor Bar#BurstEchoWetLevel Stack#m_pParameterStack,
+PerformanceFXEditor Bar#StutterLength Stack#m_pParameterStack,
+PerformanceFXEditor Bar#FlangerWetLevel Stack#m_pParameterStack,
+PerformanceFXEditor Bar#ResoEchoWetLevel Stack#m_pParameterStack,
+PerformanceFXEditor Bar#ResoEchoResonance Stack#m_pParameterStack,
+PerformanceFXEditor Bar#ResoEchoSaturation Stack#m_pParameterStack,
+PerformanceFXEditor Bar#RingSpread Stack#m_pParameterStack,
+PerformanceFXEditor Bar#RingGlide Stack#m_pParameterStack,
+PerformanceFXEditor Bar#RingDryWet Stack#m_pParameterStack,
+PerformanceFXEditor Bar#TremoloTremVibr Stack#m_pParameterStack,
+PerformanceFXEditor Bar#TremoloAttRel Stack#m_pParameterStack,
+PerformanceFXEditor Bar#TremoloStereo Stack#m_pParameterStack
+{
+    height:                             40;
+
+}
+
+Bar.InternalFXPotiSmall ParameterDragger#m_pNumericDragger,
+Bar.DrumSynthPotiSmall ParameterDragger#m_pNumericDragger,
+Bar.DrumSynthPotiSmallFM ParameterDragger#m_pNumericDragger,
+Bar.BassSynthPotiSmall ParameterDragger#m_pNumericDragger,
+Bar.BassSynthPotiSmallFM ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#FilterResonance ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#FilterSaturation ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#FilterOutLevel ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#StutterGate ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#BurstEchoFeedback ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#BurstEchoWetLevel ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#StutterLength ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#FlangerWetLevel ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#ResoEchoWetLevel ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#ResoEchoResonance ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#ResoEchoSaturation ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#RingSpread ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#RingGlide ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#RingDryWet ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#TremoloTremVibr ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#TremoloAttRel ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#TremoloStereo ParameterDragger#m_pNumericDragger
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_knob_small.png");
+
+    diameter-inner:                     40;     // Radius of Poti Ring
+    diameter-outer:                     0;      // ?
+
+    center-x:                           20;     // Reacts on margin (-left) --> -17px
+    center-y:                           20;
+
+    margin-left:                        17;
+    picture-includes-margin:            true;
+}
+
+Bar.InternalFXPotiSmall Bar#m_pShadowOverlay,
+Bar.DrumSynthPotiSmall Bar#m_pShadowOverlay,
+Bar.DrumSynthPotiSmallFM Bar#m_pShadowOverlay,
+Bar.BassSynthPotiSmall Bar#m_pShadowOverlay,
+Bar.BassSynthPotiSmallFM Bar#m_pShadowOverlay,
+PerformanceFXEditor Bar#FilterResonance Bar#m_pShadowOverlay,
+PerformanceFXEditor Bar#StutterGate Bar#m_pShadowOverlay,
+PerformanceFXEditor Bar#BurstEchoFeedback Bar#m_pShadowOverlay,
+PerformanceFXEditor Bar#BurstEchoWetLevel Bar#m_pShadowOverlay,
+PerformanceFXEditor Bar#StutterLength Bar#m_pShadowOverlay,
+PerformanceFXEditor Bar#ResoEchoWetLevel Bar#m_pShadowOverlay,
+PerformanceFXEditor Bar#FlangerWetLevel Bar#m_pShadowOverlay,
+PerformanceFXEditor Bar#RingSpread Bar#m_pShadowOverlay,
+PerformanceFXEditor Bar#RingGlide Bar#m_pShadowOverlay,
+PerformanceFXEditor Bar#RingDryWet Bar#m_pShadowOverlay,
+PerformanceFXEditor Bar#TremoloTremVibr Bar#m_pShadowOverlay,
+PerformanceFXEditor Bar#TremoloAttRel Bar#m_pShadowOverlay,
+PerformanceFXEditor Bar#TremoloStereo Bar#m_pShadowOverlay
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_knob_small_shadow.png");
+    height:                             26;
+}
+
+
+// Unipolar Potis
+Bar.InternalFXPotiSmall Dragger#m_pKnob,
+Bar.DrumSynthPotiSmall Dragger#m_pKnob,
+Bar.DrumSynthPotiSmallFM Dragger#m_pKnob,
+Bar.BassSynthPotiSmall Dragger#m_pKnob,
+Bar.BassSynthPotiSmallFM Dragger#m_pKnob,
+PerformanceFXEditor Bar#FilterResonance Dragger#m_pKnob,
+PerformanceFXEditor Bar#FilterSaturation Dragger#m_pKnob,
+PerformanceFXEditor Bar#FilterOutLevel Dragger#m_pKnob,
+PerformanceFXEditor Bar#StutterGate Dragger#m_pKnob,
+PerformanceFXEditor Bar#BurstEchoFeedback Dragger#m_pKnob,
+PerformanceFXEditor Bar#BurstEchoWetLevel Dragger#m_pKnob,
+PerformanceFXEditor Bar#StutterLength Dragger#m_pKnob,
+PerformanceFXEditor Bar#FlangerWetLevel Dragger#m_pKnob,
+PerformanceFXEditor Bar#ResoEchoWetLevel Dragger#m_pKnob,
+PerformanceFXEditor Bar#ResoEchoResonance Dragger#m_pKnob,
+PerformanceFXEditor Bar#ResoEchoSaturation Dragger#m_pKnob,
+PerformanceFXEditor Bar#RingSpread Dragger#m_pKnob,
+PerformanceFXEditor Bar#RingGlide Dragger#m_pKnob,
+PerformanceFXEditor Bar#RingDryWet Dragger#m_pKnob,
+PerformanceFXEditor Bar#TremoloTremVibr Dragger#m_pKnob,
+PerformanceFXEditor Bar#TremoloAttRel Dragger#m_pKnob,
+PerformanceFXEditor Bar#TremoloStereo Dragger#m_pKnob
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_knob_small_indicator_stroke.png");
+    animations_for_range:               129;
+    animations:                         129;
+    dye-mask:                           url("Shared/InternalModules/SharedControls/intmod_knob_small_dyemask.png");
+    dye-color:                          $colorWhite;
+    dye-color-palette:                  11;
+    dye-mask-animations:                129;
+
+    fixed-left:                         no;
+    fixed-top:                          no;
+    fixed-right:                        no;
+    fixed-bottom:                       no;
+    picture-includes-margin:            false;
+
+    foreground-color:                   no;
+
+    width:                              40;
+    height:                             40;
+}
+
+// Bipolar Potis
+TomEditor[Mode=Fractal] Bar#TomBend Dragger#m_pKnob,
+DistortionEditor Bar#ToneMod Dragger#m_pKnob,
+DistortionEditor Bar#Feedback Dragger#m_pKnob,
+BeatDelayEditor Bar#Stereo Dragger#m_pKnob,
+MetaverbEditor Bar#Pan Dragger#m_pKnob,
+ReverbEditor Bar#Pan Dragger#m_pKnob,
+ReverbEditor Bar#Stereo Dragger#m_pKnob,
+FilterEditor Bar#Phase Dragger#m_pKnob,
+FilterEditor Bar#ShapeEnv Dragger#m_pKnob,
+EQEditor Bar#OutputGain Dragger#m_pKnob,
+BassSynthEditor Bar#Drive Dragger#m_pKnob
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_knob_small_indicator_stroke.png");
+    animations_for_range:               129;
+    animations:                         129;
+    dye-mask:                           url("Shared/InternalModules/SharedControls/intmod_knob_small_bi_dyemask.png");
+    dye-color:                          $colorWhite;
+    dye-color-palette:                  11;
+    dye-mask-animations:                129;
+
+    fixed-left:                         no;
+    fixed-top:                          no;
+    fixed-right:                        no;
+    fixed-bottom:                       no;
+    picture-includes-margin:            false;
+
+    foreground-color:                   no;
+
+    width:                              40;
+    height:                             40;
+}
+
+Bar.InternalFXPotiSmall Dragger#m_pRing,
+Bar.DrumSynthPotiSmall Dragger#m_pRing,
+Bar.DrumSynthPotiSmallFM Dragger#m_pRing,
+Bar.BassSynthPotiSmall Dragger#m_pRing,
+Bar.BassSynthPotiSmallFM Dragger#m_pRing,
+PerformanceFXEditor Bar#BurstEchoFeedback Dragger#m_pRing,
+PerformanceFXEditor Bar#FilterOutLevel Dragger#m_pRing,
+PerformanceFXEditor Bar#FlangerWetLevel Dragger#m_pRing,
+PerformanceFXEditor Bar#TremoloTremVibr Dragger#m_pRing,
+PerformanceFXEditor Bar#TremoloAttRel Dragger#m_pRing,
+PerformanceFXEditor Bar#TremoloStereo Dragger#m_pRing
+{
+    image:                              no;
+}
+
+
+//=======================================================================================================================
+// POTI 2D SMALL
+//=======================================================================================================================
+
+Bar#m_pEditorContainer KickEditor#m_pEditor Bar#Tune,
+Bar#m_pEditorContainer SnareEditor#m_pEditor Bar#Tune,
+Bar#m_pEditorContainer HihatEditor#m_pEditor Bar#Tune,
+Bar#m_pEditorContainer TomEditor#m_pEditor Bar#Tune,
+Bar#m_pEditorContainer PercEditor#m_pEditor Bar#Tune,
+Bar#m_pEditorContainer CymbalEditor#m_pEditor Bar#Tune,
+PerformanceFXEditor Bar#FlangerStereo,
+PerformanceFXEditor Bar#FlangerSaturation,
+PerformanceFXEditor Bar#Filter,
+PerformanceFXEditor Bar#ResoEchoFeedback,
+PerformanceFXEditor Bar#ResoEchoDelayTime,
+PerformanceFXEditor Bar#ResoEchoPump,
+PerformanceFXEditor Bar#BurstEchoFeed
+{
+    width:                              30;
+    height:                             26;
+}
+
+Bar#m_pEditorContainer KickEditor#m_pEditor Bar#Tune Stack#m_pParameterStack,
+Bar#m_pEditorContainer SnareEditor#m_pEditor Bar#Tune Stack#m_pParameterStack,
+Bar#m_pEditorContainer HihatEditor#m_pEditor Bar#Tune Stack#m_pParameterStack,
+Bar#m_pEditorContainer TomEditor#m_pEditor Bar#Tune Stack#m_pParameterStack,
+Bar#m_pEditorContainer PercEditor#m_pEditor Bar#Tune Stack#m_pParameterStack,
+Bar#m_pEditorContainer CymbalEditor#m_pEditor Bar#Tune Stack#m_pParameterStack,
+PerformanceFXEditor Bar#FilterMinFreq Stack#m_pParameterStack,
+PerformanceFXEditor Bar#FilterMaxFreq Stack#m_pParameterStack,
+PerformanceFXEditor Bar#FlangerStereo Stack#m_pParameterStack,
+PerformanceFXEditor Bar#FlangerSaturation Stack#m_pParameterStack,
+PerformanceFXEditor Bar#FlangerStereo Stack#m_pParameterStack,
+PerformanceFXEditor Bar#Filter Stack#m_pParameterStack,
+PerformanceFXEditor Bar#ResoEchoPump Stack#m_pParameterStack,
+PerformanceFXEditor Bar#ResoEchoFeedback Stack#m_pParameterStack,
+PerformanceFXEditor Bar#ResoEchoDelayTime Stack#m_pParameterStack,
+PerformanceFXEditor Bar#RingReverbTime Stack#m_pParameterStack,
+PerformanceFXEditor Bar#RingReverbMix Stack#m_pParameterStack,
+PerformanceFXEditor Bar#BurstEchoFeed Stack#m_pParameterStack,
+PerformanceFXEditor Bar#ScratcherDelayTime Stack#m_pParameterStack,
+PerformanceFXEditor Bar#ScratcherFeedback Stack#m_pParameterStack
+{
+    height:                             26;
+    width:                              26;
+}
+
+Bar#m_pEditorContainer KickEditor#m_pEditor Bar#Tune ParameterDragger#m_pNumericDragger,
+Bar#m_pEditorContainer SnareEditor#m_pEditor Bar#Tune ParameterDragger#m_pNumericDragger,
+Bar#m_pEditorContainer HihatEditor#m_pEditor Bar#Tune ParameterDragger#m_pNumericDragger,
+Bar#m_pEditorContainer TomEditor#m_pEditor Bar#Tune ParameterDragger#m_pNumericDragger,
+Bar#m_pEditorContainer PercEditor#m_pEditor Bar#Tune ParameterDragger#m_pNumericDragger,
+Bar#m_pEditorContainer CymbalEditor#m_pEditor Bar#Tune ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#FilterMinFreq ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#FilterMaxFreq ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#FlangerStereo ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#FlangerSaturation ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#Filter ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#ResoEchoResonance ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#ResoEchoSaturation ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#ResoEchoDelayTime ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#ResoEchoFeedback ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#ResoEchoPump ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#RingReverbTime ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#RingReverbMix ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#BurstEchoFeed ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#ScratcherDelayTime ParameterDragger#m_pNumericDragger,
+PerformanceFXEditor Bar#ScratcherFeedback ParameterDragger#m_pNumericDragger
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_knob_small_2d_bg.png");
+    margin-left:                        0;
+    diameter-inner:                     42;
+    diameter-outer:                     42;
+
+    center-x:                           13;
+    center-y:                           13;
+}
+
+Bar#m_pEditorContainer KickEditor#m_pEditor Bar#Tune Dragger#m_pKnob,
+Bar#m_pEditorContainer SnareEditor#m_pEditor Bar#Tune Dragger#m_pKnob,
+Bar#m_pEditorContainer HihatEditor#m_pEditor Bar#Tune Dragger#m_pKnob,
+Bar#m_pEditorContainer TomEditor#m_pEditor Bar#Tune Dragger#m_pKnob,
+Bar#m_pEditorContainer PercEditor#m_pEditor Bar#Tune Dragger#m_pKnob,
+Bar#m_pEditorContainer CymbalEditor#m_pEditor Bar#Tune Dragger#m_pKnob,
+PerformanceFXEditor Bar#FilterMinFreq Dragger#m_pKnob,
+PerformanceFXEditor Bar#FilterMaxFreq Dragger#m_pKnob,
+PerformanceFXEditor Bar#FlangerSaturation Dragger#m_pKnob,
+PerformanceFXEditor Bar#FlangerStereo Dragger#m_pKnob,
+PerformanceFXEditor Bar#Filter Dragger#m_pKnob,
+PerformanceFXEditor Bar#ResoEchoPump Dragger#m_pKnob,
+PerformanceFXEditor Bar#ResoEchoDelayTime Dragger#m_pKnob,
+PerformanceFXEditor Bar#ResoEchoFeedback Dragger#m_pKnob,
+PerformanceFXEditor Bar#RingReverbTime Dragger#m_pKnob,
+PerformanceFXEditor Bar#RingReverbMix Dragger#m_pKnob,
+PerformanceFXEditor Bar#BurstEchoFeed Dragger#m_pKnob,
+PerformanceFXEditor Bar#ScratcherDelayTime Dragger#m_pKnob,
+PerformanceFXEditor Bar#ScratcherFeedback Dragger#m_pKnob
+{
+    image:                              no;
+    animations_for_range:               129;
+    animations:                         129;
+    dye-mask:                           url("Shared/InternalModules/SharedControls/intmod_knob_small_2d_dyemask.png");
+    dye-color-palette:                  11;
+    dye-mask-animations:                129;
+
+    fixed-left:                         no;
+    fixed-top:                          no;
+    fixed-right:                        no;
+    fixed-bottom:                       no;
+    picture-includes-margin:            false;
+
+    foreground-color:                   no;
+
+    width:                              26;
+    height:                             26;
+}
+
+//=======================================================================================================================
+// POTI 2D BIG
+//=======================================================================================================================
+
+Bar#m_pEditorContainer PercEditor#m_pEditor Bar#ShakerFilt
+{
+    width:                              45;
+    height:                             45;
+    x:                                  510;
+    y:                                  100;
+}
+
+Bar#m_pEditorContainer PercEditor#m_pEditor Bar#ShakerFilt Stack#m_pParameterStack
+{
+    height:                             45;
+    width:                              45;
+}
+
+Bar#m_pEditorContainer PercEditor#m_pEditor Bar#ShakerFilt ParameterDragger#m_pNumericDragger
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_knob_big_2d_bg.png");
+    margin-left:                        0;
+    diameter-inner:                     45;
+    diameter-outer:                     0;
+
+    center-x:                           22;
+    center-y:                           22;
+}
+
+Bar#m_pEditorContainer PercEditor#m_pEditor Bar#ShakerFilt Dragger#m_pKnob
+{
+    image:                              no;
+    animations_for_range:               129;
+    animations:                         129;
+    dye-mask:                           url("Shared/InternalModules/SharedControls/intmod_knob_big_2d_dyemask.png");
+    dye-color-palette:                  11;
+    dye-mask-animations:                129;
+
+    fixed-left:                         no;
+    fixed-top:                          no;
+    fixed-right:                        no;
+    fixed-bottom:                       no;
+    picture-includes-margin:            false;
+
+    foreground-color:                   no;
+
+    width:                              45;
+    height:                             45;
+}
+
+// Remove shadow
+Bar#m_pEditorContainer PercEditor#m_pEditor Bar#ShakerFilt Bar#m_pShadowOverlay
+{
+    image:                              no;
+}
+
+//-----------------------------------------------------------------------------------------------------------------------
+// Labels Correction (shift down for Small knobs next to big knobs)
+//-----------------------------------------------------------------------------------------------------------------------
+
+// TONE NAME LABEL CORRECTION
+SaturatorEditor Bar#TapeTone Stack#m_pNameStack,
+GateEditor Bar#Attack Stack#m_pNameStack,
+GateEditor Bar#Hold Stack#m_pNameStack,
+GateEditor Bar#Release Stack#m_pNameStack,
+MaximizerEditor Bar#Curve Stack#m_pNameStack,
+BassSynthEditor Bar#Drive Bar#Curve Stack#m_pNameStack,
+BassSynthEditor Bar#FilterEnv Bar#Curve Stack#m_pNameStack,
+BassSynthEditor Bar#FilterEnv Stack#m_pNameStack,
+BassSynthEditor Bar#Drive Stack#m_pNameStack
+{
+    height:                             24;
+    margin-top:                         6;
+    outer-margin-top:                   0;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// Labels / Value
+//-----------------------------------------------------------------------------------------------------------------------
+
+// Labels
+Bar.DrumSynth Stack#m_pNameStack Button,
+Bar.InternalFXPotiBig Stack#m_pNameStack Button,
+Bar.InternalFXPotiSmall Stack#m_pNameStack Button,
+Bar.DrumSynthPotiSmall Stack#m_pNameStack Button,
+Bar.DrumSynthPotiBigFM Stack#m_pNameStack Button,
+Bar.DrumSynthPotiSmallFM Stack#m_pNameStack Button,
+Bar.BassSynth Stack#m_pNameStack Button,
+Bar.BassSynthPotiBigFM Stack#m_pNameStack Button,
+Bar.BassSynthPotiSmall Stack#m_pNameStack Button,
+Bar.BassSynthPotiSmallFM Stack#m_pNameStack Button
+
+{
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    foreground-color:                   $colorWhite70;
+    horizontal-alignment:               center;
+    min-width:                          no;
+}
+
+// Labels for FX Switches
+Bar.InternalFXSwitch Stack#m_pNameStack Button,
+Bar.InternalFX Stack#m_pNameStack Button,
+Bar.DrumSynthSwitch Stack#m_pNameStack Button,
+Bar.BassSynthSwitch Stack#m_pNameStack Button,
+SnareEditor Bar#AnalogSnareMode Stack#m_pNameStack Button,
+HihatEditor Bar#CymbalMode Stack#m_pNameStack Button,
+CymbalEditor Bar#CrashMode Stack#m_pNameStack Button,
+PerformanceFXEditor Bar#StutterGate Stack#m_pNameStack Button#m_pName,
+PerformanceFXEditor Bar#StutterSync Stack#m_pNameStack Button#m_pNumericValue,
+PerformanceFXEditor Bar#BurstEchoFeedback Stack#m_pNameStack Button#m_pName,
+PerformanceFXEditor Bar#BurstEchoFeedback Stack#m_pNameStack Button#m_pNumericValue
+{
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    foreground-color:                   $colorWhite65; // Slightly dimmed
+    horizontal-alignment:               center;
+    min-width:                          no;
+}
+
+// Value Display Footer Colored
+Bar#m_pEditorContainer KickEditor#m_pEditor Bar#Tune Stack#m_pNameStack,
+Bar#m_pEditorContainer SnareEditor#m_pEditor Bar#Tune Stack#m_pNameStack,
+Bar#m_pEditorContainer HihatEditor#m_pEditor Bar#Tune Stack#m_pNameStack,
+Bar#m_pEditorContainer TomEditor#m_pEditor Bar#Tune Stack#m_pNameStack,
+Bar#m_pEditorContainer PercEditor#m_pEditor Bar#Tune Stack#m_pNameStack,
+PerformanceFXEditor Bar#FilterMinFreq Stack#m_pNameStack,
+PerformanceFXEditor Bar#FilterMaxFreq Stack#m_pNameStack,
+PerformanceFXEditor Bar#Filter Stack#m_pNameStack
+{
+    height:                             17;
+    outer-margin-top:                   -16;
+    outer-margin-left:                  43;
+}
+
+Bar#m_pEditorContainer KickEditor#m_pEditor Bar#Tune Button,
+Bar#m_pEditorContainer SnareEditor#m_pEditor Bar#Tune Button,
+Bar#m_pEditorContainer HihatEditor#m_pEditor Bar#Tune Button,
+Bar#m_pEditorContainer TomEditor#m_pEditor Bar#Tune Button,
+Bar#m_pEditorContainer PercEditor#m_pEditor Bar#Tune Button,
+Bar#m_pEditorContainer DraggerableValueEdit#DecayDragger Dragger,
+Bar#m_pEditorContainer DraggerableValueEdit#SmallTuneDragger Dragger,
+PerformanceFXEditor Bar#FilterMinFreq Button#m_pNumericValue,
+PerformanceFXEditor Bar#FilterMaxFreq Button#m_pNumericValue,
+PerformanceFXEditor Bar#ResoEchoFeedback Button#m_pNumericValue,
+PerformanceFXEditor Bar#ResoEchoDelayTime Button#m_pNumericValue,
+PerformanceFXEditor DraggerableValueEdit#FilterMinFreqDragger Dragger#Dragger,
+PerformanceFXEditor DraggerableValueEdit#FilterMaxFreqDragger Dragger#Dragger,
+PerformanceFXEditor DraggerableValueEdit#FlangerSaturationDragger Dragger#Dragger,
+PerformanceFXEditor DraggerableValueEdit#FlangerStereoDragger Dragger#Dragger,
+PerformanceFXEditor DraggerableValueEdit#BurstEchoFilterDragger Dragger#Dragger,
+PerformanceFXEditor DraggerableValueEdit#ResoEchoDelayTimeDragger Dragger#Dragger,
+PerformanceFXEditor DraggerableValueEdit#ResoEchoFeedbackDragger Dragger#Dragger,
+PerformanceFXEditor DraggerableValueEdit#ResoEchoPumpDragger Dragger#Dragger,
+PerformanceFXEditor DraggerableValueEdit#RingReverbTimeDragger Dragger#Dragger,
+PerformanceFXEditor DraggerableValueEdit#RingReverbMixDragger Dragger#Dragger,
+PerformanceFXEditor DraggerableValueEdit#BurstEchoFeedDragger Dragger#Dragger,
+PerformanceFXEditor DraggerableValueEdit#ScratcherFeedbackDragger Dragger#Dragger,
+PerformanceFXEditor DraggerableValueEdit#ScratcherDelayTimeDragger Dragger#Dragger
+
+//Bar#m_pEditorContainer Bar#Tune Button#m_pNumericValue,
+//Bar#m_pEditorContainer Bar#Tune Button#m_pName,
+
+{
+    image:                              no;
+    foreground-color:                   $colorDyeTest;
+    foreground-color-palette:           11;
+    height:                             17;
+    foreground-relative-left:           0;
+    horizontal-alignment:               left;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// LEVEL METERS
+//--------------------------------------------------------------------------------------------------------
+
+// Parent Bar
+Bar.InternalFXLevelMeterBar
+{
+    width:                              56;
+    height:                             136;
+}
+
+// Background
+Label.InternalFXLevelMeterBackground
+{
+    image:                              url("Maschine/InternalModules/FX/IntFX_MTR_BG.png");
+    x:                                  0;
+    y:                                  0;
+}
+
+// Level Meter
+LevelMeter.InternalFXLevelMeter
+{
+    width:                              56;
+    height:                             115;
+    foreground-color:                   $colorWhite;
+    foreground-color-palette:           1;
+    background-color:                   no;
+    image:                              no;
+    outer-margin-top:                   8;
+}
+
+// Masks see component files
+
+//// Mask
+//Label.InternalFXLevelMeterMask
+//{
+//    image:                              url("Maschine/InternalModules/FX/IntFX_MTR_Mask.png");
+//    x:                                  0;
+//    y:                                  0;
+//}
+
+// Slider Parent
+// ToDo: Style
+CompressorEditor Bar#ThresholdSlider,
+CompressorEditor Bar#GainSlider,
+LimiterEditor Bar#HilbertCeilingSlider,
+LimiterEditor Bar#ThresholdSlider,
+GateEditor Bar#ThresholdSlider
+{
+    width:                              56;
+    height:                             148;
+}
+
+CompressorEditor Bar#ThresholdSlider Stack#m_pParameterStack,
+CompressorEditor Bar#GainSlider Stack#m_pParameterStack,
+LimiterEditor Bar#HilbertCeilingSlider Stack#m_pParameterStack,
+LimiterEditor Bar#ThresholdSlider Stack#m_pParameterStack,
+GateEditor Bar#ThresholdSlider Stack#m_pParameterStack
+{
+    height:                             135;
+}
+
+CompressorEditor Bar#ThresholdSlider Stack#m_pNameStack,
+LimiterEditor Bar#ThresholdSlider Stack#m_pNameStack,
+LimiterEditor Bar#HilbertCeilingSlider Stack#m_pNameStack,
+GateEditor Bar#ThresholdSlider Stack#m_pNameStack,
+CompressorEditor Bar#GainSlider Stack#m_pNameStack
+
+{
+    outer-margin-top:                   -3;
+}
+
+// SLIDER HANDLE
+Slider.InternalFX Grip
+{
+    image:                              url("Maschine/InternalModules/FX/IntFX_FDR_Handle.png");
+    dye-mask:                           url("Maschine/InternalModules/FX/IntFX_FDR_Handle_Dyemask.png");
+    dye-color:                          $colorWhite;
+    dye-color-palette:                  11;
+    picture-includes-margin:            false;
+    margin-left:                        28;
+    outer-margin-top:                   0;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// LEVEL METER
+//-----------------------------------------------------------------------------------------------------------------------
+
+LevelMeter.InternalFX
+{
+    image:                              url("Maschine/InternalModules/FX/IntFX_Meter_GR.png");
+    animations:                         2;
+    animation-index:                    0;
+}
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// SLIDER AND LEVEL METER NAME LABELS
+//-----------------------------------------------------------------------------------------------------------------------
+
+CompressorEditor Bar#ThresholdSlider Button#m_pName,
+CompressorEditor Bar#GainSlider Button#m_pName,
+LimiterEditor    Bar#HilbertCeilingSlider Button#m_pName,
+GateEditor       Bar#ThresholdSlider Button#m_pName,
+LimiterEditor    Bar#ThresholdSlider Button#m_pName
+{
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    foreground-color:                   $colorWhite65; // Slightly dimmed
+    horizontal-alignment:               center;
+    width:                              56;
+    vertical-alignment:                 top;
+}
+
+//Small
+LimiterEditor Label#GainReductionLabel,
+CompressorEditor Label#GainReductionLabel
+{
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    foreground-color:                   $colorWhite65; // Slightly dimmed
+    horizontal-alignment:               center;
+    width:                              26;
+}
+
+//-----------------------------------------------------------------------------------------------------------------------
+// ENUM DARK
+//-----------------------------------------------------------------------------------------------------------------------
+
+// Styling for Middle Row (Cabinet Emulation)
+//-----------------------------------------------------------------------------------------------------------------------
+
+CabinetEmulationEditor Bar#Microphone,
+CabinetEmulationEditor Bar#Cabinet
+{
+    width:                              74;
+    height:                             80;
+    margin-left:                        0;
+}
+
+CabinetEmulationEditor Bar#Microphone Stack#m_pParameterStack,
+CabinetEmulationEditor Bar#Cabinet Stack#m_pParameterStack
+{
+    height:                             35;
+    margin-left:                        2;
+    outer-margin-top:                   18;
+}
+
+// Styling for 3 Rows (Beat Delay)
+//-----------------------------------------------------------------------------------------------------------------------
+
+BeatDelayEditor Bar#Unit,
+BeatDelayEditor Bar#Time,
+BeatDelayEditor Bar#Offset,
+BassSynthEditor Bar#FilterType
+{
+    width:                              74;
+    height:                             59;
+    margin-left:                        0;
+}
+
+BeatDelayEditor Bar#Unit Stack#m_pParameterStack,
+BeatDelayEditor Bar#Time Stack#m_pParameterStack,
+BeatDelayEditor Bar#Offset Stack#m_pParameterStack
+{
+    height:                             21;
+    margin-left:                        2;
+    outer-margin-top:                   5;
+}
+
+
+// Styling for Small Knob Fit
+//-----------------------------------------------------------------------------------------------------------------------
+
+GrainStretchEditor Bar#Loop
+{
+    width:                              74;
+    height:                             66;
+    margin-left:                        0;
+}
+
+GrainStretchEditor Bar#Loop Stack#m_pParameterStack
+{
+    height:                             28;
+    margin-left:                        2;
+    outer-margin-top:                   12;
+}
+
+// Styling for Big Knob Fit
+//-----------------------------------------------------------------------------------------------------------------------
+
+ResochordEditor Bar#Style,
+ResochordEditor Bar#Chord
+{
+    width:                              74;
+    height:                             84;
+    margin-left:                        0;
+}
+
+ResochordEditor Bar#Style Stack#m_pParameterStack,
+ResochordEditor Bar#Chord Stack#m_pParameterStack
+{
+    height:                             35;
+    margin-left:                        2;
+    outer-margin-top:                   18;
+}
+
+
+//Styling for ButtonSwitches Medium Fit
+//-----------------------------------------------------------------------------------------------------------------------
+
+PercEditor Bar#ShakerSync Stack#m_pParameterStack,
+PercEditor Bar#ShakerRate Stack#m_pParameterStack,
+PercEditor Bar#ShakerFill Stack#m_pParameterStack,
+PercEditor Bar#ShakerLength Stack#m_pParameterStack
+{
+    height:                            40;
+}
+
+// Styling for all
+//-----------------------------------------------------------------------------------------------------------------------
+
+CabinetEmulationEditor Bar#Microphone Bar#m_pEnumBar,
+CabinetEmulationEditor Bar#Cabinet Bar#m_pEnumBar,
+GrainStretchEditor Bar#Loop Bar#m_pEnumBar,
+ResochordEditor Bar#Style Bar#m_pEnumBar,
+ResochordEditor Bar#Chord Bar#m_pEnumBar,
+BeatDelayEditor Bar#Unit Bar#m_pEnumBar,
+BeatDelayEditor Bar#Time Bar#m_pEnumBar,
+BeatDelayEditor Bar#Offset Bar#m_pEnumBar,
+SnareEditor Bar#AnalogSnareMode Bar#m_pEnumBar,
+HihatEditor Bar#CymbalMode Bar#m_pEnumBar,
+PercEditor Bar#ShakerLength Bar#m_pEnumBar,
+PercEditor Bar#ShakerSync Bar#m_pEnumBar,
+PercEditor Bar#ShakerFill Bar#m_pEnumBar,
+PercEditor Bar#ShakerRate Bar#m_pEnumBar,
+CymbalEditor Bar#CrashMode Bar#m_pEnumBar,
+BassSynthEditor Bar#FilterType Bar#m_pEnumBar
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_bg_enum_dark.png");
+    fixed-left:                         4;
+    fixed-right:                        4;
+    width:                              70;
+}
+
+//Shaker Performer Button Positions
+PercEditor Bar#ShakerLength Bar#m_pEnumBar,
+PercEditor Bar#ShakerSync Bar#m_pEnumBar,
+PercEditor Bar#ShakerFill Bar#m_pEnumBar,
+PercEditor Bar#ShakerRate Bar#m_pEnumBar
+{
+    y:                                     11;
+}
+
+CabinetEmulationEditor Bar#Microphone Button#m_pEnumDec,
+CabinetEmulationEditor Bar#Cabinet Button#m_pEnumDec,
+GrainStretchEditor Bar#Loop Button#m_pEnumDec,
+ResochordEditor Bar#Style Button#m_pEnumDec,
+ResochordEditor Bar#Chord Button#m_pEnumDec,
+BeatDelayEditor Bar#Unit Button#m_pEnumDec,
+BeatDelayEditor Bar#Time Button#m_pEnumDec,
+BeatDelayEditor Bar#Offset Button#m_pEnumDec,
+SnareEditor Bar#AnalogSnareMode Button#m_pEnumDec,
+HihatEditor Bar#CymbalMode Button#m_pEnumDec,
+PercEditor Bar#ShakerLength Button#m_pEnumDec,
+PercEditor Bar#ShakerSync Button#m_pEnumDec,
+PercEditor Bar#ShakerFill Button#m_pEnumDec,
+PercEditor Bar#ShakerRate Button#m_pEnumDec,
+CymbalEditor Bar#CrashMode Button#m_pEnumDec,
+BassSynthEditor Bar#FilterType Button#m_pEnumDec
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_submenu_btn_left.png");
+    animations:                         7;
+    fixed-left:                         9;
+    x:                                  0;
+    y:                                  0;
+    foreground-color:                   no;
+    width:                              10;
+}
+
+//Shaker Performer Button Positions
+PercEditor Bar#ShakerLength Button#m_pEnumDec,
+PercEditor Bar#ShakerSync Button#m_pEnumDec,
+PercEditor Bar#ShakerFill Button#m_pEnumDec,
+PercEditor Bar#ShakerRate Button#m_pEnumDec
+{
+    y:                                     11;
+}
+
+
+CabinetEmulationEditor Bar#Microphone Button#m_pEnumInc,
+CabinetEmulationEditor Bar#Cabinet Button#m_pEnumInc,
+GrainStretchEditor Bar#Loop Button#m_pEnumInc,
+ResochordEditor Bar#Style Button#m_pEnumInc,
+ResochordEditor Bar#Chord Button#m_pEnumInc,
+BeatDelayEditor Bar#Unit Button#m_pEnumInc,
+BeatDelayEditor Bar#Time Button#m_pEnumInc,
+BeatDelayEditor Bar#Offset Button#m_pEnumInc,
+SnareEditor Bar#AnalogSnareMode Button#m_pEnumInc,
+HihatEditor Bar#CymbalMode Button#m_pEnumInc,
+PercEditor Bar#ShakerLength Button#m_pEnumInc,
+PercEditor Bar#ShakerSync Button#m_pEnumInc,
+PercEditor Bar#ShakerFill Button#m_pEnumInc,
+PercEditor Bar#ShakerRate Button#m_pEnumInc,
+CymbalEditor Bar#CrashMode Button#m_pEnumInc,
+BassSynthEditor Bar#FilterType Button#m_pEnumInc
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_submenu_btn_right.png");
+    animations:                         7;
+    fixed-right:                        9;
+    x:                                  60;
+    y:                                  0;
+    foreground-color:                   no;
+    width:                              10;
+}
+
+//Shaker Performer Button Positions
+PercEditor Bar#ShakerLength Button#m_pEnumInc,
+PercEditor Bar#ShakerSync Button#m_pEnumInc,
+PercEditor Bar#ShakerFill Button#m_pEnumInc,
+PercEditor Bar#ShakerRate Button#m_pEnumInc
+{
+    y:                                     11;
+}
+
+CabinetEmulationEditor Bar#Microphone Button#m_pEnumValue,
+CabinetEmulationEditor Bar#Cabinet Button#m_pEnumValue,
+GrainStretchEditor Bar#Loop Button#m_pEnumValue,
+ResochordEditor Bar#Style Button#m_pEnumValue,
+ResochordEditor Bar#Chord Button#m_pEnumValue,
+BeatDelayEditor Bar#Unit Button#m_pEnumValue,
+BeatDelayEditor Bar#Time Button#m_pEnumValue,
+BeatDelayEditor Bar#Offset Button#m_pEnumValue,
+SnareEditor Bar#AnalogSnareMode Button#m_pEnumValue,
+HihatEditor Bar#CymbalMode Button#m_pEnumValue,
+PercEditor Bar#ShakerLength Button#m_pEnumValue,
+PercEditor Bar#ShakerSync Button#m_pEnumValue,
+PercEditor Bar#ShakerFill Button#m_pEnumValue,
+PercEditor Bar#ShakerRate Button#m_pEnumValue,
+CymbalEditor Bar#CrashMode Button#m_pEnumValue,
+BassSynthEditor Bar#FilterType Button#m_pEnumValue
+{
+    image:                              no;
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    foreground-color-palette:           11;
+    horizontal-alignment:               center;
+
+//     background-color:                   rgba(255,0,0,100);
+
+    x:                                  10;
+    width:                              50;
+    height:                             16;
+    outer-margin-top:                   1;
+    foreground-relative-top:            1;
+}
+
+// Size Adjustments
+SnareEditor Bar#AnalogSnareMode,
+HihatEditor Bar#CymbalMode,
+CymbalEditor Bar#CrashMode
+{
+    width:                              74;
+    margin-left:                        2;
+    margin-top:                         18;
+}
+
+SnareEditor Bar#AnalogSnareMode Stack#m_pParameterStack,
+HihatEditor Bar#CymbalMode Stack#m_pParameterStack,
+CymbalEditor Bar#CrashMode Stack#m_pParameterStack
+{
+    width:                              70;
+    height:                             35;
+}
+
+// Remove Shadow
+SnareEditor Bar#AnalogSnareMode Bar#m_pShadowOverlay,
+HihatEditor Bar#CymbalMode Bar#m_pShadowOverlay,
+PercEditor Bar#ShakerSync Bar#m_pShadowOverlay,
+PercEditor Bar#ShakerRate Bar#m_pShadowOverlay,
+PercEditor Bar#ShakerFill Bar#m_pShadowOverlay,
+PercEditor Bar#ShakerLength Bar#m_pShadowOverlay,
+CymbalEditor Bar#CrashMode Bar#m_pShadowOverlay
+{
+    image:                               no;
+}
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// BUTTONS
+//-----------------------------------------------------------------------------------------------------------------------
+
+// GENERIC BOOL BUTTON PROPERTIES
+Bar.InternalFXSwitch Bar#m_pBoolBar Button,
+Bar.DrumSynthSwitch Bar#m_pBoolBar Button,
+PerformanceFXEditor Bar#m_pBoolBar Button#m_pBoolButton,
+PerformanceFXEditor Bar#StutterSync Button#m_pBoolButton
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_btn_bool.png");
+    animations:                         7;
+    dye-mask:                           url("Shared/InternalModules/SharedControls/intmod_btn_bool_dyemask.png");
+    dye-mask-animations:                7;
+    dye-color:                          $colorWhite;
+    dye-color-palette:                  11;
+    foreground-color:                   no;
+}
+
+
+// BOOL BUTTONS FX (e.g. FX Switches)
+//-----------------------------------------------------------------------------------------------------------------------
+
+Bar.InternalFXSwitch
+{
+    width:                              74;
+    height:                             66;
+    margin:                             0;
+}
+
+Bar.InternalFXSwitch Stack#m_pParameterStack
+{
+    height:                             40;
+}
+
+Bar.InternalFXSwitch Bar#m_pBoolBar
+{
+    margin:                             no;
+    margin-left:                        0;
+    margin-right:                       no;
+    margin-top:                         0;
+    margin-bottom:                      no;
+    outer-margin-left:                  17;
+    outer-margin-top:                  11;
+}
+
+
+// BOOL BUTTONS DRUMSYNTHS
+//-----------------------------------------------------------------------------------------------------------------------
+
+Bar.DrumSynthSwitch,
+//todo: delete after implementation
+KickEditor#m_pEditor Bar#GritKickGate
+{
+    width:                              74;
+    height:                             84;
+    margin:                             0;
+}
+
+Bar.DrumSynthSwitch Stack#m_pParameterStack,
+//todo: delete after implementation
+KickEditor#m_pEditor Bar#GritKickGate Stack#m_pParameterStack
+{
+    height:                             35;
+     outer-margin-top:                  18;
+}
+
+Bar.DrumSynthSwitch Bar#m_pBoolBar,
+//todo: delete after implementation
+KickEditor#m_pEditor Bar#GritKickGate Bar#m_pBoolBar
+{
+    margin:                             no;
+    margin-left:                        0;
+    margin-right:                       no;
+    margin-top:                         0;
+    margin-bottom:                      no;
+    outer-margin-left:                  16;
+    outer-margin-top:                  0;
+}
+
+
+// ON BUTTONS (Display Footer)
+//-----------------------------------------------------------------------------------------------------------------------
+
+Bar.DrumSynth Button#m_pBoolButton,
+SamplerEditor Button#pLoopSwitch,
+SamplerEditor Button#pReverseSwitch,
+Button.KPIToolBarToggle
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_btn_on.png");
+    animations:                         7;
+    dye-mask:                           url("Shared/InternalModules/SharedControls/intmod_btn_on_dyemask.png");
+    dye-color-palette:                  11;
+    dye-mask-animations:                7;
+
+    foreground-color:                   no;
+    foreground-color-palette:           no;
+    margin:                             no;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// SUBMENUES Big Size
+//-----------------------------------------------------------------------------------------------------------------------
+
+// Positions Parent DRUM
+PercEditor Bar#FBMatrixHarmonics,
+PercEditor Bar#ShakerEnvelope,
+TomEditor Bar#FBMatrixTomTuneMode
+{
+    x:                                  515;
+    y:                                  272;
+    height:                             17;
+    width:                              100;
+}
+
+PercEditor Bar#FBMatrixHarmonics Stack#m_pParameterStack,
+PercEditor Bar#ShakerEnvelope Stack#m_pParameterStack,
+TomEditor Bar#FBMatrixTomTuneMode Stack#m_pParameterStack,
+CompressorEditor Bar#Mode,
+CompressorEditor Bar#Mode Stack#m_pParameterStack,
+DistortionEditor Bar#Mode,
+DistortionEditor Bar#Mode Stack#m_pParameterStack,
+LimiterEditor Bar#Mode,
+LimiterEditor Bar#Mode Stack#m_pParameterStack
+{
+    height:                             17;
+    width:                              100;
+}
+
+PercEditor Bar#FBMatrixHarmonics Bar#m_pEnumBar,
+PercEditor Bar#ShakerEnvelope Bar#m_pEnumBar,
+TomEditor Bar#FBMatrixTomTuneMode Bar#m_pEnumBar,
+CompressorEditor Bar#Mode Bar#m_pEnumBar,
+DistortionEditor Bar#Mode Bar#m_pEnumBar,
+LimiterEditor Bar#Mode Bar#m_pEnumBar
+{
+    width:                              100;
+    height:                             17;
+}
+
+PercEditor Bar#FBMatrixHarmonics Button#m_pEnumInc,
+PercEditor Bar#ShakerEnvelope Button#m_pEnumInc,
+TomEditor Bar#FBMatrixTomTuneMode Button#m_pEnumInc,
+CompressorEditor Bar#Mode Button#m_pEnumInc,
+DistortionEditor Bar#Mode Button#m_pEnumInc,
+LimiterEditor Bar#Mode Button#m_pEnumInc
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_modemenu_btn_right.png");
+    animations:                         7;
+    x:                                  83;
+    y:                                  0;
+    foreground-color:                   no;
+}
+
+PercEditor Bar#FBMatrixHarmonics Button#m_pEnumDec,
+PercEditor Bar#ShakerEnvelope Button#m_pEnumDec,
+TomEditor Bar#FBMatrixTomTuneMode Button#m_pEnumDec,
+CompressorEditor Bar#Mode Button#m_pEnumDec,
+DistortionEditor Bar#Mode Button#m_pEnumDec,
+LimiterEditor Bar#Mode Button#m_pEnumDec,
+PlateReverbEditor Bar#Mode Button#m_pEnumDec
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_modemenu_btn_left.png");
+    animations:                         7;
+    x:                                  0;
+    y:                                  0;
+    foreground-color:                   no;
+}
+
+PercEditor Bar#FBMatrixHarmonics Button#m_pEnumValue,
+PercEditor Bar#ShakerEnvelope Button#m_pEnumValue,
+TomEditor Bar#FBMatrixTomTuneMode Button#m_pEnumValue,
+CompressorEditor Bar#Mode Button#m_pEnumValue,
+DistortionEditor Bar#Mode Button#m_pEnumValue,
+LimiterEditor Bar#Mode Button#m_pEnumValue
+{
+    image:                              no;
+
+    x:                                  14;
+    y:                                  0;
+    width:                              72;
+    height:                             17;
+
+    foreground-color:                   $colorWhite55;
+    foreground-color-palette:           no;
+
+    horizontal-alignment:               center;
+    vertical-alignment:                 center;
+    font-size:                          12;
+    font-name:                          $fontPragmatica;
+    foreground-relative-top:            1;
+}
+
+TomEditor Bar#FBMatrixTomTuneMode Button#m_pEnumValue:over,
+PercEditor Bar#FBMatrixHarmonics Button#m_pEnumValue:over,
+PercEditor Bar#ShakerEnvelope Button#m_pEnumValue:over,
+CompressorEditor Bar#Mode Button#m_pEnumValue:over,
+DistortionEditor Bar#Mode Button#m_pEnumValue:over,
+LimiterEditor Bar#Mode Button#m_pEnumValue:over
+{
+    foreground-color:                   $colorWhite65;
+}
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// SUBMENUES Mid Size
+//-----------------------------------------------------------------------------------------------------------------------
+
+// Parent
+FilterEditor Bar#Mode,
+FilterEditor Bar#Mode Bar#m_pEnumBar,
+FilterEditor Bar#Source,
+FilterEditor Bar#Source Bar#m_pEnumBar,
+FlangerEditor Bar#Source,
+FlangerEditor Bar#Source Bar#m_pEnumBar,
+PhaserEditor Bar#ModSource,
+PhaserEditor Bar#ModSource Bar#m_pEnumBar,
+ReverbEditor Bar#Room,
+ReverbEditor Bar#Room Bar#m_pEnumBar,
+PlateReverbEditor Bar#Mode,
+PlateReverbEditor Bar#Mode Bar#m_pEnumBar,
+ResochordEditor Bar#Mode,
+ResochordEditor Bar#Mode Bar#m_pEnumBar,
+SaturatorEditor Bar#Mode,
+SaturatorEditor Bar#Mode Bar#m_pEnumBar,
+SamplerEditor Bar#FilterMode,
+SamplerEditor Bar#SamplerMode
+{
+    height:                             17;
+    width:                              90;
+}
+
+
+
+FilterEditor Bar#Mode Stack#m_pParameterStack,
+FilterEditor Bar#Source Stack#m_pParameterStack,
+FlangerEditor Bar#Source Stack#m_pParameterStack,
+PhaserEditor Bar#ModSource Stack#m_pParameterStack,
+ReverbEditor Bar#Room Stack#m_pParameterStack,
+PlateReverbEditor Bar#Mode Stack#m_pParameterStack,
+ResochordEditor Bar#Mode Stack#m_pParameterStack,
+SaturatorEditor Bar#Mode Stack#m_pParameterStack,
+SamplerEditor Bar#FilterMode Stack#m_pParameterStack,
+SamplerEditor Bar#SamplerMode Stack#m_pParameterStack
+{
+
+    height:                             17;
+    width:                              90;
+}
+
+// Button left (Decrease)
+FilterEditor Bar#Mode Button#m_pEnumInc,
+FilterEditor Bar#Source Button#m_pEnumInc,
+FlangerEditor Bar#Source Button#m_pEnumInc,
+PhaserEditor Bar#ModSource Button#m_pEnumInc,
+ReverbEditor Bar#Room Button#m_pEnumInc,
+PlateReverbEditor Bar#Mode Button#m_pEnumInc,
+ResochordEditor Bar#Mode Button#m_pEnumInc,
+SaturatorEditor Bar#Mode Button#m_pEnumInc,
+SamplerEditor Bar#FilterMode Button#m_pEnumInc,
+SamplerEditor Bar#SamplerMode Button#m_pEnumInc
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_modemenu_btn_right.png");
+    animations:                         7;
+    x:                                  72;
+    y:                                  0;
+    foreground-color:                   no;
+}
+
+
+// Button right (Increase)
+FilterEditor Bar#Mode Button#m_pEnumDec,
+FilterEditor Bar#Source Button#m_pEnumDec,
+FlangerEditor Bar#Source Button#m_pEnumDec,
+PhaserEditor Bar#ModSource Button#m_pEnumDec,
+ReverbEditor Bar#Room Button#m_pEnumDec,
+PlateReverbEditor Bar#Mode Button#m_pEnumDec,
+ResochordEditor Bar#Mode Button#m_pEnumDec,
+SaturatorEditor Bar#Mode Button#m_pEnumDec,
+SamplerEditor Bar#FilterMode Button#m_pEnumDec,
+SamplerEditor Bar#SamplerMode Button#m_pEnumDec
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_modemenu_btn_left.png");
+    animations:                         7;
+    x:                                  0;
+    y:                                  0;
+    foreground-color:                   no;
+}
+
+
+// Name Label
+FilterEditor Bar#Mode Button#m_pEnumValue,
+FilterEditor Bar#Source Button#m_pEnumValue,
+FlangerEditor Bar#Source Button#m_pEnumValue,
+PhaserEditor Bar#ModSource Button#m_pEnumValue,
+ReverbEditor Bar#Room Button#m_pEnumValue,
+PlateReverbEditor Bar#Mode Button#m_pEnumValue,
+ResochordEditor Bar#Mode Button#m_pEnumValue,
+SaturatorEditor Bar#Mode Button#m_pEnumValue,
+SamplerEditor Bar#FilterMode Button#m_pEnumValue,
+SamplerEditor Bar#SamplerMode Button#m_pEnumValue
+{
+    image:                              no;
+
+    x:                                  16;
+    y:                                  0;
+    width:                              58;
+    height:                             17;
+
+    foreground-color:                   $colorWhite55;
+    foreground-color-palette:           no;
+
+    horizontal-alignment:               center;
+    vertical-alignment:                 center;
+    font-size:                          12;
+    font-name:                          $fontPragmatica;
+    foreground-relative-top:            1;
+}
+
+// Name Label Over
+FilterEditor Bar#Mode Button#m_pEnumValue:over,
+FilterEditor Bar#Source Button#m_pEnumValue:over,
+FlangerEditor Bar#Source Button#m_pEnumValue:over,
+PhaserEditor Bar#ModSource Button#m_pEnumValue:over,
+ReverbEditor Bar#Room Button#m_pEnumValue:over,
+PlateReverbEditor Bar#Mode Button#m_pEnumValue:over,
+ResochordEditor Bar#Mode Button#m_pEnumValue:over,
+SaturatorEditor Bar#Mode Button#m_pEnumValue:over,
+SamplerEditor Bar#FilterMode Button#m_pEnumValue:over,
+SamplerEditor Bar#SamplerMode Button#m_pEnumValue:over
+{
+    foreground-color:                   $colorWhite65;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// SUBMENUES Small Size
+//-----------------------------------------------------------------------------------------------------------------------
+
+// Positions Parent
+KickEditor Bar#SubKickAttack,
+KickEditor Bar#JungleKickCrispnessMode,
+KickEditor Bar#MedioKickPunchMode,
+SnareEditor Bar#ModalSpectraMode
+{
+    x:                                  545;
+    y:                                  272;
+}
+
+KickEditor Bar#SubKickAttack,
+KickEditor Bar#JungleKickCrispnessMode,
+KickEditor Bar#MedioKickPunchMode,
+SnareEditor Bar#ModalSpectraMode
+{
+    height:                             17;
+    width:                              70;
+}
+
+KickEditor Bar#SubKickAttack Stack#m_pParameterStack,
+KickEditor Bar#JungleKickCrispnessMode Stack#m_pParameterStack,
+KickEditor Bar#MedioKickPunchMode Stack#m_pParameterStack,
+SnareEditor Bar#ModalSpectraMode Stack#m_pParameterStack
+{
+
+    height:                             17;
+    width:                              70;
+}
+
+// Enum
+KickEditor Bar#SupportKickRoomCharacter Bar#m_pEnumBar,
+KickEditor Bar#SubKickAttack Bar#m_pEnumBar,
+KickEditor Bar#JungleKickCrispnessMode Bar#m_pEnumBar,
+KickEditor Bar#MedioKickPunchMode Bar#m_pEnumBar,
+SnareEditor Bar#ModalSpectraMode Bar#m_pEnumBar
+{
+    width:                              70;
+    height:                             17;
+}
+
+// Button left (Decrease)
+KickEditor Bar#SupportKickRoomCharacter Button#m_pEnumInc,
+KickEditor Bar#SubKickAttack Button#m_pEnumInc,
+KickEditor Bar#JungleKickCrispnessMode Button#m_pEnumInc,
+KickEditor Bar#MedioKickPunchMode Button#m_pEnumInc,
+SnareEditor Bar#ModalSpectraMode Button#m_pEnumInc
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_modemenu_btn_right.png");
+    animations:                         7;
+    x:                                  53;
+    y:                                  0;
+    foreground-color:                   no;
+}
+
+// Button right (Increase)
+KickEditor Bar#SupportKickRoomCharacter Button#m_pEnumDec,
+KickEditor Bar#SubKickAttack Button#m_pEnumDec,
+KickEditor Bar#JungleKickCrispnessMode Button#m_pEnumDec,
+KickEditor Bar#MedioKickPunchMode Button#m_pEnumDec,
+SnareEditor Bar#ModalSpectraMode Button#m_pEnumDec
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_modemenu_btn_left.png");
+    animations:                         7;
+    x:                                  0;
+    y:                                  0;
+    foreground-color:                   no;
+}
+
+
+// Name Label / Dropdown
+KickEditor Bar#SupportKickRoomCharacter Button#m_pEnumValue,
+KickEditor Bar#SubKickAttack Button#m_pEnumValue,
+KickEditor Bar#JungleKickCrispnessMode Button#m_pEnumValue,
+KickEditor Bar#MedioKickPunchMode Button#m_pEnumValue,
+SnareEditor Bar#ModalSpectraMode Button#m_pEnumValue
+{
+    image:                              no;
+
+    x:                                  16;
+    y:                                  0;
+    width:                              38;
+    height:                             17;
+
+    foreground-color:                   $colorWhite55;
+    foreground-color-palette:           no;
+
+    horizontal-alignment:               center;
+    vertical-alignment:                 center;
+    font-size:                          12;
+    font-name:                          $fontPragmatica;
+    foreground-relative-top:            1;
+}
+
+
+KickEditor Bar#SupportKickRoomCharacter Button#m_pEnumValue:over,
+KickEditor Bar#SubKickAttack Button#m_pEnumValue:over,
+KickEditor Bar#JungleKickCrispnessMode Button#m_pEnumValue:over,
+KickEditor Bar#MedioKickPunchMode Button#m_pEnumValue:over,
+SnareEditor Bar#AnalogSnareMode Button#m_pEnumValue:over
+{
+    foreground-color:                   $colorWhite65;
+}
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SAMPLER
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//-----------------------------------------------------------------------------------------------------------------------
+// SAMPLER TOOLBAR DRAGGERS
+//-----------------------------------------------------------------------------------------------------------------------
+
+// DRAGGER CONTAINER
+SamplerEditor Bar#pMainTabBar DraggerableValueEdit,
+SamplerEditor Bar#m_pMapToolBar DraggerableValueEdit,
+DraggerableValueEdit.KPIToolBar
+{
+    height:                             18;
+    outer-margin-top:                   0;
+}
+
+
+
+// DRAGGER
+SamplerEditor Bar#pMainTabBar Dragger,
+SamplerEditor Bar#m_pMapToolBar Dragger,
+DraggerableValueEdit.KPIToolBar Dragger
+{
+    height:                             18;
+    foreground-color-palette:           11;
+    foreground-color:                   $colorWhite75;
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    horizontal-alignment:               left;
+    vertical-alignment:                 center;
+    image:                              no;
+}
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// SAMPLER & AUDIO MODULE TOOLBAR BUTTONS
+//-----------------------------------------------------------------------------------------------------------------------
+
+// DROPDOWN BUTTON
+SamplerEditor Bar#pMainTabBar Bar#m_pMainToolBar Button#pPolyphony,
+SamplerEditor Bar#pMainTabBar Bar#m_pMainToolBar Button#pEngineMode,
+Button.KPIToolBarDropdown
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_BTN_ToolbarDropdown.png");
+    animations:                         7;
+    fixed-left:                         8;
+    fixed-right:                        2;
+    picture-includes-margin:            true;
+
+    background-color:                   $colorWhite75;
+    background-color-palette:           11;
+    foreground-color:                   $colorWhite75;
+    foreground-color-palette:           1;
+
+    horizontal-alignment:               left;
+    foreground-relative-left:           11;
+
+    outer-margin-top:                   1;
+}

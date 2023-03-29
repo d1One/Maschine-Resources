@@ -1,0 +1,53 @@
+Bar#WarningSystemUpdateReadyPageScreenLeft MultilineLabel#LabelLeft
+{
+    font-name: $fontPragmatica;
+    font-size: 21;
+    foreground-color: $colorWhite;
+
+    horizontal-alignment: center;
+    vertical-alignment: top;
+
+    outer-margin-left: 20;
+    outer-margin-right: 20;
+}
+
+Bar#WarningSystemUpdateReadyPageScreenLeft Bar#Icon
+{
+    image: url("Maschine/HW/Shared/Downloading.png");
+
+    outer-margin-top: 65;
+    outer-margin-left: 204;
+    outer-margin-bottom: 24;
+}
+
+Bar#WarningSystemUpdateReadyPageScreenRight MultilineLabel#RightTitle
+{
+    font-name: $fontPragmatica;
+    font-size: 18;
+    foreground-color: $colorWhite;
+
+    vertical-alignment: top;
+    horizontal-alignment: center;
+
+    height: 56;
+
+    outer-margin-left: 50;
+    outer-margin-right: 50;
+    outer-margin-top: 64;
+}
+
+Bar#WarningSystemUpdateReadyPageScreenRight MultilineLabel#RightSubtitle
+{
+    font-name: $fontPragmatica;
+    font-size: 14;
+    foreground-color: rgba(255, 255, 255, 153);
+
+    vertical-alignment: top;
+    horizontal-alignment: center;
+
+    height: 44;
+
+    outer-margin-left: 54;
+    outer-margin-right: 54;
+    outer-margin-top: 8;
+}

@@ -1,0 +1,25 @@
+Bar#WelcomeLoginSuccessfulPageScreenLeft Bar#StudioDisplayBar
+{
+    image: url("Maschine/HW/MH1071/Welcome/OOB_Activate_1.png");
+}
+
+Bar#WelcomeLoginSuccessfulPageScreenRight MultilineLabel#Label
+{
+    font-name: $fontPragmatica;
+    font-size: 18;
+    foreground-color: $colorWhite;
+
+    horizontal-alignment: center;
+
+    outer-margin-left: 20;
+    outer-margin-right: 20;
+}
+
+Bar#WelcomeLoginSuccessfulPageScreenRight Bar#Icon
+{
+    image: url("Maschine/HW/Shared/Success.png");
+
+    outer-margin-top: 72;
+    outer-margin-left: 204;
+    outer-margin-bottom: 16;
+}

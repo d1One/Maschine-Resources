@@ -1,0 +1,2361 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// BROWSER PANEL
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// background colors
+@define $colorMainGrey                          rgb(70,70,70);
+@define $colorDarkGrey                          rgb(49,49,49);
+
+
+
+// font colors
+@define $colorFontLightGrey                     rgb(162,162,162);
+@define $colorFontLightGrey2                    rgb(144,144,144);
+@define $colorFontLightGrey3                    rgb(126,126,126);
+
+@define $colorFontDarkGrey                      rgb(111,111,111);
+@define $colorFontDarkGrey2                     rgb(70,70,70);
+
+
+
+// metrics
+@define $browserMainWidth                       324;
+@define $autocompleteTextEditWidth              216;
+
+
+// MAIN PANEL
+Bar#m_pBrowserPanel
+{
+    width:                                      $browserMainWidth;
+    background-color:                           $colorBlack;
+}
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// SHARED ELEMENTS
+//----------------------------------------------------------------------------------------------------------------------
+
+// RESULT LIST SHADOW TOP
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pBrowserPanel Label.TopShadowOverlay
+{
+    image:                                      url("Maschine/Browser/BRWS_SHADOW_ResultListTop.png");
+    picture-includes-margin:                    true;
+    fixed-left:                                 5;
+    fixed-right:                                5;
+    width:                                      324;
+}
+
+
+
+
+// RESULT LIST SHADOW BOTTOM
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pBrowserPanel Label#m_pBottomShadowOverlay
+{
+    image:                                      url("Maschine/Browser/BRWS_SHADOW_ResultListBottom.png");
+    picture-includes-margin:                    true;
+    fixed-left:                                 5;
+    fixed-right:                                5;
+    width:                                      324;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// HEADER TABS
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// HEADER CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pBrowserPanel Bar#pHead
+{
+    image:                                      url("Maschine/Browser/BRWS_BG_MainHeader.png");
+    picture-includes-margin:                    true;
+    fixed-left:                                 5;
+    fixed-right:                                5;
+    background-color:                           $StandardBackgroundGrey;
+}
+
+
+
+// HEADER TAB BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// TAB BUTTON BAR
+Bar#m_pBrowserPanel Bar#pHead Bar#pTabButtons
+{
+    height:                                     24;
+}
+
+
+
+// GENERAL BUTTON STYLING
+Bar#m_pBrowserPanel Bar#pHead Bar#pTabButtons Button
+{
+    background-color:                           no;
+    foreground-color:                           $colorWhite40;
+    font-name:                                  $fontPragmatica;
+    font-size:                                  $fontBrowserTabSize;
+    horizontal-alignment:                       left;
+}
+
+
+
+Bar#m_pBrowserPanel Bar#pHead Bar#pTabButtons Button:selected
+{
+    background-color:                           $colorLightBackgroundGrey;
+    foreground-color:                           $colorWhite;
+}
+
+
+
+// LIBRARY BUTTON
+Bar#m_pBrowserPanel Bar#pHead Bar#pTabButtons Button#m_pLibraryButton
+{
+    image:                                      url("Maschine/Browser/BRWS_BTN_MainHeaderLibrary.png");
+    animations:                                 7;
+    picture-includes-margin:                    true;
+    fixed-left:                                 2;
+    fixed-right:                                4;
+
+    width:                                      110;
+    margin-left:                                14;
+}
+
+Bar#m_pBrowserPanel Bar#pHead Bar#pTabButtons Animation#m_pScanIndicator
+{
+    timer:                              4;
+    foreground-color:                   no;
+    x:                                  73;
+    y:                                  3;
+}
+
+Bar#m_pBrowserPanel Bar#pHead Bar#pTabButtons Animation#m_pScanIndicator:!selected
+{
+    image:                              url("Shared/HW/Components/Library_Progress_enabled.png");
+    animations:                         32;
+}
+
+Bar#m_pBrowserPanel Bar#pHead Bar#pTabButtons Animation#m_pScanIndicator:selected
+{
+    image:                              url("Shared/HW/Components/Library_Progress_active.png");
+    animations:                         32;
+}
+
+
+
+// FILES BUTTON
+Bar#m_pBrowserPanel Bar#pHead Bar#pTabButtons Button#m_pFilesButton
+{
+    image:                                      url("Maschine/Browser/BRWS_BTN_MainHeaderFiles.png");
+    animations:                                 7;
+    picture-includes-margin:                    true;
+    fixed-left:                                 2;
+    fixed-right:                                4;
+    width:                                      109;
+    margin-left:                                13;
+}
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// LIBRARY BROWSER
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+// Left part : FileType Selector (contains Project, Group, Sound, Instruments, FX, Sample buttons)
+Bar#m_pBrowserPanel Bar#pHead Stack#m_pFileTypeFavsStack
+{
+    width:                                      $browserMainWidth;
+}
+
+
+// Left part : FileType Selector (contains Project, Group, Sound, Instruments, FX, Sample buttons)
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowserBar Bar#pFileTypeUserWidget
+{
+    image:                                      url("Maschine/Browser/BRWS_BG_FileType.png");
+    picture-includes-margin:                    true;
+    margin-left:                                0;
+    margin-top:                                 0;
+}
+
+
+
+// FileType Container
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowserBar FileTypeSelector#pFileTypeSelector
+{
+   height:                                      45;
+   margin-left:                                 12;
+   margin-top:                                  10;
+   spacing:                                     10;
+}
+
+
+
+// FILETYPE BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// PROJECT
+Bar#m_pBrowserPanel Button#pButton[FileType=Project]
+{
+    foreground-color:                           no;
+    image:                                      url("Maschine/Browser/b_button_project.png");
+    animations:                                 7;
+}
+
+
+
+// GROUP
+Bar#m_pBrowserPanel Button#pButton[FileType=Group]
+{
+    foreground-color:                           no;
+    image:                                      url("Maschine/Browser/b_button_group.png");
+    animations:                                 7;
+}
+
+
+
+// SOUND
+Bar#m_pBrowserPanel Button#pButton[FileType=Sound]
+{
+    foreground-color:                           no;
+    image:                                      url("Maschine/Browser/b_button_sound.png");
+    animations:                                 7;
+}
+
+
+
+// INSTRUMENT
+Bar#m_pBrowserPanel Button#pButton[FileType=Instrument]
+{
+    foreground-color:                           no;
+    image:                                      url("Maschine/Browser/b_button_instrument.png");
+    animations:                                 7;
+}
+
+
+
+// EFFECT
+Bar#m_pBrowserPanel Button#pButton[FileType=Effect]
+{
+    foreground-color:                           no;
+    image:                                      url("Maschine/Browser/b_button_effect.png");
+    animations:                                 7;
+}
+
+
+
+// SAMPLE
+Bar#m_pBrowserPanel Button#pButton[FileType=One-shot]
+{
+    foreground-color:                           no;
+    image:                                      url("Maschine/Browser/b_button_sample.png");
+    animations:                                 7;
+}
+
+// LOOP
+Bar#m_pBrowserPanel Button#pButton[FileType=Loop]
+{
+    foreground-color:                           no;
+    image:                                      url("Shared/Browser/BRWS_BTN_FileType_Loop.png");
+    animations:                                 7;
+}
+
+
+
+// LIBRARYMODE BUTTON (FACTORY & USERMODE)
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowserBar UserModeToggle#pUserModeBtn
+{
+    width:                                      50;
+    height:                                     45;
+    spacing:                                    4;
+    margin-top:                                 12;
+}
+
+
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowserBar UserModeToggle#pUserModeBtn Button
+{
+    image:                                      url("Maschine/Browser/BRWS_BTN_Usermode.png");
+    animations:                                 7;
+    foreground-color:                           no;
+    outer-margin-left:                          25;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// LIBRARY BROWSER BODY CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#pBig
+{
+    background-color:                           $colorBlack;
+    spacing:                                    1;
+}
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody
+{
+    background-color:                           $colorLightBackgroundGrey;
+}
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pBodyTop
+{
+    background-color:                           $colorBlack;
+    // min-height must be calculated
+}
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// VISUAL BROWSER
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// LIBRARY HEADLINE DROPDOWN MENU
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER FOR BANK SELECTION BARS
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain
+{
+    min-height:                                 47;
+    background-color:                           $colorBlack;
+    spacing:                                    1;
+}
+
+
+// BANK SELECTORS
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#m_aBankSelectorBars_0
+{
+    background-color:                           $StandardBackgroundGrey;
+    height:                                     47;
+
+}
+
+
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#m_aBankSelectorBars_1,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#m_aBankSelectorBars_2
+{
+    background-color:                           $StandardBackgroundGrey;
+    height:                                     23;
+}
+
+
+
+// DEFAULT PRODUCT NAME LABEL (ALSO FALLBACK)
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#m_aBankSelectorBars_0 Label#m_pProductName
+{
+    picture-includes-margin:                    true;
+    background-color:                           $StandardBackgroundGrey;
+    font-name:                                  $fontPragmatica;
+    font-size:                                  14;
+    foreground-relative-left:                   15;
+//     margin-right:                            20;
+}
+
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#pBankSelector[soundsdotcom=true] Label#m_pProductName
+{
+    background-color:                           $colorSoundsDotCom;
+}
+
+
+Scrollable<Bar>#BankChainList
+{
+    min-group-unfold-reveal:                    150;
+}
+
+
+// RESET BUTTON
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// GENERAL STYLING, APPLIES TO BANK CHAIN 2&3
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#pBankSelector Button#pResetButton
+{
+    image:                              url("Maschine/Browser/BRWS_VB_BTN_Reset.png");
+    picture-includes-margin:            false;
+    animations:                         7;
+    background-color:                   $StandardBackgroundGrey;
+    background-color:                   no;
+    foreground-color:                   no;
+    margin-right:                       11;
+}
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#pBankSelector[soundsdotcom=true] Button#pResetButton
+{
+    background-color:                   $colorSoundsDotCom;
+}
+
+
+
+// BANK CHAIN 1 SPECIAL BUTTON SIZE
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#m_aBankSelectorBars_0 Button#pResetButton
+{
+    height:                             47;
+    margin-top:                         13;
+    margin-bottom:                      11;
+
+}
+
+
+
+
+
+
+// MAIN PRODUCT SELECTION DROPDOWN MENU
+//----------------------------------------------------------------------------------------------------------------------
+
+// DEFAULT BANNER
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#m_aBankSelectorBars_0 Bar#pBankSelector[product=All] ButtonPopup
+{
+    image:                              url("Maschine/Browser/BRWS_VB_BC1_DefaultDropdown.png");
+    animations:                         7;
+    picture-includes-margin:            true;
+    fixed-left:                         5;
+    fixed-right:                        30;
+
+    foreground-color:                   $colorWhite;
+    font-name:                          $fontPragmatica;
+    font-size:                          21;
+
+    foreground-relative-left:           21;     // MARGIN HAS TO BE SET BY "foreground-relative", ORDINARY "margin" WILL SHIFT THE VISUAL BROWSER PANEL
+    horizontal-alignment:               left;
+
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// MAIN PRODUCT SELECTION DROPDOWN WHEN PRODUCT IS SELECTED
+//----------------------------------------------------------------------------------------------------------------------
+
+// PRODUCT BACKGROUND BAR
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#m_aBankSelectorBars_0 Bar#pBankSelector
+{
+    background-color:                   $colorBlack;
+}
+
+
+
+// SUB BANK DROPDOWN MENU BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#m_aBankSelectorBars_1 Label#m_pProductName,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#m_aBankSelectorBars_2 Label#m_pProductName,
+ButtonPopup.BrowserBank_1,
+ButtonPopup.BrowserBank_2
+{
+    font-name:                           $fontPragmatica;
+    foreground-color:                    $colorWhite;
+    height:                              23;
+    margin-top:                          1;
+    foreground-relative-left:            15;
+}
+
+
+// POPUP ARROW BUTTON
+ButtonPopup.BrowserBank_1,
+ButtonPopup.BrowserBank_2
+{
+    image:                              url("Maschine/Browser/BRWS_VB_BTN_BC2And3Popup.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+    fixed-left:                         4;
+    fixed-right:                        30;
+}
+
+
+
+// BANK CHAIN 2&3 DROPDOWN MENU
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#m_aBankSelectorBars_1 Scrollable<Bar>,
+Bar#m_aBankSelectorBars_2 Scrollable<Bar>
+{
+    image:                              url("Maschine/Browser/BRWS_BG_BC2and3PopUp.png");
+    picture-includes-margin:            true;
+    fixed-top:                          5;
+    fixed-bottom:                       9;
+    fixed-left:                         5;
+    fixed-right:                        5;
+
+    background-color:                   no;
+
+    margin-top:                         6;
+    margin-bottom:                      14;
+
+    spacing:                            2;
+}
+
+
+
+// LIST ITEM BUTTON
+Popup.BrowserBank_1 Button,
+Popup.BrowserBank_2 Button
+{
+    image:                              no;
+    background-color:                   $StandardBackgroundGrey;
+    foreground-color:                   $colorWhite75;
+    horizontal-alignment:               left;
+    margin-left:                        15;
+}
+
+
+
+Popup.BrowserBank_1 Button:over,
+Popup.BrowserBank_2 Button:over
+{
+    foreground-color:                   $colorWhite90;
+}
+
+
+Popup.BrowserBank_1 Button:over:down,
+Popup.BrowserBank_2 Button:over:down
+{
+    foreground-color:                   $colorWhite;
+}
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// VISUAL BROWSER POPUP PANEL
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// MAIN BACKGROUND
+//----------------------------------------------------------------------------------------------------------------------
+Popup.BrowserBank_0
+{
+    background-color:                   $StandardBackgroundGrey;
+}
+
+Popup.BrowserBank_0 Bar#popupContent
+{
+    background-color:                   $StandardBackgroundGrey;
+//     margin-top:                         1;
+//     spacing:                            1;
+}
+
+// DROP SHADOW ON TOP
+Popup.BrowserBank_0 Bar#popupContent Label#m_pTopShadowOverlay
+{
+    image:                              url("Maschine/Browser/BRWS_VB_SHADOW_Top.png");
+    fixed-left:                         3;
+    fixed-right:                        3;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// GROUP SELECTOR
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#popupContent
+{
+    background-color:                           $colorBlack;
+}
+
+Bar#popupContent Bar#ProductToolBar
+{
+    image:                                      url("Maschine/Browser/BRWS_BG_ProductToolBar.png");
+    fixed-top:                                  2;
+    fixed-left:                                 1;
+    fixed-right:                                1;
+    fixed-bottom:                               1;
+    spacing:                                    -10;
+    width:                                      324;
+    height:                                     30;
+}
+
+
+Bar#popupContent Bar#ProductToolBar Button#m_pCategory
+{
+    width:                                      73;
+    horizontal-alignment:                       left;
+    margin-left:                                20;
+}
+
+Bar#popupContent Bar#ProductToolBar Button#m_pVendor
+{
+    width:                                      73;
+    horizontal-alignment:                       left;
+    margin-left:                                24;
+}
+
+Bar#popupContent Bar#ProductToolBar Button#m_pCategory,
+Bar#popupContent Bar#ProductToolBar Button#m_pVendor
+{
+    image:                                      no;
+
+    foreground-color:                           $colorWhite30;
+    font-name:                                  $fontPragmatica;
+    font-size:                                  11;
+    margin-top:                                 1;
+}
+
+Bar#popupContent Bar#ProductToolBar Button#m_pCategory:over,
+Bar#popupContent Bar#ProductToolBar Button#m_pVendor:over
+{
+    foreground-color:                           $colorWhite40;
+}
+
+Bar#popupContent Bar#ProductToolBar Button#m_pCategory:selected:over,
+Bar#popupContent Bar#ProductToolBar Button#m_pVendor:selected:over,
+Bar#popupContent Bar#ProductToolBar Button#m_pCategory:selected,
+Bar#popupContent Bar#ProductToolBar Button#m_pVendor:selected
+{
+    foreground-color:                           $colorWhite80;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// VISUAL BROWSER ICON AREA
+//----------------------------------------------------------------------------------------------------------------------
+
+// BACKGROUND
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pBrowserPanel Bar#BankChain Bar#m_aBankSelectorBars_0 Bar#popupContent Bar#pHBar
+{
+    background-color:                   $StandardBackgroundGrey;
+    margin-left:                        3;
+}
+
+
+
+// SCROLLED CONTAINER
+Bar#m_pBrowserPanel Bar#BankChain Bar#m_aBankSelectorBars_0 Bar#popupContent Bar#pHBar Bar#Scrollee
+{
+    margin-top:                         9;
+}
+
+
+
+// GROUPS
+//----------------------------------------------------------------------------------------------------------------------
+Bar#pProductsGroup
+{
+   margin-bottom:                               6;
+}
+
+Bar#pProductsGroup Button#pDivider
+{
+    image:                                      url("Maschine/Browser/BRWS_SPLITTER_Groups.png");
+    fixed-left:                                 1;
+    width:                                      308;
+    outer-margin-left:                          2;
+    outer-margin-top:                           3;
+}
+
+Bar#pProductsGroup Button#m_pGroupName
+{
+
+    image:                                      url("Maschine/Browser/BRWS_BTN_FoldProductGroup.png");
+    fixed-right:                                1;
+    fixed-left:                                 24;
+    width:                                      310;
+    margin-top:-1;
+
+    animations:                                 7;
+
+    foreground-color:                           $colorWhite40;
+    foreground-relative-left:                   17;
+    horizontal-alignment:                       left;
+    outer-margin-bottom:                        2;
+
+}
+
+Bar#pProductsGroup Button#m_pGroupName:over,
+Bar#pProductsGroup Button#m_pGroupName:over:selected,
+Bar#pProductsGroup Button#m_pGroupName:selected
+
+{
+    foreground-color:   $colorWhite50;
+}
+
+
+// PRODUCT ICON
+//----------------------------------------------------------------------------------------------------------------------
+
+// PRODUCT ICON CONTAINER
+Bar.ProductIcon
+{
+    image:                              url("Maschine/Browser/BRWS_BG_ProductIcon.png");
+    animations:                         3;
+    picture-includes-margin:            true;
+    fixed-left:                         8;
+    fixed-right:                        8;
+    animation-index:                    0;
+
+    background-color:                   no;
+
+    width:                              104;
+    height:                             72;
+    margin-left:                        4;
+}
+
+
+Bar.ProductIcon:selected
+{
+    animation-index:                            1;
+}
+
+
+
+// PRODUCT ICON NAME BUTONS
+Button.ProductIconText
+{
+    image:                                      no;
+    foreground-color:                           $colorWhite80;
+    horizontal-alignment:                       left;
+    height:                                     17;
+    width:                                      97;
+}
+
+
+Button.ProductIconText[iconhover=true]
+{
+    foreground-color:                           $colorWhite;
+}
+
+
+Button.ProductIconText:selected
+{
+    foreground-color:                           $colorBlack75;
+}
+
+// PRODUCT ICON CLICK ACTIONS
+Button.ProductIconBrowse
+{
+    image:                                      no;
+}
+
+
+Button.ProductIconLoad
+{
+    image:                                      url("Maschine/Browser/BRWS_BTN_Load.png");
+    x:                                          75;
+    y:                                          19;
+    animations:                                 3;
+}
+
+
+Button.ProductIconLoad:over
+{
+    animation-index:                            1;
+}
+
+
+Button.ProductIconLoad[iconhover=true]:selected
+{
+    animation-index:                            2;
+}
+
+
+
+// PRODUCT ICON BUTTON
+//----------------------------------------------------------------------------------------------------------------------
+
+// DEFAULT PRODUCT ICON
+Button.ProductIconImage
+{
+    image:                              url("Maschine/Browser/BRWS_BTN_DefaultProductIcon.png");     // THIS IMAGE HAS TO BE HERE, OTHERWISE DATABASE ICON IMAGES WON'T SHOW UP
+    width:                              95;
+    height:                             46;
+    background-color:                   $LightBackgroundGrey;
+}
+
+
+
+// FALLBACK OTHER
+Button.ProductIconImage[fallback=NI],
+Button.ProductIconImage[fallback=plugin]
+{
+    image:                              url("Maschine/Browser/BRWS_VB_FallbackPluginOther.png");
+}
+
+// FALLBACK ONE-SHOT
+Button.ProductIconImage[fallback=one-shot]
+{
+    image:                              url("Maschine/Browser/BRWS_VB_FallbackSample.png");
+}
+
+// FALLBACK LOOP
+Button.ProductIconImage[fallback=loop]
+{
+    image:                              url("Maschine/Browser/BRWS_VB_FallbackLoop.png");
+}
+
+// FALLBACK SOUNDS.COM
+Button.ProductIconImage[fallback=soundsdotcom]
+{
+    image:                              url("Maschine/Browser/BRWS_VB_FallbackSoundsDotCom.png");
+}
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// TAG BROWSE SECTION
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// TAG SECTIONS MAIN CONTAINERS
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection
+{
+    image:                                      url("Maschine/Browser/BRWS_TagSection_BG.png");
+    fixed-left:                                 5;
+    fixed-right:                                5;
+    fixed-top:                                  2;
+    fixed-bottom:                               2;
+    picture-includes-margin:                    false;
+
+    background-color:                           $colorBlack;
+    margin-top:                                 1;
+    margin-bottom:                              1;
+    // height must be calculated
+}
+
+// TAG CLOUD HEADLINE
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_0 Button#m_pCaption,
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_2[SubCategory=false] Button#m_pCaption
+{
+    image:                                      url("Maschine/Browser/BRWS_BTN_Caption.png");
+    picture-includes-margin:                    true;
+    fixed-left:                                 19;
+    fixed-right:                                2;
+    animations:                                 7;
+
+    foreground-color-palette:                   no;
+    foreground-color:                           $colorWhite90;
+    horizontal-alignment:                       left;
+    foreground-relative-left:                   13;
+
+    margin-left:                                0;
+    margin-right:                               0;
+
+    outer-margin-left:                          7;
+    outer-margin-right:                         0;
+}
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_0 Button#m_pCaption
+{
+    width:                                      49;
+}
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_2[SubCategory=false] Button#m_pCaption
+{
+    width:                                      90;
+}
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_0 Button#m_pUpdate
+{
+    animations:                                 7;
+    image:                                      url("Maschine/Browser/BRWS_BTN_LIB_RSCN.png");
+
+    outer-margin-right:                         7;
+
+    width:                                      52;
+}
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_0 Bar#pHeaderBar
+{
+    outer-margin-top:                           7;
+    height:                                     22;
+}
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_2[SubCategory=false] Bar#pHeaderBar
+{
+    outer-margin-top:                           8;
+    height:                                     22;
+}
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_0[SubCategory=false]
+{
+    outer-margin-bottom:                        0;
+
+    min-height:                                 32;
+}
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_2[SubCategory=false]
+{
+    min-height:                                 30;
+}
+
+
+// TAGCLOUD HEADLINE, INVISIBLE FOR SUBCATEGORY TAGS
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_2[SubCategory=true] Bar#pHeaderBar
+{
+    image:                                      no;
+    outer-margin-top:                           0;
+    outer-margin-bottom:                        0;
+
+
+    min-height:                                 18;
+
+    height:                                     1;
+}
+
+
+// SELECTED TAG
+//----------------------------------------------------------------------------------------------------------------------
+
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_0[SubCategory=false] Bar#m_pSelected
+{
+    x:                                          67;
+    y:                                          6;
+    spacing:                                    5;
+    outer-margin-left:                          8;
+
+    width:                                      245;
+
+    horizontal-alignment:                       left;
+}
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_2[SubCategory=false] Bar#m_pSelected
+{
+    x:                                          107;
+    y:                                          7;
+    spacing:                                    5;
+    outer-margin-left:                          8;
+
+    width:                                      205;
+
+    horizontal-alignment:                       left;
+}
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_0[SubCategory=false] Bar#m_pSelected Label#pTag,
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_2[SubCategory=false] Bar#m_pSelected Label#pTag
+{
+    foreground-color:                           $colorWhite40;
+    outer-margin-right:                         5;
+}
+
+
+// TAGCLOUD TAGS CUTOFF
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_0[SubCategory=false] Bar#m_pSelected Label#SelectedBank1,
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_1[SubCategory=false] Bar#m_pSelected Label#SelectedBank2,
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_2[SubCategory=false] Bar#m_pSelected Label#SelectedBank3
+{
+    foreground-color:                           $colorWhite40;
+}
+
+
+//TEMP TAGCLOUD BOTTOM MARGIN SOLUTION
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_0 Flow#m_pFlow
+{
+    outer-margin-bottom:                        10;
+}
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_0[SubCategory=false] Flow#m_pFlow
+{
+    outer-margin-bottom:                        12;
+}
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_0[SubCategory=true] Flow#m_pFlow
+{
+    outer-margin-bottom:                        10;
+}
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_1[SubCategory=false] Flow#m_pFlow
+{
+    outer-margin-bottom:                         10;
+    outer-margin-top:                           -6;
+}
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_1[SubCategory=true]
+{
+    outer-margin-bottom:                        8;
+    outer-margin-top:                           -6;
+}
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_1[SubCategory=true] Flow#m_pFlow
+{
+    outer-margin-bottom:                        5;
+}
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_2[SubCategory=false] Flow#m_pFlow
+{
+    outer-margin-bottom:                        10;
+}
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_2[SubCategory=true] Flow#m_pFlow
+{
+    outer-margin-bottom:                        11;
+}
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_2
+{
+    outer-margin-top:                           -4;
+}
+
+
+// LINE SEPARATOR
+//----------------------------------------------------------------------------------------------------------------------
+
+// VISIBLE
+//Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_0 Label#LINE_0,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_1[SubCategory=false] Label#LINE_1,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_2[SubCategory=false] Label#LINE_2
+{
+    image:                              no;
+    background-color:                   $colorBlack;
+    height:                             1;
+}
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_2[SubCategory=false] Label#LINE_2
+{
+    outer-margin-top:   0;
+    height:                 0;
+}
+
+// INVISIBLE
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_0 Label#LINE_0,                              // LINE 0 IS ALWAYS INVISIBLE
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_1[SubCategory=true] Label#LINE_1,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_2[SubCategory=true] Label#LINE_2
+{
+    image:                              no;
+    background-color:                   no;
+    height:                             1;
+}
+
+
+
+
+
+// TAG CLOUD AREA
+//----------------------------------------------------------------------------------------------------------------------
+
+// TAG CONTAINER
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Flow#m_pFlow
+{
+    outer-margin-left:                          13;
+    outer-margin-right:                         13;
+    outer-margin-top:                           0;
+}
+
+Bar#m_pBrowserPanel Bar#m_pDatabaseBrowser Bar#m_pBody Bar#m_pTagSection Bar#m_aTagBar_1 Bar#pHeaderBar
+{
+    margin:                                     0;
+    min-height:                                 no;
+    image:                                      no;
+    animations:                                 0;
+    height:                                     1;
+}
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pTagSection Bar#m_pTagBar
+{
+    min-height:                                 32;
+}
+
+
+// TAG BUTTON
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pTagSection Bar#m_pTagBar Button
+{
+    image:                                      url("Maschine/Browser/BRWS_BTN_Tag.png");
+    picture-includes-margin:                    true;
+    animations:                                 7;
+    fixed-left:                                 4;
+    fixed-right:                                4;
+
+    foreground-color:                           $colorWhite60;
+    horizontal-alignment:                       center;
+
+    margin-left:                                7;
+    margin-right:                               7;
+
+    max-width:                                  290;
+    min-width:                                  no;
+
+    outer-margin-right:                         2;
+    outer-margin-bottom:                        2;
+}
+
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pTagSection Bar#m_pTagBar Button:over
+{
+    foreground-color:                           $colorWhite80;
+}
+
+
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pTagSection Bar#m_pTagBar Button:selected,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pTagSection Bar#m_pTagBar Button:selected:over
+{
+    foreground-color:                           $colorBlack75;
+}
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// RESULT LIST AND TAG EDITOR AREA
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pBodyBottom
+{
+    background-color:                           $colorBlack;
+    min-height:                                 0; //initial value, is then calculated
+}
+
+
+
+
+// QUICK SEARCH BAR
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pQuickSearchBar
+{
+    image:                                      url("Maschine/Browser/BRWS_QuickSearch_BG.png");
+    fixed-left:                                 16;
+    fixed-right:                                38;
+
+    picture-includes-margin:                    true;
+
+    margin-top:                                 7;
+    margin-left:                                13;
+    spacing:                                    1;
+    outer-margin-bottom:                        1;
+}
+
+
+
+// QUICK SEARCH TEXT INPUT
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pQuickSearchBar TextEdit#m_pQuickSearchEdit
+{
+    background-color:                           no;
+    background-border-color:                    no;
+    selection-foreground-color:                 rgb(189,189,189);
+    foreground-color:                           rgb(189,189,189);
+
+    margin-left:                                1;
+
+    width:                                      264;
+    height:                                     15;
+}
+
+
+
+// BUTTON CLEAR TEXT EDIT
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pQuickSearchBar Button#pClearButton
+{
+    foreground-color:                           no;
+    image:                                      url("Maschine/Browser/BRWS_BTN_Clear.png");
+    animations:                                 7;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// RESULT LIST
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList
+{
+    background-color:                           rgb(50,50,50);
+    min-height:                                 75;
+    margin-left:                                0;
+}
+
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Bar.DeveloperPanel
+{
+    background-color:                           rgb(50,50,50);
+}
+
+Bar#m_pBrowserPanel Bar#m_pResultList Bar.BrowserScroll
+{
+    spacing:                                    1;
+    background-color:                           rgb(35,35,35);
+    outer-margin-left:                          13;
+    margin-top:                                 1;
+    outer-margin-top:                           5;
+}
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pResultList Bar.BrowserScroll::Bar
+{
+    background-color:                           rgb(50,50,50);
+
+}
+
+
+// RESULT LIST ITEM BUTTON
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button
+{
+    image:                                      url("Maschine/Browser/BRWS_BTN_ResultListItem.png");
+    animations:                                 7;
+    picture-includes-margin:                    true;
+    fixed-left:                                 3;
+    fixed-right:                                3;
+
+    background-color:                           rgb(50,50,50);
+
+    horizontal-alignment:                       left;
+
+    height:                                     18;
+}
+
+
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button[HasOver=true],
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button Label#m_pNameLabel[HasOver=true]
+{
+    animation-index:                            4;
+    foreground-color:                           $colorWhite85;
+}
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button:selected,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button[HasOver=true]:selected,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button Label#m_pNameLabel:selected,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button Label#m_pNameLabel[HasOver=true]:selected
+{
+    animation-index:                            5;
+    foreground-color:                           $colorBlack75;
+}
+
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button Label#m_pNameLabel
+{
+    foreground-color:                           $colorWhite75;
+
+    foreground-relative-left:                   7;
+    foreground-relative-top:                    1;
+
+    width:                                      280;
+}
+
+// FAVORITES BUTTON
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button Button#m_pFavoriteButton
+{
+    x:                                           279;
+    image:                                       url("Maschine/Browser/BRWS_BTN_Favorite.png");
+    animations:                                  7;
+    background-color:                            no;
+}
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button Button#m_pFavoriteButton[Favorite=false][HasOver=true]
+{
+    animation-index:                            2;
+}
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button Button#m_pFavoriteButton[Favorite=false][HasOver=true]:down,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button Button#m_pFavoriteButton[Favorite=false][HasOver=true]:over
+{
+    animation-index:                            4;
+}
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button Button#m_pFavoriteButton[Favorite=true][HasOver=false],
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button Button#m_pFavoriteButton[Favorite=true][HasOver=true]
+{
+    animation-index:                            1;
+}
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button Button#m_pFavoriteButton[Favorite=false][HasOver=false]:over,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button Button#m_pFavoriteButton[Favorite=false][HasOver=false]:selected,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button Button#m_pFavoriteButton[Favorite=false][HasOver=false]:!selected
+{
+    animation-index:                            0;
+}
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button Button#m_pFavoriteButton[Favorite=false][HasOver=true]:selected:over,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button Button#m_pFavoriteButton[Favorite=false][HasOver=true]:selected:over
+{
+    animation-index:                            3;
+}
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button Button#m_pFavoriteButton[Favorite=false][HasOver=true]:selected,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button Button#m_pFavoriteButton[Favorite=false][HasOver=false]:selected:over
+{
+    animation-index:                            5;
+}
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button Button#m_pFavoriteButton[Favorite=true][HasOver=false]:selected,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#m_pResultList Vector<Button>#m_pVector::Bar#widgets::Button Button#m_pFavoriteButton[Favorite=true][HasOver=true]:selected
+{
+    animation-index:                            6;
+}
+
+
+// FILTER FAVORITES BUTTON
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Button#m_pFilterFavoritesBtn
+{
+    image:                                      url("Maschine/Browser/BRWS_BTN_Filter_Fav.png");
+    animations:                                 7;
+
+    outer-margin-left:                          8;
+}
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Button#m_pFilterFavoritesBtn[Filtered=false]
+{
+    animation-index:                            0;
+}
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Button#m_pFilterFavoritesBtn[Filtered=false]:over
+{
+    animation-index:                            1;
+}
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Button#m_pFilterFavoritesBtn[Filtered=true]
+{
+    animation-index:                            2;
+}
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//  TAG EDITOR WIDGET
+//----------------------------------------------------------------------------------------------------------------------
+
+// RESIZING HANDLE
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pBrowserPanel Splitter#m_pBottomSplitter
+{
+    image:                                      url("Maschine/Browser/BRWS_SPLITTER_TagEdit.png");
+    fixed-left:                                 2;
+    fixed-right:                                2;
+}
+
+
+// SPECIAL CONTAINER BACKGROUND FOR IMPORT MODE
+Bar#m_pBrowserPanel Bar#m_pDBImport::Bar#pRoot::Bar#m_pEditorWidget
+{
+    image:                                      url("Maschine/Browser/BRWS_BG_Editor.png");
+    picture-includes-margin:                    true;
+    fixed-left:                                 2;
+    fixed-right:                                2;
+    fixed-top:                                  6;
+    fixed-bottom:                               2;
+
+    min-height:                                 110;
+
+    margin-left:                                4;
+    margin-right:                               4;
+    margin-bottom:                              3;
+}
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// TAG EDITOR HEADER BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pEditorButtons
+{
+    height:                                     31;
+}
+
+
+// "NUMBER OF ITEMS SELECTED" Label
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pEditorButtons Bar#pAttributeEditorStackButtonsLeft
+{
+    width:                                      70;
+}
+
+
+
+// LABEL
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pEditorButtons Label#m_pResultTitle
+{
+    font-name:                                  $fontPragmatica;
+    font-size:                                  10;
+    foreground-color:                           rgb(255,200,100);
+
+    margin:                                     4;
+}
+
+
+
+// EDITOR TOP TAB BUTTONS
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pEditorButtons Button
+{
+    image:                                      no;
+    foreground-color:                           $colorWhite30;
+
+    font-name:                                  $fontPragmatica;
+    font-size:                                  10;
+
+    outer-margin-left:                          8;
+    outer-margin-right:                         2;
+
+    min-width:                                  18;
+}
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pEditorButtons Button:!selected:over
+{
+    foreground-color:                           $colorWhite45;
+}
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pEditorButtons Button:selected
+{
+    foreground-color:                           $colorWhite;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// BANK / TYPES / MODES EDITOR PAGES
+//----------------------------------------------------------------------------------------------------------------------
+
+// GENERAL
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_generalPanel
+{
+    spacing:                                     10;
+}
+
+// Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_generalPanel Label.GeneralLabel
+// {
+//     width:                                       100;               // FP: stolen from C++ code for vendor etc. in EDIT properties panel
+//     vertical-alignment:                          top;
+//     horizontal-alignment:                        right;
+// }
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_generalPanel *#ContentTypeMenu,
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_generalPanel Bar#m_pBankEditorPanel,
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_generalPanel Bar#m_pBankEditorPanel Bar
+{
+    width:                                       $autocompleteTextEditWidth;
+}
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_generalPanel *#ContentTypeMenu
+{
+    // FP: stolen from below: Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pPropertiesPage AutocompletionTextEdit
+    menu-offset-x:                              -12;
+    menu-offset-y:                              8;
+}
+
+
+// BANK EDITOR (READ ONLY ITEM IN 2.0)
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget
+{
+    image:                                      url("Maschine/Browser/BRWS_BG_Editor.png");
+    picture-includes-margin:                    true;
+    fixed-left:                                 2;
+    fixed-right:                                2;
+    fixed-top:                                  6;
+    fixed-bottom:                               2;
+
+    min-height:                                 110;
+
+    margin-left:                                4;
+    margin-right:                               4;
+    margin-bottom:                              3;
+}
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pBankEditorPanel Bar
+{
+    height:                                      22;
+}
+
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pBankEditorPanel Bar#pBankSelector
+{
+    width:                                      316;
+    background-color:                           no;
+}
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pBankEditorPanel Bar#pBankSelector AutocompletionTextEdit
+{
+    width:                                      316;
+}
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// TYPES & MODES LISTS
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINERS
+//----------------------------------------------------------------------------------------------------------------------
+
+// FIRST CONTAINER
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Stack Bar#m_pTypesEditorPage,
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Stack Bar#m_pModesEditorPage
+
+{
+    image:                                      url("Maschine/Browser/BRWS_BG_EditorStack.png");
+    picture-includes-margin:                    true;
+    margin:                                     1;
+    fixed-top:                                  5;
+    fixed-bottom:                               5;
+}
+
+
+// SECOND CONTAINER
+Bar#m_pBrowserPanel Bar#m_pEditorWidget UniformBar#pAttributeEditorUniformBar
+{
+    image:                                      url("Maschine/Browser/BRWS_BG_UniformBar.png");
+    picture-includes-margin:                    true;
+    fixed-top:                                  2;
+    fixed-bottom:                               2;
+    fixed-left:                                 2;
+    fixed-right:                                2;
+    margin:                                     1;
+    spacing:                                    2;
+}
+
+
+
+// LIST COLUMNS (THESE COLUMS ARE REVERSE ORDER, 0 IS THE RIGHTMOST)
+Bar#m_pBrowserPanel Bar#m_pEditorWidget UniformBar#pAttributeEditorUniformBar Bar#m_aAttributeEditorColumns_0,
+Bar#m_pBrowserPanel Bar#m_pEditorWidget UniformBar#pAttributeEditorUniformBar Bar#m_aAttributeEditorColumns_1,
+Bar#m_pBrowserPanel Bar#m_pEditorWidget UniformBar#pAttributeEditorUniformBar Bar#m_aAttributeEditorColumns_2
+{
+    background-color:                           $colorTagEditorListBackground;
+}
+
+
+
+
+
+// TAG LIST
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// LIST ITEM BAR
+Bar#m_pBrowserPanel Bar#m_pEditorWidget UniformBar#pAttributeEditorUniformBar Bar.BrowserScroll::Bar
+{
+    image:                                      url("Maschine/Browser/BRWS_BG_TagEditorListItem.png");
+    picture-includes-margin:                    true;
+    animations:                                 7;
+    fixed-left:                                 2;
+    fixed-right:                                2;
+    background-color:                           rgb(35,35,35);
+
+    margin-bottom:                              1;
+}
+
+
+
+// TAG NAME BUTTON
+Bar#m_pBrowserPanel Bar#m_pEditorWidget UniformBar#pAttributeEditorUniformBar Bar.BrowserScroll Bar Button#m_pName
+{
+    height:                                     18;
+
+    background-color:                           no;
+    image:                                      no;
+    foreground-color:                           $colorWhite;
+    margin-left:                                5;
+    margin-bottom:                              1;
+    horizontal-alignment:                       left;
+}
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget UniformBar#pAttributeEditorUniformBar Bar.BrowserScroll Bar Button#m_pName:selected
+{
+    background-color:                           $colorWhite10;
+}
+
+
+
+
+
+
+// CHECKBOX
+Bar#m_pBrowserPanel Bar#m_pEditorWidget UniformBar#pAttributeEditorUniformBar Bar.BrowserScroll Bar Button#m_pCheckbox
+{
+    image:                                      url("Maschine/Browser/BRWS_BTN_Checkbox.png");
+    animations:                                 9;
+}
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget UniformBar#pAttributeEditorUniformBar Bar.BrowserScroll Bar Button#m_pCheckbox[checkstate=checked]:selected
+{
+    background-color:                           $colorWhite10;
+    animation-index:                            7;
+}
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget UniformBar#pAttributeEditorUniformBar Bar.BrowserScroll Bar Button#m_pCheckbox[checkstate=unchecked]:selected
+{
+    background-color:                           $colorWhite10;
+    animation-index:                            8;
+}
+
+
+
+
+// ADD ATTRIBUTE BUTTON
+Bar#m_pBrowserPanel Bar#m_pEditorWidget UniformBar#pAttributeEditorUniformBar Bar Bar#pBottomBar,
+Bar#m_pBrowserPanel Bar#m_pEditorWidget UniformBar#pAttributeEditorUniformBar Bar Bar#pBottomBar Stack,
+Bar#m_pBrowserPanel Bar#m_pEditorWidget UniformBar#pAttributeEditorUniformBar Bar Bar#pBottomBar Stack Button#m_pAddAttributeButton
+{
+        height:                                     16;
+}
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget UniformBar#pAttributeEditorUniformBar Bar Bar#pBottomBar Stack Button#m_pAddAttributeButton
+{
+    image:                                      url("Maschine/Browser/BRWS_BTN_AddAttribute.png");
+    animations:                                 7;
+    fixed-left:                                 12;
+    fixed-right:                                2;
+
+    background-color:                           rgb(35,35,35);
+    foreground-color:                           no;
+}
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// PROPERTIES AND GENERAL INFO LISTS
+//----------------------------------------------------------------------------------------------------------------------
+
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pPropertiesPage
+{
+    background-color:                           rgb(50,50,50);
+}
+
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pPropertiesPage::Bar,
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_generalPanel::Bar
+{
+    min-height:                                 22;
+}
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pPropertiesPage Bar#pCommentInfoBar Label,
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_generalPanel Bar#Product Label
+{
+    vertical-alignment:                         top;
+    margin-top:                                 5;
+}
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pPropertiesPage Label,
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_generalPanel Label
+{
+    width:                                      100;
+    font-name:                                  $fontPragmatica;
+    font-size:                                  11;
+    horizontal-alignment:                       right;
+
+    foreground-color:                           rgb(132,132,132);
+
+    margin-right:                               8;
+    margin-top:                                 1;
+}
+
+
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pPropertiesPage AutocompletionTextEdit
+{
+    width:                                      $autocompleteTextEditWidth;
+
+    menu-offset-x:                              -12;
+    menu-offset-y:                              8;
+}
+
+
+
+
+
+
+// Visibility
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pPropertiesPage Button#m_pVisibilityEdit
+{
+    image:                                      url("Maschine/Browser/BRWS_BTN_Checkbox.png");
+    animations:                                 9;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// FILESBROWSER
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+Bar#m_pBrowserPanel Bar#m_pFileBrowser
+{
+    outer-margin-bottom:                1;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// FAVORITES
+//----------------------------------------------------------------------------------------------------------------------
+
+//SCROLLABLE CONTAINER
+
+Bar#m_pBrowserPanel Bar#m_pFileBrowser Scrollable<BrowserPanelFavorites>#m_pFavoritesContainer
+{
+    min-height:                         80;
+    background-color:                   $colorLightBackgroundGrey;
+}
+
+
+
+// CONTAINER
+Bar#m_pBrowserPanel Bar#m_pFileBrowser Scrollable<BrowserPanelFavorites>#m_pFavoritesContainer BrowserPanelFavorites#Scrollee
+{
+    background-color:                   $colorLightBackgroundGrey;
+    margin-left:                        12;
+    margin-right:                       12;
+    margin-top:                         11;
+    margin-bottom:                      10;
+    row-height:                         17;
+    width:                              $browserMainWidth;
+}
+
+
+
+// BUTTONS
+Bar#m_pBrowserPanel Bar#m_pFileBrowser Scrollable<BrowserPanelFavorites>#m_pFavoritesContainer BrowserPanelFavorites#Scrollee::Button
+{
+    image:                              url("Maschine/Browser/BRWS_BTN_Tag.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+    fixed-left:                         4;
+    fixed-right:                        4;
+    foreground-color:                   $colorWhite60;
+
+    horizontal-alignment:               center;
+    outer-margin-left:                  2;
+    margin-left:                        7;
+    margin-right:                       7;
+
+    max-width:                          290;
+    min-width:                          16;
+}
+
+
+
+Bar#m_pBrowserPanel Bar#m_pFileBrowser Scrollable<BrowserPanelFavorites>#m_pFavoritesContainer BrowserPanelFavorites#Scrollee::Button:over
+{
+    foreground-color:                   $colorWhite80;
+}
+
+
+
+Bar#m_pBrowserPanel Bar#m_pFileBrowser Scrollable<BrowserPanelFavorites>#m_pFavoritesContainer BrowserPanelFavorites#Scrollee::Button:selected,
+Bar#m_pBrowserPanel Bar#m_pFileBrowser Scrollable<BrowserPanelFavorites>#m_pFavoritesContainer BrowserPanelFavorites#Scrollee::Button:selected:over
+{
+    foreground-color:                   $colorBlack75;
+}
+
+
+
+// RESIZING HANDLE
+
+Bar#m_pBrowserPanel Bar#m_pFileBrowser Splitter#m_pImportSplitter
+{
+    image:                              url("Maschine/Browser/BRWS_SPLITTER_TagEdit.png");
+    fixed-left:                         2;
+    fixed-right:                        2;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// BREADCRUMB BAR
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#m_pFileBrowser Bar#pBreadCrumbBar
+{
+    background-color:                           $StandardBackgroundGrey;
+
+    height:                                     29;
+    margin-left:                                13;
+    margin-top:                                 4;
+    outer-margin-top:                           1;
+    outer-margin-bottom:                        1;
+}
+
+
+
+// BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// BUTTON NAVIGATE UP
+Bar#m_pFileBrowser Bar#pBreadCrumbBar Button#m_pUpButton
+{
+    image:                                      url("Maschine/Browser/BRWS_BTN_BreadcrumbUp.png");
+    animations:                                 7;
+    foreground-color:                           no;
+    outer-margin-right:                         4;
+}
+
+
+// BUTTON HISTORY
+Bar#m_pFileBrowser Bar#pBreadCrumbBar Button#m_pHistoryButton
+{
+    image:                                      url("Maschine/Browser/BRWS_BTN_BreadcrumbHistory.png");
+    animations:                                 7;
+    foreground-color:                           no;
+    outer-margin-left:                          3;
+}
+
+
+
+// BREADCRUM BUTTON BAR
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#m_pFileBrowser Bar#pBreadCrumbBar BreadCrumb#m_pBreadCrumb
+{
+    image:                                      url("Maschine/Browser/BRWS_BG_Breadcrumb.png");
+    picture-includes-margin:                    true;
+    fixed-left:                                 4;
+    fixed-right:                                4;
+
+    width:                                      248;
+    margin-top:                                 2;
+    margin-left:                                2;
+    margin-right:                               2;
+    spacing:                                    1;
+}
+
+
+
+// FOLDER
+BreadCrumb Button#BreadCrumbFolder
+{
+    image:                                      url("Maschine/Browser/BRWS_BTN_BreadcrumbFolder.png");
+    animations:                                 7;
+    picture-includes-margin:                    true;
+    fixed-left:                                 2;
+    fixed-right:                                2;
+
+    foreground-color:                           $colorWhite75;
+    min-width:                                  40;
+    margin-left:                                2;
+    margin-right:                               2;
+}
+
+
+
+BreadCrumb Button#BreadCrumbFolder:over
+{
+    foreground-color:                           $colorWhite85;
+}
+
+
+
+
+BreadCrumb Button#BreadCrumbFolder:over:down
+{
+    foreground-color:                           $colorWhite;
+}
+
+
+
+// POINTER (DROPDOWN)
+BreadCrumb Button#BreadCrumbPointer
+{
+    image:                                      url("Maschine/Browser/BRWS_BTN_BreadcrumbPointer.png");
+    animations:                                 7;
+}
+
+
+
+// CROP POINTER (SCROLL LEFT)
+BreadCrumb Button#BreadCrumbCropPointer
+{
+    image:                                      url("Maschine/Browser/BRWS_BTN_BreadcrumbCropPointer.png");
+    animations:                                 7;
+    outer-margin-left:                          1;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// BROWSER FILE LIST
+//----------------------------------------------------------------------------------------------------------------------
+
+// Folder list
+Vector<Button>#m_pFolderList
+{
+    min-height:                                 75;
+}
+
+
+// CONTAINER
+Vector<Button>#m_pFolderList::Bar#widgets
+{
+    background-color:                           $colorDarkBackgroundGrey;
+    spacing:                                    1;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// BROWSER FILE LIST BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// SHARED PROPERTIES
+Vector<Button>#m_pFolderList::Bar#widgets::Button
+{
+    image:                                      no;
+    background-color:                           $StandardBackgroundGrey;
+    foreground-color:                           $colorWhite75;
+
+    horizontal-alignment:                       left;
+    margin-left:                                18;
+    foreground-relative-left:                   30;
+    foreground-relative-top:                    1;
+    margin-right:                               9;
+    height:                                     18;
+}
+
+
+
+Vector<Button>#m_pFolderList::Bar#widgets::Button:over
+{
+    foreground-color:                           $colorWhite85;
+}
+
+
+
+Vector<Button>#m_pFolderList::Bar#widgets::Button:selected,
+Vector<Button>#m_pFolderList::Bar#widgets::Button:selected:over
+{
+    foreground-color:                           $colorBlack75;
+}
+
+
+
+// FILE ICONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// FOLDER
+Vector<Button>#m_pFolderList::Bar#widgets::Button.Folder
+{
+    image:                                      url("Maschine/Browser/BRWS_ICO_Folder.png");
+    animations:                                 7;
+    fixed-left:                                 27;
+    fixed-right:                                4;
+    picture-includes-margin:                    false;
+}
+
+
+// SAMPLE
+Vector<Button>#m_pFolderList::Bar#widgets::Button.Sample
+{
+    image:                                      url("Maschine/Browser/BRWS_ICO_Sample.png");
+    animations:                                 7;
+    fixed-left:                                 27;
+    fixed-right:                                4;
+    picture-includes-margin:                    false;
+}
+
+
+
+// INSTRUMENT
+Vector<Button>#m_pFolderList::Bar#widgets::Button.Instrument
+{
+    image:                                      url("Maschine/Browser/BRWS_ICO_Instrument.png");
+    animations:                                 7;
+    fixed-left:                                 27;
+    fixed-right:                                4;
+    picture-includes-margin:                    false;
+}
+
+
+
+// FX
+Vector<Button>#m_pFolderList::Bar#widgets::Button.Effect
+{
+    image:                                      url("Maschine/Browser/BRWS_ICO_FX.png");
+    animations:                                 7;
+    fixed-left:                                 27;
+    fixed-right:                                4;
+    picture-includes-margin:                    false;
+}
+
+
+
+// PROJECT
+Vector<Button>#m_pFolderList::Bar#widgets::Button.Project,
+Vector<Button>#m_pFolderList::Bar#widgets::Button.Module
+{
+    image:                                      url("Maschine/Browser/BRWS_ICO_MaschineProject.png");
+    animations:                                 7;
+    fixed-left:                                 27;
+    fixed-right:                                4;
+    picture-includes-margin:                    false;
+}
+
+
+
+// GROUP
+Vector<Button>#m_pFolderList::Bar#widgets::Button.Group
+{
+    image:                                      url("Maschine/Browser/BRWS_ICO_Group.png");
+    animations:                                 7;
+    fixed-left:                                 27;
+    fixed-right:                                4;
+    picture-includes-margin:                    false;
+}
+
+
+
+// GROUP
+Vector<Button>#m_pFolderList::Bar#widgets::Button.MIDI
+{
+    image:                                      url("Maschine/Browser/BRWS_ICO_MIDI.png");
+    animations:                                 7;
+    fixed-left:                                 27;
+    fixed-right:                                4;
+    picture-includes-margin:                    false;
+}
+
+
+
+// SOUND
+Vector<Button>#m_pFolderList::Bar#widgets::Button.Sound
+{
+    image:                                      url("Maschine/Browser/BRWS_ICO_Sound.png");
+    animations:                                 7;
+    fixed-left:                                 27;
+    fixed-right:                                4;
+    picture-includes-margin:                    false;
+}
+
+
+// IMPORT
+Vector<Button>#m_pFolderList::Bar#widgets::Button.Import,
+Vector<Button>#m_pFolderList::Bar#widgets::Button.File
+{
+    image:                                      url("Maschine/Browser/BRWS_ICO_File.png");
+    animations:                                 7;
+    fixed-left:                                 27;
+    fixed-right:                                4;
+    picture-includes-margin:                    false;
+}
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SHARED ELEMETS
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// INFO PANEL
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// BACKGROUND
+Bar#m_pBrowserPanel Bar#m_pInfoPanelBar
+{
+    image:                              url("Maschine/Browser/BRWS_BG_FileInfoPanel.png");
+    picture-includes-margin:            true;
+    fixed-left:                         2;
+    fixed-right:                        2;
+    fixed-top:                          8;
+    fixed-bottom:                       2;
+
+    margin-top:                         15;
+    margin-left:                        15;
+    margin-bottom:                      15;
+
+    min-height:                         140;
+}
+
+
+
+// SPECIAL INFO PANEL PROPERTIES ONLY IN FILEBROWSER
+Bar#m_pBrowserPanel InfoPanel#m_pInfoPanel
+{
+    image:                              url("Maschine/Browser/BRWS_BG_FileInfoPanel.png");
+    picture-includes-margin:            true;
+    fixed-left:                         2;
+    fixed-right:                        2;
+    fixed-top:                          8;
+    fixed-bottom:                       2;
+
+    margin-top:                         15;
+    margin-left:                        15;
+    margin-bottom:                      15;
+
+    spacing-x:                          0;
+    spacing-y:                          0;
+    row-height:                         22;
+    min-height:                         74;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// IMPORT WIDGET
+//----------------------------------------------------------------------------------------------------------------------
+
+
+Bar#m_pDBImport
+{
+   min-height:             110;
+}
+
+
+// INFO LIST
+//----------------------------------------------------------------------------------------------------------------------
+
+// LIST ITEM CONTAINER
+Bar#m_pBrowserPanel Bar#pInfoItem
+{
+    width:                              300;
+    height:                             22;
+}
+
+
+Bar#m_pBrowserPanel Bar#m_pInfoPanelBar InfoPanel#pInfoPanel
+{
+    spacing-x:                          0;
+    spacing-y:                          0;
+    row-height:                         22;
+}
+
+
+
+
+// INFO CATEGORY
+Label.InfoName
+{
+    width:                              100;
+    foreground-color:                   $colorWhite50;
+    horizontal-alignment:               right;
+    margin-right:                       5;
+}
+
+
+
+// INFO CONTENT
+Label.InfoValue
+{
+    image:                              url("Maschine/Browser/BRWS_BG_InfoContent.png");
+    picture-includes-margin:            true;
+    fixed-left:                         2;
+    fixed-right:                        2;
+    width:                              200;
+
+    foreground-color:                   $colorWhite90;
+    margin-top:                         1;
+    margin-left:                        5;
+    margin-right:                       5;
+}
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// BROWSER PANEL FOOTER (LIBRARY AND FILE BROWSER)
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#pFooterBar,
+Bar#m_pBrowserPanel Bar#m_pDiskFooter
+{
+    image:                              url("Maschine/Browser/BRWS_BG_Footer.png");
+    picture-includes-margin:            true;
+    fixed-left:                         2;
+    fixed-right:                        2;
+
+    margin-left:                        12;
+    margin-right:                       15;
+
+    spacing:                            8;
+}
+
+
+
+
+// SHARED FOOTER BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// PRELOAD
+Button.BrowserPreload
+{
+    foreground-color:                           no;
+    image:                                      url("Maschine/Browser/BRWS_BTN_FooterPreload.png");
+    animations:                                 7;
+}
+
+
+
+// PREHEAR
+Button.BrowserPrehear
+{
+    foreground-color:                           no;
+    image:                                      url("Maschine/Browser/BRWS_BTN_FooterPrehear.png");
+    animations:                                 7;
+
+    outer-margin-left:                          3;
+    outer-margin-top:                           2;
+}
+
+
+
+// INFO / APPLY
+Bar#m_pBrowserPanel Stack#m_pStack Bar#pFooterBar Button#m_pInfoApplyBtn[Mode=Info],        // Info Button in Library Browser
+Bar#m_pBrowserPanel Bar#m_pDiskFooter Button#m_pDiskInfo                                    // Info Button in File Browser
+{
+    foreground-color:                           no;
+    image:                                      url("Maschine/Browser/BRWS_BTN_FooterInfo.png");
+    animations:                                 7;
+    outer-margin-top:                           4;
+}
+
+Bar#m_pBrowserPanel Stack#m_pStack Bar#pFooterBar Button#m_pInfoApplyBtn[Mode=Apply]
+{
+    foreground-color:                           no;
+    image:                                      url("Maschine/Browser/BRWS_BTN_FooterApply.png");
+    animations:                                 7;
+    outer-margin-top:                           4;
+}
+
+
+
+
+
+// LIBRARY BROWSER FOOTER BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// EDIT
+Bar#m_pBrowserPanel Stack#m_pStack Bar#pFooterBar Button#m_pEditBtn
+{
+    foreground-color:                           no;
+    image:                                      url("Maschine/Browser/BRWS_BTN_FooterEdit.png");
+    animations:                                 7;
+    outer-margin-top:                           4;
+}
+
+
+
+// FILE BROWSER FOOTER BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// IMPORT GROUP WITH PATTERNS
+Bar#m_pBrowserPanel Button#m_pLoadGroupWithPatternBtn
+{
+    foreground-color:                           no;
+    image:                                      url("Maschine/Browser/BRWS_BTN_FooterWithPattern.png");
+    animations:                                 7;
+    outer-margin-top:                           4;
+    outer-margin-left:                          8;
+}
+
+
+
+// IMPORT GROUP WITH ROUTING
+Bar#m_pBrowserPanel Button#m_pLoadGroupWithSoundRoutingBtn
+{
+    foreground-color:                           no;
+    image:                                      url("Maschine/Browser/BRWS_BTN_FooterWithRouting.png");
+    animations:                                 7;
+    outer-margin-top:                           4;
+    outer-margin-left:                          5;
+}
+
+
+
+// IMPORT GROUP WITH PATTERNS
+Bar#m_pBrowserPanel Bar#m_pDiskFooter Button#m_pImport
+{
+    foreground-color:                           no;
+    image:                                      url("Maschine/Browser/BRWS_BTN_FooterImport.png");
+    animations:                                 7;
+    outer-margin-top:                           4;
+}
+
+
+
+// IMPORT CANCEL
+Bar#m_pBrowserPanel Bar#m_pDiskFooter Button#m_pImportCancel
+{
+    foreground-color:                           no;
+    image:                                      url("Maschine/Browser/BRWS_BTN_FooterCancel.png");
+    animations:                                 7;
+    outer-margin-top:                           4;
+}
+
+
+
+// IMPORT OK
+Bar#m_pBrowserPanel Bar#m_pDiskFooter Button#m_pImportOK
+{
+    foreground-color:                           no;
+    image:                                      url("Maschine/Browser/BRWS_BTN_FooterOK.png");
+    animations:                                 7;
+    outer-margin-top:                           4;
+}

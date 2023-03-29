@@ -1,0 +1,70 @@
+DialogPreviewLibrary
+{
+    width:                          430;
+    height:                         180;
+}
+
+DialogPreviewLibrary Button#button3
+{
+    width:                          130;
+}
+
+DialogPreviewLibrary Bar#pMain Bar#body
+{
+    image:                          url("Shared/Dialogs/SharedDialogTexture/DIALOG_ContrLineBody.png");
+    picture-includes-margin:        true;
+
+    fixed-left:                     3;
+    fixed-right:                    3;
+    fixed-top:                      3;
+    fixed-bottom:                   3;
+
+    background-color:               $colorDialogLightGrey;
+
+    margin-left:                    20;
+    margin-right:                   20;
+}
+
+DialogPreviewLibrary Checkbox#dontAskAgain
+{
+    outer-margin-bottom:            10;
+}
+
+DialogPreviewLibrary Bar#pMain Bar#body Label#m_message
+{
+    outer-margin-top:               10;
+    font-name:                      $fontPragmatica;
+    font-size:                      13;
+    foreground-color:               $colorWhite75;
+    horizontal-alignment:           center;
+
+    background-color:               no;
+}
+
+DialogPreviewLibrary Bar#body Checkbox#dontAskAgain Button#m_pText
+{
+    font-name:                      $fontPragmatica;
+    font-size:                      13;
+    foreground-color:               $colorWhite75;
+    outer-margin-left:              2;
+}
+
+DialogPreviewLibrary Bar#pMain Bar#buttonContainer
+{
+    image:                          url("Shared/Dialogs/SharedDialogTexture/DIALOG_ContrLineFooter.png");
+    picture-includes-margin:        true;
+
+    fixed-left:                     3;
+    fixed-right:                    3;
+    fixed-top:                      3;
+    fixed-bottom:                   3;
+
+    background-color:               $colorDialogLightGrey;
+
+    spacing:                        1;
+
+    height:                         43;
+    margin-top:                     9;
+    margin-left:                    8;
+    margin-right:                   8;
+}

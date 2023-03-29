@@ -1,0 +1,91 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Specific cases
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#BrowsePageStudioScreenRight Bar.StudioDisplay Vector Scrollbar,
+Bar#ControlPageStudioScreenRight Bar.StudioDisplay Vector Scrollbar,
+Bar#ControlPageMK3ScreenRight Bar.StudioDisplay Vector Scrollbar,
+Bar#ModulePageStudioScreenRight Bar.StudioDisplay Vector Scrollbar,
+Bar#NetworkRightContainer Vector<Label>#NetworkList Scrollbar
+{
+    margin-left:                    3;
+}
+
+
+Bar#ModulePageStudioScreenRight Bar.StudioDisplay Vector Scrollbar
+{
+    margin-bottom:                  0;
+    height:                         208;
+}
+
+// MK3 File Page
+Bar#FilePageMK3ScreenRight Bar.StudioDisplay Scrollbar#m_pScrollbar
+{
+    margin-bottom:                  10;
+}
+
+
+// Browser
+Bar#BrowsePageStudioScreenLeft Bar.StudioDisplay Vector Scrollbar
+{
+    outer-margin-top:               5;
+    outer-margin-bottom:            1;
+    margin-bottom:                  6;
+    margin-left:                    8;
+    width:                          13;
+}
+
+Bar#BrowsePageStudioScreenRight Bar.StudioDisplay Vector Scrollbar,
+Bar#NetworkRightContainer Vector<Label>#NetworkList Scrollbar
+{
+    height:                         182;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Generic Styles
+//----------------------------------------------------------------------------------------------------------------------
+
+Scrollbar
+{
+    background-color:               $colorUnion;
+}
+
+Scrollbar Button
+{
+    width:                          $metricGrid;
+    height:                         $metricGrid;
+}
+
+
+Scrollbar
+{
+    background-color:               no;
+    image:                          no;
+    width:                          8;
+    margin-left:                    3;
+    margin-top:                     0;
+    margin-bottom:                  5;
+}
+
+
+Scrollbar Slider#value
+{
+    background-color:               no;
+}
+
+
+Scrollbar Grip#thumb
+{
+    image:                          url("Shared/HW/Studio/Standard/std_slider_white.png");
+    picture-includes-margin:        true;
+    fixed-bottom:                   1;
+    fixed-top:                      1;
+}
+
+Scrollbar Grip#thumb
+{
+    image:                          url("Shared/HW/Studio/Standard/std_slider_white.png");
+    picture-includes-margin:        true;
+    fixed-bottom:                   1;
+    fixed-top:                      1;
+}

@@ -1,0 +1,10 @@
+Bar.ScreenKH1062 Label.MessageLabelStyle
+{
+    font-name:                      $fontDefaultBold;
+    font-size:                      $fontSize;
+
+    height:                         $defaultHeight;
+
+    vertical-alignment:             center;
+    horizontal-alignment:           center;
+}

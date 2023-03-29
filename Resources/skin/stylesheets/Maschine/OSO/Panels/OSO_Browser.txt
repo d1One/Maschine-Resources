@@ -1,0 +1,1114 @@
+//----------------------------------------------------------------------------------------------------------------------
+// ON SCREEN OVERLAY BROWSER
+//----------------------------------------------------------------------------------------------------------------------
+
+@import url("Shared/SW/Definitions/Colors.txt");
+
+
+// MAIN CONTAINER
+Bar#OnScreenOverlay Bar#m_pBrowserWidget Bar#m_pBrowser
+{
+    height:                 725;
+    width:                  552;
+
+    background-color:       $color-OSO-BRWS-Divider;
+    spacing:                1;
+}
+
+
+
+// DROP SHADOWS
+//----------------------------------------------------------------------------------------------------------------------
+
+// RIGHT DROP SHADOW
+Label.OSORightShadow
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_LBL_DropShadowRight.png");
+    animations:                 2;
+
+    fixed-top:                  5;
+    fixed-bottom:               5;
+}
+
+
+
+Label.OSORightShadow[HasFocus=false]
+{
+    animation-index:            0;
+}
+
+
+
+Label.OSORightShadow[HasFocus=true]
+{
+    animation-index:            1;
+}
+
+
+
+// GENERIC LIGHTLINE LABEL
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#OnScreenOverlay Label#m_pAllBanner,
+Bar#OnScreenOverlay Label#m_pBankBanner,
+Bar#OnScreenOverlay Bar#m_pTypesBanner,
+Bar#OnScreenOverlay Bar#m_pTypesBar Bar#m_pTypes,
+Bar#OnScreenOverlay Bar#m_pModesBanner,
+Bar#OnScreenOverlay Bar#m_pModesBar Bar#m_pModes,
+Bar#OnScreenOverlay Label#m_pBottomSpace
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_LBL_Lightline.png");
+    picture-includes-margin:    true;
+
+    fixed-left:                 10;
+    fixed-right:                10;
+    fixed-top:                  5;
+    fixed-bottom:               5;
+
+    margin-right:               30;
+}
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// BROWSER SECTIONS TABS
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINERS
+Bar#OnScreenOverlay Bar#pFileTypeUserWidget,
+Bar#OnScreenOverlay Bar#pBankEditorPanel
+{
+    height:                     65;
+    background-color:           $color-OSO-Standard-BG-Grey;
+}
+
+
+
+Bar#OnScreenOverlay Bar#pBankEditorPanel
+{
+    margin-left:                24;
+}
+
+
+
+// DUMMY LABEL ON BOTTOM
+Bar#OnScreenOverlay Label#m_pBottomSpace
+{
+    background-color:           $color-OSO-Standard-BG-Grey;
+    min-height:                 0;
+}
+
+
+
+// UNFOCUSED BACKGROUNDS
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#OnScreenOverlay Bar#pFileTypeUserWidget[ResultListFocus=true],
+BrowserProductsWidget[ResultListFocus=true],
+Bar#OnScreenOverlay Bar#m_pTypesBanner[ResultListFocus=true],
+Bar#OnScreenOverlay Bar#m_pModesBanner[ResultListFocus=true],
+Bar#OnScreenOverlay Label#m_pBottomSpace[ResultListFocus=true]
+
+{
+    background-color:           $color-OSO-Unfocused-BG;
+}
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// BROWSE MODE SELECTOR
+//----------------------------------------------------------------------------------------------------------------------
+
+// MAIN CONTAINER
+
+Bar#OnScreenOverlay Bar#pFileTypeUserWidget[ResultListFocus=true]
+{
+    background-color:           $colorBlack;
+}
+
+Bar#OnScreenOverlay Bar#pFileTypeUserWidget[HasFocus=false]
+{
+    background-color:           $color-OSO-Standard-BG-Grey;
+}
+
+Bar#OnScreenOverlay Bar#pFileTypeUserWidget[HasFocus=true]
+{
+    background-color:           $color-OSO-Focus-BG-Grey;
+}
+
+// BUTTON CURSOR STATES
+Bar#OnScreenOverlay Bar#pFileTypeUserWidget Button[HasFocus=false]:!selected
+{
+    animation-index:            0;
+}
+
+
+Bar#OnScreenOverlay Bar#pFileTypeUserWidget Button[HasFocus=false]:selected
+{
+    animation-index:            1;
+}
+
+
+Bar#OnScreenOverlay Bar#pFileTypeUserWidget Button[HasFocus=true]:!selected
+{
+    animation-index:            4;
+}
+
+
+Bar#OnScreenOverlay Bar#pFileTypeUserWidget Button[HasFocus=true]:selected
+{
+    animation-index:            5;
+}
+
+
+
+// BROWSER FILE TYPES
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#OnScreenOverlay FileTypeSelector
+{
+    width:                      381;            // !FP change me!
+    height:                     65;
+    margin-left:                27;
+    spacing:                    20;
+}
+
+
+
+// FILE TYPE BUTTONS
+
+// PROJECTS
+Bar#OnScreenOverlay FileTypeSelector Button#pButton[FileType=Project]
+{
+    image:                      url("Maschine/OSO/Browser/OSO_BRWS_Mode_BTN_Project.png");
+    animations:                 7;
+    foreground-color:           no;
+}
+
+
+
+// GROUPS
+Bar#OnScreenOverlay FileTypeSelector Button#pButton[FileType=Group]
+{
+    image:                      url("Maschine/OSO/Browser/OSO_BRWS_Mode_BTN_Group.png");
+    animations:                 7;
+    foreground-color:           no;
+}
+
+
+
+// SOUNDS
+Bar#OnScreenOverlay FileTypeSelector Button#pButton[FileType=Sound]
+{
+    image:                      url("Maschine/OSO/Browser/OSO_BRWS_Mode_BTN_Sound.png");
+    animations:                 7;
+    foreground-color:           no;
+}
+
+
+
+// INSTRUMENTS
+Bar#OnScreenOverlay FileTypeSelector Button#pButton[FileType=Instrument]
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_Mode_BTN_Instrument.png");
+    animations:                 7;
+    foreground-color:           no;
+}
+
+
+
+// FX
+Bar#OnScreenOverlay FileTypeSelector Button#pButton[FileType=Effect]
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_Mode_BTN_FX.png");
+    animations:                 7;
+    foreground-color:           no;
+}
+
+
+
+// 1SHOT SAMPLES
+Bar#OnScreenOverlay FileTypeSelector Button#pButton[FileType=One-shot]
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_Mode_BTN_Sample.png");
+    animations:                 7;
+    foreground-color:           no;
+}
+
+// LOOP SAMPLES
+Bar#OnScreenOverlay FileTypeSelector Button#pButton[FileType=Loop]
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_Mode_BTN_Loop.png");
+    animations:                 7;
+    foreground-color:           no;
+}
+
+
+
+// FACTORY & USER
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#OnScreenOverlay UserModeToggle
+{
+    width:                      166;
+    spacing:                    7;
+    margin-left:                60;
+}
+
+
+// USER LIB BUTTON
+Bar#OnScreenOverlay UserModeToggle Button
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_Mode_BTN_User.png");
+    animations:                 7;
+    foreground-color:           no;
+    outer-margin-left:          50;
+}
+
+
+
+
+// FILETYPE NAME LABEL
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#OnScreenOverlay Label#m_pSelectedFileTypeName
+{
+    font-name:                  $fontPragmatica;
+    font-size:                  20;
+    foreground-color:           $colorWhite90;
+
+    width:                      280;
+    height:                     65;
+    margin-top:                 1;
+    margin-left:                10;
+}
+
+
+
+// DARKER FILETYPE BUTTONS WHEN FILETYPE SELECTOR IS UNFOCUSED
+//----------------------------------------------------------------------------------------------------------------------
+
+// UNFOCUSED FILETYPE NAME LABEL
+Bar#OnScreenOverlay Bar#pFileTypeUserWidget[HasFocus=false] Label#m_pSelectedFileTypeName
+{
+    foreground-color:           $colorWhite80;
+}
+
+
+
+// UNFOCUSED PROJECT
+Bar#OnScreenOverlay Bar#pFileTypeUserWidget[HasFocus=false] Label#m_pSelectedFileTypeIcon[FileType=Project]
+{
+    image:                      url("Maschine/OSO/Browser/OSO_BRWS_Mode_BTN_Project_Unfocused.png");
+    foreground-color:           no;
+}
+
+
+
+// UNFOCUSED GROUPS
+Bar#OnScreenOverlay Bar#pFileTypeUserWidget[HasFocus=false] Label#m_pSelectedFileTypeIcon[FileType=Group]
+{
+    image:                      url("Maschine/OSO/Browser/OSO_BRWS_Mode_BTN_Group_Unfocused.png");
+    foreground-color:           no;
+}
+
+
+
+// UNFOCUSED SOUNDS
+Bar#OnScreenOverlay Bar#pFileTypeUserWidget[HasFocus=false] Label#m_pSelectedFileTypeIcon[FileType=Sound]
+{
+    image:                      url("Maschine/OSO/Browser/OSO_BRWS_Mode_BTN_Sound_Unfocused.png");
+    foreground-color:           no;
+}
+
+
+
+// UNFOCUSED INSTRUMENTS
+Bar#OnScreenOverlay Bar#pFileTypeUserWidget[HasFocus=false] Label#m_pSelectedFileTypeIcon[FileType=Instrument]
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_Mode_BTN_Instrument_Unfocused.png");
+    foreground-color:           no;
+}
+
+
+
+// UNFOCUSED FX
+Bar#OnScreenOverlay Bar#pFileTypeUserWidget[HasFocus=false] Label#m_pSelectedFileTypeIcon[FileType=Effect]
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_Mode_BTN_FX_Unfocused.png");
+    foreground-color:           no;
+}
+
+
+
+// UNFOCUSED 1SHOT SAMPLES
+Bar#OnScreenOverlay Bar#pFileTypeUserWidget[HasFocus=false] Label#m_pSelectedFileTypeIcon[FileType=One-shot]
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_Mode_BTN_Sample_Unfocused.png");
+    foreground-color:           no;
+}
+
+// UNFOCUSED LOOP SAMPLES
+Bar#OnScreenOverlay Bar#pFileTypeUserWidget[HasFocus=false] Label#m_pSelectedFileTypeIcon[FileType=Loop]
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_Mode_BTN_Sample_Unfocused.png");
+    foreground-color:           no;
+}
+
+Bar#OnScreenOverlay Bar#pFileTypeUserWidget[HasFocus=false] UserModeToggle
+{
+    width:                      166;
+    spacing:                    7;
+    margin-left:                60;
+}
+
+// UNFOCUSED USER LIB BUTTON
+Bar#OnScreenOverlay Bar#pFileTypeUserWidget[HasFocus=false] UserModeToggle Button
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_Mode_BTN_User_Unfocused.png");
+    animations:                 2;
+    foreground-color:           no;
+}
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// INSTRUMENT SELECTION
+//----------------------------------------------------------------------------------------------------------------------
+
+// INSTRUMENT SELECTOR CONTAINER
+BrowserProductsWidget[HasFocus=false]
+{
+    background-color:           $color-OSO-Standard-BG-Grey;
+    height:                     65;
+}
+
+BrowserProductsWidget[HasFocus=true]
+{
+    background-color:           $color-OSO-Focus-BG-Grey;
+    height:                     527;
+}
+
+
+
+// ALL INSTRUMENTS BANNER
+BrowserProductsWidget Label#m_pAllBanner
+{
+    height:                     65;
+    margin-left:                30;
+    margin-right:               30;
+    margin-top:                 1;
+    font-name:                  $fontPragmatica;
+    font-size:                  20;
+    foreground-color:           $colorWhite85;
+}
+
+
+
+// DIVIDER LINE BELOW "ALL INSTRUMENTS"
+BrowserProductsWidget Label#m_pSpacer
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_VB_LBL_Separator.png");
+    fixed-left:                 5;
+    fixed-right:                5;
+}
+
+
+
+BrowserProductsWidget Label#m_pSpacer[ProductSelected=false]
+{
+    outer-margin-left:          15;
+    outer-margin-right:         15;
+}
+
+
+
+BrowserProductsWidget Label#m_pSpacer[ProductSelected=true]
+{
+    outer-margin-left:          0;
+    outer-margin-right:         0;
+}
+
+
+
+// PRODUCT BANNER
+//----------------------------------------------------------------------------------------------------------------------
+
+// PRODUCT BANNER CONTAINER
+BrowserProductsWidget Bar#m_pProductBanner
+{
+    height:                     65;
+    background-color:           $colorBlack;
+}
+
+BrowserProductsWidget Bar#m_pProductBanner[soundsdotcom=true]
+{
+    background-color:           $colorSoundsDotCom;
+}
+
+
+// PRODUCT NAME (INCLUDES FALLBACK STATE)
+BrowserProductsWidget Bar#m_pProductBanner Label#m_pProductName
+{
+    font-name:                  $fontPragmatica;
+    font-size:                  24;
+
+    foreground-color:           rgb(235,235,235);
+    foreground-relative-left:   30;
+}
+
+BrowserProductsWidget Bar#m_pProductBanner Label#m_pProductName[soundsdotcom=true]
+{
+    background-color:           $colorSoundsDotCom
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// PRODUCT BROWSER
+//----------------------------------------------------------------------------------------------------------------------
+
+// PRODUCT BROWSER MAIN CONTAINERs
+BrowserProductsWidget Vector<BrowserProductRowWidget>#m_pProductList
+{
+    focus-delay:                7;
+    outer-margin-bottom:        17;
+}
+
+
+BrowserProductsWidget Vector<BrowserProductRowWidget>#m_pProductList[DisplayCategories=true]
+{
+    height:                     340;
+}
+
+
+BrowserProductsWidget Vector<BrowserProductRowWidget>#m_pProductList[DisplayCategories=false]
+{
+    height:                     450;
+}
+
+
+BrowserProductsWidget Bar#widgets
+{
+    margin-left:                16;
+    spacing:                    6;
+    height:                     0;
+}
+
+
+BrowserProductsWidget Label#m_pSpacer[ProductSelected=true]
+{
+    width:                      552;
+    margin-left:                0;
+    margin-right:               0;
+}
+
+
+BrowserProductsWidget Label#m_pSpacer[ProductSelected=false]
+{
+    width:                      522;
+    margin-left:                0;
+    margin-right:               0;
+}
+
+
+// GROUP SECTIONS
+BrowserProductsWidget Label#m_pCurrentGroup
+{
+    height:                     50;
+    outer-margin-top:           0;
+    margin-left:                30;
+    image:                      no;
+    width:                      0;
+
+    font-name:                  $fontPragmatica;
+    foreground-color:           $colorWhite80;
+    font-size:                  16;
+}
+
+
+BrowserProductsWidget Label#m_pTopDivider,
+BrowserProductsWidget Label#m_pBottomDivider
+{
+    fixed-left:                 1;
+    background-color:           no;
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_LBL_Divider.png");
+    height:                     2;
+    width:                      495;
+    outer-margin-left:          25;
+
+}
+
+BrowserProductsWidget Label#m_pNextGroup
+{
+    height:                     39;
+    outer-margin-top:           0;
+    margin-left:                30;
+    margin-top:                 7;
+    image:                      no;
+
+    font-name:                  $fontPragmatica;
+    foreground-color:           $colorWhite25;
+    font-size:                  16;
+}
+
+
+
+// PRODUCT ROW CONTAINER
+BrowserProductRowWidget
+{
+    height:                     110;
+    margin-left:                4;
+    spacing:                    22;
+}
+
+
+BrowserProductRowWidget#generic_BrowserProductRowWidget_0
+{
+    outer-margin-top:           10;
+}
+
+
+
+// PRODUCT ICON ITEM (UNDERLINE VERSION)
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// CONTAINER
+BrowserProductRowWidget Bar#ProductBar
+{
+    width:                      156;
+    height:                     110;
+
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_VB_ProductBG_Underline.png");
+
+    picture-includes-margin:    true;
+    animations:                 2;
+    fixed-top:                  40;
+    fixed-bottom:               20;
+    fixed-left:                 12;
+    fixed-right:                12;
+}
+
+
+BrowserProductRowWidget Bar#ProductBar[HasFocus=false]
+{
+    animation-index:            0;
+}
+
+BrowserProductRowWidget Bar#ProductBar[HasFocus=true]
+{
+    animation-index:            1;
+}
+
+
+// PRODUCT NAME LABEL
+BrowserProductRowWidget Bar#ProductBar Label#ProductLabel
+{
+    font-name:                  $fontPragmatica;
+    font-size:                  16;
+
+    width:                      134;
+    outer-margin-left:          10;
+    outer-margin-bottom:        8;
+    outer-margin-top:           6;
+}
+
+
+
+BrowserProductRowWidget Bar#ProductBar Label#ProductLabel
+{
+    foreground-color:           $colorWhite75;
+}
+
+
+BrowserProductRowWidget Bar#ProductBar[HasFocus=true] Label#ProductLabel
+{
+    foreground-color:           $colorWhite;
+}
+
+
+
+BrowserProductRowWidget Bar#ProductBar Label#ProductLabel:selected
+{
+    foreground-color:           $colorBlack80;
+}
+
+
+
+BrowserProductRowWidget Bar#ProductBar[HasFocus=true] Label#ProductLabel:selected
+{
+    foreground-color:           $colorBlack80;
+}
+
+
+
+// PRODUCT ARTWORK
+BrowserProductRowWidget Bar#ProductIcon
+{
+    width:                      134;
+    height:                     66;
+
+    outer-margin-left:          11;
+}
+
+
+// PRODUCT ARTWORK FALLBACK IMAGE
+BrowserProductRowWidget Bar#ProductIcon[Fallback=Instrument]
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_VB_LBL_Fallback.png");
+}
+
+BrowserProductRowWidget Bar#ProductIcon[Fallback=One-shot]
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_VB_FallbackSample.png");
+}
+
+BrowserProductRowWidget Bar#ProductIcon[Fallback=Loop]
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_VB_FallbackLoop.png");
+}
+
+BrowserProductRowWidget Bar#ProductIcon[Fallback=soundsdotcom]
+{
+    image:                      url("Shared/HW/Studio/BrowsePages/bp_SoundsDotCom.png");
+}
+
+// PRODUCT CATEGORY GROUPS
+
+Label#GroupLabel {
+    font-name:                  $fontPragmatica;
+    font-size:                  16;
+    foreground-color:           $colorWhite35;
+    margin-left:                8;
+}
+
+Bar#pPanel {
+    height:                     120;
+    margin-top:                 0;
+    spacing:                    10;
+}
+
+Label#GroupDivider {
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_VB_LBL_Separator.png");
+    fixed-left:                 1;
+    width:                      522;
+}
+
+
+
+// INSTRUMENT SELECTOR SCROLLBAR
+//----------------------------------------------------------------------------------------------------------------------
+
+// BACKGROUND
+BrowserProductsWidget Vector Scrollbar#m_pScrollbar
+{
+    width:                      19;
+    outer-margin-left:          -19;
+}
+
+
+
+// SLIDER
+BrowserProductsWidget Vector Scrollbar#m_pScrollbar Slider
+{
+    margin-top:                 4;
+    margin-bottom:              0;
+}
+
+
+
+// GRIP
+BrowserProductsWidget Vector Scrollbar#m_pScrollbar Slider Grip
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_Scroll_Grip.png");
+    fixed-top:                  5;
+    fixed-bottom:               5;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// BANKCHAIN 2 & 3 SELECTOR
+//----------------------------------------------------------------------------------------------------------------------
+
+BrowserBanksWidget[HasFocus=false]
+{
+    background-color:           no;
+    height:                     32;
+}
+
+
+
+BrowserBanksWidget[HasFocus=true]
+{
+    background-color:           no;
+    height:                     461;
+}
+
+
+
+// GENERAL BANKCHAIN MENU LABEL STYLING
+BrowserBanksWidget Label
+{
+    font-size:                  16;
+    font-name:                  $fontPragmatica;
+    margin-left:                30;
+    height:                     32;
+    margin-top:                 1;
+}
+
+
+
+// PRODUCT BANKCHAIN 2&3 BANNER
+BrowserBanksWidget Label#m_pBankBanner
+{
+    foreground-color:           $colorWhite90;
+}
+
+
+
+// BANKCHAIN MENU
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+BrowserBanksWidget Vector
+{
+    outer-margin-top:           1;
+    background-color:           $color-OSO-Focused-LI-Divider;
+    focus-delay:                0;
+}
+
+
+
+BrowserBanksWidget Vector Bar#widgets
+{
+    width:                      552;
+    spacing:                    1;
+}
+
+
+// LIST ITEMS
+
+// DEAFULT
+BrowserBanksWidget Label.BrowserBanksWidgetRow[HasFocus=false]
+{
+    background-color:           $color-OSO-Focus-BG-Grey;
+    foreground-color:           $colorWhite80;
+}
+
+
+
+// CURSOR
+BrowserBanksWidget Label.BrowserBanksWidgetRow[HasFocus=true]
+{
+    background-color:           $colorWhite30;
+    foreground-color:           $colorWhite90;
+}
+
+
+// SELECTED
+BrowserBanksWidget Label.BrowserBanksWidgetRow:selected
+{
+    background-color:           $colorWhite80;
+    foreground-color:           $colorBlack80;
+}
+
+
+
+
+// BANKCHAIN MENU SCROLLBAR
+
+// CONTAINER
+BrowserBanksWidget Scrollbar
+{
+    background-color:           no;
+    outer-margin-left:          -19;
+
+    margin-top:                 5;
+    margin-bottom:              5;
+}
+
+// GRIP
+BrowserBanksWidget Scrollbar Grip
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_Scroll_Grip.png");
+    fixed-top:                  5;
+    fixed-bottom:               5;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// TAG CLOUDS
+//----------------------------------------------------------------------------------------------------------------------
+
+// TAG CLOUD CONTAINER
+Bar#OnScreenOverlay Bar#pTypesModesWidget
+{
+    spacing:                    1;
+}
+
+
+// TAG HEADLINES, COLLAPSED TAG CLOUDS
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#OnScreenOverlay Bar#m_pTypesBanner,
+Bar#OnScreenOverlay Bar#m_pModesBanner
+{
+    background-color:           $color-OSO-Standard-BG-Grey;
+    height:                     65;
+}
+
+
+// TAG HEADLINES, EXPANDED TAG CLOUDS
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#OnScreenOverlay Bar#pTypesModesWidget Label#pCaption
+{
+    height:                     65;
+    font-name:                  $fontPragmatica;
+    font-size:                  20;
+    margin-left:                30;
+}
+
+
+
+Bar#OnScreenOverlay Bar#m_pTypesBanner Label#pCaption:enabled,
+Bar#OnScreenOverlay Bar#m_pModesBanner Label#pCaption:enabled
+{
+    foreground-color:           $colorWhite80;
+}
+
+
+Bar#OnScreenOverlay Bar#m_pTypesBanner Label#pCaption:!enabled,
+Bar#OnScreenOverlay Bar#m_pModesBanner Label#pCaption:!enabled
+{
+foreground-color:               $colorWhite25;
+}
+
+
+
+
+
+
+
+// SELECTED TAGS LABELS (ONLY SHOWN WHEN TAG AREAS ARE COLLAPSED AND TAG IS SELECTED)
+Label.BannerLabel
+{
+    font-name:                  $fontPragmatica;
+    font-size:                  16;
+    margin-left:                19;
+    foreground-color:           $colorWhite60;
+    foreground-relative-top:    1;
+
+    max-width:                  407;
+}
+
+
+// EXPANDED TAGS
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#OnScreenOverlay Bar#m_pTypesBar
+{
+    background-color:           $color-OSO-Standard-BG-Grey;
+}
+
+
+
+Bar#OnScreenOverlay Bar#m_pModesBar
+{
+    background-color:           $color-OSO-Focus-BG-Grey;
+}
+
+
+Bar#OnScreenOverlay Bar#m_pTypesBanner Label,
+Bar#OnScreenOverlay Bar#m_pModesBanner Label
+{
+    margin-top:                 1;
+}
+
+
+
+
+// LINE LABEL ON TOP
+Bar#OnScreenOverlay Label#LINE_0,
+Bar#OnScreenOverlay Label#LINE_1,
+Bar#OnScreenOverlay Label#LINE_2
+{
+    height:                     1;
+}
+
+
+
+
+// TAG AREA HEADLINE
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#OnScreenOverlay Bar#m_pTypes[HasFocus=true],
+Bar#OnScreenOverlay Bar#m_pSubTypes[HasFocus=true],
+Bar#OnScreenOverlay Bar#m_pSubSubTypes[HasFocus=true],
+Bar#OnScreenOverlay Bar#m_pModes[HasFocus=true]
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_VB_TYPES_Separator.png");
+    fixed-top:                  2;
+    fixed-left:                 2;
+    fixed-right:                2;
+    width:                      0;
+
+    background-color:           $color-OSO-Focus-BG-Grey;
+}
+
+Bar#OnScreenOverlay Bar#m_pSubTypes[HasFocus=false],
+Bar#OnScreenOverlay Bar#m_pSubSubTypes[HasFocus=false]
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_VB_TYPES_Separator.png");
+    fixed-top:                  2;
+    fixed-left:                 2;
+    fixed-right:                2;
+    width:                      0;
+}
+
+Bar#OnScreenOverlay Bar#m_pTypes Label#m_pCaption,
+Bar#OnScreenOverlay Bar#m_pModes Label#m_pCaption
+{
+    height:                     68;
+    font-name:                  $fontPragmatica;
+    font-size:                  20;
+    margin-left:                30;
+    foreground-color:           $colorWhite80;
+    foreground-relative-top:    -2;
+}
+
+
+
+
+// INVISIBLE LABEL FOR SUBTYPES - ONLY USED AS SPACER
+Bar#OnScreenOverlay Bar#m_pSubTypes Label#m_pCaption,
+Bar#OnScreenOverlay Bar#m_pSubSubTypes Label#m_pCaption
+{
+    height:                     32;
+    foreground-color:           no;
+}
+
+
+
+// TAG CONTAINER
+Bar#OnScreenOverlay Bar#m_pTypes Flow#m_pFlow,
+Bar#OnScreenOverlay Bar#m_pSubSubTypes Flow#m_pFlow,
+Bar#OnScreenOverlay Bar#m_pModes Flow#m_pFlow
+{
+    outer-margin-left:          30;
+    outer-margin-right:         30;
+    outer-margin-bottom:        26;
+}
+
+Bar#OnScreenOverlay Bar#m_pSubTypes Flow#m_pFlow
+{
+    outer-margin-left:          30;
+    outer-margin-right:         30;
+    outer-margin-bottom:        26;
+}
+
+
+
+// TAG SCROLLBAR
+//----------------------------------------------------------------------------------------------------------------------
+
+// BACKGROUND
+Scrollbar.OSO_Tags_VB
+{
+    width:                      19;
+    outer-margin-left:          -19;
+}
+
+
+
+// SLIDER
+Scrollbar.OSO_Tags_VB Slider
+{
+    margin-top:                 5;
+    margin-bottom:              5;
+}
+
+
+
+// GRIP
+Scrollbar.OSO_Tags_VB Grip
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_Scroll_Grip.png");
+    fixed-top:                  5;
+    fixed-bottom:               5;
+}
+
+
+
+// TAG LABEL - CURSOR UNDERLINE
+Bar#OnScreenOverlay Bar#m_pTypes Flow#m_pFlow Button,
+Bar#OnScreenOverlay Bar#m_pSubTypes Flow#m_pFlow Button,
+Bar#OnScreenOverlay Bar#m_pSubSubTypes Flow#m_pFlow Button,
+Bar#OnScreenOverlay Bar#m_pModes Flow#m_pFlow Button
+{
+    image:                      url("Shared/OSO/Browser/OSO_BRWS_Tag_BTN.png");
+    fixed-left:                 3;
+    fixed-right:                3;
+    animations:                 7;
+    animation-index:            0;
+    picture-includes-margin:    true;
+
+    max-width:                  492;
+
+    margin-left:                11;
+    margin-right:               11;
+    foreground-relative-top:    -3;
+
+    outer-margin-right:         7;
+    outer-margin-bottom:        0;
+
+    font-name:                  $fontPragmatica;
+    font-size:                  16;
+
+    foreground-color:           $colorWhite65;
+}
+
+Bar#OnScreenOverlay Bar#m_pTypes Flow#m_pFlow Button:selected,
+Bar#OnScreenOverlay Bar#m_pSubTypes Flow#m_pFlow Button:selected,
+Bar#OnScreenOverlay Bar#m_pSubSubTypes Flow#m_pFlow Button:selected,
+Bar#OnScreenOverlay Bar#m_pModes Flow#m_pFlow Button:selected
+{
+    animation-index:            1;
+    foreground-color:           $colorBlack90;
+}
+
+Bar#OnScreenOverlay Bar#m_pTypes Flow#m_pFlow Button[IsHighlighted=true],
+Bar#OnScreenOverlay Bar#m_pSubTypes Flow#m_pFlow Button[IsHighlighted=true],
+Bar#OnScreenOverlay Bar#m_pSubSubTypes Flow#m_pFlow Button[IsHighlighted=true],
+Bar#OnScreenOverlay Bar#m_pModes Flow#m_pFlow Button[IsHighlighted=true]
+{
+    animation-index:                 4;
+    foreground-color:                $colorWhite85;
+
+}
+
+Bar#OnScreenOverlay Bar#m_pTypes Flow#m_pFlow Button[IsHighlighted=true]:selected,
+Bar#OnScreenOverlay Bar#m_pSubTypes Flow#m_pFlow Button[IsHighlighted=true]:selected,
+Bar#OnScreenOverlay Bar#m_pSubSubTypes Flow#m_pFlow Button[IsHighlighted=true]:selected,
+Bar#OnScreenOverlay Bar#m_pModes Flow#m_pFlow Button[IsHighlighted=true]:selected
+{
+    animation-index:                 5;
+}

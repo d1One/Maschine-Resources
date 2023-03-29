@@ -1,0 +1,33 @@
+//--------------------------------------------------------------------------------------------------------
+// SEPARATORS
+//--------------------------------------------------------------------------------------------------------
+
+
+// BIG SEPARATOR (GOING THROUGH HEADER LINE)
+
+EQEditor#m_pEditor Bar#m_pParamSeparator,
+EQEditor#m_pEditor Bar#m_pSeparator1,
+EQEditor#m_pEditor Bar#m_pSeparator2,
+EQEditor#m_pEditor Bar#m_pSeparator3,
+FilterEditor#m_pEditor Bar#m_pParamSeparator,
+FlangerEditor#m_pEditor Bar#m_pParamSeparator,
+FlangerEditor#m_pEditor Bar#m_pSeparator1,
+PhaserEditor#m_pEditor Bar#m_pParamSeparator,
+PhaserEditor#m_pEditor Bar#m_pSeparator1,
+GrainDelayEditor#m_pEditor Bar#m_pParamSeparator,
+CabinetEmulationEditor#m_pEditor Bar#m_pParamSeparator,
+GateEditor#m_pEditor Bar#m_pParamSeparator
+// Bar.InternalFXSeparatorBig <-- Will be like that in the far future
+{
+    image:                  url("Maschine/InternalModules/SharedPanelElements/intmod_knob_separator2.png");
+}
+
+
+// SMALL SEPARATOR
+Bar.InternalFXSeparatorSmall
+{
+    y:                      45;
+    width:                  1;
+    height:                 143;
+    background-color:       $colorWhite20;
+}

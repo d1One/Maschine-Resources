@@ -1,0 +1,571 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// PREFERENCES
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+DialogPreferences
+{
+    min-width:                         559;
+    max-width:                         900;
+
+    min-height:                        710;
+    max-height:                        710;
+}
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// MAIN BACKGROUND
+//----------------------------------------------------------------------------------------------------------------------
+
+// MAIN CONTAINER
+DialogPreferences Bar#pMain
+{
+    background-color:                   $colorBlack;
+    spacing:                            2;
+
+    min-height:                         603;
+    min-width:                          543;
+
+    margin-left:                        2;
+    margin-right:                       2;
+    margin-top:                         2;
+    margin-bottom:                      2;
+}
+
+
+// TAB SIDEBAR AND CONTENT CONTAINER
+DialogPreferences Bar#pBody
+{
+    spacing:                            2;
+}
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// HEADER
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+DialogPreferences Bar#pHead
+{
+    background-color:                   $colorDialogLightGrey;
+    image:                              url("Shared/Dialogs/SharedDialogTexture/Shared_ContrLine_White5.png");
+    picture-includes-margin:            true;
+
+    fixed-left:                         3;
+    fixed-right:                        3;
+    fixed-top:                          3;
+    fixed-bottom:                       3;
+
+    height:                             47;
+}
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// FOOTER
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar.OptionsFooter
+{
+    height:                             53;
+
+    background-color:                   $colorDialogLightGrey;
+    image:                              url("Shared/Dialogs/SharedDialogTexture/Shared_ContrLine_White5.png");
+    picture-includes-margin:            true;
+    fixed-left:                         3;
+    fixed-right:                        3;
+    fixed-top:                          3;
+    fixed-bottom:                       3;
+
+    margin-top:                         14;
+    margin-right:                       19;
+}
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// LEFT BUTTON TAB
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+DialogPreferences Bar#m_pTabButtonBar
+{
+    background-color:                   $colorDialogDarkGrey;
+    image:                              url("Shared/Dialogs/SharedDialogTexture/Shared_ContrLine_White5.png");
+    picture-includes-margin:            true;
+
+    fixed-left:                         3;
+    fixed-right:                        3;
+    fixed-top:                          3;
+    fixed-bottom:                       3;
+
+    width:                              101;
+    margin-left:                        1;
+}
+
+
+// PREFERENCES LEFT TAB BUTTONS
+DialogPreferences Bar#m_pTabButtonBar Button
+{
+    font-name:                          $fontPragmatica;
+    font-size:                          14;
+
+    image:                              no;
+    horizontal-alignment:               right;
+    foreground-color:                   $colorWhite50;
+
+    height:                             41;
+    width:                              100;
+    margin-right:                       18;
+}
+
+
+DialogPreferences Bar#m_pTabButtonBar Button:!selected:over
+{
+    background-color:                   $colorWhite5;
+    foreground-color:                   $colorWhite70;
+}
+
+
+DialogPreferences Bar#m_pTabButtonBar Button:selected
+{
+    background-color:                   $colorWhite75;
+    foreground-color:                   $colorBlack;
+}
+
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// PREFERENCES CONTENT TAB AREA - BASIC STYLING
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// MAIN STACK
+//----------------------------------------------------------------------------------------------------------------------
+
+DialogPreferences Bar#pBody Stack#m_pTabs
+{
+    background-color:                   $colorDialogLightGrey;
+    image:                              url("Shared/Dialogs/SharedDialogTexture/Shared_ContrLine_White5.png");
+    picture-includes-margin:            true;
+
+    fixed-left:                         3;
+    fixed-right:                        3;
+    fixed-top:                          3;
+    fixed-bottom:                       3;
+}
+
+
+
+
+// CONTENT TAB CONTAINERS
+//----------------------------------------------------------------------------------------------------------------------
+
+// GENERIC
+DialogPreferences Bar#DialogPreferencesGeneral,
+DialogPreferences Bar#DialogPreferencesAudio,
+DialogPreferences Bar#DialogPreferencesMidi,
+DialogPreferences Bar#DialogPreferencesDefault,
+DialogPreferences Bar#DialogPreferencesColors,
+DialogPreferences Bar#DialogPreferencesFeatures
+{
+    margin-top:                         13;
+    margin-left:                        20;
+    margin-right:                       20;
+
+    height:                             600;
+
+    spacing:                            9;
+}
+
+
+// HARDWARE TAB
+DialogPreferences Bar#DialogPreferencesHardware
+{
+    margin-top:                         13;
+    margin-left:                        20;
+    margin-right:                       2;
+}
+
+
+// HARWARE TAB OPTION ITEM ALIGNMENT
+DialogPreferences Bar#DialogPreferencesHardware Bar#PreferencesMaschine,
+DialogPreferences Bar#DialogPreferencesHardware Bar#PreferencesJam,
+DialogPreferences Bar#DialogPreferencesHardware Bar#PreferencesKompleteKontrolS
+{
+    outer-margin-top:                   12;
+    outer-margin-bottom:                10;
+    spacing:                            9;
+}
+
+
+DialogPreferences Bar#DialogPreferencesHardware Scrollable<Bar> Scrollbar
+{
+    margin-top:                         0;
+    margin-bottom:                      5;
+    margin-left:                        2;
+
+    width:                              0;
+}
+
+
+// WITH FILE BROWSERS
+MultiTab#m_pTabLibrary,
+MultiTab#m_pTabs
+{
+    margin-left:                        20;
+    margin-right:                       20;
+}
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// PRIVACY SETTINGS SPECIAL STYLING
+//----------------------------------------------------------------------------------------------------------------------
+
+// PRIVACY SETTINGS SPACING
+DialogPreferences Bar#m_pPrivacyWidget
+{
+    spacing:                            9;
+}
+
+
+DialogPreferences Bar#m_pPrivacyWidget Bar#pBar::Label#pText
+{
+    width:                              95;
+}
+
+
+DialogPreferences Bar#DialogPreferencesGeneral Bar#m_pPrivacyWidget Bar#pBar::ButtonMenu
+{
+    width:                              216;
+}
+
+
+DialogPreferences Bar#m_pPrivacyWidget Bar#linksBar
+{
+    spacing:                            15;
+}
+
+
+DialogPreferences Bar#m_pPrivacyWidget Bar#linksBar::Button
+{
+    image:                              url("Maschine/Dialogs/Preferences/PREF_BTN_Link.png");
+    fixed-left:                         4;
+    fixed-right:                        4;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// FW UPDATE SECTION
+//----------------------------------------------------------------------------------------------------------------------
+
+DialogPreferences Bar#DialogPreferencesHardware Bar#PreferencesMaschine Bar#m_firmwareSection,
+DialogPreferences Bar#DialogPreferencesHardware Bar#PreferencesMaschine Bar#m_ledsBrightnessSection,
+DialogPreferences Bar#DialogPreferencesHardware Bar#PreferencesMaschine Bar#m_barPlaypositionTouchstrip,
+DialogPreferences Bar#DialogPreferencesHardware Bar#PreferencesMaschine Bar#m_headphoneSection,
+DialogPreferences Bar#DialogPreferencesHardware Bar#PreferencesKompleteKontrolS Bar#m_firmwareSection
+{
+    spacing:                        9;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// FILEBROWSER FINETUNING
+//----------------------------------------------------------------------------------------------------------------------
+
+// COLUMS TITLE BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// WIDTH OF FIRST HEADER COLUMN, WHEN CONTENT IS A CHECKBOX OR ICON
+Bar#DialogPreferencesPlugins Bar#pManagerBar Button#m_pButton1
+{
+    width:                              18;
+    max-width:                          18;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// FEATURES SPECIAL ELEMENTS
+//----------------------------------------------------------------------------------------------------------------------
+
+DialogPreferences Bar#DialogPreferencesFeatures::Button#link
+{
+    image:                              url("Maschine/Dialogs/Preferences/PREF_BTN_Link.png");
+    width:                              95;
+    outer-margin-left:                  0;
+    fixed-left:                         4;
+    fixed-right:                        4;
+    outer-margin-bottom:                10;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// FILEBROWSER TAB STYLING (LIBRARY & PLUGIN TABS)
+//----------------------------------------------------------------------------------------------------------------------
+
+// HEADER
+//----------------------------------------------------------------------------------------------------------------------
+
+MultiTab#m_pTabLibrary::Bar#m_pHeader,
+Bar#DialogPreferencesPlugins::MultiTab#m_pTabs::Bar#m_pHeader,
+Bar#DialogPreferencesAudio::MultiTab#m_pRoutingTabs::Bar#m_pHeader,
+Bar#DialogPreferencesMidi::MultiTab#m_pMidiTabs::Bar#m_pHeader,
+Bar#DialogPreferencesPlugins MultiTab#m_pTabs::Bar#m_pHeader
+{
+    height:                             42;
+    margin-top:                         9;
+    spacing:                            1;
+}
+
+
+Bar#DialogPreferencesMidi::MultiTab#m_pMidiTabs,
+Bar#DialogPreferencesAudio::MultiTab#m_pRoutingTabs
+{
+    margin-bottom:                      9;
+}
+
+
+
+
+// FOOTER
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.OptionsTableFooter
+{
+    height:                             74;
+    image:                              no;
+    margin-top:                         4;
+}
+
+
+MultiTab#m_pTabLibrary Bar.OptionsTableFooter
+{
+    height:                             74;
+}
+
+
+Checkbox#m_pUseMaxVersionEngine
+{
+    margin-top:                         8;
+    margin-bottom:                      4;
+    height:                             31;
+    width:                              304;
+}
+
+Checkbox#m_scanOnStartup
+{
+    margin-top:                         4;
+    margin-bottom:                      4;
+    height:                             31;
+    width:                              304;
+}
+
+
+Bar#pLowerFoot
+{
+    height:                             39;
+    margin-bottom:                      10;
+}
+
+
+Bar#pFoot Checkbox,
+Bar#pLowerFoot Checkbox
+{
+    margin-left:            3;
+}
+
+
+// CHECKBOX IN PLUGINS --> MANAGER
+Checkbox#m_pUseAudioUnits
+{
+    margin-top:                         4;
+    width:                              304;
+    height:                             23;
+}
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// COLOR PICKER TAB MENU POSITIONS
+//----------------------------------------------------------------------------------------------------------------------
+
+DialogPreferences Bar#DialogPreferencesColors ButtonMenu
+{
+    menu-offset-x:                     -54;
+    menu-offset-y:                     5;
+}
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// FW WARNING
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#PreferencesKompleteKontrolS MultilineLabel,
+Bar#PreferencesKompleteKontrolS MultilineTextEditContentArea,
+Bar#PreferencesMaschine MultilineLabel,
+Bar#PreferencesMaschine MultilineTextEditContentArea
+{
+    min-height:                 125;
+    min-width:                  319;
+    horizontal-alignment:       left;
+    font-name:                  $fontPragmatica;
+    foreground-color:           $colorWhite75;
+    font-size:                  11;
+    outer-margin-top:           0;
+}
+
+
+Bar#PreferencesMaschine Button#link,
+Bar#PreferencesKompleteKontrolS Button#link
+{
+    image:                              url("Maschine/Dialogs/Preferences/PREF_BTN_Link.png");
+    width:                              103;
+    fixed-left:                         4;
+    fixed-right:                        4;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// CAPACITIVE TOUCHED INDICATOR
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#PreferencesMaschine Label#m_pCapacitiveSensitivityValue
+{
+    image:                      url("Maschine/Dialogs/SharedDialogControls/DIALOG_LBL_Indicator.png");
+    animations:                 3;
+    picture-includes-margin:    true;
+    vertical-alignment:         center;
+    horizontal-alignment:       center;
+    outer-margin-right:         3;
+    margin-top:                 1;
+}
+
+
+Bar#PreferencesMaschine Label#m_pCapacitiveSensitivityValue:!enabled
+{
+    animation-index:            2;
+    foreground-color:           $colorWhite20;
+}
+
+
+Bar#PreferencesMaschine Label#m_pCapacitiveSensitivityValue[CapTouched=false]
+{
+    animation-index:            0;
+    foreground-color:           $colorWhite75;
+}
+
+
+Bar#PreferencesMaschine Label#m_pCapacitiveSensitivityValue[CapTouched=true]
+{
+    animation-index:            1;
+    foreground-color:           $colorBlack90;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// BUFFER SIZE INDICATOR
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#PreferencesAudio Label#m_pBufferSizeValue,
+Bar#PreferencesMidi Label#m_sendOffsetLabel,
+Bar#PreferencesMidi Label#m_receiveOffsetLabel
+{
+    image:                      url("Maschine/Dialogs/SharedDialogControls/DIALOG_LBL_Indicator.png");
+    animations:                 3;
+    picture-includes-margin:    true;
+    vertical-alignment:         center;
+    horizontal-alignment:       center;
+    outer-margin-right:         3;
+    margin-top:                 1;
+}
+
+
+Bar#DialogPreferencesAudio Label#m_pLatencyCaption
+{
+    width:                      350;
+    foreground-color:           $colorWhite50;
+    horizontal-alignment:       right;
+}
+
+
+Bar#PreferencesAudio Label#m_pBufferSizeValue:!enabled,
+Bar#PreferencesMidi Label#m_sendOffsetLabel:!enabled,
+Bar#PreferencesMidi Label#m_receiveOffsetLabel:!enabled
+{
+    animation-index:            2;
+    foreground-color:           $colorWhite20;
+}
+
+
+Bar#DialogPreferencesAudio Bar#pRoutingInputBar ButtonMenu#pButtonMenu,
+Bar#DialogPreferencesAudio Bar#pRoutingOutputBar ButtonMenu#pButtonMenu
+{
+    min-width: 200;
+}
+
+
+Bar#PreferencesAudio Label#m_pBufferSizeValue[CapTouched=false],
+Bar#PreferencesMidi Label#m_sendOffsetLabel[CapTouched=false],
+Bar#PreferencesMidi Label#m_receiveOffsetLabel[CapTouched=false]
+{
+    animation-index:            0;
+    foreground-color:           $colorWhite75;
+}
+
+
+Bar#PreferencesAudio Label#m_pBufferSizeValue[CapTouched=true],
+Bar#PreferencesMidi Label#m_sendOffsetLabel[CapTouched=true],
+Bar#PreferencesMidi Label#m_receiveOffsetLabel[CapTouched=true]
+{
+    animation-index:            1;
+    foreground-color:           $colorBlack90;
+}

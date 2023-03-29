@@ -1,0 +1,45 @@
+Bar#ModalDialogPageScreenRight MultilineLabel#LabelRight
+{
+    outer-margin-left:            5;
+    outer-margin-right:           5;
+    outer-margin-top:             5;
+    outer-margin-bottom:          5;
+
+    font-name:                    $fontPragmatica;
+    font-size:                    21;
+    foreground-color:             $colorWhite;
+
+    vertical-alignment:           center;
+    horizontal-alignment:         center;
+}
+
+Bar#ModalDialogPageScreenLeft MultilineLabel#LabelLeft
+{
+    font-name: $fontPragmatica;
+    font-size: 21;
+    foreground-color: $colorWhite;
+
+    horizontal-alignment: center;
+
+    outer-margin-left: 20;
+    outer-margin-right: 20;
+}
+
+Bar#ModalDialogPageScreenLeft[Style=Empty] MultilineLabel#LabelLeft
+{
+    vertical-alignment: center;
+}
+
+Bar#ModalDialogPageScreenLeft[Style=Error] MultilineLabel#LabelLeft
+{
+    vertical-alignment: top;
+}
+
+Bar#ModalDialogPageScreenLeft[Style=Error] Bar#Icon
+{
+    image: url("Maschine/HW/Shared/Error.png");
+
+    outer-margin-top: 65;
+    outer-margin-left: 204;
+    outer-margin-bottom: 24;
+}

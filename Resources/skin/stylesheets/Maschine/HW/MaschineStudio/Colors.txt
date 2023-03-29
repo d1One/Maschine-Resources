@@ -1,0 +1,303 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Standard
+//----------------------------------------------------------------------------------------------------------------------
+
+@define $colorRootBackground    rgb(0,0,0);
+
+@define $colorNone              rgba(0,0,0,0); // NO COLOR AT ALL!
+
+// Black and White
+@define $colorBlack             rgb(0,0,0);     // basic colors
+@define $colorBlack20           rgba(0,0,0,51);
+@define $colorBlack30           rgba(0,0,0,77);
+@define $colorBlack35           rgba(0,0,0,90);
+@define $colorBlack40           rgba(0,0,0,102);
+@define $colorBlack50           rgba(0,0,0,127);
+@define $colorBlack60           rgba(0,0,0,153);
+@define $colorBlack65           rgba(0,0,0,166);
+@define $colorBlack70           rgba(0,0,0,175);
+@define $colorBlack75           rgba(0,0,0,191);
+@define $colorBlack80           rgba(0,0,0,204);
+@define $colorBlack85           rgba(0,0,0,216);
+@define $colorBlack90           rgba(0,0,0,230);
+
+@define $colorWhite             rgb(255,255,255);
+@define $colorWhite1            rgba(255,255,255,2);
+@define $colorWhite2            rgba(255,255,255,5);
+@define $colorWhite3            rgba(255,255,255,8);
+@define $colorWhite4            rgba(255,255,255,10);
+@define $colorWhite5            rgba(255,255,255,13);
+@define $colorWhite7            rgba(255,255,255,18);
+@define $colorWhite10           rgba(255,255,255,25);
+@define $colorWhite15           rgba(255,255,255,38);
+@define $colorWhite20           rgba(255,255,255,51);
+@define $colorWhite25           rgba(255,255,255,64);
+@define $colorWhite30           rgba(255,255,255,76);
+@define $colorWhite40           rgba(255,255,255,102);
+@define $colorWhite50           rgba(255,255,255,128);
+@define $colorWhite60           rgba(255,255,255,153);
+@define $colorWhite70           rgba(255,255,255,178);
+@define $colorWhite75           rgba(255,255,255,191);
+@define $colorWhite80           rgba(255,255,255,204);
+@define $colorWhite85           rgba(255,255,255,217);
+@define $colorWhite90           rgba(255,255,255,229);
+
+// Background Colors
+
+@define $StandardBackgroundGrey         rgb(50,50,50);
+
+// Old Color Definitions TO DO: CLEAN UP!
+@define $colorGrey                      rgb(160, 160, 160);
+
+@define $colorRed                       rgb(255,   0,   0);
+@define $colorGreen                     rgb(  0, 255,   0);
+@define $colorBlue                      rgb(  0,   0, 255);
+
+@define $colorDarkRed                   rgb(128,   0,   0);
+@define $colorDarkGreen                 rgb(  0, 128,   0);
+@define $colorDarkBlue                  rgb(  0,   0, 128);
+
+@define $colorTextBackground            rgb(208, 208, 208);     // text & special
+@define $colorListBackground            rgb(192, 192, 192);
+@define $colorListBackgroundDark        rgb( 48,  48,  48);
+@define $colorTextLight                 $colorWhite;
+@define $colorTextDark                  $colorBlack;
+@define $colorFocus                     rgb(128, 128, 128);
+
+@define $colorGroup                     rgb( 64,  64,  64);     // bars
+@define $colorPanel                     rgb( 48,  48,  48);
+@define $colorUnion                     no;
+@define $colorSplitter                  $colorRootBackground;
+@define $colorDialogLightGrey           rgb( 96,  96,  96);
+
+@define $colorWidget                    rgb( 96,  96,  96);     // widget
+@define $colorWidgetOver                rgb(128, 128, 128);
+@define $colorWidgetDown                $colorWidget;
+@define $colorWidgetSelected            $colorWhite;
+@define $colorWidgetText                $colorTextLight;
+@define $colorWidgetTextSelected        $colorTextDark;
+@define $colorWidgetTextDisabled        $colorWidgetOver;
+
+@define $colorListItem                  $colorTextBackground;   // listitem
+@define $colorListItemOver              $colorWhite;
+@define $colorListItemDown              $colorListItem;
+@define $colorListItemSelected          rgb( 40,  40,  40);
+@define $colorListItemText              $colorTextDark;
+@define $colorListItemTextSelected      $colorTextLight;
+@define $colorListItemSemiSelected      rgb( 80,  80,  80);
+@define $colorListItemBorderFocused     rgb(180, 180,   0);
+
+@define $colorPadItem                   $colorWidget;
+@define $colorPadItemText               $colorTextDark;
+@define $colorPadItemBorderFocused      rgb(240, 240,   0);
+@define $colorPadItemBorderSelected     rgb(120, 120,   0);
+
+@define $colorSliderBackground          $colorPanel;
+@define $colorFillerBackground          $colorGroup;
+@define $colorTitleBackground           $colorGroup;
+@define $colorTitleForeground           $colorWhite;
+
+
+// MY Own Colors
+@define $headButtonGrey                 $colorWhite40;
+
+@define $infoBarColor                   rgb(51,51,51);
+
+@define $colorControlPageBG             rgb(26,26,26);
+@define $colorMSTDarkBG                 rgb(26,26,26);
+@define $DisplayBarColor                rgb(26,26,26);
+@define $mixerBgColor                   rgb(26,26,26);
+
+
+// GRIDLINE COLORS (ARRANGER AND SEQUENCER)
+@define $PatternGridColor               rgb(21,21,21);
+@define $PatternGridFrameColor          rgb(119,111,111);
+@define $colorBeatLine                  rgb(37,37,37); // gridline colors (arranger and sequencer)
+@define $colorBarLine                   rgb(22,22,22);
+
+// PAD PAGE GRID COLORS
+//----------------------------------------------------------------------------------------------------------------------
+
+@define $PadGridBG                      rgb(16,16,16);
+@define $PadGridDisabledBG              rgb(10,10,10);
+
+
+
+// MST GRID COLORS
+//----------------------------------------------------------------------------------------------------------------------
+
+// GRIDLINE
+
+@define $colorGridline                  rgb(21,21,21);
+@define $colorGridlineDark              rgb(16,16,16);
+
+
+// IDEAS VIEW COLORS
+//----------------------------------------------------------------------------------------------------------------------
+@define $colorProgressNoPattern         rgb(71,71,71);
+@define $colorProgressMuteBG            rgb(75,75,75);
+@define $colorProgressMuteFill          rgb(125,125,125);
+@define $colorProgressMuteFillSelect    rgb(133,133,133);
+@define $colorProgressMuteBGSelect      rgb(75,75,75);
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// 16 colors palette
+//----------------------------------------------------------------------------------------------------------------------
+
+@define $color0                         rgb(255, 255, 255);
+
+@define $color1                         rgb(255, 19, 15);
+@define $color2                         rgb(255, 60, 20);
+@define $color3                         rgb(255,120,  0);
+@define $color4                         rgb(255,185,  0);
+@define $color5                         rgb(255,255,  0);
+@define $color6                         rgb(146,255,  0);
+@define $color7                         rgb( 38,255, 38);
+@define $color8                         rgb(  0,209,129);
+@define $color9                         rgb(  0,180,233);
+@define $color10                        rgb(  0,120,255);
+@define $color11                        rgb(  0, 72,255);
+@define $color12                        rgb(130,  0,255);
+@define $color13                        rgb(162,  0,200);
+@define $color14                        rgb(245,  0,200);
+@define $color15                        rgb(255,  0,120);
+@define $color16                        rgb(247,  7, 62);
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// COLOR PALETTES
+//----------------------------------------------------------------------------------------------------------------------
+Label#root
+{
+
+    // Palette 1:
+    palette1-color0:                    rgb(255,255,255);
+    palette1-color1:                    rgb(255, 0, 30);
+    palette1-color2:                    rgb(255, 60, 20);
+    palette1-color3:                    rgb(255,120,  0);
+    palette1-color4:                    rgb(255,185,  0);
+    palette1-color5:                    rgb(255,255,  0);
+    palette1-color6:                    rgb(146,255,  0);
+    palette1-color7:                    rgb( 38,255, 38);
+    palette1-color8:                    rgb(  0,209,129);
+    palette1-color9:                    rgb(  0,180,233);
+    palette1-color10:                   rgb(  0,120,255);
+    palette1-color11:                   rgb(  0, 72,255);
+    palette1-color12:                   rgb(130,  0,255);
+    palette1-color13:                   rgb(162,  0,200);
+    palette1-color14:                   rgb(245,  0,200);
+    palette1-color15:                   rgb(255,  0,120);
+    palette1-color16:                   rgb(247,  7, 62);
+    palette1-color17:                    rgb(255,255,255);
+
+
+
+
+    // Palette 2: 16 Colors Palette (Pure Colors)
+    palette2-color0:                    rgb(255,255,255);
+    palette2-color1:                    rgb(255, 19, 15);
+    palette2-color2:                    rgb(255, 60, 20);
+    palette2-color3:                    rgb(255,120,  0);
+    palette2-color4:                    rgb(255,185,  0);
+    palette2-color5:                    rgb(255,255,  0);
+    palette2-color6:                    rgb(146,255,  0);
+    palette2-color7:                    rgb( 38,255, 38);
+    palette2-color8:                    rgb(  0,209,129);
+    palette2-color9:                    rgb(  0,180,233);
+    palette2-color10:                   rgb(  0,120,255);
+    palette2-color11:                   rgb(  0, 72,255);
+    palette2-color12:                   rgb(130,  0,255);
+    palette2-color13:                   rgb(162,  0,200);
+    palette2-color14:                   rgb(245,  0,200);
+    palette2-color15:                   rgb(255,  0,120);
+    palette2-color16:                   rgb(247,  7, 62);
+    palette2-color17:                   rgb(255,255,255);
+
+
+
+    // Palette 3: Selected Waveform Color (Not used)
+    palette3-color1:                    rgb(245,140,138);
+    palette3-color2:                    rgb(245,168,141);
+    palette3-color3:                    rgb(243,188,124);
+    palette3-color4:                    rgb(245,226,118);
+    palette3-color5:                    rgb(245,245,118);
+    palette3-color6:                    rgb(194,245,118);
+    palette3-color7:                    rgb(150,245,150);
+    palette3-color8:                    rgb(118,234,194);
+    palette3-color9:                    rgb(118,234,234);
+    palette3-color10:                   rgb(118,218,245);
+    palette3-color11:                   rgb(147,186,245);
+    palette3-color12:                   rgb(177,167,245);
+    palette3-color13:                   rgb(200,155,245);
+    palette3-color14:                   rgb(227,157,245);
+    palette3-color15:                   rgb(245,150,237);
+    palette3-color16:                   rgb(245,143,175);
+
+
+    // Palette 4
+    palette4-color1:                    rgba(255, 19, 15,128);
+    palette4-color2:                    rgba(255, 60, 20,128);
+    palette4-color3:                    rgba(255,120,  0,128);
+    palette4-color4:                    rgba(255,185,  0,128);
+    palette4-color5:                    rgba(255,255,  0,128);
+    palette4-color6:                    rgba(146,255,  0,128);
+    palette4-color7:                    rgba( 38,255, 38,128);
+    palette4-color8:                    rgba(  0,209,129,128);
+    palette4-color9:                    rgba(  0,180,233,128);
+    palette4-color10:                   rgba(  0,120,255,128);
+    palette4-color11:                   rgba(  0, 72,255,128);
+    palette4-color12:                   rgba(130,  0,255,128);
+    palette4-color13:                   rgba(162,  0,200,128);
+    palette4-color14:                   rgba(245,  0,200,128);
+    palette4-color15:                   rgba(255,  0,120,128);
+    palette4-color16:                   rgba(247,  7, 62,128);
+    palette4-color17:                   rgba(255,255,255,100);
+
+
+    // Palette 5
+    palette5-color1:                    rgba(255, 19, 15,100);
+    palette5-color2:                    rgba(255, 60, 20,100);
+    palette5-color3:                    rgba(255,120,  0,100);
+    palette5-color4:                    rgba(255,185,  0,100);
+    palette5-color5:                    rgba(255,255,  0,100);
+    palette5-color6:                    rgba(146,255,  0,100);
+    palette5-color7:                    rgba( 38,255, 38,100);
+    palette5-color8:                    rgba(  0,209,129,100);
+    palette5-color9:                    rgba(  0,180,233,100);
+    palette5-color10:                   rgba(  0,120,255,100);
+    palette5-color11:                   rgba(  0, 72,255,100);
+    palette5-color12:                   rgba(130,  0,255,100);
+    palette5-color13:                   rgba(162,  0,200,100);
+    palette5-color14:                   rgba(245,  0,200,100);
+    palette5-color15:                   rgba(255,  0,120,100);
+    palette5-color16:                   rgba(247,  7, 62,100);
+    palette5-color17:                   rgba(255,255,255,100);
+
+
+    // Palette 17: Palette 1 with 20% rgb(50,50,50) overlay
+    palette17-color1:                    rgb(214,63,60);
+    palette17-color2:                    rgb(214,103,63);
+    palette17-color3:                    rgb(212,132,39);
+    palette17-color4:                    rgb(214,187,31);
+    palette17-color5:                    rgb(214,214,30);
+    palette17-color6:                    rgb(140,214,29);
+    palette17-color7:                    rgb(76,214,76);
+    palette17-color8:                    rgb(30,197,140);
+    palette17-color9:                    rgb(30,197,198);
+    palette17-color10:                   rgb(29,175,214);
+    palette17-color11:                   rgb(72,128,214);
+    palette17-color12:                   rgb(116,101,214);
+    palette17-color13:                   rgb(156,98,214);
+    palette17-color14:                   rgb(188,86,214);
+    palette17-color15:                   rgb(214,76,202);
+    palette17-color16:                   rgb(214,68,112);
+    palette17-color17:                   rgb(255,255,255);
+
+
+}

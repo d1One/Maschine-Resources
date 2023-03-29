@@ -1,0 +1,98 @@
+//----------------------------------------------------------------------------------------------------------------------
+// SAVE PRESET
+//----------------------------------------------------------------------------------------------------------------------
+
+
+DialogSavePreset
+{
+    width:                          360;
+    height:                         166;
+}
+
+DialogSavePreset[ShowLess=true]
+{
+    height:                         205;
+}
+
+
+
+// TEXT EDIT ALINGMENT
+DialogSavePreset Bar#pBody
+{
+    margin-top:                     8;
+}
+
+
+
+// DESCRIPTION LABEL
+DialogSavePreset Bar#pBody Label
+{
+    foreground-color:               no;
+}
+
+
+// UNFOLD BUTTON
+DialogSavePreset Button#m_pShowMore
+{
+    image:                          url("Maschine/Dialogs/SharedDialogControls/DIALOG_BTN_Unfold.png");
+    picture-includes-margin:        true;
+    animations:                     7;
+    fixed-left:                     13;
+    fixed-right:                    5;
+
+    margin-left:                    16;
+    margin-top:                     1;
+    outer-margin-top:               9;
+    width:                          100;
+
+    horizontal-alignment:           left;
+    foreground-color:               $colorWhite75;
+}
+
+
+
+// FILEPATH AREA
+DialogSavePreset Bar#m_pPath,
+DialogSavePreset Bar#pFileSelectionBar
+{
+    height:                         40;
+}
+
+
+// Note: Attribute "default" (true/false) is set for pFileName and pReset
+
+DialogSavePreset Button#pFileName
+{
+    image:                          url("Maschine/Dialogs/SharedDialogControls/DIALOG_BTN_PathTall.png");
+    picture-includes-margin:        true;
+    animations:                     7;
+    fixed-left:                     18;
+    fixed-right:                    5;
+
+    margin-left:                    24;
+    margin-right:                   7;
+    outer-margin-top:               2;
+}
+
+DialogSavePreset Button#pFileName[default=true]
+{
+    image:                          url("Maschine/Dialogs/SharedDialogControls/DIALOG_BTN_PathTallAlone.png");
+    picture-includes-margin:        true;
+    animations:                     7;
+    fixed-left:                     18;
+    fixed-right:                    5;
+
+    margin-left:                    24;
+    margin-right:                   7;
+    outer-margin-top:               2;
+    horizontal-alignment:           center;
+    foreground-color:               $colorWhite35;
+}
+
+DialogSavePreset Button#pReset
+{
+    image:                          url("Maschine/Dialogs/SharedDialogControls/DIALOG_BTN_PathDeleteTall.png");
+    picture-includes-margin:        true;
+    animations:                     7;
+    outer-margin-top:               2;
+}

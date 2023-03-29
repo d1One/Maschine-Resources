@@ -1,0 +1,58 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Animations
+//----------------------------------------------------------------------------------------------------------------------
+
+@define $animtype-none                  0;
+@define $animtype-linear                1;
+@define $animtype-smoothin              2;
+@define $animtype-smoothout             3;
+@define $animtype-smoothinout           4;
+
+
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pBrowserPanel
+{
+    slidein-anim:                       $animtype-smoothinout;
+    slideout-anim:                      $animtype-smoothout;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+Vector
+{
+    //the speed is in pixels per frame: mouse wheel scrolling
+    wheel-speed: 3;
+
+    //Also in pixels per frame: It's the speed for when the lists scrolls by itself when an item is being dragged near the edge
+    dragscroll-speed: 3;
+
+    //Threshold for the drag scroll in item breadths; defines how close one must move to the edge of a vector for auto scroll
+    dragscroll-threshold: 18;
+
+    //Time it takes to reach destination focus(cursor keys, hardware etc)
+    focus-delay: 10;
+
+    // Animation Easing: see Definitions/Animations.txt
+    focus-anim: $animtype-smoothout;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+Vector<Bar>#m_pGroupVector,
+Vector<Bar>#m_pSoundVector,
+Vector<PatternEditorGrid>#m_pDrumgridVector,
+Vector<SoundListItem>#m_pSoundVector,
+Vector<ArrangerTrack>#m_pTrackVector,
+Vector<Bar>#m_pModulatorVector,
+Vector<Bar>#m_pMidiAutomationVector,
+Vector<Bar>#m_pSlotVector
+{
+	focus-anim: $animtype-linear;
+	focus-delay: 1;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+Vector<BankManagerBank>#m_pBanks
+{
+    dragscroll-threshold:   26;
+}

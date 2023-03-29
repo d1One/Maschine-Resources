@@ -1,0 +1,757 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SETTINGS PAGE
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// background
+Bar#SettingsPageScreenLeft Bar.StudioDisplay,
+Bar#SettingsPageScreenRight Bar.StudioDisplay
+{
+    image: no;
+    background-color: $colorStandardBGColor;
+    outer-margin-top: 1;
+}
+
+Bar#SettingsPageScreenLeft Bar.StudioDisplay Bar#CategoriesSpacer
+{
+    height: 32;
+}
+
+Bar#SettingsPageScreenLeft HWSettingsCategoryList
+{
+    outer-margin-top: 16;
+    outer-margin-bottom: 16;
+}
+
+Bar#SettingsPageScreenLeft HWSettingsCategoryList Vector<HWSettingsCategoryRow> Bar#widgets
+{
+    spacing: 8;
+}
+
+HWSettingsCategoryRow
+{
+    outer-margin-left: 36;
+    spacing: 8;
+    height: 52;
+}
+
+Bar#SettingsPageScreenRight Bar#LeftContainer,
+Bar#SettingsPageScreenRight Bar#RightContainer
+{
+    width: 240;
+}
+
+Bar.SettingsBigIcon
+{
+    outer-margin-left: 72;
+    outer-margin-top: 36;
+    outer-margin-bottom: 12;
+}
+
+Bar#SettingsPageScreenRight Bar#LeftContainer Bar#BigIconAbout
+{
+    image: url("Shared/HW/Theme/Icons/ICN_About_L.png");
+}
+
+Bar#SettingsPageScreenRight Bar#LeftContainer Bar#BigIconAudio
+{
+    image: url("Shared/HW/Theme/Icons/ICN_Audio_L.png");
+}
+
+Bar#SettingsPageScreenRight Bar#LeftContainer Bar#BigIconGeneral
+{
+    image: url("Shared/HW/Theme/Icons/ICN_General_L.png");
+}
+
+Bar#SettingsPageScreenRight Bar#LeftContainer Bar#BigIconHardware
+{
+    image: url("Shared/HW/Theme/Icons/ICN_Hardware_L.png");
+}
+
+Bar#SettingsPageScreenRight Bar#LeftContainer Bar#BigIconLibrary
+{
+    image: url("Shared/HW/Theme/Icons/ICN_Library_L.png");
+}
+
+Bar#SettingsPageScreenRight Bar#LeftContainer Bar#BigIconMidi
+{
+    image: url("Shared/HW/Theme/Icons/ICN_MIDI_L.png");
+}
+
+Bar#SettingsPageScreenRight Bar#LeftContainer Bar#BigIconNetwork
+{
+    image: url("Shared/HW/Theme/Icons/ICN_Network_L.png");
+}
+
+Bar#SettingsPageScreenRight Bar#LeftContainer Bar#BigIconSystem
+{
+    image: url("Shared/HW/Theme/Icons/ICN_System_L.png");
+}
+
+HWSettingsCategoryWidget[category=About]:selected
+{
+    image: url("Shared/HW/Components/Buttons/Settings/TILE_About.png");
+    animations: 2;
+    animation-index: 1;
+}
+
+HWSettingsCategoryWidget[category=About]:!selected
+{
+    image: url("Shared/HW/Components/Buttons/Settings/TILE_About.png");
+    animations: 2;
+    animation-index: 0;
+}
+
+HWSettingsCategoryWidget[category=Audio]:selected
+{
+    image: url("Shared/HW/Components/Buttons/Settings/TILE_Audio.png");
+    animations: 2;
+    animation-index: 1;
+}
+
+HWSettingsCategoryWidget[category=Audio]:!selected
+{
+    image: url("Shared/HW/Components/Buttons/Settings/TILE_Audio.png");
+    animations: 2;
+    animation-index: 0;
+}
+
+HWSettingsCategoryWidget[category=General]:selected
+{
+    image: url("Shared/HW/Components/Buttons/Settings/TILE_General.png");
+    animations: 2;
+    animation-index: 1;
+}
+
+HWSettingsCategoryWidget[category=General]:!selected
+{
+    image: url("Shared/HW/Components/Buttons/Settings/TILE_General.png");
+    animations: 2;
+    animation-index: 0;
+}
+
+HWSettingsCategoryWidget[category=Hardware]:selected
+{
+    image: url("Shared/HW/Components/Buttons/Settings/TILE_Hardware.png");
+    animations: 2;
+    animation-index: 1;
+}
+
+HWSettingsCategoryWidget[category=Hardware]:!selected
+{
+    image: url("Shared/HW/Components/Buttons/Settings/TILE_Hardware.png");
+    animations: 2;
+    animation-index: 0;
+}
+
+HWSettingsCategoryWidget[category=Library]:selected
+{
+    image: url("Shared/HW/Components/Buttons/Settings/TILE_Library.png");
+    animations: 2;
+    animation-index: 1;
+}
+
+HWSettingsCategoryWidget[category=Library]:!selected
+{
+    image: url("Shared/HW/Components/Buttons/Settings/TILE_Library.png");
+    animations: 2;
+    animation-index: 0;
+}
+
+HWSettingsCategoryWidget[category=MIDI]:selected
+{
+    image: url("Shared/HW/Components/Buttons/Settings/TILE_Midi.png");
+    animations: 2;
+    animation-index: 1;
+}
+
+HWSettingsCategoryWidget[category=MIDI]:!selected
+{
+    image: url("Shared/HW/Components/Buttons/Settings/TILE_Midi.png");
+    animations: 2;
+    animation-index: 0;
+}
+
+HWSettingsCategoryWidget[category=Network]:selected
+{
+    image: url("Shared/HW/Components/Buttons/Settings/TILE_Network.png");
+    animations: 2;
+    animation-index: 1;
+}
+
+HWSettingsCategoryWidget[category=Network]:!selected
+{
+    image: url("Shared/HW/Components/Buttons/Settings/TILE_Network.png");
+    animations: 2;
+    animation-index: 0;
+}
+
+HWSettingsCategoryList[system_update_available=false] HWSettingsCategoryWidget[category=System]:!selected
+{
+    image: url("Shared/HW/Components/Buttons/Settings/TILE_System.png");
+    animations: 4;
+    animation-index: 0;
+}
+
+HWSettingsCategoryList[system_update_available=false] HWSettingsCategoryWidget[category=System]:selected
+{
+    image: url("Shared/HW/Components/Buttons/Settings/TILE_System.png");
+    animations: 4;
+    animation-index: 1;
+}
+
+HWSettingsCategoryList[system_update_available=true] HWSettingsCategoryWidget[category=System]:!selected
+{
+    image: url("Shared/HW/Components/Buttons/Settings/TILE_System.png");
+    animations: 4;
+    animation-index: 2;
+}
+
+HWSettingsCategoryList[system_update_available=true] HWSettingsCategoryWidget[category=System]:selected
+{
+    image: url("Shared/HW/Components/Buttons/Settings/TILE_System.png");
+    animations: 4;
+    animation-index: 3;
+}
+
+// background right screen
+Bar#SettingsPageScreenRight Bar#StudioDisplayBar
+{
+    outer-margin-top: 1;
+}
+
+Label.AudioStatusLabel
+{
+    font-name: $fontPragmatica;
+    font-size: 14;
+    horizontal-alignment: center;
+    vertical-alignment: center;
+    outer-margin-top: 37;
+    height: 22
+}
+
+MultilineLabel.AudioLatencyLabel
+{
+    font-name: $fontPragmatica;
+    font-size: 12;
+    foreground-color: rgb(80, 80, 80);
+    horizontal-alignment: center;
+    vertical-alignment: center;
+    height: 54;
+}
+
+Label.AudioTotalLatencyLabel
+{
+    font-name: $fontPragmatica;
+    font-size: 12;
+    foreground-color: rgb(255, 255, 255);
+    horizontal-alignment: center;
+    vertical-alignment: center;
+}
+
+Label.HeadphonesMirroringDiagram[MixToHP=true]
+{
+    image: url("Maschine/HW/Studio/RecModePage/mk3_output_paired.png");
+    margin-top: 8;
+    margin-left: 36;
+}
+
+Label.HeadphonesMirroringDiagram[MixToHP=false]
+{
+    image: url("Maschine/HW/Studio/RecModePage/mk3_output_split.png");
+    margin-top: 8;
+    margin-left: 36;
+}
+
+// Network Tab
+Bar#SettingsPageScreenRight Label#WiFiStatus
+{
+    font-name: $fontPragmatica;
+    font-size: 16;
+    foreground-color: $colorWhite;
+}
+
+WiFiList
+{
+    width: 240;
+}
+
+WiFiList Vector<WiFiListItem>
+{
+    margin-top: 8;
+    margin-bottom: 26;
+
+    margin-left: 1;
+    spacing: 0;
+    outer-margin-top: 0;
+
+    focus-anim: $animtype-none;
+}
+
+WiFiListItem
+{
+    height: 24;
+    outer-margin-bottom: 5;
+    margin-right: 8;
+}
+
+WiFiListItem Label
+{
+    font-name: $fontPragmatica;
+    font-size: 14;
+    foreground-color: $colorWhite;
+
+    horizontal-alignment: right;
+
+    margin-left: 9;
+    margin-right: 5;
+
+    picture-includes-margin: true;
+    animations: 2;
+    animation-index: 0;
+}
+
+WiFiListItem[HasFocus=true]
+{
+    background-color: $colorWhite;
+}
+
+WiFiListItem[HasFocus=true] Label
+{
+    animation-index: 1;
+    foreground-color: $colorBlack;
+}
+
+WiFiListItem Bar#m_iconLock
+{
+    image: url("Shared/HW/Components/Lists/Lock.png");
+    animations: 2;
+    animation-index: 1;
+}
+
+WiFiListItem[HasFocus=true] Bar#m_iconLock
+{
+    animation-index: 0;
+}
+
+WiFiListItem Bar#m_iconConnected
+{
+    image: url("Shared/HW/Components/Lists/LIST_Checked.png");
+    animations: 2;
+    animation-index: 1;
+}
+
+WiFiListItem[HasFocus=true] Bar#m_iconConnected
+{
+    animation-index: 0;
+}
+
+WiFiListItem[HasFocus=true] Bar#m_iconStrength[Value=weak]
+{
+    image: url("Shared/HW/Components/Lists/WiFi_Strength_1.png");
+    animations: 2;
+    animation-index: 0;
+}
+
+WiFiListItem[HasFocus=true] Bar#m_iconStrength[Value=medium]
+{
+    image: url("Shared/HW/Components/Lists/WiFi_Strength_2.png");
+    animations: 2;
+    animation-index: 0;
+}
+
+WiFiListItem[HasFocus=true] Bar#m_iconStrength[Value=strong]
+{
+    image: url("Shared/HW/Components/Lists/WiFi_Strength_3.png");
+    animations: 2;
+    animation-index: 0;
+}
+
+WiFiListItem Bar#m_iconStrength[Value=weak]
+{
+    image: url("Shared/HW/Components/Lists/WiFi_Strength_1.png");
+    animations: 2;
+    animation-index: 1;
+}
+
+WiFiListItem Bar#m_iconStrength[Value=medium]
+{
+    image: url("Shared/HW/Components/Lists/WiFi_Strength_2.png");
+    animations: 2;
+    animation-index: 1;
+}
+
+WiFiListItem Bar#m_iconStrength[Value=strong]
+{
+    image: url("Shared/HW/Components/Lists/WiFi_Strength_3.png");
+    animations: 2;
+    animation-index: 1;
+}
+
+HWLinkStatus
+{
+    outer-margin-bottom: 4;
+    outer-margin-top: 68;
+}
+
+HWLinkStatus Label,
+MultilineLabel.DateTimeLabel,
+MultilineLabel.PrivacyStatement
+{
+    font-name: $fontPragmatica;
+    font-size: 14;
+    foreground-color: $colorWhite;
+    horizontal-alignment: center;
+    vertical-alignment: center;
+}
+
+HWLinkPhaseMeter
+{
+    height: 14;
+}
+
+HWLinkPhaseMeter ProgressBar
+{
+    margin-left: 4;
+    margin-right: 4;
+    margin-top: 4;
+    margin-bottom: 4;
+    outer-margin-left: 44;
+    outer-margin-right: 44;
+    height: 14;
+    background-border-color: $colorWhite30;
+}
+
+HWLinkPhaseMeter ProgressBar Label#indicator
+{
+    height: 6;
+    background-color: $colorWhite70;
+    min-width: 0;
+}
+
+LibraryFactoryContainer,
+UpdateContainer,
+LibraryUserContainer
+{
+    outer-margin-top:             0;
+}
+
+HWSettingsLibrary Label#DiskSpace,
+HWSettingsSystemUpdate Label#DiskSpace,
+Bar#LibraryUserContainer Label#InfoBarRight
+{
+    height:                 24;
+    spacing:                1;
+    foreground-color:       $colorWhite;
+    background-color:       $infoBarColor;
+    font-name:              $fontPragmatica;
+    font-size:              14;
+    margin-left:            7;
+    margin-right:           16;
+    horizontal-alignment:   right;
+}
+
+HWSettingsLibrary Stack#m_stack,
+HWContentPathsList
+{
+    outer-margin-top: 8;
+    outer-margin-left: 8;
+    outer-margin-bottom: 3;
+}
+
+HWSettingsLibrary InstructionsContainer#m_status
+{
+    outer-margin-top: 34;
+    outer-margin-right: 8;
+}
+
+HWSettingsLibrary Bar#m_loadingAnimation Label#Message
+{
+    font-name: $fontPragmatica;
+    font-size: 18;
+
+    foreground-color: $colorWhite20;
+
+    horizontal-alignment: center;
+    vertical-alignement: top;
+
+    outer-margin-top: 19;
+    outer-margin-right: 8;
+
+    height: 20;
+}
+
+HWSettingsLibrary Bar#m_loadingAnimation Animation#Animation
+{
+    image: url("Shared/HW/Components/Bookstack_Animation.png");
+    animations: 16;
+    timer: 10;
+
+    outer-margin-top: 40;
+    outer-margin-left: 195;
+}
+
+HWSettingsSystemUpdate InstructionsContainer#m_status[state=no_updates] Label#m_message
+{
+    foreground-color: $colorWhite;
+}
+
+HWSettingsSystemUpdate InstructionsContainer#m_status Container#m_image
+{
+    image: url("Maschine/HW/Shared/Success.png");
+}
+
+Vector<DeployableItem>#m_vector,
+Vector<HWContentPathItem>#m_list
+{
+    focus-anim:	            $animtype-none;
+}
+
+DeployableItem,
+HWContentPathItem
+{
+    // based off of Bar.ProductIcon in BrowsePage.txt
+    height:                 54;
+    margin:                 9;
+}
+
+DeployableItem Label#m_picture,
+HWContentPathItem Label#m_picture
+{
+    // based off of Bar.ProductIcon in BrowsePage.txt
+    width:                  73;
+    height:                 36;
+}
+
+HWContentPathItem Label#m_picture[IsMissing=false]
+{
+    image: url("Shared/HW/Theme/Icons/ART_userCollection.png");
+}
+
+HWContentPathItem Label#m_picture[IsMissing=true]
+{
+    image: url("Shared/HW/Theme/Icons/ART_userCollectionMissing.png");
+}
+
+DeployableItem Label#m_name,
+HWContentPathItem Label#m_alias
+{
+    font-size:              16;
+    font-name:              $fontPragmatica;
+    horizontal-alignment:   left;
+    vertical-alignment:     center;
+    outer-margin-left:      8;
+    margin:                 0;
+    max-width:              257;
+}
+
+DeployableItem Label#m_version
+{
+    font-size:              10;
+    font-name:              $fontPragmatica;
+    horizontal-alignment:   left;
+    vertical-alignment:     center;
+    foreground-color:       $colorWhite50;
+    margin-left:            8;
+}
+
+DeployableItem Label#m_version[state=two_lines]
+{
+    outer-margin-top: 3;
+}
+
+DeployableItem Label#m_version[state=one_line]
+{
+    outer-margin-top: 5;
+}
+
+HWContentPathItem AutoScrollingLabel#m_path
+{
+    outer-margin-left: 8;
+}
+
+HWContentPathItem AutoScrollingLabel#m_path Label#m_label
+{
+    font-name: $fontPragmatica;
+    font-size: 10;
+    foreground-color: $colorWhite50;
+
+    horizontal-alignment: left;
+}
+
+DeployableItem Label#infoText
+{
+    font-size:              10;
+    font-name:              $fontPragmatica;
+    foreground-color:       $colorWhite50;
+    horizontal-alignment:   left;
+    margin-left:            8;
+}
+
+DeployableItem Label#m_status
+{
+    image: url("Shared/HW/Components/Lists/LIST_Product_StatusBadge.png");
+    animations: 3;
+    animation-index: 0;
+    background-color: no;
+    outer-margin-top: 8;         // six less than half of (DeployableItem.height - 20) above
+    outer-margin-right: 8;
+    outer-margin-left: 8;
+}
+
+DeployableItem[state=downloading] Label#m_status,
+DeployableItem[state=installable_product] Label#m_status,
+DeployableItem[state=installable_system_update] Label#m_status,
+DeployableItem[state=updatable_product] Label#m_status,
+DeployableItem[state=installing] Label#m_status,
+DeployableItem[state=waiting_for_restart] Label#m_status,
+DeployableItem[state=installed] Label#m_status
+{
+    picture: no;
+}
+
+DeployableItem[state=downloaded] Label#m_status,
+DeployableItem[state=deployed] Label#m_status
+DeployableItem[state=enqueued] Label#m_status
+DeployableItem[state=uninstallWaiting] Label#m_status
+{
+    animation-index: 0;
+}
+
+DeployableItem[state=paused] Label#m_status
+{
+    animation-index: 1;
+}
+
+DeployableItem[state=error] Label#m_status
+{
+    animation-index: 2;
+}
+
+DeployableItem Animation#m_progressAnimation
+{
+    width:                          20;
+    height:                         20;
+    image:                          url("Shared/HW/Components/Products_Progress.png");
+    animations:                     27;
+    timer:                          4;
+
+    outer-margin-top:               8;
+    outer-margin-right:             8;
+    outer-margin-left:              8;
+}
+
+DeployableItem[state=installed] Label#m_name
+{
+    max-width:              320;        // There's no picture for 'installed' so extend width so we don't crop as early
+}
+
+DeployableItem[HasFocus=true],
+HWContentPathItem[HasFocus=true]
+{
+    background-color: $colorWhite10;
+}
+
+Bar#SettingsPageScreenRight Bar.BrowserParamBar Label:selected
+{
+    // this mimics the somewhat odd rule in BrowsePage.txt: Bar#BrowsePageStudioScreenRight Bar.BrowserParamBar Label:selected
+    animation-index:                1;
+    foreground-color:               $colorWhite;
+}
+
+Bar#AboutTabRightInfoBar
+{
+    background-color: $infoBarColor;
+    height: 24;
+}
+
+Bar#AboutContainer Bar#AboutLogo
+{
+    image: url("Maschine/HW/MH1071/AboutScreen/BRND_MaschinePlus.png");
+
+    outer-margin-top: 18;
+    outer-margin-left: 111;
+}
+
+Credits#Credits
+{
+    outer-margin-left: 2;
+    outer-margin-right: 2;
+    outer-margin-bottom: 10;
+}
+
+Credits#Credits MultilineLabel#CreditsLabel
+{
+    font-name: $fontPragmatica;
+    font-size: 12;
+    foreground-color: $colorWhite;
+    horizontal-alignment: left;
+    vertical-alignment: center;
+
+    outer-margin-left: 10;
+    outer-margin-right: 10;
+}
+
+Bar#AboutContainer Label#Copyright,
+Bar#AboutContainer Label#MadeInBerlin
+{
+    font-name: $fontPragmatica;
+    font-size: 12;
+    foreground-color: $colorWhite50;
+    horizontal-alignment: center;
+    vertical-alignment: center;
+}
+
+Bar#AboutContainer Label#Copyright
+{
+    outer-margin-top: 6;
+}
+
+Bar#AboutContainer Label#MadeInBerlin
+{
+    outer-margin-top: 2;
+    outer-margin-bottom: 8;
+}
+
+HWVersionsDisplayer#VersionsDisplay
+{
+    height: 74;
+    outer-margin-top: 16;
+    outer-margin-left: 80;
+    outer-margin-right: 80;
+}
+
+HWVersionsDisplayer#VersionsDisplay Bar#OSVersionContainer,
+HWVersionsDisplayer#VersionsDisplay Bar#MaschineVersionContainer,
+HWVersionsDisplayer#VersionsDisplay Bar#FirmwareVersionContainer
+{
+    height: 24;
+}
+
+HWVersionsDisplayer#VersionsDisplay Bar#Separator
+{
+    height: 1;
+    background-color: $colorWhite;
+}
+
+HWVersionsDisplayer#VersionsDisplay Label#OSVersionTitle,
+HWVersionsDisplayer#VersionsDisplay Label#MaschineVersionTitle,
+HWVersionsDisplayer#VersionsDisplay Label#FirmwareVersionTitle
+{
+    font-name: $fontPragmatica;
+    font-size: 12;
+    foreground-color: $colorWhite50;
+    horizontal-alignment: left;
+    vertical-alignment: center;
+}
+
+HWVersionsDisplayer#VersionsDisplay Label#OSVersionValue,
+HWVersionsDisplayer#VersionsDisplay Label#MaschineVersionValue,
+HWVersionsDisplayer#VersionsDisplay Label#FirmwareVersionValue
+{
+    font-name: $fontPragmatica;
+    font-size: 12;
+    foreground-color: $colorWhite;
+    horizontal-alignment: right;
+    vertical-alignment: center;
+}

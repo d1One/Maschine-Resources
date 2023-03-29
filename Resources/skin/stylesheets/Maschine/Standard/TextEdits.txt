@@ -1,0 +1,431 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// TEXT EDIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// TEXT EDIT GENERIC STYLING
+//----------------------------------------------------------------------------------------------------------------------
+
+TextEdit
+{
+    font-name:                  $fontPragmatica;
+    font-size:                  11;
+    foreground-color:           $colorWhite;
+
+    background-color:           $colorBlack65;
+    background-border-color:    no;
+
+    selection-background-color: $LightBackgroundGrey;
+    selection-foreground-color: $colorWhite;         // TEXT CURSOR COLOR
+}
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// MAIN VIEW
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+// HEADER
+//----------------------------------------------------------------------------------------------------------------------
+
+TextEdit.HeadDisplay,
+TextEdit.TimeDisplay
+{
+    font-name:                  $fontPragmatica;
+    font-size:                  12;
+    height:                     18;
+    outer-margin-top:           5;
+}
+
+
+// SOUND- / GROUPLIST
+//----------------------------------------------------------------------------------------------------------------------
+
+// SOUND / GROUP NAME
+TextEdit.SoundGroupListItem
+{
+    height:                     18;
+    margin-left:                6;
+    foreground-relative-top:    1;
+    margin-top:                 2;
+    margin-bottom:              2;
+    outer-margin-top:           1;
+    outer-margin-left:          2;
+    outer-margin-right:         1;
+}
+
+
+
+// ARRANGER
+//----------------------------------------------------------------------------------------------------------------------
+
+// SCENE NAME
+ArrangerHeader#m_pSceneHeader TextEdit
+{
+    image:                      url("Maschine/Arranger/ARR_BG_SceneNameTextEdit.png");
+    picture-includes-margin:    true;
+    fixed-left:                 8;
+    fixed-right:                8;
+
+    background-color:           no;
+
+    font-name:                  $fontPragmatica;
+    font-size:                  11;
+
+    margin-top:                 5;
+    margin-bottom:              4;
+    margin-left:                7;
+    margin-right:               8;
+
+    foreground-relative-top:    0;
+}
+
+
+// PATTERN NAME
+TextEdit.ClipEditor
+{
+    image:                              url("Maschine/Arranger/ARR_BG_PatternNameTextEdit.png");
+    picture-includes-margin:            true;
+    fixed-left:                         6;
+    fixed-right:                        6;
+
+    background-color:                   no;
+
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+
+    margin-top:                         5;
+    margin-bottom:                      6;
+    margin-left:                        6;
+    foreground-relative-top:            0;
+}
+
+
+
+// PATTERN EDITOR
+//----------------------------------------------------------------------------------------------------------------------
+
+// PATTERN NAME
+TextEdit.BankManager
+{
+    height:                             16;
+    margin:                             1;
+    margin-left:                        2;
+    margin-right:                       2;
+    foreground-relative-top:            1;
+
+    outer-margin-top:                   3;
+    outer-margin-left:                  5;
+    outer-margin-right:                 18;
+}
+
+
+
+
+// PATTERN LENGTH
+Bar#m_pLowerArea Bar#pPatternEditing Bar#m_pPatternLength TextEdit,
+Bar#m_pLowerArea Bar#pPatternEditing Bar#m_patternStart TextEdit
+{
+    image:                              url("Maschine/PatternEditor/PE_BG_TextEdit.png");
+    picture-includes-margin:            true;
+    background-color:                   no;
+    margin-top:                         4;
+    margin-bottom:                      4;
+    margin-left:                        1;
+    margin-right:                       1;
+    foreground-relative-top:            1;
+}
+
+
+
+
+
+// BANK MANAGER POPUP
+//----------------------------------------------------------------------------------------------------------------------
+
+TextEdit.BankManagerList
+{
+    height:                             17;
+    margin-top:                         1;
+    margin-bottom:                      1;
+    margin-left:                        3;
+    outer-margin-top:                   1;
+    outer-margin-left:                  1;
+    outer-margin-right:                 1;
+}
+
+
+
+
+
+// PARAMETER AREA
+//----------------------------------------------------------------------------------------------------------------------
+
+// MACRO NAMES
+TextEdit.ListItem
+{
+    image:                              url("Maschine/ParameterArea/PA_BTN_SectionLabelTextEdit.png");
+    picture-includes-margin:            true;
+    fixed-left:                         5;
+    fixed-right:                        5;
+
+    margin-top:                         2;
+    margin-bottom:                      1;
+    margin-left:                        1;
+    margin-right:                       1;
+    foreground-relative-top:            1;
+}
+
+
+
+
+// SAMPLING PAGES
+//----------------------------------------------------------------------------------------------------------------------
+
+// BOTTOM PARAMETER BAR
+Bar#pCompactParameterWidget TextEdit
+{
+    height:                             12;
+    horizontal-alignment:               right;
+
+    margin-top:                         1;
+    margin-bottom:                      1;
+    margin-left:                        0;
+    margin-right:                       0;
+
+    outer-margin-top:                   2;
+}
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// MIXER VIEW
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// GROUP- AND SOUND CHANNEL NAME
+//----------------------------------------------------------------------------------------------------------------------
+
+// SHARED
+TextEdit.GroupNameEdit,
+TextEdit.GroupChannelNameEdit,
+TextEdit.SoundChannelNameEdit
+{
+    height:                             16;
+    foreground-relative-top:            1;
+
+    margin:                             1;
+    outer-margin-left:                  2;
+
+}
+
+
+
+// GROUP
+TextEdit.GroupNameEdit
+{
+    outer-margin-top:                   1;
+    outer-margin-right:                 3;
+}
+
+Bar.ChannelHeadRow[HasSeparator=true] TextEdit.GroupNameEdit
+{
+    outer-margin-top:                   1;
+    outer-margin-right:                 4;
+}
+
+
+
+
+
+// SOUND
+TextEdit.SoundChannelNameEdit,
+TextEdit.GroupChannelNameEdit
+{
+    outer-margin-top:                   1;
+    outer-margin-bottom:                0;
+    outer-margin-right:                 2;
+}
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// BROWSER
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// TO DO: MERGE TOGETHER WITH REST OF TEXT EDIT
+
+// BROWSER TEXT EDIT BASIC STYLING
+//----------------------------------------------------------------------------------------------------------------------
+
+AutocompletionTextEdit
+{
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+//     foreground-color:                   $colorWhite75;
+    selection-background-color:         $LightBackgroundGrey;
+    selection-foreground-color:         $colorWhite; // cursor
+}
+
+
+
+// TAG EDITOR ADD ATTRIBUTE TEXT EDIT
+//----------------------------------------------------------------------------------------------------------------------
+
+AutocompletionTextEdit#m_pAddAttributeEdit
+{
+    min-width:                              102;
+
+    image:                              url("Maschine/Browser/BRWS_BG_TagEditAddTextEdit.png");
+    picture-includes-margin:            true;
+    fixed-left:                         4;
+    fixed-right:                        4;
+
+    background-color:                   $colorBlack65;
+    foreground-color:                   $colorWhite;
+
+    foreground-relative-top:            1;
+
+    margin-left:                        6;
+    margin-right:                       6;
+    margin-top:                         3;
+    margin-bottom:                      2;
+}
+
+
+
+
+// BROWSER TAG EDITOR PANEL
+//----------------------------------------------------------------------------------------------------------------------
+
+// PROPERTIES TEXT EDIT DROPDOWN
+Bar#m_pBrowserPanel Bar#m_pEditorWidget AutocompletionTextEdit,
+Bar#m_pBrowserPanel Bar#m_pEditorWidget TextEdit
+{
+    image:                                      url("Maschine/Browser/BRWS_BTN_TagEditAutoCompletionTextEdit.png");
+    picture-includes-margin:                    true;
+    animations:                                 7;
+    fixed-left:                                 3;
+    fixed-right:                                15;
+
+    background-color:                           no;
+    foreground-color:                           $colorWhite75;
+
+    background-border-color:                    no;
+
+    menu-offset-x:                              20;
+    menu-offset-y:                              0;
+
+    foreground-relative-top:                    1;
+    margin-left:                                6;
+    margin-top:                                 3;
+    margin-bottom:                              3;
+}
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget AutocompletionTextEdit:selected,
+Bar#m_pBrowserPanel Bar#m_pEditorWidget TextEdit:selected
+{
+    animation-index:                            1;
+    foreground-color:                           $colorWhite;
+}
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget AutocompletionTextEdit:selected:over,
+Bar#m_pBrowserPanel Bar#m_pEditorWidget TextEdit:selected:over
+{
+    animation-index:                            5;
+    foreground-color:                           $colorWhite;
+}
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget AutocompletionTextEdit:selected:over:down,
+Bar#m_pBrowserPanel Bar#m_pEditorWidget TextEdit:selected:over:down
+{
+    animation-index:                            3;
+    foreground-color:                           $colorWhite;
+}
+
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget AutocompletionTextEdit:!selected:over,
+Bar#m_pBrowserPanel Bar#m_pEditorWidget TextEdit:!selected:over
+{
+    animation-index:                            4;
+    foreground-color:                           $colorWhite85;
+}
+
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget AutocompletionTextEdit:!selected:over:down,
+Bar#m_pBrowserPanel Bar#m_pEditorWidget TextEdit:!selected:over:down
+{
+    animation-index:                            3;
+    foreground-color:                           $colorWhite85;
+}
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget AutocompletionTextEdit:!enabled,
+Bar#m_pBrowserPanel Bar#m_pEditorWidget TextEdit:!enabled
+{
+    animation-index:                            6;
+    foreground-color:                           $colorWhite30;
+}
+
+
+
+
+
+// BROWSER TAG EDITOR MULTILINE TEXT EDIT
+//----------------------------------------------------------------------------------------------------------------------
+
+//CONTAINER
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pPropertiesPage MultilineTextEdit
+{
+    width:                                      216;
+
+    image:                                      url("Maschine/Browser/BRWS_BG_TagEditComments.png");
+    picture-includes-margin:                    true;
+    animations:                                 2;
+    animation-index:                            0;
+
+    fixed-left:                                 4;
+    fixed-right:                                4;
+    fixed-top:                                  4;
+    fixed-bottom:                               4;
+
+    margin-top:                                 4;
+    margin-bottom:                              4;
+}
+
+
+// EDIT AREA
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pPropertiesPage MultilineTextEditContentArea
+{
+    font-name:                                  $fontPragmatica;
+    font-size:                                  11;
+
+    background-color:                           no;
+    background-border-color:                    no;
+    foreground-color:                           $colorWhite75;
+
+    selection-background-color:                 $LightBackgroundGrey;
+    selection-foreground-color:                 $colorWhite; // cursor
+
+    margin-left:                                6;
+    margin-right:                               9;
+
+    horizontal-alignment:                       left;
+}
+
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pPropertiesPage MultilineTextEditContentArea:!enabled
+{
+    selection-foreground-color:                 no;
+}

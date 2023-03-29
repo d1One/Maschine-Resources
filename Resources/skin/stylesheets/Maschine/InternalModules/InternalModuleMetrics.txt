@@ -1,0 +1,118 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// INTERNAL MODULE METRICS
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@define $InternalModuleHeight           200;
+
+// Panel Width
+@define $InternalModule-W1              108;
+@define $InternalModule-W2              158;
+@define $InternalModule-W3              236;
+@define $InternalModule-W4              316;
+@define $InternalModule-W5              396;
+@define $InternalModule-W10             870;
+
+
+// POTI Y-POSITIONS
+//--------------------------------------------------------------------------------------------------------
+
+// 2 ROW LAYOUTS (Top row large, bottom row small)
+@define $IntFX-2R-Y1                    52;
+@define $IntFX-2R-Y2                    134;
+
+
+// 1 ROW LAYOUTS (One row, centered)
+@define $IntFX-1R-Y                     76;
+
+
+
+// FADER POSITIONS
+//--------------------------------------------------------------------------------------------------------
+
+@define $IntFX-FDR-Y                    41;
+
+
+
+// METER POSITIONS
+//--------------------------------------------------------------------------------------------------------
+
+@define $IntFX-MTR-Y                    51;
+
+
+
+// FADER- & METER NAME LABEL POSITION
+//--------------------------------------------------------------------------------------------------------
+
+@define $IntFX-LBL-Y                    171;
+
+
+// WIDGET DIMENSIONS
+//--------------------------------------------------------------------------------------------------------
+
+// FX MODULE MODE SWITCH BARS
+@define $widthIntFXMode                 100;
+@define $heightIntFXMode                18;
+
+
+
+//--------------------------------------------------------------------------------------------------------
+
+
+// OLD STUFF
+// | | | | | | | |
+// V V V V V V V V
+
+// Height / Width Controls Container Bars
+
+// Small Potis Narrow
+@define $widthSmallPotiBar              42;
+@define $heightSmallPotiBar             42;
+
+// On / Off Button
+@define $widthBoolBar                   42;
+@define $heightBoolBar                  42;
+
+
+//--------------------------------------------------------------------------------------------------------
+// Controls X-Values
+//--------------------------------------------------------------------------------------------------------
+
+// "W-2" Module, 3 Column Layout
+@define $InternalModule-W2-3C-X1        15;
+@define $InternalModule-W2-3C-X2        85;
+@define $InternalModule-W2-3C-X3        155;
+
+
+//--------------------------------------------------------------------------------------------------------
+// Controls Y-Values
+//--------------------------------------------------------------------------------------------------------
+
+// 1 Row Centered Layout
+@define $InternalModule-Y-Center        68;
+
+
+// 2 Rows Layout
+@define $InternalModule-2R-Y1           52;
+@define $InternalModule-2R-Y2           135;
+
+
+@define $InternalModuleY3               252;
+@define $InternalModuleY4               368;
+
+
+
+//--------------------------------------------------------------------------------------------------------
+// OLD STUFF
+//--------------------------------------------------------------------------------------------------------
+// Keeps unskinned stuff in business
+@define $InternalModuleW1   108;
+@define $InternalModuleW2   236;
+@define $InternalModuleW3   284;
+@define $InternalModuleH4   484;
+
+@define $InternalModuleX1   20;
+@define $InternalModuleX2   108;
+@define $InternalModuleX3   196;
+
+@define $InternalModuleY1   20;
+@define $InternalModuleY2   136;

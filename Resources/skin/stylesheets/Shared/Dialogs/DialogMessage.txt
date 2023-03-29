@@ -1,0 +1,98 @@
+DialogMessage
+{
+    width:                          400;
+    height:                         166;
+}
+
+DialogMessage Bar#pMain
+{
+    background-color:               $colorBlack;
+    margin-left:                    2;
+    margin-right:                   2;
+    margin-top:                     2;
+    margin-bottom:                  2;
+}
+
+DialogMessage Bar#pMain Bar#pHead
+{
+    height:                         34;
+
+    image:                          url("Shared/Dialogs/SharedDialogTexture/Shared_ContrLine_White5.png");
+    picture-includes-margin:        true;
+
+    fixed-left:                     3;
+    fixed-right:                    3;
+    fixed-top:                      3;
+    fixed-bottom:                   3;
+
+    background-color:               $colorDialogLightGrey;
+
+    outer-margin-bottom:            2;
+}
+
+DialogMessage Bar#pMain Bar#pHead Label#m_pSpacer
+{
+    width:                          1;
+    background-color:               no;
+}
+
+DialogMessage Bar#pMain Bar#pHead Label#m_pTitle
+{
+    font-name:                      $fontPragmatica;
+    font-size:                      18;
+    foreground-color:               $colorWhite75;
+    horizontal-alignment:           center;
+    background-color:               no;
+    outer-margin-left:              10;
+    outer-margin-right:             10;
+}
+
+DialogMessage Bar#pMain Bar#body
+{
+    image:                          url("Shared/Dialogs/SharedDialogTexture/DIALOG_ContrLineBody.png");
+    picture-includes-margin:        true;
+
+    fixed-left:                     3;
+    fixed-right:                    3;
+    fixed-top:                      3;
+    fixed-bottom:                   3;
+
+    background-color:               $colorDialogLightGrey;
+}
+
+DialogMessage Bar#pMain Bar#body MultilineLabel#m_message
+{
+    outer-margin-left:              5;
+    outer-margin-right:             5;
+    outer-margin-top:               5;
+    outer-margin-bottom:            5;
+
+    background-color:               no;
+
+    font-name:                      $fontPragmatica;
+    font-size:                      13;
+    foreground-color:               $colorWhite75;
+
+    vertical-alignment:             center;
+    horizontal-alignment:           center;
+}
+
+DialogMessage Bar#pMain Bar#buttonContainer
+{
+    image:                          url("Shared/Dialogs/SharedDialogTexture/DIALOG_ContrLineFooter.png");
+    picture-includes-margin:        true;
+
+    fixed-left:                     3;
+    fixed-right:                    3;
+    fixed-top:                      3;
+    fixed-bottom:                   3;
+
+    background-color:               $colorDialogLightGrey;
+
+    spacing:                        1;
+
+    height:                         43;
+    margin-top:                     9;
+    margin-left:                    8;
+    margin-right:                   8;
+}

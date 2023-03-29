@@ -1,0 +1,25 @@
+Bar#WelcomeConfirmActivationPageScreenLeft Bar#StudioDisplayBar
+{
+    image: url("Maschine/HW/MH1071/Welcome/OOB_Activate_2.png");
+}
+
+Bar#WelcomeConfirmActivationPageScreenRight MultilineLabel#Label
+{
+    font-name: $fontPragmatica;
+    font-size: 18;
+    foreground-color: $colorWhite;
+
+    horizontal-alignment: center;
+
+    outer-margin-left: 72;
+    outer-margin-right: 72;
+}
+
+Bar#WelcomeConfirmActivationPageScreenRight Bar#Icon
+{
+    image: url("Maschine/HW/Shared/User.png");
+
+    outer-margin-top: 37;
+    outer-margin-left: 204;
+    outer-margin-bottom: 16;
+}

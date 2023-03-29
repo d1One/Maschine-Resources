@@ -1,0 +1,1014 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SAMPLING PAGES
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// SAMPLING PAGES MAIN BACKGROUND
+Bar#m_pLowerArea Bar#m_pSamplingPanel
+{
+    background-color:                   $colorBlack;
+    spacing:                            1;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// SAMPLING HEADER
+//----------------------------------------------------------------------------------------------------------------------
+
+// MAIN CONTAINER
+Bar#m_pLowerArea Bar#m_pSamplingPanel Bar#m_headerBar
+{
+    image:                              url("Maschine/SharedTexture/SHARED_BG_LightlineBottom.png");
+    picture-includes-margin:            true;
+    fixed-left:                         10;
+    fixed-right:                        10;
+    fixed-top:                          3;
+    fixed-bottom:                       3;
+    background-color:                   $StandardBackgroundGrey;
+    height:                             40;
+}
+
+// HEADER TAB BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#m_pLowerArea Bar#m_pSamplingPanel Bar#m_headerBar Bar#m_tabsBar
+{
+    image:                              url("Maschine/SharedTexture/SHARED_BG_DividerBottom.png");
+    picture-includes-margin:            true;
+    fixed-left:                         3;
+    fixed-right:                        3;
+    fixed-top:                          3;
+    fixed-bottom:                       3;
+    height:                             24;
+    margin-left:                        4;
+    margin-top:                         3;
+    spacing:                            10;
+}
+
+Button.SamplingTab
+{
+    image:                              url("Maschine/SamplingPages/sampling_pg_button_tab.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+    margin-left:                        10;
+    margin-right:                       10;
+    fixed-left:                         1;
+    fixed-right:                        1;
+    foreground-color:                   $colorWhite50;
+    min-width:                          10;
+}
+
+
+Button.SamplingTab:selected
+{
+    foreground-color:                   rgb(50,50,50);
+}
+
+
+Button.SamplingTab:!selected:down
+{
+    foreground-color:                   rgb(50,50,50);
+}
+
+
+Button.SamplingTab:over
+{
+    foreground-color:                   $colorWhite70;
+}
+
+
+
+// ZONE EDITOR SPECIFIC BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pLowerArea Bar#m_pSamplingPanel Bar#m_headerBar Bar#m_pZoneTitleBar
+{
+    spacing:                            10;
+}
+
+// Button Zone List
+Bar#m_pLowerArea Bar#m_pSamplingPanel Bar#m_headerBar Bar#m_pZoneTitleBar Button#m_pButtonZoneList
+{
+    image:                              url("Maschine/SamplingPages/sampling_pg_button_zone_list.png");
+    animations:                         7;
+    foreground-color:                   no;
+}
+
+
+
+// Button Zone Wave Editor
+Bar#m_pLowerArea Bar#m_pSamplingPanel Bar#m_headerBar Bar#m_pZoneTitleBar Button#m_pButtonWaveEditor
+{
+    image:                              url("Maschine/SamplingPages/sampling_pg_button_zone_wave.png");
+    animations:                         7;
+    foreground-color:                   no;
+}
+
+
+//======================================================================================================================
+// Sampling Pages Container
+//======================================================================================================================
+
+Bar#m_pLowerArea Bar#m_pSamplingPanel Bar#m_pMainBar
+{
+    spacing:                            1;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Header Info Bar
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pLowerArea Bar#m_pSamplingPanel Bar#m_pInfoBar
+{
+    margin-left:                        15;
+    margin-right:                       10;
+    margin-top:                         0;
+    height:                             16;
+}
+
+// Play Button
+Bar#m_pLowerArea Bar#m_pSamplingPanel Bar#m_pInfoBar Button#m_pPlayButton
+{
+    image:                              url("Maschine/SamplingPages/sampling_pg_button_play_sample.png");
+    foreground-color:                   no;
+    outer-margin-top:                   1;
+    outer-margin-right:                 6;
+    background-color-palette:           1;
+}
+
+// Sample Name
+Bar#m_pLowerArea Bar#m_pSamplingPanel Bar#m_pInfoBar Button#m_pNameButton
+{
+    image:                              no;
+    horizontal-alignment:               left;
+    foreground-color:                   no;
+    foreground-color-palette:           1;
+    height:                             16;
+    margin-bottom:                      1;
+}
+
+// Sample Duration
+Bar#m_pLowerArea Bar#m_pSamplingPanel Bar#m_pInfoBar Label#m_pTimeLabel
+{
+    horizontal-alignment:               left;
+    foreground-color:                   $colorWhite50;
+    font-size:                          11;
+    font-name:                          $fontPragmatica;
+    height:                             16;
+    margin-bottom:                      1;
+    outer-margin-right:                 15;
+}
+
+// Stereo / Mono Toggle View
+Bar#m_pLowerArea Bar#m_pSamplingPanel Bar#m_pInfoBar Button#m_pStereoDisplayToggleButton
+{
+    image:                              url("Maschine/SamplingPages/sampling_pg_button_toggle_view.png");
+    animations:                         7;
+    foreground-color:                   no;
+    // animation-index:                    0;
+    outer-margin-top:                   3;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// SAMPLING PAGES PANEL STACK
+//----------------------------------------------------------------------------------------------------------------------
+
+// Basic Styling
+Bar#m_pSamplingPanel Stack#m_pPanelStack
+{
+    background-color:                   $StandardBackgroundGrey;
+}
+
+
+// Panel Background Containers
+Bar#m_pSamplingPanel Stack#m_pPanelStack RecordingPanel,
+Bar#m_pSamplingPanel Stack#m_pPanelStack SampleEditorPanel,
+Bar#m_pSamplingPanel Stack#m_pPanelStack SlicingPanel,
+Bar#m_pSamplingPanel Stack#m_pPanelStack ZoneEditorPanel
+{
+    background-color:                   $colorBlack;
+    spacing:                            1;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Shared Elements
+//----------------------------------------------------------------------------------------------------------------------
+
+// Timeline
+Bar#m_pSamplingPanel WaveDisplayTimeline#m_pTimeline
+{
+    background-color:                   $StandardBackgroundGrey;
+    foreground-color:                   $colorTimelineNumbers;
+    min-width:                          $defaultWidth;
+    min-height:                         10;
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    horizontal-alignment:               left;
+    outer-margin-bottom:                1;
+
+    text-marker-color:                  $colorTimelineBeatLine;
+    nontext-marker-color:               $colorGridline;
+    small-marker-height:                8;
+    medium-marker-height:               8;
+    large-marker-height:                18;
+    left-text-offset:                   6;
+    top-text-offset:                    2;
+}
+
+
+// Zoom Slider Background
+Bar#m_pLowerArea Bar#m_pSamplingPanel Bar#pWaveDisplayBar Bar#m_pFoot
+{
+    image:                              url("Maschine/SharedFramework/SHARED_BG_Scrollbar.png");
+    picture-includes-margin:            true;
+    fixed-left:                         10;
+    fixed-right:                        10;
+    outer-margin-top:                   0;
+}
+
+// INSTRUCTIONS OVERLAYS
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pSamplingPanel InstructionsContainer
+{
+    background-color:                  $StandardBackgroundGrey;
+}
+
+//======================================================================================================================
+// Recording Tab
+//======================================================================================================================
+
+//----------------------------------------------------------------------------------------------------------------------
+// Wave History Bar
+//----------------------------------------------------------------------------------------------------------------------
+
+// Background
+Bar#m_pSamplingPanel Bar#m_pWaveHistoryAndCommandBars
+{
+    image:                              url("Maschine/SamplingPages/sampling_pg_bg_recording_history.png");
+    picture-includes-margin:            true;
+    fixed-left:                         30;
+    fixed-right:                        30;
+    fixed-top:                          15;
+    fixed-bottom:                       15;
+
+    min-height:                         70;
+
+    margin-left:                        15;
+    margin-right:                       15;
+
+    spacing:                            15;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Input Threshold
+//----------------------------------------------------------------------------------------------------------------------
+
+// Threshold Bar
+Bar#m_pSamplingPanel Bar#m_pThresholdBar
+{
+    image:                              url("Maschine/SamplingPages/SampTab_MTR_BG_Scale.png");
+    outer-margin-top:                   8;
+}
+
+
+
+// THRESHOLD METER CONTAINER
+Bar#m_pSamplingPanel Bar#m_pThresholdBar MasterLevelMeter#m_pLevelMeter
+{
+    width:                              103;
+    height:                             22;
+    spacing:                            1;
+    outer-margin-left:                  5;
+    outer-margin-bottom:                11;
+}
+
+
+
+// THRESHOLD METER CHANNEL BACKGROUND
+Bar#m_pSamplingPanel Bar#m_pThresholdBar MasterLevelMeter#m_pLevelMeter Bar
+{
+    image:                              url("Maschine/SamplingPages/SampTab_MTR_BG.png");
+    outer-margin-left:                  5;
+}
+
+
+
+Bar#m_pSamplingPanel Bar#m_pThresholdBar MasterLevelMeter#m_pLevelMeter Bar#pChannelLeft
+{
+    outer-margin-top:                   9;
+}
+
+
+
+// METER LED
+Bar#m_pSamplingPanel Bar#m_pThresholdBar MasterLevelMeter#m_pLevelMeter Bar#pChannelLeft LevelMeter,
+Bar#m_pSamplingPanel Bar#m_pThresholdBar MasterLevelMeter#m_pLevelMeter Bar#pChannelRight LevelMeter
+{
+    image:                                      url("Maschine/SamplingPages/SampTab_MTR_Led.png");
+    animations:                                 2;
+    animation-index:                            0;
+}
+
+
+
+// CLIPPING
+Bar#m_pSamplingPanel Bar#m_pThresholdBar MasterLevelMeter#m_pLevelMeter Bar#pChannelLeft Label,
+Bar#m_pSamplingPanel Bar#m_pThresholdBar MasterLevelMeter#m_pLevelMeter Bar#pChannelRight Label
+{
+    image:                                      url("Maschine/SamplingPages/SampTab_MTR_Clip.png");
+    animations:                                 2;
+    animation-index:                            0;
+}
+
+
+
+Bar#m_pSamplingPanel Bar#m_pThresholdBar MasterLevelMeter#m_pLevelMeter Bar#pChannelLeft Label:selected,
+Bar#m_pSamplingPanel Bar#m_pThresholdBar MasterLevelMeter#m_pLevelMeter Bar#pChannelRight Label:selected
+{
+    animation-index:                    1;
+}
+
+
+
+// THRESHOLD SLIDER
+Bar#m_pSamplingPanel Bar#m_pThresholdBar MasterLevelMeter#m_pLevelMeter Slider
+{
+    background-color:                   no;
+    width:                              103;
+}
+
+
+// THRESHOLD SLIDER HANDLE
+Bar#m_pSamplingPanel Bar#m_pThresholdBar MasterLevelMeter#m_pLevelMeter Grip
+{
+    image:                              url("Maschine/SamplingPages/SampTab_MTR_Handle.png");
+}
+Bar#m_pSamplingPanel Bar#m_pThresholdBar MasterLevelMeter#m_pLevelMeter Grip:!enabled
+{
+    image:                              url("Maschine/SamplingPages/SampTab_MTR_Handle_disabled.png");
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// SAMPLE RECORDING BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pSamplingPanel Bar#m_pWaveHistoryAndCommandBars Bar#m_pRecordingControlsBar
+{
+    outer-margin-top:                   6;
+}
+
+
+// GENERIC BUTTON BACKGROUND
+Bar#m_pSamplingPanel Bar#m_pWaveHistoryAndCommandBars Bar#m_pRecordingControlsBar Button
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_Record.png");
+    animations:                         7;
+    picture-includes-margin:            true;
+    fixed-left:                         4;
+    fixed-right:                        4;
+    width:                              62;
+    foreground-color:                   $colorWhite80;
+
+    margin-bottom:                      1;
+}
+
+
+Bar#m_pSamplingPanel Bar#m_pWaveHistoryAndCommandBars Bar#m_pRecordingControlsBar Button:selected
+{
+    foreground-color:                   $colorBlack80;
+}
+
+Bar#m_pSamplingPanel Bar#m_pWaveHistoryAndCommandBars Bar#m_pRecordingControlsBar Button:!enabled
+{
+    foreground-color:                   $colorWhite20;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// TAKE LIST
+//----------------------------------------------------------------------------------------------------------------------
+
+// TAKE LIST CONTAINER
+Bar#m_pWaveHistoryAndCommandBars Vector::Bar.RecordingHistoryVector
+{
+    margin-top:                         5;
+    spacing:                            4;
+    height:                             63;
+}
+
+
+// RECORDING ITEM BACKGROUND
+RecordingItem
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BG_WavePreview.png");
+    animations:                         3;
+    animation-index:                    0;
+    picture-includes-margin:            true;
+
+    margin:                             2;
+}
+
+RecordingItem[HasMissingSamples=true][isFocused=false]
+{
+    animation-index:                    1;
+}
+
+RecordingItem[HasMissingSamples=true][isFocused=true]
+{
+    animation-index:                    2;
+    background-color-palette:           1;
+}
+
+// DELETE BUTTON
+//----------------------------------------------------------------------------------------------------------------------
+Button#m_pButtonRemove
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_Record_Delete.png");
+    animations:                         7;
+    outer-margin-right:                 2;
+    left:                               60;  // X position of the remove button
+    top:                                0;   // Y position
+}
+
+
+// PREHEAR BUTTON
+//----------------------------------------------------------------------------------------------------------------------
+Button#m_pButtonPreview
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_Record_Listen.png");
+    animations:                         7;
+    outer-margin-right:                 2;
+    left:                               60;  // X position of the preview button
+    bottom:                             19;  // Y offset from the bottom
+}
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// EDIT TAB
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//----------------------------------------------------------------------------------------------------------------------
+// Edit Button Row below Waveform Display
+//----------------------------------------------------------------------------------------------------------------------
+
+// Background Image
+SampleEditorPanel Stack#m_pButtonStack
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BG_ButtonToolbar.png");
+    picture-includes-margin:            true;
+    fixed-left:                         10;
+    fixed-right:                        10;
+    background-color:                   $colorStandardBGGrey;
+}
+
+
+
+SampleEditorPanel Bar#pButtonBar
+{
+//     height:                             24;
+    margin-left:                        12;
+    margin-top:                         2;
+    spacing:                            5;
+}
+
+
+
+SampleEditorPanel Bar#pButtonBar::Bar.ButtonGrouper
+{
+    margin-right:                       0;
+    margin-left:                        0;
+    spacing:                            5;
+}
+
+
+
+
+// SAMPLE EDIT BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// GENERIC
+SampleEditorPanel Bar#pButtonBar Button
+{
+    foreground-color:                   no;
+}
+
+
+
+// TRUNCATE
+SampleEditorPanel Bar#pButtonBar Button#m_pTruncate
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_Edit_Truncate.png");
+    animations:                         7;
+}
+
+
+
+// NORMALIZE
+SampleEditorPanel Bar#pButtonBar Button#m_pNormalize
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_Edit_Normalize.png");
+    animations:                         7;
+}
+
+
+
+// REVERSE
+SampleEditorPanel Bar#pButtonBar Button#m_pReverse
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_Edit_Reverse.png");
+    animations:                         7;
+}
+
+
+
+// FADE IN
+SampleEditorPanel Bar#pButtonBar Button#m_pFadeIn
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_Edit_FDIn.png");
+    animations:                         7;
+}
+
+// FADE OUT
+SampleEditorPanel Bar#pButtonBar Button#m_pFadeOut
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_Edit_FDOut.png");
+    animations:                         7;
+}
+
+// DC CORRECTION
+SampleEditorPanel Bar#pButtonBar Button#m_pDC
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_Edit_DC.png");
+    animations:                         7;
+}
+
+// SILENCE
+SampleEditorPanel Bar#pButtonBar Button#m_pSilence
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_Edit_Silence.png");
+    animations:                         7;
+}
+
+// CUT
+SampleEditorPanel Bar#pButtonBar Button#m_pCut
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_Edit_Cut.png");
+    animations:                         7;
+}
+
+// COPY
+SampleEditorPanel Bar#pButtonBar Button#m_pCopy
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_Edit_Copy.png");
+    animations:                         7;
+}
+
+// PASTE
+SampleEditorPanel Bar#pButtonBar Button#m_pPaste
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_Edit_Paste.png");
+    animations:                         7;
+}
+
+// DUPLICATE
+SampleEditorPanel Bar#pButtonBar Button#m_pDuplicate
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_Edit_Duplicate.png");
+    animations:                         7;
+}
+
+// TIMESTRETCH
+SampleEditorPanel Bar#pButtonBar Button#m_pTimeStretch
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_Edit_Stretch.png");
+    animations:                         7;
+}
+
+
+
+// TIMESTRETCH BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+SampleEditorPanel Stack#m_pButtonStack Bar#pTimestretchBar
+{
+    spacing:                            10;
+    margin-left:                        10;
+    margin-top:                         5;
+}
+
+
+
+
+SampleEditorPanel Stack#m_pButtonStack Bar#pTimestretchBar Button
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_Record.png");
+    animations:                         7;
+    picture-includes-margin:            true;
+    fixed-left:                         4;
+    fixed-right:                        4;
+    width:                              62;
+    foreground-color:                   $colorWhite80;
+
+    margin-bottom:                      1;
+}
+
+SampleEditorPanel Stack#m_pButtonStack Bar#pTimestretchBar Button:over
+{
+    foreground-color:                   $colorWhite90;
+}
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SLICING TAB
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Bar#m_pSamplingPanel SlicingPanel SlicingWaveEditor
+{
+    background-color:                   $colorBlack;
+    spacing:                            1;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// SLICING BUTTON TOOLBAR
+//----------------------------------------------------------------------------------------------------------------------
+
+// BACKGROUND
+Bar#m_pLowerArea Bar#m_pSamplingPanel Stack#m_pPanelStack Bar#m_pButtonBar
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BG_ButtonToolbar.png");
+    picture-includes-margin:            true;
+    fixed-left:                         10;
+    fixed-right:                        10;
+    background-color:                   $colorStandardBGGrey;
+
+    margin-left:                        10;
+    margin-right:                       10;
+    margin-top:                         1;
+}
+
+
+
+// SLICING BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// TOOLS
+
+// SLICE
+Bar#m_pLowerArea Bar#m_pSamplingPanel Stack#m_pPanelStack Bar#m_pButtonBar Button#m_pSlice
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_Slice.png");
+    animations:                         7;
+    foreground-color:                   no;
+}
+
+
+
+// ERASE
+Bar#m_pLowerArea Bar#m_pSamplingPanel Stack#m_pPanelStack Bar#m_pButtonBar Button#m_pErase
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_SliceErase.png");
+    animations:                         7;
+    foreground-color:                   no;
+    outer-margin-left:                  15;
+}
+
+
+
+// CLEAR
+Bar#m_pLowerArea Bar#m_pSamplingPanel Stack#m_pPanelStack Bar#m_pButtonBar Button#m_pClear
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_SliceClear.png");
+    animations:                         7;
+    foreground-color:                   no;
+    outer-margin-left:                  15;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// APPLY OPERATIONS ON THE RIGHT
+//----------------------------------------------------------------------------------------------------------------------
+
+// APPLY BUTTON
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pLowerArea Bar#m_pSamplingPanel Stack#m_pPanelStack Bar#m_pButtonBar Button#m_pApply
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_ApplySlice.png");
+    animations:                         7;
+    picture-includes-margin:            true;
+    fixed-left:                         4;
+    fixed-right:                        4;
+    foreground-color:                   $colorWhite75;
+
+    margin-bottom:                      1;
+    outer-margin-top:                   4;
+    width:                              57;
+}
+
+
+Bar#m_pLowerArea Bar#m_pSamplingPanel Stack#m_pPanelStack Bar#m_pButtonBar Button#m_pApply:over
+{
+    foreground-color:                   $colorWhite90;
+}
+
+
+Bar#m_pLowerArea Bar#m_pSamplingPanel Stack#m_pPanelStack Bar#m_pButtonBar Button#m_pApply:over:down
+{
+    foreground-color:                   $colorWhite;
+}
+
+
+
+// DRAG BUTTON
+Bar#m_pLowerArea Bar#m_pSamplingPanel Stack#m_pPanelStack Bar#m_pButtonBar Button#m_pDrag
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BTN_SliceDrag.png");
+    animations:                         7;
+    foreground-color:                   no;
+    outer-margin-top:                   4;
+    outer-margin-left:                  3;
+}
+
+
+
+
+
+
+//======================================================================================================================
+// Zone Tab
+//======================================================================================================================
+
+//----------------------------------------------------------------------------------------------------------------------
+// Zone List
+//----------------------------------------------------------------------------------------------------------------------
+
+// Container Widget
+ZoneEditorPanel#m_pZoneEditorPanel Bar#pZoneManager
+{
+    background-color:                   $StandardBackgroundGrey;
+    min-width:                          140;
+    max-width:                          250;
+}
+
+ZoneEditorPanel#m_pZoneEditorPanel Bar#pZoneManager Bar#pBody
+{
+    margin-left:                        15;
+}
+
+ZoneEditorPanel#m_pZoneEditorPanel Bar#pZoneManager Bar#pBody Vector<Bar>#m_pZoneVector Bar#widgets
+{
+    outer-margin-top:                   5;
+    outer-margin-bottom:                5;
+}
+
+// Zone List Item Buttons
+ZoneEditorPanel#m_pZoneEditorPanel Bar#pZoneManager Bar#pBody Vector<Bar>#m_pZoneVector Bar#widgets Bar
+{
+    height:                             16;
+    margin-right:                       10;
+}
+
+
+
+ZoneEditorPanel#m_pZoneEditorPanel Bar#pZoneManager Bar#pBody Vector<Bar>#m_pZoneVector Button#m_pName
+{
+    image:                              no;
+    background-border-color:            no;
+    background-color:                   no;
+    foreground-color:                   $colorWhite50;
+    height:                             16;
+    horizontal-alignment:               left;
+}
+
+
+
+ZoneEditorPanel#m_pZoneEditorPanel Bar#pZoneManager Bar#pBody Vector<Bar>#m_pZoneVector Button#m_pName:!selected:over
+{
+    foreground-color:                   $colorWhite70;
+}
+
+
+
+ZoneEditorPanel#m_pZoneEditorPanel Bar#pZoneManager Bar#pBody Vector<Bar>#m_pZoneVector Button#m_pName[HasFocus=true]
+{
+    foreground-color-palette:           1;
+}
+
+
+
+ZoneEditorPanel#m_pZoneEditorPanel Bar#pZoneManager Bar#pBody Vector<Bar>#m_pZoneVector Button#m_pName:selected
+{
+    foreground-color:                   $colorWhite;
+}
+
+
+
+// Zone List Add Button
+ZoneEditorPanel#m_pZoneEditorPanel Bar#pZoneManager Bar#pBody Vector<Bar>#m_pZoneVector Button#m_pAddZone
+{
+    image:                              url("Maschine/SamplingPages/sampling_pg_btn_zone_list_add.png");
+    foreground-color:                   no;
+    animations:                         7;
+    fixed-left:                         7;
+    fixed-right:                        1;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Zone List / Editor Splitter
+//----------------------------------------------------------------------------------------------------------------------
+
+ZoneEditorPanel#m_pZoneEditorPanel Bar#m_pMainBar Splitter#pSplitter
+{
+    background-color:                   $StandardBackgroundGrey;
+    width:                              3;
+}
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Zone Editor
+//----------------------------------------------------------------------------------------------------------------------
+
+// Container Widget
+ZoneEditorPanel#m_pZoneEditorPanel Stack#m_pViewStack Bar#m_pZoneVBar
+{
+    spacing:                            0;
+    background-color:                   $colorBlack;
+}
+
+// Horizontal Zoom Slider Background
+Bar#m_pLowerArea ZoneMapEditor#m_pZoneMapEditor Bar#m_pHorizontalScrollbarSpacerBar
+{
+    image:                              url("Maschine/SharedFramework/SHARED_BG_Scrollbar.png");
+    picture-includes-margin:            true;
+    fixed-left:                         10;
+    fixed-right:                        10;
+}
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// FOOTER PARAMETER BAR
+//-----------------------------------------------------------------------------------------------------------------------
+
+// NOTE: The heights of m_pSamplingParameterEditor and the optional visible m_pHorizontalScrollbar are set in code
+
+
+// MAIN CONTAINER
+SamplingParameterEditor#m_pParameterEditor[HasScrollbar=false]
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BG_FooterToolbar.png");
+    picture-includes-margin:            true;
+    fixed-left:                         10;
+    fixed-right:                        10;
+
+    spacing:                            5;
+
+    margin:                             no;
+}
+
+SamplingParameterEditor#m_pParameterEditor[HasScrollbar=true]
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BG_FooterToolbarScroll.png");
+    picture-includes-margin:            true;
+    fixed-left:                         10;
+    fixed-right:                        10;
+
+    margin:                             no;
+    spacing:                            1;
+}
+
+// Parameter Group Container
+Bar.SamplingParameterPageOuterBar
+{
+    image:                              url("Maschine/SamplingPages/SampTab_BG_FooterParameterGroup.png");
+    picture-includes-margin:            true;
+    fixed-left:                         10;
+    fixed-right:                        10;
+    min-width:                          68;
+
+    margin-right:                       1;
+}
+
+
+
+Bar.SamplingParameterPageOuterBar
+{
+    background-color:                   $colorWhite40;
+}
+
+
+
+
+// Label Parameter Name
+
+SamplingParameterEditor#m_pParameterEditor Label#pLabel
+{
+    margin-left:                        5;
+    margin-bottom:                      1;
+    height:                             22;
+}
+
+
+SamplingParameterEditor#m_pParameterEditor Label#pLabel
+{
+    foreground-color:                   $colorWhite;
+}
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------
+// Parameter Buttons and Draggers
+//---------------------------------------------------------------------------------------------------------------------------
+
+SamplingParameterEditor#m_pParameterEditor Bar#pPageInnerBar
+{
+    outer-margin-top:                   2;
+    outer-margin-right:                 0;
+}
+
+
+// PARAMETER NAME SUBHEADLINE
+Button.TransparentLeft
+{
+    image:                              no;
+    foreground-color:                   $colorWhite50;
+    font-name:                          $fontPragmatica;
+    font-size:                          9;
+    horizontal-alignment:               right;
+    height:                             10;
+    margin-left:                        5;
+    margin-right:                       5;
+    outer-margin-top:                   3;
+}
+
+
+// BOTTOM SCROLLBAR
+SamplingParameterEditor#m_pParameterEditor Scrollbar
+{
+    background-color:                   rgb(50,50,50);
+    image:                              no;
+    height:                             16;
+}
+
+SamplingParameterEditor#m_pParameterEditor Button#dec
+{
+    image:                              url("Maschine/Scrollbars/scrollbar_incDec_hor.png");
+    animations:                         2;
+    animation-index:                    0;
+
+    outer-margin-top:                   1;
+}
+
+SamplingParameterEditor#m_pParameterEditor Button#inc
+{
+    image:                              url("Maschine/Scrollbars/scrollbar_incDec_hor.png");
+    animations:                         2;
+    animation-index:                    1;
+
+    outer-margin-top:                   1;
+}
+
+SamplingParameterEditor#m_pParameterEditor Scrollbar Slider#value
+{
+    background-color:                   no;
+    outer-margin-left:                  5;
+    outer-margin-right:                 5;
+//     outer-margin-top:                   5;
+}
+
+SamplingParameterEditor#m_pParameterEditor Scrollbar Grip#thumb
+{
+    image:                              url("Maschine/Scrollbars/scrollbar_horizontal_slider.png");
+    picture-includes-margin:            true;
+
+    fixed-left:                         4;
+    fixed-right:                        4;
+}

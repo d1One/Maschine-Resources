@@ -1,0 +1,37 @@
+Bar#ModalDialogPageScreenLeft MultilineLabel#LabelLeft,
+Bar#ModalDialogPageScreenRight MultilineLabel#LabelRight
+{
+    font-name: $fontPragmatica;
+    font-size: 18;
+}
+
+Bar#ModalDialogPageScreenLeft[Style=StorageIssue] MultilineLabel#LabelLeft,
+Bar#ModalDialogPageScreenLeft[Style=StorageLocked] MultilineLabel#LabelLeft,
+Bar#ModalDialogPageScreenLeft[Style=StorageMissing] MultilineLabel#LabelLeft
+{
+    vertical-alignment: top;
+}
+
+Bar#ModalDialogPageScreenLeft[Style=StorageIssue] Bar#Icon,
+Bar#ModalDialogPageScreenLeft[Style=StorageLocked] Bar#Icon,
+Bar#ModalDialogPageScreenLeft[Style=StorageMissing] Bar#Icon
+{
+    outer-margin-top: 65;
+    outer-margin-left: 204;
+    outer-margin-bottom: 24;
+}
+
+Bar#ModalDialogPageScreenLeft[Style=StorageIssue] Bar#Icon
+{
+    image: url("Maschine/HW/MH1071/SD_Error.png");
+}
+
+Bar#ModalDialogPageScreenLeft[Style=StorageLocked] Bar#Icon
+{
+    image: url("Maschine/HW/MH1071/SD_Locked.png");
+}
+
+Bar#ModalDialogPageScreenLeft[Style=StorageMissing] Bar#Icon
+{
+    image: url("Maschine/HW/MH1071/SD_Missing.png");
+}

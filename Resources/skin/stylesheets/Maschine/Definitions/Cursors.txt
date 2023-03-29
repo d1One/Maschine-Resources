@@ -1,0 +1,14 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Cursor images
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+// MIDI NOTE EVENT RESIZE LEFT/RIGHT
+//----------------------------------------------------------------------------------------------------------------------
+
+// @define $CursorLeftEdgeMidiNote           url("Maschine/Cursor/CURSOR_LeftEdgeMidiNote.png");
+// @define $CursorRightEdgeMidiNote          url("Maschine/Cursor/CURSOR_RightEdgeMidiNote.png");
+

@@ -1,0 +1,1258 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// PERFORM FX
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+//--------------------------------------------------------------------------------------------------------
+// DEFINITIONS
+//--------------------------------------------------------------------------------------------------------
+
+
+// MID AREA Y
+@define $Y-MidArea-Parameters           287;
+
+// RIGHT AREA X
+@define $X-RightArea-Parameters         454;
+
+
+
+
+// BUTTONS
+PerformanceFXEditor XYDragger:over {         animation-index:1;}
+PerformanceFXEditor XYDragger:selected {         animation-index:2;}
+PerformanceFXEditor XYDragger:!selected:down {   animation-index:3;}
+PerformanceFXEditor XYDragger:selected:down {    animation-index:4;}
+PerformanceFXEditor XYDragger:!selected:over {   animation-index:5;}
+PerformanceFXEditor XYDragger:selected:over  {   animation-index:6;}
+PerformanceFXEditor XYDragger:!enabled {         animation-index:7;}
+
+
+
+
+
+
+//--------------------------------------------------------------------------------------------------------
+// BACKGROUND
+//--------------------------------------------------------------------------------------------------------
+
+
+// BACKGROUND IMAGE
+PerformanceFXEditor 
+{
+    width:                              642;
+    height:                             351;
+    
+    background-color:                   no;
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_bg_main.png");
+}
+
+
+PerformanceFXEditor Bar#pContainerBar
+{
+    width:                              560;
+    height:                             350;
+}
+
+
+
+
+// DISPLAY FOREGROUND
+PerformanceFXEditor Bar#pContainerBar Bar#m_pInstrumentBackground
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_display_middle_foreground.png");
+    margin-top:                         45;
+    
+    x:                                  129;
+    y:                                  0;
+}
+
+
+
+
+// ALGORITHM IMAGE BACKGROUND DYEMASK
+PerformanceFXEditor Bar#pContainerBar Bar#m_pDyeMaskInstrumentBackground
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_display_middle_foreground.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_display_middle_dye.png");
+    dye-color-palette:                  1;
+
+    x:                                  129;
+    y:                                  45;
+}
+
+
+
+
+// ALGORITHM IMAGES
+PerformanceFXEditor Bar#m_pInstrumentForeground
+{
+    dye-color-palette:                  1;
+    margin-top:                         12;
+
+    x:                                  230;
+    y:                                  105;
+}
+
+
+PerformanceFXEditor[Mode=Filter] Bar#m_pInstrumentForeground
+{
+
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_model_filter_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_model_filter_dye.png");
+}
+
+
+PerformanceFXEditor[Mode=Flanger] Bar#m_pInstrumentForeground
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_model_flanger_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_model_flanger_dye.png");
+}
+
+
+PerformanceFXEditor[Mode=BurstEcho] Bar#m_pInstrumentForeground
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_model_burstecho_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_model_burstecho_dye.png");
+}
+
+
+PerformanceFXEditor[Mode=Scratcher] Bar#m_pInstrumentForeground
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_model_turntable_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_model_turntable_dye.png");
+}
+
+
+PerformanceFXEditor[Mode=Stutter] Bar#m_pInstrumentForeground
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_model_stutter_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_model_stutter_dye.png");
+}
+
+
+PerformanceFXEditor[Mode=ResoEcho] Bar#m_pInstrumentForeground
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_model_resoecho_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_model_resoecho_dye.png");
+}
+
+
+PerformanceFXEditor[Mode=Ring] Bar#m_pInstrumentForeground
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_model_ring_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_model_ring_dye.png");
+}
+
+
+PerformanceFXEditor[Mode=Tremolo] Bar#m_pInstrumentForeground
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_model_tremolo_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_model_tremolo_dye.png");
+}
+
+
+
+
+
+
+
+
+//--------------------------------------------------------------------------------------------------------
+// MODE SELECTOR SWITCH
+//--------------------------------------------------------------------------------------------------------
+
+// MODE NAMES
+PerformanceFXEditor Bar#Mode
+{
+    width:                              225;
+
+    dye-color:                          $colorDyeTest;
+    dye-color-palette:                  11;
+
+    x:                                  168;
+    y:                                  48;
+}
+
+
+PerformanceFXEditor[Mode=Filter] Bar#Mode
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_modename_filter_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_modename_filter_dyemask.png");
+}
+
+
+PerformanceFXEditor[Mode=Flanger] Bar#Mode
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_modename_flanger_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_modename_flanger_dyemask.png");
+}
+
+
+PerformanceFXEditor[Mode=BurstEcho] Bar#Mode
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_modename_burstecho_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_modename_burstecho_dyemask.png");
+}
+
+
+PerformanceFXEditor[Mode=Scratcher] Bar#Mode
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_modename_scratcher_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_modename_scratcher_dyemask.png");
+}
+
+
+PerformanceFXEditor[Mode=Stutter] Bar#Mode
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_modename_stutter_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_modename_stutter_dyemask.png");
+}
+
+
+PerformanceFXEditor[Mode=ResoEcho] Bar#Mode
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_modename_resoecho_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_modename_resoecho_dyemask.png");
+}
+
+
+PerformanceFXEditor[Mode=Ring] Bar#Mode
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_modename_ring_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_modename_ring_dyemask.png");
+}
+
+
+PerformanceFXEditor[Mode=Tremolo] Bar#Mode
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_modename_tremolo_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_modename_tremolo_dyemask.png");
+}
+
+
+PerformanceFXEditor Bar#Mode Button#m_pEnumValue
+{
+    image:                              no;
+    foreground-color:                   no;
+}
+
+
+PerformanceFXEditor Bar#Mode Button#m_pName
+{
+    font-size:                          9;
+    font-name:                          $fontPragmatica;
+    foreground-color:                   no;
+}
+
+
+PerformanceFXEditor Bar#Mode Stack#m_pParameterStack
+{
+    width:                              225;
+    height:                             200;
+}
+
+
+
+
+// ARROWS
+PerformanceFXEditor Bar#Mode Button#m_pEnumInc
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_arrow_right_stroke.png");
+    animations:                         7;
+
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_arrow_right_dyemask.png");
+    dye-color-palette:                  4;
+    dye-mask-animations:                7;
+
+    x:                                  208;
+    y:                                  105;
+    foreground-color:                   no;
+}
+
+
+PerformanceFXEditor Bar#Mode Button#m_pEnumDec
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_arrow_left_stroke.png");
+    animations:                         7;
+
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_arrow_left_dyemask.png");
+    dye-color-palette:                  4;
+    dye-mask-animations:                7;
+
+    x:                                  0;
+    y:                                  105;
+    foreground-color:                   no;
+}
+
+
+PerformanceFXEditor[Mode=Scratcher] Bar#Mode Button#m_pEnumInc
+{
+    image:                              no;
+    dye-mask:                           no;
+
+    foreground-color:                   no;
+}
+
+
+PerformanceFXEditor[Mode=Filter] Bar#Mode Button#m_pEnumDec
+{
+    image:                              no;
+    dye-mask:                           no;
+
+    foreground-color:                   no;
+}
+
+
+
+
+
+
+
+
+//--------------------------------------------------------------------------------------------------------
+// CONTROLS
+//--------------------------------------------------------------------------------------------------------
+
+
+
+
+// LEFT AREA
+//-----------------------------------------------------------------------------------------------------------------------
+
+// TOUCH STRIP BACKGROUND
+Slider#Touchstrip
+{
+    min-height:                         175;
+    min-width:                          100;
+
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_touchstrip_bg.png");
+    outer-margin-left:                  5;
+
+    x:                                  46;
+    y:                                  58;
+}
+
+
+
+
+// TOUCH STRIP HANDLE
+Slider#Touchstrip Grip#thumb
+{
+    background-image:                   no;
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_touchstrip_handle.png");
+
+    margin-left:                        1;
+    margin-top:                         2;
+    margin-bottom:                      2;
+}
+
+
+
+
+// TOUCH STRIP HANDLE STATES
+Slider#Touchstrip Grip#thumb
+{
+    background-image:                   no;
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_touchstrip_handle.png");
+
+    margin-left:                        1;
+    margin-top:                         2;
+    margin-bottom:                      2;
+}
+
+
+Slider#Touchstrip[engaged=true] Grip#thumb
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_touchstrip_handle_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_touchstrip_handle_dye.png");
+    dye-color-palette:                  1;
+}
+
+
+Slider#Touchstrip Grip#thumb[hover=true]
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_touchstrip_handle_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_touchstrip_handle_dye.png");
+    dye-color-palette:                  4;
+}
+
+
+Slider#Touchstrip Grip#thumb[hover=true][touched=true]
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_touchstrip_handle_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_touchstrip_handle_dye.png");
+    dye-color-palette:                  1;
+}
+
+
+Slider#Touchstrip Grip#thumb[touched=true]
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_touchstrip_handle_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_touchstrip_handle_dye.png");
+    dye-color-palette:                  1;
+}
+
+
+
+
+// BOOL BUTTON
+PerformanceFXEditor Bar#Engage Stack#m_pParameterStack
+{
+    height:                             28;
+}
+
+
+PerformanceFXEditor Bar#Engage Bar#m_pBoolBar Button#m_pBoolButton,
+PerformanceFXEditor Bar#FlangerAllpass Bar#m_pBoolBar Button#m_pBoolButton
+{
+    outer-margin-left:                  5;
+}
+
+
+PerformanceFXEditor Bar#Engage
+{
+    width:                              50;
+    height:                             50;
+
+    x:                                  41;
+    y:                                  283;
+}
+
+
+PerformanceFXEditor Bar#Engage Stack#m_pNameStack
+{
+    outer-margin-top:                   -4;
+}
+
+
+
+
+
+
+
+
+// MID AREA 
+//-----------------------------------------------------------------------------------------------------------------------
+
+// RANGE DRAGGER
+PerformanceFXEditor Range#m_pTremoloDepth
+{
+    width:                              112;
+
+    x:                                  153;
+    y:                                  270;
+
+    dragger-margin:                     0;
+    indicator-left-margin:              1;
+    indicator-right-margin:             0;
+    indicator-y:                        1;
+    indicator-height:                   3;
+    background-color-palette:           9;
+
+    margin-top:                         0;
+}
+
+
+PerformanceFXEditor Range#m_pTremoloRate
+{
+    width:                              112;
+
+    x:                                  293;
+    y:                                  270;
+
+    dragger-margin:                     0;
+    indicator-left-margin:              1;
+    indicator-right-margin:             0;
+    indicator-y:                        1;
+    indicator-height:                   3;
+    background-color-palette:           9;
+
+    margin-top:                         0;
+}
+
+
+PerformanceFXEditor Range#m_pTremoloDepth Stack#m_pNameStack Label#m_pNameLabel
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_headline_display_depthrange.png");
+    horizontal-alignment:               center;
+
+    outer-margin-top:                   10;
+    outer-margin-left:                  21;
+}
+
+
+PerformanceFXEditor Range#m_pTremoloRate Stack#m_pNameStack Label#m_pNameLabel
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_headline_display_raterange.png");
+    horizontal-alignment:               center;
+
+    outer-margin-top:                   10;
+    outer-margin-left:                  25;
+}
+
+
+PerformanceFXEditor Range#m_pTremoloRate Label#pTop,
+PerformanceFXEditor Range#m_pTremoloDepth Label#pTop
+{       
+    width:                              112;
+    min-height:                         5;
+
+    margin-top:                         5;
+    margin-left:                        2;
+}
+
+
+PerformanceFXEditor Range#m_pTremoloRate Label#pBottom,
+PerformanceFXEditor Range#m_pTremoloDepth Label#pBottom
+{
+    width:                              112;
+    height:                             8;
+
+    min-height:                         5;
+    margin-top:                         0;
+}
+
+
+PerformanceFXEditor Range#m_pTremoloRate Label#pTop XYDragger#m_pDraggerTop,
+PerformanceFXEditor Range#m_pTremoloDepth Label#pTop XYDragger#m_pDraggerTop
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_range_arrow_down.png");
+    animations:                         7;
+
+    margin-left:                        0;
+}
+
+
+PerformanceFXEditor Range#m_pTremoloRate Label#pBottom XYDragger#m_pDraggerBottom,
+PerformanceFXEditor Range#m_pTremoloDepth Label#pBottom XYDragger#m_pDraggerBottom
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_range_arrow_up.png");
+    animations:                         7;
+   
+    margin-top:                         0;
+    margin-right:                       0;
+}
+
+
+PerformanceFXEditor Range#m_pTremoloRate Bar#m_pIndicatorContainer,
+PerformanceFXEditor Range#m_pTremoloDepth Bar#m_pIndicatorContainer
+{
+    width:                              112;
+    max-height:                         5;
+
+    margin-right:                       5;
+}
+
+
+PerformanceFXEditor Range#m_pTremoloRate Bar#m_pIndicatorContainer Label#m_pIndicator,
+PerformanceFXEditor Range#m_pTremoloDepth Bar#m_pIndicatorContainer Label#m_pIndicator
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_range_dragger_bg.png");
+    
+    width:                              115;
+    max-height:                         5;
+}
+
+
+PerformanceFXEditor Range#m_pTremoloRate Stack#m_pNameStack Label#m_pValueLabel,
+PerformanceFXEditor Range#m_pTremoloDepth Stack#m_pNameStack Label#m_pValueLabel
+{
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    foreground-color:                   $colorWhite50;
+
+    horizontal-alignment:               center;
+    outer-margin-top:                   4;
+}
+
+
+
+
+// CONTROLS FAR LEFT
+PerformanceFXEditor Bar#BurstEchoAssignBar
+{
+    width:                              70;
+    height:                             44;
+
+    x:                                  149;
+    y:                                  287;
+}
+
+
+PerformanceFXEditor Bar#ResoEchoDelayTime
+{
+    x:                                  147;
+    y:                                  $Y-MidArea-Parameters;
+}
+
+
+PerformanceFXEditor DraggerableValueEdit#ResoEchoDelayTimeDragger
+{
+    height:                             18;
+
+    x:                                  180;
+    y:                                  296;
+}
+
+
+
+
+// DROPDOWN BACKGROUND IMAGE
+PerformanceFXEditor Bar#BurstEchoAssignBar Button#BurstEchoAssign,
+PerformanceFXEditor Bar#BurstEchoMixModeBar Button#BurstEchoMixMode,
+PerformanceFXEditor Bar#StutterAssignBar Button#StutterAssign
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_BTN_dropdown.png");
+    animations:                         7;
+    fixed-left:                         7;
+    fixed-right:                        2;
+    picture-includes-margin:            true;    
+    outer-margin-top:                   3;
+}
+
+
+
+
+// DROPDOWN DYE MASK
+PerformanceFXEditor Bar#BurstEchoAssignBar Button#BurstEchoAssign,
+PerformanceFXEditor Bar#BurstEchoMixModeBar Button#BurstEchoMixMode,
+PerformanceFXEditor Bar#StutterAssignBar Button#StutterAssign
+{
+    dye-mask:                           url("Maschine/InternalModules/PerformFX/intmod_performfx_BTN_dropdown_dyemask.png");
+    dye-color-palette:                  11;
+    dye-mask-animations:                7;
+    animations:                         7;
+    fixed-left:                         8;
+    fixed-right:                        2;
+    picture-includes-margin:            true;
+
+    image:                              no;
+    foreground-color:                   $colorWhite75;
+    foreground-color-palette:           11;
+
+    horizontal-alignment:               left;
+    foreground-relative-left:           11;
+
+    outer-margin-top:                   8;
+}
+
+
+
+
+// CONTROLS LEFT
+PerformanceFXEditor Bar#FilterMinFreq,
+PerformanceFXEditor Bar#FlangerSaturation,
+PerformanceFXEditor Bar#RingReverbTime,
+PerformanceFXEditor Bar#ScratcherDelayTime
+{
+    height:                             26;
+    width:                              30;
+
+    x:                                  170;
+    y:                                  $Y-MidArea-Parameters;    
+}
+
+
+PerformanceFXEditor Bar#StutterAssignBar
+{
+    width:                              70;
+    height:                             44;
+
+    x:                                  191;
+    y:                                  $Y-MidArea-Parameters;    
+}
+
+
+PerformanceFXEditor DraggerableValueEdit#FilterMinFreqDragger,
+PerformanceFXEditor DraggerableValueEdit#FlangerSaturationDragger,
+PerformanceFXEditor DraggerableValueEdit#RingReverbTimeDragger,
+PerformanceFXEditor DraggerableValueEdit#ScratcherDelayTimeDragger
+{
+    height:                             18;
+
+    x:                                  205;
+    y:                                  296;
+}
+
+
+
+
+// CONTROLS MID
+PerformanceFXEditor Bar#BurstEchoMixModeBar
+{
+    width:                              70;
+    height:                             44;
+
+    x:                                  352;
+    y:                                  286;    
+}
+
+
+PerformanceFXEditor Bar#ResoEchoFeedback,
+PerformanceFXEditor Bar#BurstEchoFeed
+{
+    x:                                  243;
+    y:                                  $Y-MidArea-Parameters;
+}
+
+
+PerformanceFXEditor DraggerableValueEdit#ResoEchoFeedbackDragger,
+PerformanceFXEditor DraggerableValueEdit#BurstEchoFeedDragger
+{
+    height:                             18;
+
+    x:                                  276;
+    y:                                  296;
+}
+
+
+
+
+// CONTROLS RIGHT
+PerformanceFXEditor Bar#FilterMaxFreq,
+PerformanceFXEditor Bar#FlangerStereo,
+PerformanceFXEditor Bar#RingReverbMix,
+PerformanceFXEditor Bar#ScratcherFeedback
+{
+    height:                             26;
+    width:                              30;
+
+    x:                                  301;
+    y:                                  $Y-MidArea-Parameters;    
+}
+
+
+PerformanceFXEditor Bar#StutterQuantizeBar
+{
+    height:                             44;
+    width:                              70;
+
+    x:                                  316;
+    y:                                  $Y-MidArea-Parameters;    
+}
+
+
+PerformanceFXEditor Bar#StutterQuantizeBar Button#StutterQuantize
+{
+    margin-top:                         2;
+}
+
+
+PerformanceFXEditor DraggerableValueEdit#FilterMaxFreqDragger,
+PerformanceFXEditor DraggerableValueEdit#FlangerStereoDragger,
+PerformanceFXEditor DraggerableValueEdit#RingReverbMixDragger,
+PerformanceFXEditor DraggerableValueEdit#ScratcherFeedbackDragger
+{
+    height:                             18;
+
+    x:                                  336;   
+    y:                                  296;
+}
+
+
+PerformanceFXEditor Bar#StutterQuantizeBar Button#StutterQuantize
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_btn_on.png");
+    animations:                         7;
+    dye-mask:                           url("Shared/InternalModules/SharedControls/intmod_btn_on_dyemask.png");
+    dye-mask-animations:                7;
+    dye-color:                          $colorWhite;
+    dye-color-palette:                  11;
+    foreground-color:                   no;
+
+    outer-margin-left:                  12;
+    outer-margin-top:                   2;
+}
+
+
+
+
+// CONTROLS FAR RIGHT
+PerformanceFXEditor Bar#Filter
+{    
+    height:                             26;
+    width:                              30;
+
+    x:                                  243;
+    y:                                  $Y-MidArea-Parameters;    
+}
+
+
+PerformanceFXEditor DraggerableValueEdit#BurstEchoFilterDragger
+{
+    height:                             18;
+
+    x:                                  277;
+    y:                                  296;
+}
+
+
+PerformanceFXEditor Bar#ResoEchoPump
+{
+    x:                                  336;
+    y:                                  $Y-MidArea-Parameters;
+}
+
+
+PerformanceFXEditor DraggerableValueEdit#ResoEchoPumpDragger
+{
+    height:                              18;
+
+    x:                                  369;
+    y:                                  296;
+}
+
+
+
+
+// LABELS 
+PerformanceFXEditor Bar#m_pFilterMinFreqLabel
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_headline_display_minfreq.png");
+
+    x:                                  205;  
+    y:                                  288;
+}
+
+
+PerformanceFXEditor Bar#m_pScratcherDelayTimeLabel
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_headline_display_delaytime.png");
+
+    x:                                  205;  
+    y:                                  288;
+}
+
+
+PerformanceFXEditor Bar#m_pFilterMaxFreqLabel
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_headline_display_maxfreq.png");
+
+    x:                                  336;  
+    y:                                  288;
+}
+
+
+PerformanceFXEditor Bar#m_pScratcherFeedbackLabel
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_headline_display_feedback.png");
+
+    x:                                  336;  
+    y:                                  288;
+}
+
+
+PerformanceFXEditor Bar#m_pRingReverbTimeLabel
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_headline_display_revtime.png");
+
+    x:                                  205;  
+    y:                                  288;
+}
+
+
+PerformanceFXEditor Bar#m_pRingReverbMixLabel
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_headline_display_revmix.png");
+
+    x:                                  337;  
+    y:                                  288;
+}
+
+
+PerformanceFXEditor Bar#m_pFlangerSaturationLabel
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_headline_display_saturation.png");
+
+    x:                                  205;  
+    y:                                  288;
+}
+
+
+PerformanceFXEditor Bar#m_pFlangerStereoLabel
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_headline_display_stereo.png");
+
+    x:                                  336;  
+    y:                                  288;
+}
+
+
+PerformanceFXEditor Bar#m_pBurstEchoFilterLabel
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_headline_display_filter.png");
+
+    x:                                  277;  
+    y:                                  288;
+}
+
+
+PerformanceFXEditor Label#BurstEchoAssignLabel,
+PerformanceFXEditor Label#StutterAssignLabel
+{
+    foreground-color:                   no;
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_headline_display_assign.png");
+
+    outer-margin-top:                   1;
+}
+
+
+PerformanceFXEditor Label#BurstEchoMixModeLabel
+{
+    foreground-color:                   no;
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_headline_display_mixmode.png");
+
+    outer-margin-left:                  2;
+    outer-margin-top:                   2;
+}
+
+
+PerformanceFXEditor Label#StutterQuantizeLabel
+{
+    foreground-color:                   no;
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_headline_display_quantize.png");   
+
+    outer-margin-top:                   1;
+}
+
+
+PerformanceFXEditor Bar#m_pResoEchoFeedbackLabel
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_headline_display_fdbk.png");
+
+    x:                                  277;  
+    y:                                  288;
+}
+
+
+PerformanceFXEditor Bar#m_pBurstEchoFeedLabel
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_headline_display_feed.png");
+
+    x:                                  277;  
+    y:                                  288;
+}
+
+
+PerformanceFXEditor Bar#m_pResoEchoPumpLabel
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_headline_display_pump.png");
+
+    x:                                  369;  
+    y:                                  288;
+}
+
+
+PerformanceFXEditor Bar#m_pResoEchoDelayTimeLabel
+{
+    image:                              url("Maschine/InternalModules/PerformFX/intmod_performfx_headline_display_time.png");
+
+    x:                                  181;  
+    y:                                  288;
+}
+
+
+
+
+
+
+
+
+// RIGHT AREA
+//-----------------------------------------------------------------------------------------------------------------------
+
+// ENUMS 1ST ROW (INCLUDES THE STYLING OF ALL ENUMS IN THE PERFORM FX)
+PerformanceFXEditor Bar#BurstEchoTimeMode,
+PerformanceFXEditor Bar#FilterType,
+PerformanceFXEditor Bar#RingMixMode,
+PerformanceFXEditor Bar#FlangerPolarity,
+PerformanceFXEditor Bar#ResoEchoMixMode,
+PerformanceFXEditor Bar#TremoloVibratoMode
+{
+    x:                                  448;
+    y:                                  52;
+
+
+    width:                              84;
+    height:                             59;
+    margin-left:                        0;
+}
+
+
+PerformanceFXEditor Bar#TremoloVibratoMode Stack#m_pParameterStack,
+PerformanceFXEditor Bar#BurstEchoTimeMode Stack#m_pParameterStack,
+PerformanceFXEditor Bar#FilterType Stack#m_pParameterStack,
+PerformanceFXEditor Bar#RingMixMode Stack#m_pParameterStack,
+PerformanceFXEditor Bar#FlangerPolarity Stack#m_pParameterStack,
+PerformanceFXEditor Bar#FlangerTone Stack#m_pParameterStack,
+PerformanceFXEditor Bar#ResoEchoMixMode Stack#m_pParameterStack,
+PerformanceFXEditor Bar#TremoloVibratoMode Stack#m_pParameterStack,
+PerformanceFXEditor Bar#StutterDirection Stack#m_pParameterStack
+{
+    height:                             21;
+    width:                              90;
+
+    margin-left:                        0;
+    outer-margin-top:                   5;
+}
+
+
+PerformanceFXEditor Bar#BurstEchoTimeMode Bar#m_pEnumBar,
+PerformanceFXEditor Bar#FilterType Bar#m_pEnumBar,
+PerformanceFXEditor Bar#RingMixMode Bar#m_pEnumBar,
+PerformanceFXEditor Bar#FlangerPolarity Bar#m_pEnumBar,
+PerformanceFXEditor Bar#FlangerTone Bar#m_pEnumBar,
+PerformanceFXEditor Bar#ResoEchoMixMode Bar#m_pEnumBar,
+PerformanceFXEditor Bar#TremoloVibratoMode Bar#m_pEnumBar,
+PerformanceFXEditor Bar#StutterDirection Bar#m_pEnumBar
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_bg_enum_dark.png");
+    fixed-left:                         4;
+    fixed-right:                        4;
+    width:                              85;    
+}
+
+
+PerformanceFXEditor Bar#BurstEchoTimeMode Button#m_pEnumValue,
+PerformanceFXEditor Bar#FilterType Button#m_pEnumValue,
+PerformanceFXEditor Bar#RingMixMode Button#m_pEnumValue,
+PerformanceFXEditor Bar#FlangerPolarity Button#m_pEnumValue,
+PerformanceFXEditor Bar#FlangerTone Button#m_pEnumValue,
+PerformanceFXEditor Bar#ResoEchoMixMode Button#m_pEnumValue,
+PerformanceFXEditor Bar#TremoloVibratoMode Button#m_pEnumValue,
+PerformanceFXEditor Bar#StutterDirection Button#m_pEnumValue
+{
+    image:                              no;
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    foreground-color-palette:           11;
+    horizontal-alignment:               center;
+
+    x:                                  10;
+    width:                              65;
+    height:                             16;
+    outer-margin-top:                   1; 
+    foreground-relative-top:            1;
+}
+
+
+PerformanceFXEditor Bar#BurstEchoTimeMode Button#m_pEnumDec,
+PerformanceFXEditor Bar#FilterType Button#m_pEnumDec,
+PerformanceFXEditor Bar#RingMixMode Button#m_pEnumDec,
+PerformanceFXEditor Bar#FlangerPolarity Button#m_pEnumDec,
+PerformanceFXEditor Bar#FlangerTone Button#m_pEnumDec,
+PerformanceFXEditor Bar#ResoEchoMixMode Button#m_pEnumDec,
+PerformanceFXEditor Bar#TremoloVibratoMode Button#m_pEnumDec,
+PerformanceFXEditor Bar#StutterDirection Button#m_pEnumDec
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_submenu_btn_left.png");
+    animations:                         7;
+    fixed-left:                         9;
+    x:                                  0;
+    y:                                  0;
+    foreground-color:                   no;
+    width:                              10;
+}
+
+
+PerformanceFXEditor Bar#BurstEchoTimeMode Button#m_pEnumInc,
+PerformanceFXEditor Bar#FilterType Button#m_pEnumInc,
+PerformanceFXEditor Bar#RingMixMode Button#m_pEnumInc,
+PerformanceFXEditor Bar#FlangerPolarity Button#m_pEnumInc,
+PerformanceFXEditor Bar#FlangerTone Button#m_pEnumInc,
+PerformanceFXEditor Bar#ResoEchoMixMode Button#m_pEnumInc,
+PerformanceFXEditor Bar#TremoloVibratoMode Button#m_pEnumInc,
+PerformanceFXEditor Bar#StutterDirection Button#m_pEnumInc
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_submenu_btn_right.png");
+    animations:                         7;
+    fixed-right:                        9;
+    x:                                  75;
+    y:                                  0;
+    foreground-color:                   no;
+    width:                              10;
+}
+
+
+PerformanceFXEditor Bar#BurstEchoTimeMode Stack#m_pNameStack Button#m_pName,
+PerformanceFXEditor Bar#BurstEchoTimeMode Stack#m_pNameStack Button#m_pNumericValue,
+PerformanceFXEditor Bar#FilterType Stack#m_pNameStack Button#m_pName,
+PerformanceFXEditor Bar#FilterType Stack#m_pNameStack Button#m_pNumericValue,
+PerformanceFXEditor Bar#RingMixMode Stack#m_pNameStack Button#m_pName,
+PerformanceFXEditor Bar#RingMixMode Stack#m_pNameStack Button#m_pNumericValue,
+PerformanceFXEditor Bar#FlangerPolarity Stack#m_pNameStack Button#m_pName, 
+PerformanceFXEditor Bar#FlangerPolarity Stack#m_pNameStack Button#m_pNumericValue,
+PerformanceFXEditor Bar#FlangerTone Stack#m_pNameStack Button#m_pName, 
+PerformanceFXEditor Bar#FlangerTone Stack#m_pNameStack Button#m_pNumericValue,
+PerformanceFXEditor Bar#ResoEchoMixMode Stack#m_pNameStack Button#m_pName,
+PerformanceFXEditor Bar#ResoEchoMixMode Stack#m_pNameStack Button#m_pNumericValue,
+PerformanceFXEditor Bar#TremoloVibratoMode Stack#m_pNameStack Button#m_pName,
+PerformanceFXEditor Bar#TremoloVibratoMode Stack#m_pNameStack Button#m_pNumericValue,
+PerformanceFXEditor Bar#TremoloVibratoMode Stack#m_pNameStack Button#m_pName,
+PerformanceFXEditor Bar#TremoloVibratoMode Stack#m_pNameStack Button#m_pNumericValue,
+PerformanceFXEditor Bar#StutterDirection Stack#m_pNameStack Button#m_pName,
+PerformanceFXEditor Bar#StutterDirection Stack#m_pNameStack Button#m_pNumericValue
+{
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    foreground-color:                   $colorWhite65;
+    horizontal-alignment:               center;
+    min-width:                          no;
+    //margin-left:                        -13;
+}
+
+
+
+
+// ENUM 2ND ROW 
+PerformanceFXEditor Bar#BurstEchoTimeSynced,
+PerformanceFXEditor Bar#FlangerTone
+{
+    x:                                  448;
+    y:                                  112;
+
+    width:                              84;
+    height:                             59;
+    margin-left:                        0;
+}
+
+
+
+
+// BOOL 2ND ROW
+PerformanceFXEditor Bar#FlangerAllpass
+{
+    height:                             50;
+
+    x:                                  $X-RightArea-Parameters;
+    y:                                  143;       
+}
+
+
+PerformanceFXEditor Bar#FlangerAllpass Stack#m_pNameStack
+{
+    outer-margin-top:                   1;
+}
+
+
+
+
+// SMALL KNOBS 2ND ROW 
+PerformanceFXEditor Bar#BurstEchoFeedback,
+PerformanceFXEditor Bar#FilterResonance,
+PerformanceFXEditor Bar#BurstEchoTimeFree, 
+PerformanceFXEditor Bar#BurstEchoTime,
+PerformanceFXEditor Bar#RingSpread,
+PerformanceFXEditor Bar#ResoEchoSaturation,
+PerformanceFXEditor Bar#StutterGate,
+PerformanceFXEditor Bar#ScratcherFreqShift,
+PerformanceFXEditor Bar#TremoloTremVibr
+{
+    x:                                  $X-RightArea-Parameters;
+    y:                                  114;   
+}
+
+
+PerformanceFXEditor Bar#StutterSync Bar#m_pShadowOverlay
+{
+    image:                              no;
+}
+
+
+PerformanceFXEditor Bar#StutterSync Bar#m_pBoolBar
+{
+    outer-margin-left:                  5;
+}
+
+
+
+
+// SMALL KNOBS 3RD ROW
+PerformanceFXEditor Bar#FilterSaturation,
+PerformanceFXEditor Bar#RingGlide,
+PerformanceFXEditor Bar#ResoEchoResonance,
+PerformanceFXEditor Bar#BurstEchoFilter,
+PerformanceFXEditor Bar#StutterPitch,
+PerformanceFXEditor Bar#StutterLength,
+PerformanceFXEditor Bar#TremoloAttRel
+{
+    x:                                  $X-RightArea-Parameters;
+    y:                                  190;
+}
+
+
+
+
+// SMALL KNOBS 3RD LOWER ROW 
+PerformanceFXEditor Bar#FlangerDecay,
+PerformanceFXEditor Bar#ScratcherWetLevel
+{
+    x:                                  $X-RightArea-Parameters;
+    y:                                  190;
+}
+
+
+
+
+// ENUM BOTTOM
+PerformanceFXEditor Bar#StutterDirection,
+PerformanceFXEditor Bar#BurstEchoTimeSynced
+{
+    x:                                  448;
+    y:                                  280;
+
+
+    width:                              84;
+    height:                             59;
+    margin-left:                        0;
+}
+
+
+
+
+// SMALL KNOBS BOTTOM 
+PerformanceFXEditor Bar#BurstEchoTimeFree,
+PerformanceFXEditor Bar#FilterOutLevel,
+PerformanceFXEditor Bar#FlangerWetLevel,
+PerformanceFXEditor Bar#ResoEchoWetLevel,
+PerformanceFXEditor Bar#BurstEchoWetLevel,
+PerformanceFXEditor Bar#RingDryWet,
+PerformanceFXEditor Bar#TremoloStereo
+{
+    x:                                  $X-RightArea-Parameters;
+    y:                                  267;
+}
+
+
+
+
+// BOOL BOTTOM
+PerformanceFXEditor Bar#StutterSync
+{
+    height:                             50;
+
+    x:                                  $X-RightArea-Parameters;
+    y:                                  283;
+}
+
+
+PerformanceFXEditor Bar#FlangerAllpass Stack#m_pParameterStack,
+PerformanceFXEditor Bar#StutterSync Stack#m_pParameterStack
+{
+    height:                             28;
+    margin-left:                        12;
+}
+
+
+PerformanceFXEditor Bar#FlangerAllpass Stack#m_pNameStack Button#m_pName
+{
+    outer-margin-left:                  10;
+}
+
+
+PerformanceFXEditor Bar#StutterSync Stack#m_pNameStack
+{
+    outer-margin-top:                   -4;
+}

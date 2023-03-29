@@ -1,0 +1,198 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// FILTER
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+FilterEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png");
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-474;
+}
+
+
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+FilterEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_filter.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// MODE SELECTOR SWITCH
+//--------------------------------------------------------------------------------------------------------
+
+FilterEditor Bar#Mode
+{
+    x:                                  118;
+    y:                                  16;
+}
+
+//--------------------------------------------------------------------------------------------------------
+// POTIS
+//--------------------------------------------------------------------------------------------------------
+
+
+// LEFT AREA
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CUTOFF
+FilterEditor Bar#Cutoff
+{
+    x:                                  32;
+    y:                                  $Y-FX-BigKnob-Middle;
+}
+
+
+
+// CUTOFF (Notch Mode)
+FilterEditor Bar#Cutoff[Mode=Notch]
+{
+    x:                                  76;
+    y:                                  $Y-FX-BigKnob-Middle;
+}
+
+
+
+// RESONANCE
+FilterEditor Bar#Resonance
+{
+    x:                                  119;
+    y:                                  $Y-FX-BigKnob-Middle;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// RIGHT AREA
+//-----------------------------------------------------------------------------------------------------------------------
+
+// MODULATION SOURCE SWITCH (Enum)
+FilterEditor Bar#Source
+{
+    x:                                  367;
+    y:                                  16;
+}
+
+
+
+FilterEditor Bar#Source Button#m_pEnumValue
+{
+    width:                              60;
+}
+
+
+
+FilterEditor Bar#Source Button#m_pEnumInc
+{
+    x:                                  73;
+}
+
+
+
+// AMOUNT
+FilterEditor Bar#Amount
+{
+    x:                                  302;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+// ENVELOPE MODE
+//-----------------------------------------------------------------------------------------------------------------------
+
+// DECAY
+FilterEditor Bar#Decay
+{
+    x:                                  229;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+// SMOOTH
+FilterEditor Bar#Smooth
+{
+    x:                                  302;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+// ENVELOPE SHAPE
+FilterEditor Bar#ShapeEnv
+{
+    x:                                  375;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+// LFO MODE
+//-----------------------------------------------------------------------------------------------------------------------
+
+// LFO SPEED
+FilterEditor Bar#Speed[Source=LFO]
+{
+    x:                                  249;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+// LFO SHAPE
+FilterEditor Bar#ShapeLfo[Source=LFO]
+{
+    x:                                  355;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+// LFO SYNC MODE
+//-----------------------------------------------------------------------------------------------------------------------
+
+// LFO SPEED
+FilterEditor Bar#Speed[Source=LFOSync]
+{
+    x:                                  229;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+// LFO SHAPE
+FilterEditor Bar#ShapeLfo[Source=LFOSync]
+{
+    x:                                  302;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+// LFO PHASE
+FilterEditor Bar#Phase
+{
+    x:                                  375;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+FilterEditor#m_pEditor Bar#m_pParamSeparator
+{
+    x:                                  204;
+    y:                                  0;
+}
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+FilterEditor#m_pEditor Bar#m_pParamSeparator
+{
+    x:                                  50;
+    y:                                  0;
+}

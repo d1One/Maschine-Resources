@@ -1,0 +1,915 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// MIXER PAGE
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Vector<MixerBar>#GroupVector Bar#widgets,
+Vector<MixerBar>#SoundVector Bar#widgets
+{
+    background-color:               $colorBlack;
+}
+
+// GROUP OVERLAY
+Bar#ParametersOverlay Vector<MixerBar>#GroupVector
+{
+    width:                          960;
+    height:                         62;
+
+    background-color:               $colorBlack;
+}
+
+Bar#ParametersOverlay Vector<MixerBar>#GroupVector MixerBar
+{
+    background-color:               $colorBlack;
+    image:                          no;
+
+}
+
+Bar#ParametersOverlay Vector<MixerBar>#GroupVector MixerBar[IsEmpty=true]
+{
+    image:                          url("Shared/HW/Studio/ParameterArea/pa_overlay_topBG.png");
+    height:                         61;
+    background-color:               $colorStandardBGColor;
+    fixed-top:                      2;
+    fixed-right:                    1;
+    fixed-left:                     1;
+    fixed-bottom:                   2;
+    picture-includes-margin:        true;
+}
+
+Bar#ParametersOverlay Vector<MixerBar>#GroupVector MixerBar[IsSelected=false] Bar#m_pHeader
+{
+    image:                          url("Shared/HW/Studio/ParameterArea/pa_overlay_topBG.png");
+    fixed-top:                      2;
+    fixed-right:                    1;
+    fixed-left:                     1;
+    fixed-bottom:                   2;
+    picture-includes-margin:        true;
+
+    height:                         61;
+    background-color:               $colorStandardBGColor;
+    margin-top:                     1;
+}
+
+Bar#ParametersOverlay Vector<MixerBar>#GroupVector MixerBar[IsSelected=true] Bar#m_pHeader
+{
+    image:                          url("Shared/HW/Studio/ParameterArea/pa_overlay_topBG.png");
+    fixed-top:                      2;
+    fixed-right:                    1;
+    fixed-left:                     1;
+    fixed-bottom:                   2;
+    picture-includes-margin:        true;
+
+    height:                         60;
+    background-color-palette:       2;
+    margin-top:                     0;
+    outer-margin-top:               1;
+    spacing:                        0;
+}
+
+Bar#ParametersOverlay Label#m_pNameShort
+{
+    margin-top:                     9;
+}
+
+Bar#ParametersOverlay MultilineTextEdit#m_pNameLong
+{
+    margin-top:                     6;
+    margin-right: 5;
+}
+Bar#ParametersOverlay Vector<MixerBar>#GroupVector MixerBar[IsEmpty=false][IsAdd=true]
+{
+    height:                         61;
+    image:                          no;
+    background-color:               $colorStandardBGColor;
+}
+
+Bar#ParametersOverlay Vector<MixerBar>#GroupVector MixerBar[IsEmpty=false][IsAdd=true] Bar#m_pHeader
+{
+    image:                          url("Shared/HW/Studio/ParameterArea/pa_overlay_addGroup.png");
+    width:                          120;
+}
+
+// MIXER GROUPS
+//----------------------------------------------------------------------------------------
+
+// Container
+Vector<MixerBar>#GroupVector
+{
+    background-color:               $colorBlack;
+    min-height:                     30;
+    focus-delay:                    5;
+    focus-anim:                     $animtype-smoothout;
+    outer-margin-top:               1;
+    outer-margin-left:              0;
+}
+
+Vector<MixerBar>#SoundVector
+{
+    height:                         244;
+    focus-delay:                    5;
+    focus-anim:                     $animtype-smoothout;
+    background-color:               $colorBlack;
+    outer-margin-left:              0;
+    margin-left:                    0;
+    spacing:                        0;
+}
+
+Vector<MixerBar>#GroupVector MixerBar
+{
+    image:                          no;
+    background-color:               $colorBlack;
+}
+
+Vector<MixerBar>#SoundVector MixerBar
+{
+    image:                          no;
+    width:                          120;
+    height:                         238;
+    background-color:               $colorBlack;
+    outer-margin-top:               2;
+}
+
+MixerBar
+{
+    width:                          120;
+    spacing:                        4;
+    margin-left:                    0;
+}
+
+MixerBar[IsSelected=true]
+{
+    background-color:               rgb(26,26,26);
+}
+
+MixerBar[IsSelected=false]
+{
+    background-color:               $colorStandardBGColor;
+}
+
+Vector<MixerBar>#GroupVector MixerBar[IsSeparatorVisible=true]
+{
+    background-color:               $colorStandardBGColor;
+    image:                          no;
+}
+
+Vector<MixerBar>#GroupVector MixerBar[IsEmpty=false][IsAdd=true]
+{
+    image:                          url("Maschine/HW/Studio/MixerPages/mp_addGroup.png");
+}
+
+Vector<MixerBar>#GroupVector MixerBar[IsEmpty=false][ControlsVisible=false][HasFocus=true][IsSelected=true]
+{
+    image:                          url("Maschine/HW/Studio/MixerPages/mp_addGroupSelected.png");
+}
+
+Vector<MixerBar>#GroupVector MixerBar[IsEmpty=false][ControlsVisible=false][HasFocus=false][IsSelected=false]
+{
+    image:                          url("Maschine/HW/Studio/MixerPages/mp_addGroup.png");
+}
+
+Vector<MixerBar>#GroupVector MixerBar[IsEmpty=false][ControlsVisible=false][IsSeparatorVisible=true][HasFocus=false][IsSelected=false]
+{
+    image:                          no;
+}
+
+Vector<MixerBar>#GroupVector MixerBar[IsEmpty=false][ControlsVisible=false] Bar#m_pHeader
+{
+    background-color:               no;
+}
+
+Vector<MixerBar>#GroupVector MixerBar[IsEmpty=false][ControlsVisible=false][IsSeparatorVisible=true]
+{
+    image:                          no;
+}
+
+Vector<MixerBar>#GroupVector MixerBar[IsEmpty=true]
+{
+    background-color:               $colorStandardBGColor;
+    image:                          no;
+}
+
+
+// Header specific widths
+Vector<MixerBar>#GroupVector MixerBar[IsSeparatorVisible=true] Bar#m_pHeader
+{
+    height:                         30;
+    background-color:               no;
+}
+
+Vector<MixerBar>#GroupVector MixerBar[IsSeparatorVisible=false] Bar#m_pHeader
+{
+    height:                         70;
+}
+
+Vector<MixerBar>#SoundVector MixerBar[IsSeparatorVisible=true] Bar#m_pHeader
+{
+    height:                         38;
+}
+
+
+// Header common
+MixerBar Bar#m_pHeader
+{
+    width:                          119;
+    margin-top:                     6;
+    outer-margin-left:              1;
+
+    background-color-palette:       no;
+    background-color:               no;
+
+    image:                          no;
+}
+
+Vector<MixerBar>#SoundVector MixerBar Bar#m_pHeader
+{
+    margin-top:                     4;
+}
+
+MixerBar[IsSelected=true] Bar#m_pHeader
+{
+    background-color-palette:       2;
+}
+
+MixerBar[IsSelected=false] Bar#m_pHeader
+{
+    background-color-palette:       no;
+}
+
+MixerBar[HasFocus=false][IsSelected=true] Bar#m_pHeader
+{
+    background-color-palette:       no;
+}
+
+MixerBar[HasFocus=false][IsSelected=true]
+{
+    height:                         271;
+}
+
+MixerBar[IsSelected=true] Bar#m_pHeader
+{
+    background-color:               rgb(26,26,26);
+    outer-margin-left:              1;
+}
+
+Vector<MixerBar>#GroupVector MixerBar[IsEmpty=false][ControlsVisible=false] Bar#m_pHeader
+{
+    background-color:               no;
+    background-color-palette:       no;
+}
+
+
+// Name Short
+MixerBar Label#m_pNameShort
+{
+    background-color:               no;
+
+    font-name:                      $fontPragmatica;
+    font-size:                      13;
+
+    horizontal-alignment:           left;
+    margin-left:                    0;
+    vertical-alignment:             top;
+    margin-top:                     3;
+}
+
+MixerBar MultilineTextEdit#m_pNameLong
+{
+    vertical-alignment:             top;
+}
+
+
+// Name Long
+MixerBar MultilineTextEditContentArea.MixerNameLong
+{
+    background-color:               no;
+
+    font-name:                      $fontPragmatica;
+    font-size:                      13;
+
+    horizontal-alignment:           left;
+    margin-left:                    0;
+    vertical-alignment:             top;
+    margin-top:                     0;
+}
+
+
+// Channel Number
+MixerBar Label#m_pNameShort
+{
+    width:                          25;
+    outer-margin-left:              6;
+    outer-margin-top:               -3;
+    foreground-color-palette:       1;
+}
+
+
+// Channel Name
+MultilineTextEditContentArea.MixerNameLong
+{
+    width:                          83;
+    height:                         48;
+
+    foreground-color:               $colorWhite75;
+    margin-right:                   10;
+}
+
+
+// Channel Name
+Vector<MixerBar>#SoundVector MultilineTextEdit
+{
+    height:                         32;
+}
+
+
+// focused
+MixerBar[HasFocus=true] Label#m_pNameShort,
+MixerBar[HasFocus=true] MultilineTextEditContentArea.MixerNameLong
+{
+    foreground-color-palette:       no;
+    foreground-color:               $colorBlack;
+}
+
+MixerBar[IsMuted=true] MultilineTextEditContentArea.MixerNameLong
+{
+    foreground-color-palette:       no;
+    foreground-color:               $colorMixerInactive;
+}
+
+MixerBar[IsMuted=true] Label#m_pNameShort
+{
+    foreground-color-palette:       5;
+}
+
+Vector<MixerBar>#GroupVector MixerBar[SoundsVisible=true] MultilineTextEditContentArea.MixerNameLong
+{
+    height:                         16;
+}
+
+
+//----------------------------------------------------------------------------------------
+// Control Bar
+//----------------------------------------------------------------------------------------
+
+// Container
+MixerBar Bar#m_pControlBar
+{
+    image:                          url("Maschine/HW/Studio/MixerPages/mp_bg_sound.png");
+    outer-margin-left:              1;
+    outer-margin-top:               -3;
+    background-color:               no;
+}
+
+MixerBar[IsSelected=true] Bar#m_pControlBar
+{
+    image:                          url("Maschine/HW/Studio/MixerPages/mp_bg_Selected.png");
+    background-color:               $colorMixerChannelSelected;
+    outer-margin-left:              1;
+}
+
+// Label Separator
+MixerBar Label.MixerSeparator
+{
+    outer-margin-top:               -6;
+    height:                         2;
+    width:                          120;
+    background-color-palette:       2;
+}
+
+// Label Separator in first and fifth channel tab
+MixerBar#generic_MixerBar_0 Label.MixerSeparator,
+MixerBar#generic_MixerBar_4 Label.MixerSeparator
+{
+    outer-margin-left:              1;
+}
+
+// Label Separator in last and fourth channel tab
+MixerBar#generic_MixerBar_7 Label.MixerSeparator,
+MixerBar#generic_MixerBar_3 Label.MixerSeparator
+{
+    outer-margin-right:             1;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------
+// Pan Bar
+//----------------------------------------------------------------------------------------
+
+MixerBar Bar#pPanBar
+{
+    background-color:               no;
+
+    width:                          110;
+    height:                         19;
+
+    outer-margin-left:              4;
+    outer-margin-bottom:            4;
+    margin-top:                     1;
+}
+
+
+// Pan Strip
+MixerBar Bar#m_pPanStrip,
+MixerBar[IsMuted=false][IsPanControlEnabled=true] Bar#m_pPanStrip
+{
+    background-color:               no;
+}
+
+MixerBar[IsMuted=false][IsPanControlEnabled=false] Bar#m_pPanStrip
+{
+    background-color:               no;
+}
+
+MixerBar[IsMuted=true][IsPanControlEnabled=true] Bar#m_pPanStrip
+{
+    background-color:               no;
+}
+
+MixerBar[IsMuted=true][IsPanControlEnabled=false] Bar#m_pPanStrip
+{
+    background-color:               no;
+}
+
+MixerBar Bar#m_pPanStripContainer
+{
+    height:                         24;
+    width:                          90;
+    x:                              10;
+    y:                              2;
+    max-width:                      90;
+    margin-top:                     3;
+}
+
+MixerBar Bar#m_pPanIndicator
+{
+    height:                         4;
+    width:                          0;
+    max-width:                      90;
+    min-width:                      0;
+
+    margin-right:                   3;
+    outer-margin-top:               1;
+    background-color-palette:       2;
+    z-index:                        0;
+}
+
+MixerBar[IsMuted=false][IsPanControlEnabled=false] Bar#m_pPanIndicator
+{
+    background-color-palette:       2;
+}
+
+MixerBar[IsMuted=true][IsPanControlEnabled=true] Bar#m_pPanIndicator
+{
+    background-color-palette:        no;
+    background-color:                rgb(71,71,71);
+}
+
+MixerBar[IsMuted=true][IsPanControlEnabled=true][IsSelected=true] Bar#m_pPanIndicator
+{
+    background-color-palette:        no;
+    background-color:                rgb(102,102,102);
+}
+
+MixerBar[IsMuted=true][IsPanControlEnabled=false] Bar#m_pPanIndicator
+{
+    background-color-palette:       no;
+    background-color:               rgb(56,56,56);
+}
+
+MixerBar[IsMuted=true][IsSelected=true][IsPanControlEnabled=false] Bar#m_pPanIndicator
+{
+    background-color-palette:       no;
+    background-color:               rgb(80,80,80);
+}
+
+MixerBar[IsMuted=false][IsPanControlEnabled=true] Bar#m_pPanIndicator
+{
+    background-color-palette:       2;
+}
+
+
+MixerBar Bar#m_pPanStrip
+{
+    height:                         1;
+    width:                          0;
+    max-width:                      90;
+    min-width:                      0;
+
+    y:                              6;
+    margin-right:                   3;
+    z-index:                        1;
+}
+
+
+// Pan handle
+Label.MixerPanArrow
+{
+    image:                          url("Maschine/HW/Studio/MixerPages/mp_volumeArrow_h.png");
+    animations:                     6;
+
+    foreground-color:               no;
+    background-color:               no;
+
+    margin-top:                     11;
+    margin-left:                    7;
+    outer-margin-top:               0;
+}
+
+MixerBar[IsMuted=false][IsSelected=false][IsPanControlEnabled=true] Label.MixerPanArrow
+{
+    animation-index:                0;
+}
+
+MixerBar[IsMuted=false][IsSelected=false][IsPanControlEnabled=false] Label.MixerPanArrow
+{
+    animation-index:                4;
+}
+
+MixerBar[IsMuted=false][IsSelected=true][IsPanControlEnabled=true] Label.MixerPanArrow
+{
+    animation-index:                1;
+}
+
+MixerBar[IsMuted=false][IsSelected=true][IsPanControlEnabled=false] Label.MixerPanArrow
+{
+    animation-index:                5;
+}
+
+MixerBar[IsMuted=true][IsSelected=false][IsPanControlEnabled=true] Label.MixerPanArrow
+{
+    animation-index:                4;
+}
+
+MixerBar[IsMuted=true][IsSelected=false][IsPanControlEnabled=false] Label.MixerPanArrow
+{
+    animation-index:                2;
+}
+
+MixerBar[IsMuted=true][IsSelected=true][IsPanControlEnabled=true] Label.MixerPanArrow
+{
+    animation-index:                5;
+}
+
+MixerBar[IsMuted=true][IsSelected=true][IsPanControlEnabled=false] Label.MixerPanArrow
+{
+    animation-index:                3;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------
+// HeadRoom
+//----------------------------------------------------------------------------------------
+
+MixerBar Label#m_pHeadRoom
+{
+    font-name:                      $fontPragmatica;
+    font-size:                      11;
+
+    image:                          no;
+
+    height:                         16;
+
+    background-color:               no;
+
+    outer-margin-left:              0;
+    outer-margin-right:             0;
+
+    horizontal-alignment:           center;
+
+}
+
+
+MixerBar[IsMuted=false] Label#m_pHeadRoom
+{
+    foreground-color:               rgb(80, 80, 80);
+}
+
+MixerBar[IsMuted=true] Label#m_pHeadRoom
+{
+    foreground-color:               $colorMixerInactive;
+}
+
+MixerBar[IsMuted=true][IsSelected=true] Label#m_pHeadRoom
+{
+    foreground-color:               rgb(71, 71, 71);
+}
+
+MixerBar[IsMuted=false][IsClipping=true] Label#m_pHeadRoom,
+MixerBar[IsMuted=true][IsClipping=true] Label#m_pHeadRoom,
+MixerBar[IsClipping=true] Label#m_pHeadRoom
+{
+    foreground-color:               $colorWhite;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------
+// LevelBar
+//----------------------------------------------------------------------------------------
+
+// Container
+MixerBar Bar#pLevelBar
+{
+    outer-margin-left:              0;
+    outer-margin-right:             0;
+    outer-margin-top:               -2;
+    image:                          no;
+}
+
+
+// Scale
+MixerBar Label#pLevelScale
+{
+    image:                          url("Maschine/HW/Studio/MixerPages/mp_bg_scale.png");
+    animations:                     2;
+    margin-right:                   0;
+    outer-margin-left:              6;
+}
+MixerBar[IsMuted=false] Label#pLevelScale
+{
+    animation-index:                0;
+}
+
+MixerBar[IsMuted=true] Label#pLevelScale
+{
+    animation-index:                1;
+}
+
+
+// Meters Left and Right
+
+//Container
+MixerBar Bar#pMeters
+{
+    image:                          url("Maschine/HW/Studio/MixerPages/mp_bg_meters.png");
+    animations:                     2;
+    picture-includes-margin:        true;
+    margin-left:                    0;
+    outer-margin-top:               0;
+    outer-margin-left:              10;
+}
+
+MixerBar[IsMuted=false] Bar#pMeters
+{
+    animation-index:                0;
+}
+
+MixerBar[IsMuted=true] Bar#pMeters
+{
+    animation-index:                1;
+}
+
+MixerBar LevelMeter#m_pLeftMeter
+{
+    outer-margin-right:             2;
+}
+
+MixerBar LevelMeter#m_pLeftMeter,
+MixerBar LevelMeter#m_pRightMeter
+{
+    background-color:               no;
+    width:                          25;
+}
+
+MixerBar LevelMeter#m_pLeftMeter,
+MixerBar LevelMeter#m_pRightMeter
+{
+    foreground-color-palette:       2;
+    margin-bottom:                  1;
+}
+
+
+// Volume Strip
+MixerBar Bar#pVolumeStrip,
+MixerBar[IsMuted=false][IsVolumeControlEnabled=false] Bar#pVolumeStrip
+{
+    background-color:               no;
+}
+
+MixerBar[IsMuted=false][IsVolumeControlEnabled=true] Bar#pVolumeStrip
+{
+    background-color:               $colorWhite;
+}
+
+MixerBar[IsMuted=true][IsVolumeControlEnabled=false] Bar#pVolumeStrip
+{
+    background-color:               no;
+}
+
+MixerBar[IsMuted=true][IsVolumeControlEnabled=true] Bar#pVolumeStrip
+{
+    background-color:               $colorMixerInactive;
+}
+
+MixerBar Bar#m_pVolumeStripContainer
+{
+    y:                              7;
+    width:                          1;
+    height:                         128;
+    max-height:                     128;
+    margin-bottom:                  2;
+}
+
+MixerBar Bar#pVolumeBar
+{
+    width:                          10;
+    height:                         142;
+    outer-margin-left:              3;
+    margin-bottom:                  0;
+}
+
+// Handle
+Label.MixerVolumeArrow
+{
+    foreground-color:               no;
+    outer-margin-top:               -4;
+    margin-left:                    0;
+
+    image:                          url("Maschine/HW/Studio/MixerPages/mp_volumeArrow.png");
+    animations:                     6;
+}
+
+MixerBar[IsMuted=false][IsSelected=false][IsVolumeControlEnabled=true] Label.MixerVolumeArrow
+{
+    animation-index:                0;
+}
+
+MixerBar[IsMuted=false][IsSelected=false][IsVolumeControlEnabled=false] Label.MixerVolumeArrow
+{
+    animation-index:                4;
+}
+
+MixerBar[IsMuted=false][IsSelected=true][IsVolumeControlEnabled=true] Label.MixerVolumeArrow
+{
+    animation-index:                1;
+}
+
+MixerBar[IsMuted=false][IsSelected=true][IsVolumeControlEnabled=false] Label.MixerVolumeArrow
+{
+    animation-index:                5;
+}
+
+MixerBar[IsMuted=true][IsSelected=false][IsVolumeControlEnabled=true] Label.MixerVolumeArrow
+{
+    animation-index:                4;
+}
+
+MixerBar[IsMuted=true][IsSelected=false][IsVolumeControlEnabled=false] Label.MixerVolumeArrow
+{
+    animation-index:                2;
+}
+
+MixerBar[IsMuted=true][IsSelected=true][IsVolumeControlEnabled=true] Label.MixerVolumeArrow
+{
+    animation-index:                5;
+}
+
+MixerBar[IsMuted=true][IsSelected=true][IsVolumeControlEnabled=false] Label.MixerVolumeArrow
+{
+    animation-index:                3;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------
+// Icon Bar
+//----------------------------------------------------------------------------------------
+
+MixerBar Bar#pLevelIconBar
+{
+    width:                          19;
+    spacing:                        3;
+    outer-margin-bottom:            2;
+}
+
+MixerBar Label#m_pSlotIcons
+{
+    foreground-color:               no;
+    image:                          url("Maschine/HW/Studio/MixerPages/mp_button_SlotIcons.png");
+    animations:                     3;
+    outer-margin-left:              3;
+}
+
+MixerBar Label#m_pSlotIcons[Type=instrument]
+{
+    animation-index:                0;
+}
+
+MixerBar Label#m_pSlotIcons[Type=effect]
+{
+    animation-index:                1;
+}
+
+MixerBar Label#m_pSlotIcons[Type=audio]
+{
+    animation-index:                2;
+}
+
+MixerBar[IsMuted=false][isBypassed=false] Label#m_pSlotIcons
+{
+    background-color-palette:       1;
+}
+
+MixerBar[IsMuted=false] Label#m_pSlotIcons[isBypassed=false]
+{
+    background-color:               no;
+    background-color-palette:       1;
+}
+
+MixerBar[IsMuted=false] Label#m_pSlotIcons[isBypassed=true]
+{
+    background-color:               rgb(71,71,71);
+}
+
+MixerBar[IsMuted=true] Label#m_pSlotIcons
+{
+    background-color:               $colorMixerInactive;
+}
+
+MixerBar[IsMuted=true][IsSelected=true] Label#m_pSlotIcons
+{
+    background-color:               rgb(71,71,71);
+}
+
+MixerBar Label#m_pSlotIcons[isBypassed=true]
+{
+    background-color-palette:       no;
+    background-color:               rgb(71,71,71);
+}
+
+
+// Cue Icon
+MixerBar Label#m_pCueIcon
+{
+    foreground-color:               no;
+
+    image:                          url("Maschine/HW/Studio/MixerPages/mp_button_cueIcon.png");
+    animations:                     2;
+
+    outer-margin-left:              3;
+    outer-margin-top:               14;
+    outer-margin-bottom:            1;
+}
+
+MixerBar[IsMuted=false] Label#m_pCueIcon
+{
+    background-color-palette:       1;
+}
+
+MixerBar[IsMuted=true] Label#m_pCueIcon
+{
+    background-color-palette:       4;
+}
+
+MixerBar[IsSelected=true] Label#m_pCueIcon
+{
+    animation-index:                1;
+}
+
+MixerBar[IsSelected=false] Label#m_pCueIcon
+{
+    animation-index:                0;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------
+// ValueBar
+//----------------------------------------------------------------------------------------
+
+MixerBar Bar#pValueBar
+{
+    height:                         26;
+}
+
+Label.MixerValue
+{
+    font-name:                      $fontPragmatica;
+    font-size:                      20;
+
+    horizontal-alignment:           center;
+    vertical-alignment:             center;
+    margin-top:                     7;
+}
+
+MixerBar[IsMuted=false] Label.MixerValue
+{
+    foreground-color:               $colorWhite;
+}
+
+MixerBar[IsMuted=true] Label.MixerValue
+{
+    foreground-color:               $colorMixerInactive;
+}
+
+MixerBar[IsMuted=true][IsSelected=true] Label.MixerValue
+{
+    foreground-color:               rgb(71,71,71);
+}

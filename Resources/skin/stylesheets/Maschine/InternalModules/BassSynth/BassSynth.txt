@@ -1,0 +1,171 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// BASS SYNTH
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+//--------------------------------------------------------------------------------------------------------
+// BACKGROUND
+//--------------------------------------------------------------------------------------------------------
+
+
+// BACKGROUND IMAGE
+BassSynthEditor
+{
+    image:                          url("Maschine/InternalModules/BassSynth/intmod_bass_bg_main.png");
+
+    width:                          560;
+    height:                         250;
+}
+
+
+// BACKGROUND GLOW
+BassSynthEditor Bar#m_instrumentBackground
+{
+		image:                          url("Maschine/InternalModules/BassSynth/intmod_bass_bg_glow.png");
+    background-color-palette:       no;
+		x:                              180;
+		y:                              50;
+}
+
+
+// HEADLINE
+BassSynthEditor Bar#m_pModuleName
+{
+    image:                          url("Maschine/InternalModules/BassSynth/intmod_fx_headline_basssynth.png");
+    x:                              $X-FX-Headline;
+    y:                              $Y-FX-Headline;
+}
+
+
+
+
+//--------------------------------------------------------------------------------------------------------
+// CONTROLS
+//--------------------------------------------------------------------------------------------------------
+
+
+// LEFT AREA
+//-----------------------------------------------------------------------------------------------------------------------
+
+
+// DECAY
+BassSynthEditor Bar#EnvDec
+{
+    x:                              97;
+    y:                              $Y-FX-BigKnob-Middle;
+}
+
+
+// ENVELOPE AMOUNT
+BassSynthEditor Bar#FilterEnv
+{
+    x:                              17;
+    y:                              $Y-FX-SmallKnob-Middle;
+}
+
+
+// CUTOFF
+BassSynthEditor Bar#FilterP
+{
+    x:                              112;
+    y:                              180;
+}
+
+
+
+
+// MID AREA
+//-----------------------------------------------------------------------------------------------------------------------
+
+
+// MORPHABLE WAVEFORM KNOB
+BassSynthEditor Bar#OscMode
+{
+    x:                              176;
+    y:                              51;
+
+    width:                          120;
+    height:                         106;
+}
+
+
+BassSynthEditor Bar#OscMode Dragger#m_pRing
+{
+    image:                          no;
+}
+
+BassSynthEditor Bar#OscMode Stack#m_pParameterStack ParameterDragger#m_pNumericDragger
+{
+    diameter-inner:                 120;
+
+    center-x:                       60;
+    center-y:                       53;
+
+    image:                          no;
+}
+
+BassSynthEditor Bar#OscMode Dragger#m_pKnob
+{
+    image:                          url("Maschine/InternalModules/BassSynth/intmod_bass_poti_sequence_stroke.png");
+    animations_for_range:           129;
+    animations:                     129;
+    dye-mask:                       url("Maschine/InternalModules/BassSynth/intmod_bass_poti_sequence_dye.png");
+    dye-color-palette:              11;
+    dye-mask-animations:            129;
+
+    foreground-color:               no;
+    horizontal-alignment:           center;
+}
+
+
+BassSynthEditor Bar#OscMode ParameterDragger#m_pNumericDragger,
+BassSynthEditor Bar#OscMode Stack#m_pParameterStack
+{
+    width:                          120;
+    height:                         106;
+}
+
+
+BassSynthEditor Bar#OscMode Dragger#m_pKnob
+{
+    image:                          no;
+}
+
+
+
+
+// RIGHT AREA
+//-----------------------------------------------------------------------------------------------------------------------
+
+
+// OCTAVE
+BassSynthEditor Bar#OscTune
+{
+    x:                              307;
+    y:                              $Y-FX-BigKnob-Middle;
+}
+
+
+// DRIVE
+BassSynthEditor Bar#Drive
+{
+    x:                              387;
+    y:                              $Y-FX-SmallKnob-Middle;
+}
+
+
+// RESONANCE
+BassSynthEditor Bar#FilterR
+{
+    x:                              202;
+    y:                              180;
+}
+
+// GLIDE TIME
+BassSynthEditor Bar#GlideTime
+{
+    x:                              292;
+    y:                              180;
+}

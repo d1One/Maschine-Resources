@@ -1,0 +1,34 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Splitters
+//----------------------------------------------------------------------------------------------------------------------
+
+Splitter[isHorizontal=true]
+{
+    height:                 $sizeSplitter;
+    background-color:       $colorSplitter;
+    z-index:                1;
+}
+
+Splitter[isHorizontal=false]
+{
+    width:                  $sizeSplitter;
+    background-color:       $colorSplitter;
+    z-index:                1;
+}
+
+
+Splitter.Panel[isHorizontal=true]
+{
+    height:                 $sizeSplitterPanel;
+    background-color:       $colorGroup;
+    z-index:                1;
+}
+
+Splitter.Panel[isHorizontal=false]
+{
+    width:                  $sizeSplitterPanel;
+    background-color:       $colorGroup;
+    z-index:                1;
+}
+
+

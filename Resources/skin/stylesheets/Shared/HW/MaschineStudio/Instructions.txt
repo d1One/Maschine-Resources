@@ -1,0 +1,44 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// INSTRUCTIONS
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// ALIGNMENT OF ELEMENTS IN THE CONTAINER(TM)
+InstructionsContainer
+{
+    layout:                         auto;
+    direction:                      column;
+    horizontal-content-alignment:   center;
+    vertical-content-alignment:     center;
+    spacing:                        10;
+}
+
+// INSTRUCTIONS TEXT
+InstructionsContainer Label
+{
+    font-name:              $fontPragmatica;
+    font-size:              18;
+    foreground-color:       $colorWhite20;
+    horizontal-alignment:   center;
+}
+
+// ACTION BUTTON
+InstructionsContainer Button
+{
+    background-color:           no;
+    image:                      no;
+    dye-mask:                   url("Shared/Instructions/Instructions_BTN_Action_Dyemask.png");
+    dye-color-palette:          1;
+    dye-mask-animations:        7;
+    dye-mask-animation-index:   0;
+    foreground-color:           rgb(50,50,50);
+    margin-top:                 1;
+    height:                     24;
+}
+
+InstructionsContainer Button:enabled           {dye-mask-animation-index: 0;}
+InstructionsContainer Button:selected          {dye-mask-animation-index: 1;}
+InstructionsContainer Button:!selected:down    {dye-mask-animation-index: 2;}
+InstructionsContainer Button:selected:down     {dye-mask-animation-index: 3;}
+InstructionsContainer Button:!selected:over    {dye-mask-animation-index: 4;}
+InstructionsContainer Button:over              {dye-mask-animation-index: 5;}
+InstructionsContainer Button:!enabled          {dye-mask-animation-index: 6;}

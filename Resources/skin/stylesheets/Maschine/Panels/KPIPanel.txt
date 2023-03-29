@@ -1,0 +1,211 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// KPI PANEL
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//---------------------------------------------------------------------------------------------------------------------
+// KPI MAIN PANEL BACKGROUND
+//---------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pMixerView Bar#m_pKPI_Panel
+{
+    image:                              url("Maschine/KPI/KPI_BG_Main.png");
+    fixed-left:                         10;
+    fixed-right:                        10;
+    fixed-top:                          16;
+    fixed-bottom:                       10;
+    picture-includes-margin:            true;
+    background-color:                   $StandardBackgroundGrey;
+
+    ModuleFocusMargin:		64;
+}
+
+
+// Wrapper around group of effects
+ModuleEditorsView
+{
+    margin-top:                         0;
+    margin-left:                         16;
+    margin-right:                       16;
+    background-color:                   no;
+    spacing:                            no;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+// KPI NAVIGATION BAR
+//---------------------------------------------------------------------------------------------------------------------
+
+// BACKGROUND
+//---------------------------------------------------------------------------------------------------------------------
+Bar#m_pMixerView Bar#m_pPluginNavigator
+{
+    image:                              url("Maschine/KPI/KPI_BG_NavBar.png");
+    fixed-left:                         10;
+    fixed-right:                        10;
+    picture-includes-margin:            false;
+    background-color:                   $colorBlack;
+              
+    margin-bottom:                      1;
+    outer-margin-top:                   2;
+}
+
+
+
+// SPACER LABELS
+//---------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pMixerView Bar#m_pPluginNavigator Label#pSpacer
+{
+    image:                              url("Maschine/KPI/KPI_LBL_NavBar_Spacer.png");
+}
+
+
+
+// SCROLL BUTTONS
+//---------------------------------------------------------------------------------------------------------------------
+
+// LEFT
+Bar#m_pMixerView Bar#m_pPluginNavigator Button#m_pScrollButtonLeft
+{
+    image:                              url("Maschine/KPI/KPI_BTN_NavBar_ScrollLeft.png");
+    animations:                         7;
+    foreground-color:                   no;
+}
+
+
+
+// RIGHT
+Bar#m_pMixerView Bar#m_pPluginNavigator Button#m_pScrollButtonRight
+{
+    image:                              url("Maschine/KPI/KPI_BTN_NavBar_ScrollRight.png");
+    animations:                         7;
+    foreground-color:                   no;
+}
+
+
+
+// TAB BUTTON ITEM
+//---------------------------------------------------------------------------------------------------------------------
+
+// TAB BACKGROUND, DEFAULT
+Bar#m_pMixerView Bar#m_pPluginNavigator Bar#pItemBar
+{
+    margin-left:                        7;
+    min-width:                          20;    
+}    
+
+
+
+Bar#m_pMixerView Bar#m_pPluginNavigator Bar#pItemBar[HasFocus=false][IsActive=true],
+Bar#m_pMixerView Bar#m_pPluginNavigator Bar#pItemBar[HasFocus=false][IsActive=false]
+{
+    background-color:                   no;
+}
+
+
+
+// TAB BACKGROUND, FOCUS STATE
+Bar#m_pMixerView Bar#m_pPluginNavigator Bar#pItemBar[HasFocus=true][IsActive=true],
+Bar#m_pMixerView Bar#m_pPluginNavigator Bar#pItemBar[HasFocus=true][IsActive=false]
+{
+    background-color:                   $colorWhite15;
+}
+
+
+
+
+// BYPASS BUTTON
+Bar#m_pMixerView Bar#m_pPluginNavigator Bar#pItemBar Button#pActive[HasFocus=false]
+{
+    image:                              url("Maschine/KPI/KPI_BTN_NavBar_Bypass.png");
+    animations:                         7;
+    outer-margin-top:                   1;
+}
+
+
+
+Bar#m_pMixerView Bar#m_pPluginNavigator Bar#pItemBar Button#pActive[HasFocus=true]
+{
+    image:                              url("Maschine/KPI/KPI_BTN_NavBar_BypassFocus.png");
+    animations:                         7;
+    outer-margin-top:                   1;
+}
+
+
+
+// PLUGIN NAME
+Bar#m_pMixerView Bar#m_pPluginNavigator Bar#pItemBar Button#pName
+{
+    image:                              no;
+    horizontal-alignment:               left;
+
+    min-width:                          10;
+    height:                             19;
+    margin-left:                        1;
+    margin-right:                       1;
+    margin-top:                         1;
+    outer-margin-top:                   1;
+}
+
+
+
+Bar#m_pMixerView Bar#m_pPluginNavigator Bar#pItemBar Button#pName[HasFocus=false][IsActive=true]
+{
+    foreground-color:                   $colorWhite60;
+}
+
+
+
+Bar#m_pMixerView Bar#m_pPluginNavigator Bar#pItemBar Button#pName[HasFocus=true][IsActive=true]
+{
+    foreground-color:                   $colorWhite;
+}
+
+
+
+Bar#m_pMixerView Bar#m_pPluginNavigator Bar#pItemBar Button#pName[HasFocus=false][IsActive=false],
+Bar#m_pMixerView Bar#m_pPluginNavigator Bar#pItemBar Button#pName[HasFocus=true][IsActive=false]
+{
+    foreground-color:                   $colorWhite20;
+}
+
+
+
+// ADD BUTTON
+//---------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pMixerView Bar#m_pPluginNavigator Button#m_pButtonAdd
+{
+    image:                              url("Maschine/KPI/KPI_BTN_NavBar_Add.png");
+    animations:                         7;
+    foreground-color:                   no;
+}
+
+Bar#m_pMixerView Bar#m_pPluginNavigator Button#m_pButtonAdd:selected
+{
+    background-color:                   $colorWhite20;
+}
+
+
+// FLOATING PLUGIN WINDOWS
+//---------------------------------------------------------------------------------------------------------------------
+
+FloatingEditorFrame Scrollbar#m_pScrollV Slider
+{
+    background-color:                   $StandardBackgroundGrey;
+    margin-top:                         3;
+    margin-bottom:                      3;
+    width:                              16;
+}
+
+
+FloatingEditorFrame Scrollbar#m_pScrollV Grip
+{
+    image:                              url("Maschine/Scrollbars/scrollbar_KPI_undocked_vertical_slider.png");
+    fixed-top:                          4;
+    fixed-bottom:                       4;
+}
+
+
+
+
+

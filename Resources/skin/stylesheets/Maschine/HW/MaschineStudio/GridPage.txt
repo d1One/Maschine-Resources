@@ -1,0 +1,44 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// GRID PAGE
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Background on the left screen
+Bar#GridPageStudioScreenLeft Bar.StudioDisplay,
+Bar#GridPageMK3ScreenLeft Bar.StudioDisplay
+{
+    image:                          0;
+    width:                          480;
+    height:                         144;
+
+    background-color:               $colorBlack;
+    outer-margin-top:               1;
+}
+
+
+// Specific height of ButtonBar
+Bar#GridPageStudioScreenRight Bar.HeadRow,
+Bar#GridPageMK3ScreenRight Bar.HeadRow
+{
+    height:                         35;
+}
+
+
+// Specific adjustment of margins on Grid page
+Bar#GridPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid,
+Bar#GridPageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid
+{
+    spacing:                        4;
+    outer-margin-bottom:            4;
+    margin-left:                    4;
+}
+
+
+// Specific buttons of the right screen
+Bar#GridPageStudioScreenRight Bar.HeadRow Button,
+Bar#GridPageMK3ScreenRight Bar.HeadRow Button
+{
+    foreground-color:               no;
+    image:                          url("Maschine/HW/Studio/GridPage/gp_button_headButton.png");
+    animations:                     3;
+}

@@ -1,0 +1,244 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Dragger / Potis
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Default
+//----------------------------------------------------------------------------------------------------------------------
+
+Dragger
+{
+    image:                  url("Shared/Global/Button_18.png");
+    picture-includes-margin:true;
+    animations:             7;
+    animation:              0;
+    fixed-left:             4;
+    fixed-right:            4;
+    fixed-top:              4;
+    fixed-bottom:           4;
+    background-color:       no;
+    foreground-color:       $colorWidgetText;
+    font-name:              $fontPragmatica;
+    font-size:              11;
+    horizontal-alignment:   center;
+    min-width:              $defaultWidth;
+}
+
+Dragger:selected
+{
+    animation-index:        1;
+    foreground-color:       $colorWidgetTextSelected;
+}
+
+Dragger:down
+{
+    animation-index:        2;
+}
+
+Dragger:selected:down
+{
+    animation-index:        3;
+    foreground-color:       $colorWidgetTextSelected;
+}
+
+Dragger:over
+{
+    animation-index:        4;
+}
+
+Dragger:over:selected
+{
+    animation-index:        5;
+}
+
+Dragger:!enabled
+{
+    animation-index:        6;
+    foreground-color:       $colorWidgetText;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// ListItem
+//----------------------------------------------------------------------------------------------------------------------
+
+Dragger.ListItem
+{
+    font-size:              $fontMonoSize;
+    font-name:              $fontMonoName;
+    background-color:       $colorListItem;
+    foreground-color:       $colorListItemText;
+    margin-left:            3;
+    horizontal-alignment:   left;
+    margin:                 1;
+    min-width:              $halfWidth;
+}
+
+Dragger.ListItem:over
+{
+    background-color:       $colorListItemOver;
+}
+
+Dragger.ListItem:down
+{
+    background-color:       $colorListItemDown;
+}
+
+Dragger.ListItem:selected,
+Dragger.ListItem:selected:down,
+Dragger.ListItem:selected:over
+{
+    background-color:       $colorListItemSelected;
+    foreground-color:       $colorListItemTextSelected;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// ListItemKnob
+//----------------------------------------------------------------------------------------------------------------------
+
+Dragger.ListItemKnob
+{
+    outer-margin-top:       2;
+    image:                  url("Maschine/SongGroupPanelShared/SGPS_Knob_Mini.png");
+    animations:             129;
+    foreground-color:       no;
+    animations_for_range:   129;
+}
+
+Dragger.ListItemKnob:selected
+{
+    animation-index:        0;
+}
+
+Dragger.ListItemKnob:down
+{
+    animation-index:        0;
+}
+
+Dragger.ListItemKnob:selected:down
+{
+    animation-index:        0;
+}
+
+Dragger.ListItemKnob:over
+{
+    animation-index:        0;
+}
+
+Dragger.ListItemKnob:over:selected
+{
+    animation-index:        0;
+}
+
+Dragger.ListItemKnob:!enabled
+{
+    animation-index:        0;
+}
+
+// SPECIAL ALINGMENT FOR DOUBLE SIZE SOUND LIST
+Vector<Bar>#m_pSoundVector Bar.SoundGroupListItem[zoom-y=true] Dragger.ListItemKnob
+{
+    outer-margin-top:       12;
+}
+
+// EXTRA OUTER MARGIN FOR CORRECT TEXT ALIGNEMT OF SOUND / GROUP NAME
+Vector<Bar>#m_pSoundVector Dragger#m_pLevel,
+Vector<Bar>#m_pGroupVector Dragger#m_pLevel
+{
+    outer-margin-left:      5;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// MID AREA POTIS
+//----------------------------------------------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------------------------------------------
+// Poti Knob
+//----------------------------------------------------------------------------------------------------------------------
+
+Dragger.ParameterBody
+{
+    image:                  url("Maschine/ParameterArea/pa_knob_indicator_uni.png");
+    foreground-color:       no;
+    background-color:       no;
+    animations:             129;
+    animations_for_range:   129;
+    animation-index:        0;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Poti Ring
+//----------------------------------------------------------------------------------------------------------------------
+
+Dragger.ParameterRing
+{
+    foreground-color:       no;
+    background-color:       no;
+}
+
+Dragger.ParameterRing[automated=false][bipolar=false]
+{
+    image:                  url("Maschine/ParameterArea/pa_knob_ring_uni.png");
+    animations:             129;
+    animations_for_range:   129;
+    animation-index:        0;
+}
+Dragger.ParameterRing[automated=false][bipolar=false]:over,
+Dragger.ParameterRing[automated=false][bipolar=false]:down
+{
+    image:                  url("Maschine/ParameterArea/pa_knob_ring_uni_over.png");
+    animations:             129;
+    animations_for_range:   129;
+    animation-index:        0;
+}
+Dragger.ParameterRing[automated=false][bipolar=true]
+{
+    image:                  url("Maschine/ParameterArea/pa_knob_ring_bi.png");
+    animations:             129;
+    animations_for_range:   129;
+    animation-index:        0;
+}
+Dragger.ParameterRing[automated=false][bipolar=true]:over,
+Dragger.ParameterRing[automated=false][bipolar=true]:down
+{
+    image:                  url("Maschine/ParameterArea/pa_knob_ring_bi_over.png");
+    animations:             129;
+    animations_for_range:   129;
+    animation-index:        0;
+}
+Dragger.ParameterRing[automated=true]
+{
+    image:                  url("Maschine/ParameterArea/pa_knob_ring_auto.png");
+    animations:             129;
+    animations_for_range:   129;
+    animation-index:        0;
+}
+Dragger.ParameterRing[automated=true]:over,
+Dragger.ParameterRing[automated=true]:down
+{
+    image:                  url("Maschine/ParameterArea/pa_knob_ring_auto_over.png");
+    animations:             129;
+    animations_for_range:   129;
+    animation-index:        0;
+}
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// HeadDisplay
+//----------------------------------------------------------------------------------------------------------------------
+
+Dragger.HeadDisplay
+{
+    image:                  no;
+    min-width:              $metricGrid;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------

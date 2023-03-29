@@ -1,0 +1,9 @@
+Bar#LearnMaschinePageScreenLeft Bar#StudioDisplayBar
+{
+    image: url("Maschine/HW/MH1071/Dialogs/DISCOVERY_Learn_MASCHINE+_L.png");
+}
+
+Bar#LearnMaschinePageScreenRight Bar#StudioDisplayBar
+{
+    image: url("Maschine/HW/MH1071/Dialogs/DISCOVERY_Learn_MASCHINE+_R.png");
+}

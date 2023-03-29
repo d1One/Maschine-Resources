@@ -1,0 +1,337 @@
+@define $colorBlack      rgb(0,0,0);
+@define $colorWhite      rgb(255,255,255);
+
+@define $screenWidth     128;
+@define $screenHeight    32;
+@define $lineHeight      16;
+
+@define $fontStandard      url("Shared/MikroAseries-Medium.ttf");
+@define $fontBold          url("Shared/MikroAseries-Bold.ttf");
+@define $fontBoldCondensed url("Shared/MikroAseries-BoldCondensed.ttf");
+@define $fontSizeDefault 14;
+
+@define $animtype-none                  0;
+@define $animtype-linear                1;
+@define $animtype-smoothin              2;
+@define $animtype-smoothout             3;
+@define $animtype-smoothinout           4;
+
+//------------------------------------------------------------------------------------------
+
+Stack
+{
+    min-width: $screenWidth;
+    min-height: $screenHeight;
+    max-width: $screenWidth;
+    max-height: $screenHeight;
+}
+
+Label
+{
+    foreground-color: $colorBlack;
+    background-color: no;
+
+    font-name: $fontStandard;
+    font-size: $fontSizeDefault;
+
+    horizontal-alignment: left;
+    margin: 0;
+}
+
+Scrollbar
+{
+    background-color: $colorBlack;
+    outer-margin-left: 2;
+    height: 32;
+    width: 2;
+}
+
+Scrollbar Grip
+{
+    min-height: 8;
+    background-color: $colorWhite;
+}
+
+//------------------------------------------------------------------------------------------
+
+Bar#Main
+{
+    height: $screenHeight;
+}
+
+//------------------------------------------------------------------------------------------
+
+Bar#TopBar,
+Bar#BottomBar
+{
+    background-color: $colorBlack;
+    height: $lineHeight;
+}
+
+//------------------------------------------------------------------------------------------
+
+Label#TopIcon,
+Label#BottomIcon
+{
+    background-color: $colorWhite;
+    foreground-color: $colorBlack;
+
+    image: no;
+
+    font-name: $fontBoldCondensed;
+    font-size: $fontSizeDefault;
+
+    horizontal-alignment: center;
+    vertical-alignment: top;
+
+    outer-margin-right: 3;
+    outer-margin-bottom: 3;
+
+    width: 15;
+    height: 14;
+}
+
+//------------------------------------------------------------------------------------------
+// Icon used for text only, no picture
+
+Label#TopIcon[icon=labelBoldCenter],
+Label#BottomIcon[icon=labelBoldCenter]
+{
+    font-name: $fontBold;
+    font-size: $fontSizeDefault;
+
+    vertical-alignment:     center;
+    horizontal-alignment:   center;
+
+    image: no;
+
+    margin-right: 0;
+}
+
+Label#TopIcon[icon=muted]
+{
+    font-name:                  $fontBoldCondensed;
+    font-size:                  $fontSizeDefault;
+
+    background-color:           $colorBlack;
+    foreground-color:           $colorWhite;
+    background-border-color:    $colorWhite;
+
+    image:                      no;
+}
+
+// this is needed in order to display the "1" and "11" centered
+Label#TopIcon[one=true]
+{
+    margin-right: 1;
+}
+
+//------------------------------------------------------------------------------------------
+
+Label#TopIcon[icon=missing],
+Label#BottomIcon[icon=missing]
+{
+    foreground-color: no;
+    background-color: no;
+    image: url("Maschine/HW/Mikro/Icon_Missing.png");
+}
+
+Label#TopIcon[icon=effect],
+Label#BottomIcon[icon=effect]
+{
+    foreground-color: no;
+    background-color: no;
+    image: url("Maschine/HW/Mikro/Icon_Effect.png");
+}
+
+Label#TopIcon[icon=instrument],
+Label#BottomIcon[icon=instrument]
+{
+    foreground-color: no;
+    background-color: no;
+    image: url("Maschine/HW/Mikro/Icon_Instrument.png");
+}
+
+Label#TopIcon[icon=project],
+Label#BottomIcon[icon=project]
+{
+    foreground-color: no;
+    background-color: no;
+    image: url("Maschine/HW/Mikro/Icon_Project.png");
+}
+
+Label#TopIcon[icon=sound],
+Label#BottomIcon[icon=sound]
+{
+    foreground-color: no;
+    background-color: no;
+    image: url("Maschine/HW/Mikro/Icon_Sound.png");
+}
+
+Label#TopIcon[icon=group],
+Label#BottomIcon[icon=group]
+{
+    foreground-color: no;
+    background-color: no;
+    image: url("Maschine/HW/Mikro/Icon_Group.png");
+}
+
+Label#TopIcon[icon=loop],
+Label#BottomIcon[icon=loop]
+{
+    foreground-color: no;
+    background-color: no;
+    image: url("Maschine/HW/Mikro/Icon_Loop.png");
+}
+
+Label#TopIcon[icon=one-shot],
+Label#BottomIcon[icon=one-shot]
+{
+    foreground-color: no;
+    background-color: no;
+    image: url("Maschine/HW/Mikro/Icon_Sample.png");
+}
+
+//------------------------------------------------------------------------------------------
+
+Label#BottomIcon[icon=effect_bypassed]
+{
+    foreground-color: no;
+    background-color: no;
+    image: url("Maschine/HW/Mikro/Icon_Effect_Bypass.png");
+}
+
+Label#BottomIcon[icon=instrument_bypassed]
+{
+    foreground-color: no;
+    background-color: no;
+    image: url("Maschine/HW/Mikro/Icon_Instrument_Bypass.png");
+}
+
+//------------------------------------------------------------------------------------------
+
+Label#BottomIcon[icon=button_touched],
+Label#BottomIcon[icon=button_unpressed]
+{
+    image: url("Maschine/HW/Mikro/button_unpressed.png");
+    background-color: $colorBlack;
+}
+
+Label#BottomIcon[icon=button_pressed]
+{
+    image: url("Maschine/HW/Mikro/button_pressed.png");
+    background-color: $colorBlack;
+}
+
+//------------------------------------------------------------------------------------------
+
+Label#TopCaption
+{
+    font-name: $fontBold;
+    font-size: $fontSizeDefault;
+
+    foreground-color: $colorWhite;
+    horizontal-alignment: left;
+    vertical-alignment: top;
+}
+
+Label#TopCaption[style=boldCenter]
+{
+    font-name: $fontBold;
+    font-size: $fontSizeDefault;
+
+    foreground-color: $colorWhite;
+    horizontal-alignment: center;
+    vertical-alignment: top;
+}
+
+Label#BottomCaption,
+Label#ParameterName,
+Label#ParameterValue
+{
+    foreground-color: $colorWhite;
+    vertical-alignment: top;
+}
+
+Label#BottomCaption,
+Label#ParameterName
+{
+    horizontal-alignment: left;
+}
+
+Label#BottomCaption[style=boldCenter]
+{
+    font-name: $fontBold;
+    font-size: $fontSizeDefault;
+
+    foreground-color: $colorWhite;
+    horizontal-alignment: center;
+    vertical-alignment: top;
+}
+
+Label#ParameterName
+{
+    min-width: 37;
+}
+
+Bar#BottomBar[with-icon=true] Label#ParameterName
+{
+    min-width: 29;
+}
+
+Label#ParameterValue
+{
+    horizontal-alignment: right;
+    outer-margin-left: 5;
+    max-width: 86;
+}
+
+Bar#BottomBar[with-icon=true] Label#ParameterValue
+{
+    max-width: 79;
+}
+
+//------------------------------------------------------------------------------------------
+
+Vector<Label>#List
+{
+    focus-anim: $animtype-none;
+    focus-delay: 0;
+    margin-top: -8;
+    width: 128;
+    height: 48;
+}
+
+Vector<Label> Label
+{
+    height: 16;
+    background-color: $colorBlack;
+    foreground-color: $colorWhite;
+
+    font-name: $fontStandard;
+    font-size: $fontSizeDefault;
+}
+
+Vector<Label> Scrollbar
+{
+    width: 4;
+    height: 48;
+    margin-left: 2;
+    margin-top: 8;
+    margin-bottom: 8;
+}
+
+Vector<Label> Grip#thumb
+{
+    width: 2;
+    height: 16;
+    background-color: $colorWhite;
+}
+
+//------------------------------------------------------------------------------------------
+
+Label#StarIcon
+{
+    margin-top: 1;
+    image: url("Maschine/HW/Mikro/star.png");
+}

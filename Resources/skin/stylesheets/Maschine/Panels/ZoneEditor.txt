@@ -1,0 +1,77 @@
+//----------------------------------------------------------------------------------------------------------------------
+// ZoneEditor
+//----------------------------------------------------------------------------------------------------------------------
+
+// Zone Editor Container
+Bar#m_pGridAndKeyboardBar
+{
+    spacing:                            1;
+}
+
+
+
+
+// ZONE GRID
+//----------------------------------------------------------------------------------------------------------------------
+ZoneEditorGridWidget
+{
+    zone-grid-lines-color:                  rgb(38,38,38);
+    zone-grid-octave-lines-color:           $colorBlack;
+    zone-grid-selection-fill-color:         rgba(112, 112, 112, 64);
+    zone-grid-selection-border-color:       rgba(200, 200, 200, 255);
+    
+    zone-grid-background-whitekey-color:    rgb(53,53,53);
+    zone-grid-background-blackkey-color:    rgb(47,47,47);
+    
+    zone-label-color:                           rgb(255, 255, 255);
+}
+
+
+
+
+// ZONE FRAME
+//----------------------------------------------------------------------------------------------------------------------
+ZoneWidget
+{
+    zone-background-color-palette:              2;
+    zone-background-alpha:                      51;
+    zone-border-color:                          rgba(255, 255,255,102);
+
+    zone-selection-background-color-palette:    2;
+    zone-selection-background-alpha:            90;
+    zone-selection-border-color:                rgba(255,255,255,255);
+
+    zone-focus-background-color-palette:        2; 
+    zone-focus-background-alpha:                153;
+    zone-focus-border-color:                    rgba(255,255,255,255);
+
+    zone-text-padding:                     5;
+}
+
+
+
+// ZONE KEYBOARD
+//----------------------------------------------------------------------------------------------------------------------
+
+ZoneEditorKeyboard
+{
+    zone-keyboard-lines:                rgb(28,28,28);
+    zone-keyboard-whitekeys-color:      rgb(134,134,134);
+    zone-keyboard-blackkeys-color:      rgb(28,28,28);
+
+    zone-keyboard-rootkey-color-palette:    1;
+    zone-keyboard-rootkey-alpha:            255;
+    
+    zone-keyboard-focused-rootkey-color-palette:  1;
+    zone-keyboard-focused-rootkey-alpha:          255;
+}
+
+
+
+
+Button#m_pCornerSpacerButton
+{
+    width:                              18;
+    height:                             18;
+}
+

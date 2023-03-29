@@ -1,0 +1,773 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SNARE
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+SnareEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_logo_snare.png");
+    x:                                  $X-Drums-Logo;
+    y:                                  $Y-Drums-Logo;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// DISPLAY DRUM MODELS
+//--------------------------------------------------------------------------------------------------------
+
+// Snare
+SnareEditor Bar#m_pInstrumentForeground
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_model_snare_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_model_snare_dye.png");
+    dye-color-palette:                  1;
+    x:                                  238;
+    y:                                  83;
+}
+
+SnareEditor[Mode=Clap] Bar#m_pInstrumentForeground
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_model_clap_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_model_clap_dye.png");
+    dye-color-palette:                  1;
+    x:                                  262;
+    y:                                  92;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// VOLT MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+SnareEditor[Mode=Volt] Bar#SnareMode
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_volt_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_volt_dyemask.png");
+}
+
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+SnareEditor#m_pEditor[Mode=Volt] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-2-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+SnareEditor#m_pEditor[Mode=Volt] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_noise.png");
+    x:                                  $X-Drums-SubheadlineB-2-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+SnareEditor#m_pEditor[Mode=Volt] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-2-2;
+    y:                                  $Y-Drums-Separator;
+}
+
+
+// Controls
+//----------------------------------------------------------------------------------------------------------------------
+
+// Mode Switch
+SnareEditor Bar#AnalogSnareMode
+{
+    x:                                  $X-Drums-2-2-Knob1;
+    y:                                  $Y-Drums; 
+}
+SnareEditor Bar#AnalogSnareMode Button#m_pName
+{
+    x:                                  -1;
+}
+
+// Punchy Mode Analog Snare
+// Punch
+SnareEditor Bar#ClassicSnarePunch
+{
+    x:                                  $X-Drums-2-2-Knob2;
+    y:                                  $Y-Drums;
+}
+
+// Tonal Mode
+// OSC Mix
+SnareEditor Bar#ClassicSnareTone
+{
+    x:                                  $X-Drums-2-2-Knob2;
+    y:                                  $Y-Drums;
+}
+
+
+// Color
+SnareEditor[Mode=Volt] Bar#ClassicSnareNoiseColor
+{
+    x:                                  $X-Drums-2-2-Knob3;
+    y:                                  $Y-Drums;
+}
+
+// Amount
+SnareEditor[Mode=Volt] Bar#ClassicSnareNoiseAmount
+{
+    x:                                  $X-Drums-2-2-Knob4;
+    y:                                  $Y-Drums;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// BIT MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+SnareEditor[Mode=Bit] Bar#SnareMode
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_bit_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_bit_dyemask.png");
+}
+
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+SnareEditor#m_pEditor[Mode=Bit] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-1-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+SnareEditor#m_pEditor[Mode=Bit] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_noise.png");
+    x:                                  $X-Drums-SubheadlineB-1-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+SnareEditor#m_pEditor[Mode=Bit] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-1-2;
+    y:                                  $Y-Drums-Separator;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+// Grit
+SnareEditor Bar#ClassicSnareGrit
+{
+    x:                                  $X-Drums-1-2-Knob1;
+    y:                                  $Y-Drums;
+}
+
+SnareEditor[Mode=Bit] Bar#ClassicSnareNoiseColor
+{
+    x:                                  $X-Drums-1-2-Knob2;
+    y:                                  $Y-Drums;
+}
+
+// Amount
+SnareEditor[Mode=Bit] Bar#ClassicSnareNoiseAmount
+{
+    x:                                  $X-Drums-1-2-Knob3;
+    y:                                  $Y-Drums;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// IRON MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+SnareEditor[Mode=Iron] Bar#SnareMode
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_iron_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_iron_dyemask.png");
+}
+
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+SnareEditor#m_pEditor[Mode=Iron] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-3-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+SnareEditor#m_pEditor[Mode=Iron] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_spectra.png");
+    x:                                  $X-Drums-SubheadlineB-3-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+SnareEditor#m_pEditor[Mode=Iron] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-3-2;
+    y:                                  $Y-Drums-Separator;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+// Skin tune
+SnareEditor[Mode=Iron] Bar#ModalSkinTune
+{
+    x:                                  $X-Drums-3-2-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Impact
+SnareEditor[Mode=Iron] Bar#ModalImpact
+{
+    x:                                  $X-Drums-3-2-Knob2;
+    y:                                  $Y-Drums;
+}
+
+// Body
+SnareEditor[Mode=Iron] Bar#ModalBody
+{
+    x:                                  $X-Drums-3-2-Knob3;
+    y:                                  $Y-Drums;
+}
+
+// Decay
+SnareEditor[Mode=Iron] Bar#ModalSpectraDecay
+{
+    x:                                  $X-Drums-3-2-Knob4;
+    y:                                  $Y-Drums;
+}
+
+// Amount
+SnareEditor[Mode=Iron] Bar#ModalSpectraAmount
+{
+    x:                                  $X-Drums-3-2-Knob5;
+    y:                                  $Y-Drums;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// CLAP MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+SnareEditor[Mode=Clap] Bar#SnareMode
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_clap_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_clap_dyemask.png");
+}
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+SnareEditor#m_pEditor[Mode=Clap] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-0-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+// Room
+SnareEditor Bar#ClapRoom
+{
+    x:                                  $X-Drums-0-2-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Focus
+SnareEditor[Mode=Clap] Bar#ClapSharp
+{
+    x:                                  $X-Drums-0-2-Knob2;
+    y:                                  $Y-Drums;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// CHROME MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+SnareEditor[Mode=Chrome] Bar#SnareMode
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_chrome_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_chrome_dyemask.png");
+}
+
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+SnareEditor#m_pEditor[Mode=Chrome] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-2-3;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+SnareEditor#m_pEditor[Mode=Chrome] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_spectra.png");
+    x:                                  $X-Drums-SubheadlineB-2-3;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+SnareEditor#m_pEditor[Mode=Chrome] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-2-3;
+    y:                                  $Y-Drums-Separator;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+// Skin tune
+SnareEditor[Mode=Chrome] Bar#ModalSkinTune
+{
+    x:                                  $X-Drums-2-3-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Impact
+SnareEditor Bar#ModalImpact
+{
+    x:                                  $X-Drums-2-3-Knob2;
+    y:                                  $Y-Drums;
+}
+
+// Tune
+SnareEditor[Mode=Chrome] Bar#ModalSpectraTune
+{
+    x:                                  $X-Drums-2-3-Knob3;
+    y:                                  $Y-Drums;
+}
+
+// Decay
+SnareEditor[Mode=Chrome] Bar#ModalSpectraDecay
+{
+    x:                                  $X-Drums-2-3-Knob4;
+    y:                                  $Y-Drums;
+}
+
+// Amount
+SnareEditor[Mode=Chrome] Bar#ModalSpectraAmount
+{
+    x:                                  $X-Drums-2-3-Knob5;
+    y:                                  $Y-Drums;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// AIRY MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+SnareEditor[Mode=Airy] Bar#SnareMode
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_airy_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_airy_dyemask.png");
+}
+
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+SnareEditor#m_pEditor[Mode=Airy] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-2-3;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+SnareEditor#m_pEditor[Mode=Airy] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_spectra.png");
+    x:                                  $X-Drums-SubheadlineB-2-3;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+SnareEditor#m_pEditor[Mode=Airy] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-2-3;
+    y:                                  $Y-Drums-Separator;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+// Skin tune
+SnareEditor[Mode=Airy] Bar#ModalSkinTune
+{
+    x:                                  $X-Drums-2-3-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Impact
+SnareEditor[Mode=Airy] Bar#ModalImpact
+{
+    x:                                  $X-Drums-2-3-Knob2;
+    y:                                  $Y-Drums;
+}
+
+// Tune
+SnareEditor[Mode=Airy] Bar#ModalSpectraTune
+{
+    x:                                  $X-Drums-2-3-Knob3;
+    y:                                  $Y-Drums;
+}
+
+// Decay
+SnareEditor[Mode=Airy] Bar#ModalSpectraDecay
+{
+    x:                                  $X-Drums-2-3-Knob4;
+    y:                                  $Y-Drums;
+}
+
+// Amount
+SnareEditor[Mode=Airy] Bar#ModalSpectraAmount
+{
+    x:                                  $X-Drums-2-3-Knob5;
+    y:                                  $Y-Drums;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// VINTAGE MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+SnareEditor[Mode=Vintage] Bar#SnareMode
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_vintage_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_vintage_dyemask.png");
+}
+
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+SnareEditor#m_pEditor[Mode=Vintage] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-2-3;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+SnareEditor#m_pEditor[Mode=Vintage] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_spectra.png");
+    x:                                  $X-Drums-SubheadlineB-2-3;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+SnareEditor#m_pEditor[Mode=Vintage] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-2-3;
+    y:                                  $Y-Drums-Separator;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+// Skin tune
+SnareEditor[Mode=Vintage] Bar#ModalSkinTune
+{
+    x:                                  $X-Drums-2-3-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Impact
+SnareEditor[Mode=Vintage] Bar#ModalImpact
+{
+    x:                                  $X-Drums-2-3-Knob2;
+    y:                                  $Y-Drums;
+}
+
+// Tune
+SnareEditor[Mode=Vintage] Bar#ModalSpectraTune
+{
+    x:                                  $X-Drums-2-3-Knob3;
+    y:                                  $Y-Drums;
+}
+
+// Decay
+SnareEditor[Mode=Vintage] Bar#ModalSpectraDecay
+{
+    x:                                  $X-Drums-2-3-Knob4;
+    y:                                  $Y-Drums;
+}
+
+// Amount
+SnareEditor[Mode=Vintage] Bar#ModalSpectraAmount
+{
+    x:                                  $X-Drums-2-3-Knob5;
+    y:                                  $Y-Drums;
+}
+
+//--------------------------------------------------------------------------------------------------------
+// POW MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+SnareEditor[Mode=Pow] Bar#SnareMode
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_pow_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_pow_dyemask.png");
+}
+
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+SnareEditor#m_pEditor[Mode=Pow] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-0-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+// Bend
+SnareEditor Bar#ClapBend
+{
+    x:                                  $X-Drums-0-2-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Focus
+SnareEditor[Mode=Pow] Bar#ClapSharp
+{
+    x:                                  $X-Drums-0-2-Knob2;
+    y:                                  $Y-Drums;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// SHARP MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+SnareEditor[Mode=Sharp] Bar#SnareMode
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_sharp_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_sharp_dyemask.png");
+}
+
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+SnareEditor#m_pEditor[Mode=Sharp] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-0-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+// Skin tune
+SnareEditor[Mode=Sharp] Bar#ModalSkinTune
+{
+    x:                                  $X-Drums-0-4-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Impact
+SnareEditor[Mode=Sharp] Bar#ModalImpact
+{
+    x:                                  $X-Drums-0-4-Knob2;
+    y:                                  $Y-Drums;
+}
+
+// Body
+SnareEditor[Mode=Sharp] Bar#ModalBody
+{
+    x:                                  $X-Drums-0-4-Knob3;
+    y:                                  $Y-Drums;
+}
+
+// Amount (Noise)
+SnareEditor Bar#DiscoNoise
+{
+    x:                                  $X-Drums-0-4-Knob4;
+    y:                                  $Y-Drums;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// BREAKER MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+SnareEditor[Mode=Breaker] Bar#SnareMode
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_breaker_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_breaker_dyemask.png");
+}
+
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+SnareEditor#m_pEditor[Mode=Breaker] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-2-3;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+SnareEditor#m_pEditor[Mode=Breaker] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_spectra.png");
+    x:                                  $X-Drums-SubheadlineB-2-3;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+SnareEditor#m_pEditor[Mode=Breaker] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-2-3;
+    y:                                  $Y-Drums-Separator;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+// Skin tune
+SnareEditor[Mode=Breaker] Bar#ModalSkinTune
+{
+    x:                                  $X-Drums-2-3-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Impact
+SnareEditor[Mode=Breaker] Bar#ModalImpact
+{
+    x:                                  $X-Drums-2-3-Knob2;
+    y:                                  $Y-Drums;
+}
+
+// Tune
+SnareEditor[Mode=Breaker] Bar#ModalSpectraTune
+{
+    x:                                  $X-Drums-2-3-Knob3;
+    y:                                  $Y-Drums;
+}
+
+// Decay
+SnareEditor[Mode=Breaker] Bar#ModalSpectraDecay
+{
+    x:                                  $X-Drums-2-3-Knob4;
+    y:                                  $Y-Drums;
+}
+
+// Amount
+SnareEditor[Mode=Breaker] Bar#ModalSpectraAmount
+{
+    x:                                  $X-Drums-2-3-Knob5;
+    y:                                  $Y-Drums;
+}

@@ -1,0 +1,60 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// EXPORT AUDIO
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+DialogAudioExport Bar#body
+{
+    spacing:                            10;
+    min-height:                         330;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+DialogAudioExport Bar#left,
+DialogAudioExport Bar#right
+{
+    min-width:                          280;
+    spacing:                            10;
+    margin-top:                         12;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+DialogAudioExport Bar#destination
+{
+    min-height:                         100;
+    spacing:                            10;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+DialogAudioExport TextEdit
+{
+    image:                              url("Maschine/Dialogs/SharedDialogControls/DIALOG_LBL_TextEditBG.png");
+    picture-includes-margin:            true;
+    fixed-left:                         5;
+    fixed-right:                        5;
+
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+
+    background-color:                   no;
+    foreground-color:                   $colorWhite75;
+
+    selection-background-color:         $colorWhite20;
+    selection-foreground-color:         $colorWhite;
+
+    margin-left:                        7;
+    margin-right:                       4;
+    margin-top:                         5;
+    margin-bottom:                      4;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+DialogAudioExport Bar#pContainerBar
+{
+    outer-margin-bottom:                20;
+    height:                             24;
+}
+

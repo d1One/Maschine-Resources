@@ -1,0 +1,74 @@
+DialogUpgradedPlugins
+{
+    width:                          394;
+    height:                         374;
+}
+
+DialogUpgradedPlugins MultilineLabel#caption,
+DialogUpgradedPlugins MultilineLabel#note,
+DialogUpgradedPlugins Checkbox#notAgain
+{
+    outer-margin-left:              20;
+    outer-margin-right:             20;
+}
+
+DialogUpgradedPlugins MultilineLabel#caption
+{
+    outer-margin-top:               15;
+    outer-margin-bottom:            7;
+}
+
+DialogUpgradedPlugins MultilineLabel#note
+{
+    outer-margin-top:               15;
+    outer-margin-bottom:            2;
+}
+
+DialogUpgradedPlugins Checkbox#notAgain
+{
+    outer-margin-top:               5;
+    outer-margin-bottom:            16;
+
+    vertical-alignment:             top;
+}
+
+DialogUpgradedPlugins Button#close
+{
+    outer-margin-right:             20;
+}
+
+DialogUpgradedPlugins Checkbox#notAgain Button.DialogCheckboxText
+{
+    foreground-color:               $colorWhite;
+}
+
+DialogUpgradedPlugins Vector<Label>#list
+{
+    height:                         162;
+    outer-margin-left:              20;
+    outer-margin-right:             20;
+
+    image:                          url("Maschine/Dialogs/SharedDialogTexture/DIALOG_BG_FileList.png");
+    picture-includes-margin:        true;
+    fixed-top:                      10;
+    fixed-bottom:                   10;
+    fixed-left:                     10;
+    fixed-right:                    10;
+
+    margin-left:                    2;
+    margin-right:                   1;
+    margin-top:                     2;
+    margin-bottom:                  2;
+}
+
+DialogUpgradedPlugins Label.ListItem
+{
+    image:                          no;
+    background-color:               no;
+    foreground-color:               $colorWhite75;
+    horizontal-alignment:           left;
+
+    margin-right:                   5;
+    margin-top:                     1;
+    margin-left:                    5;
+}

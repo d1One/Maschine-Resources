@@ -1,0 +1,50 @@
+DialogNewFirmware
+{
+    width:                          430;
+    height:                         210;
+}
+
+DialogNewFirmware Label#caption,
+DialogNewFirmware Label#caption2,
+DialogNewFirmware Checkbox#notAgain
+{
+    outer-margin-right:             20;
+}
+
+DialogNewFirmware Label#caption2
+{
+    margin-top:                     -2;
+    vertical-alignment:             top;
+}
+
+DialogNewFirmware Button#m_pText
+{
+    horizontal-alignment:           left;
+}
+
+DialogNewFirmware Label#caption,
+DialogNewFirmware Label#caption2,
+DialogNewFirmware Checkbox#notAgain
+{
+    outer-margin-left:              21;
+}
+
+DialogNewFirmware Checkbox#notAgain
+{
+    outer-margin-top:               10;
+}
+
+DialogNewFirmware Label#caption
+{
+    outer-margin-top:               15;
+}
+
+DialogNewFirmware Checkbox#notAgain
+{
+    outer-margin-bottom:            16;
+}
+
+DialogNewFirmware Checkbox#notAgain Button.DialogCheckboxText
+{
+    foreground-color:               $colorWhite;
+}

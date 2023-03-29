@@ -1,0 +1,196 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// DISTORTION
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+DistortionEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png"); 
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-474;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+DistortionEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_distortion.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+
+
+// SEPARATORS
+//----------------------------------------------------------------------------------------------------------------------
+
+// MULHOLLAND MODE
+DistortionEditor#m_pEditor Bar#m_pParamSeparator[Mode=Mulholland]
+{
+    x:                                  290;
+}
+
+// ANALOG MODE
+DistortionEditor#m_pEditor Bar#m_pParamSeparator[Mode=Analog]
+{
+    x:                                  335;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// MODE SELECTOR SWITCH
+//--------------------------------------------------------------------------------------------------------
+
+DistortionEditor Bar#Mode
+{
+    x:                                  356;
+    y:                                  16;
+}
+
+
+
+//--------------------------------------------------------------------------------------------------------
+// CONTROLS
+//--------------------------------------------------------------------------------------------------------
+
+// MULHOLLAND MODE
+//--------------------------------------------------------------------------------------------------------
+
+// TOP ROW
+//--------------------------------------------------------------------------------------------------------
+
+// DRIVE
+DistortionEditor Bar#Amount
+{
+    x:                                  69;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// COLOR
+DistortionEditor Bar#Color
+{
+    x:                                  159;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// MIX
+DistortionEditor Bar#Mix
+{
+    x:                                  331;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+// BOTTOM ROW
+//--------------------------------------------------------------------------------------------------------
+
+// FEEDBACK
+DistortionEditor Bar#Feedback
+{
+    x:                                  24;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// TONE
+DistortionEditor Bar#Tone
+{
+    x:                                  114;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// TONE MOD
+DistortionEditor Bar#ToneMod
+{
+    x:                                  204;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// GATE SWITCH (ON/OFF)
+DistortionEditor Bar#Gate
+{
+    x:                                  295;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// DOTTED LINE
+DistortionEditor Bar#m_pDottedLines
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_dotline_distortion.png");
+    x:                                  356;
+    y:                                  151;
+}
+
+
+// RELEASE
+DistortionEditor Bar#Release
+{
+    x:                                  376;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+    
+
+
+
+
+// ANALOG MODE
+//--------------------------------------------------------------------------------------------------------
+
+// TOP ROW
+//--------------------------------------------------------------------------------------------------------
+
+// SATURATION
+DistortionEditor Bar#SaturationAnalog
+{
+    x:                                  36;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// BASS
+DistortionEditor Bar#BassAnalog
+{
+    x:                                  134;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// TONE
+DistortionEditor Bar#ToneAnalog
+{
+    x:                                  232;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+
+// BOTTOM ROW
+//--------------------------------------------------------------------------------------------------------
+
+// FOCUS SWITCH
+DistortionEditor Bar#FocusAnalog
+{
+    x:                                  82;
+    y:                                  $Y-FX-Switch-Bottom;
+}
+
+// DEFINITION
+DistortionEditor Bar#DefinitionAnalog
+{
+    x:                                  183;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+
+}
+
+
+
+// RIGHT SIDE
+//--------------------------------------------------------------------------------------------------------
+
+// MIX
+DistortionEditor Bar#MixAnalog
+{
+    x:                                  364;
+    y:                                  $Y-FX-BigKnob-Top;
+}

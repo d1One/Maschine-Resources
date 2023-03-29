@@ -1,0 +1,274 @@
+//----------------------------------------------------------------------------------------------------------------------
+// JAM PARAMETER OVERLAY STYLESHEET IMPORTS
+// Changes made below here should also be made in ParameterAreaJam.txt and vice versa
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// IMPORTANT
+
+// The order of entries in this list is the order of how the stylesheets will be loaded,
+// Definitions have to be on top of the list!
+
+
+// DEFINITIONS
+@import url("Maschine/Definitions/Metrics.txt");
+@import url("Maschine/Definitions/Colors.txt");
+@import url("Maschine/Definitions/Fonts.txt");
+@import url("Maschine/Definitions/Cursors.txt");
+@import url("Maschine/Definitions/Animations.txt");
+
+// DEVELOPMENT RESOURCES
+@import url("Maschine/Standard/Labels.txt");
+
+
+
+
+
+
+
+
+// CONTROL PANEL
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// CONTROL PANEL MAIN CONTAINER
+Bar#JamParameterPanelBig
+{
+    background-color:           no;
+    image:                      url("Maschine/ParameterAreaJam/PA_Dropshadow.png");
+    picture-includes-margin:    true;
+    height:                     243;
+    width:                      1253;
+    fixed-left:                 70;
+    fixed-right:                70;
+    fixed-top:                  70;
+    fixed-bottom:               70;
+    margin:                     33;
+}
+
+
+
+
+// HEADER CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+
+
+Bar#JamParameterPanelBig Bar#m_header
+{
+    background-color:           no;
+    image:                      url("Maschine/ParameterAreaJam/PA_BG_Header.png");
+    fixed-left:                 4;
+    fixed-right:                4;   
+    height:                     32;
+    width:                      1183;
+    outer-margin-top:           2;
+    outer-margin-left:          2;
+}
+
+
+//NI ICON
+Bar#JamParameterPanelBig Bar#pBarRight
+{
+    image:                      url("Maschine/ParameterAreaJam/Header_Logo_NI.png");
+    margin-right:               10;
+    margin-top:                 6;   
+}
+
+
+
+
+
+
+
+
+// BODY
+//----------------------------------------------------------------------------------------------------------------------
+
+
+Bar#JamParameterPanelBig Bar#pSectionNameBar
+{
+    width:                      1183;
+    height:                     30;
+}
+
+
+
+
+Bar#JamParameterPanelBig Label#SectionNameLabel
+{
+    width:                      147;
+    margin-top:                 9;
+    margin-left:                15;
+    font-name:                  $fontPragmaticaLight;
+    font-size:                  16;
+    foreground-color:           $colorWhite75;
+    horizontal-alignment:       left;
+    vertical-alignment:         top;
+}
+
+
+
+
+Bar#JamParameterPanelBig Bar#pPanel
+{
+    background-color:           no; 
+    image:                      url("Maschine/ParameterAreaJam/PA_BG_Body.png");
+    fixed-left:                 4;
+    fixed-right:                4; 
+    height:                     140;
+    width:                      1183;
+    outer-margin-top:           1;
+    outer-margin-left:          2;
+}
+
+
+
+
+Bar#JamParameterPanelBig Bar#pParameterBar
+{
+    margin-top:                 7;
+}
+
+
+
+
+Bar#JamParameterPanelBig Label#ParameterDividerLabel
+{
+    width:                      1;
+    height:                     76;
+    outer-margin-top:           6;
+    image:                      url("Maschine/ParameterAreaJam/PA_ParameterDivider.png");
+}
+
+
+
+
+// HEADER LABELS
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// TITLE
+Bar#JamParameterPanelBig Label#m_pTitle
+{
+    font-name:                  $fontPragmaticaLight;
+    font-size:                  16;
+    foreground-color:           $colorWhite;
+    horizontal-alignment:       left;
+    margin-left:                15;     
+    margin-top:                 -1;              
+}
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// PARAMETER WIDGET
+//----------------------------------------------------------------------------------------------------------------------
+
+
+Bar#JamParameterPanelBig Bar#ParameterWidgetJam
+{
+    width:                      147;
+    height:                     98;    
+    background-color:           no;	
+}
+
+
+Bar#JamParameterPanelBig Bar#ParameterWidgetJam:selected
+{
+    animation-index:            2;
+}
+
+
+Bar#JamParameterPanelBig Bar#ParameterWidgetJam[Focused=true][Editing=false]
+{
+    foreground-color:           $colorWhite;
+}
+
+
+Bar#JamParameterPanelBig Bar#ParameterWidgetJam[Focused=true][Editing=true]
+{
+    image:                      url("Maschine/ParameterAreaJam/PA_Focus.png");
+}
+
+
+
+
+
+
+
+
+// PARAMETER WIDGET JAM LABELS
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// NAME LABEL
+//----------------------------------------------------------------------------------------------------------------------
+Bar#JamParameterPanelBig Bar#ParameterWidgetJam Label#m_pName
+{
+    height:                     49;
+    margin-top:                 6;
+    font-name:                  $fontPragmatica;
+    font-size:                  16;
+    vertical-alignment:         top;
+    horizontal-alignment:       center;
+    foreground-color:           $colorWhite75;
+}
+
+
+Bar#JamParameterPanelBig Bar#ParameterWidgetJam[Editing=true] Label#m_pName
+{
+    foreground-color:           $colorWhite;
+}
+
+
+Bar#JamParameterPanelBig Bar#ParameterWidgetJam[Focused=true][Editing=false] Label#m_pName,
+Bar#JamParameterPanelBig Bar.RandomApplyButton Label#m_pName
+{
+    image:                      url("Maschine/ParameterAreaJam/PA_Cursor.png");
+}
+
+
+Bar#JamParameterPanelBig Bar#ParameterWidgetJam[Focused=true][Editing=false] Label#m_pName,
+Bar#JamParameterPanelBig Bar.RandomApplyButton Label#m_pName
+{
+    foreground-color:           $colorWhite90; 
+}
+
+
+
+// VALUE LABEL
+//----------------------------------------------------------------------------------------------------------------------
+Bar#JamParameterPanelBig Bar#ParameterWidgetJam Label#m_pValue
+{
+	width:                      147;
+    height:                     49;
+    margin-top:                 5;
+    font-name:                  $fontPragmatica;
+    font-size:                  24;
+    vertical-alignment:         center;
+    horizontal-alignment:       center;
+    foreground-color:           $colorWhite75;
+}
+
+
+Bar#JamParameterPanelBig Bar#ParameterWidgetJam[Focused=true] Label#m_pValue
+{
+    foreground-color:           $colorWhite90; 
+}
+
+Bar#JamParameterPanelBig Bar#ParameterWidgetJam[Editing=true] Label#m_pValue
+{
+    foreground-color:           $colorWhite;
+}
+
+Bar#JamParameterPanelBig Bar#ParameterWidgetJam[Focused=true][Editing=false][Pressed=true] Label#m_pValue
+{
+    foreground-color:           $colorWhite60;
+}
+
+

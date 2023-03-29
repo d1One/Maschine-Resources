@@ -1,0 +1,535 @@
+@define $polySynthFirstLine 69;
+@define $polySynthSecondLine 191;
+@define $polySynthThirdLine 273;
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// POLYSYNTH
+//----------------------------------------------------------------------------------------------------------------------
+
+PolySynthEditor
+{
+    height: 388;
+    width: 862;
+}
+
+PolySynthEditor[Mode=Main]
+{
+    image: url("Maschine/InternalModules/PolySynth/intmod_polysynth_bg_main.png");
+}
+
+PolySynthEditor[Mode=Modulation]
+{
+    image: url("Maschine/InternalModules/PolySynth/intmod_polysynth_bg_mod.png");
+}
+
+
+PolySynthEditor MultiTabParameterWidget#multiTab
+{
+    height: 388;
+    width: 862;
+}
+
+
+// HEADLINE
+PolySynthEditor Bar#m_pModuleName
+{
+    image: url("Maschine/InternalModules/PolySynth/intmod_polysynth_headline.png");
+    x: 22;
+    y: 12;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// HEADER
+//----------------------------------------------------------------------------------------------------------------------
+
+PolySynthEditor Bar#m_pHeader
+{
+    outer-margin-left: $X-FX-Headline;
+    outer-margin-top: $Y-FX-Headline;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// HEADER BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// MAIN BUTTON
+PolySynthEditor Bar#m_pHeader Button#multiTab1
+{
+    image: url("Maschine/InternalModules/PolySynth/PolySynth_BTN_HeaderTab_Main.png");
+    animations: 7;
+    foreground-color: no;
+    x: 346;
+}
+
+// MODULATION BUTTON
+PolySynthEditor Bar#m_pHeader Button#multiTab2
+{
+    image: url("Maschine/InternalModules/PolySynth/PolySynth_BTN_HeaderTab_Modulation.png");
+    animations: 7;
+    foreground-color: no;
+    x: 436;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// OSCILLATOR A
+//----------------------------------------------------------------------------------------------------------------------
+
+PolySynthEditor Bar#OscAFrequency
+{
+    x: 20;
+    y: $polySynthFirstLine;
+}
+
+PolySynthEditor Bar#OscASync
+{
+    x: 90;
+    y: $polySynthFirstLine;
+}
+
+PolySynthEditor Bar#OscASaw
+{
+    x: 160;
+    y: $polySynthFirstLine;
+}
+
+PolySynthEditor Bar#OscAPulse
+{
+    x: 230;
+    y: $polySynthFirstLine;
+}
+
+PolySynthEditor Bar#OscAPWM
+{
+    x: 300;
+    y: $polySynthFirstLine;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// MIXER
+//----------------------------------------------------------------------------------------------------------------------
+
+PolySynthEditor Bar#MixerOscA
+{
+    x: 394;
+    y: $polySynthFirstLine;
+}
+
+PolySynthEditor Bar#MixerOscB
+{
+    x: 394;
+    y: $polySynthSecondLine;
+}
+
+PolySynthEditor Bar#MixerNoise
+{
+    x: 394;
+    y: $polySynthThirdLine;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// OSCILLATOR B
+//----------------------------------------------------------------------------------------------------------------------
+
+PolySynthEditor Bar#OscBTune
+{
+    x: 20;
+    y: $polySynthSecondLine;
+}
+
+PolySynthEditor Bar#OscBSaw
+{
+    x: 90;
+    y: $polySynthSecondLine;
+}
+
+PolySynthEditor Bar#OscBTriangle
+{
+    x: 160;
+    y: $polySynthSecondLine;
+}
+
+PolySynthEditor Bar#OscBPulse
+{
+    x: 230;
+    y: $polySynthSecondLine;
+}
+
+PolySynthEditor Bar#OscBPWM
+{
+    x: 300;
+    y: $polySynthSecondLine;
+}
+
+PolySynthEditor Bar#OscBFine
+{
+    x: 20;
+    y: $polySynthThirdLine;
+}
+
+PolySynthEditor Bar#OscBLowFreq
+{
+    x: 90;
+    y: $polySynthThirdLine;
+}
+
+PolySynthEditor Bar#OscBKeyFollow
+{
+    x: 160;
+    y: $polySynthThirdLine;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// FILTER
+//----------------------------------------------------------------------------------------------------------------------
+
+PolySynthEditor Bar#FilterCutoff
+{
+    x: 488;
+    y: $polySynthSecondLine;
+}
+
+PolySynthEditor Bar#FilterResonance
+{
+    x: 558;
+    y: $polySynthSecondLine;
+}
+
+PolySynthEditor Bar#FilterEnvAmount
+{
+    x: 628;
+    y: $polySynthSecondLine;
+}
+
+PolySynthEditor Bar#FilterKeyFollow
+{
+    x: 698;
+    y: $polySynthSecondLine;
+}
+
+PolySynthEditor Bar#FilterMode
+{
+    x: 768;
+    y: $polySynthSecondLine;
+
+    width: 74;
+    height: 66;
+}
+
+PolySynthEditor Bar#FilterAttack
+{
+    x: 488;
+    y: $polySynthThirdLine;
+}
+
+PolySynthEditor Bar#FilterDecay
+{
+    x: 558;
+    y: $polySynthThirdLine;
+}
+
+PolySynthEditor Bar#FilterSustain
+{
+    x: 628;
+    y: $polySynthThirdLine;
+}
+
+PolySynthEditor Bar#FilterRelease
+{
+    x: 698;
+    y: $polySynthThirdLine;
+}
+
+PolySynthEditor Bar#FilterInvertEnvelope
+{
+    x: 768;
+    y: $polySynthThirdLine;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// AMP
+//----------------------------------------------------------------------------------------------------------------------
+
+PolySynthEditor Bar#AmpAttack
+{
+    x: 488;
+    y: $polySynthFirstLine;
+}
+
+PolySynthEditor Bar#AmpDecay
+{
+    x: 558;
+    y: $polySynthFirstLine;
+}
+
+PolySynthEditor Bar#AmpSustain
+{
+    x: 628;
+    y: $polySynthFirstLine;
+}
+
+PolySynthEditor Bar#AmpRelease
+{
+    x: 698;
+    y: $polySynthFirstLine;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// VOICES
+//----------------------------------------------------------------------------------------------------------------------
+
+PolySynthEditor Bar#VoiceGlide
+{
+    x: 20;
+    y: $polySynthFirstLine;
+}
+
+PolySynthEditor Bar#VoiceMode
+{
+    x: 90;
+    y: $polySynthFirstLine;
+
+    width: 74;
+    height: 66;
+}
+
+PolySynthEditor Bar#VoiceCount
+{
+    x: 160;
+    y: $polySynthFirstLine;
+
+    width: 74;
+    height: 66;
+}
+
+PolySynthEditor Bar#VoiceDetune
+{
+    x: 230;
+    y: $polySynthFirstLine;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// GLOBAL
+//----------------------------------------------------------------------------------------------------------------------
+
+PolySynthEditor Bar#GlobalTune
+{
+    x: 20;
+    y: $polySynthSecondLine;
+}
+
+PolySynthEditor Bar#GlobalVelocity
+{
+    x: 90;
+    y: $polySynthSecondLine;
+}
+
+PolySynthEditor Bar#GlobalRelease
+{
+    x: 160;
+    y: $polySynthSecondLine;
+}
+
+PolySynthEditor Bar#GlobalHold
+{
+    x: 230;
+    y: $polySynthSecondLine;
+}
+
+PolySynthEditor Bar#GlobalPitchbendRange
+{
+    x: 20;
+    y: $polySynthThirdLine;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// POLY MOD
+//----------------------------------------------------------------------------------------------------------------------
+
+PolySynthEditor Bar#PolyModSrcFilterEnv
+{
+    x: 324;
+    y: $polySynthSecondLine;
+}
+
+PolySynthEditor Bar#PolyModSrcOscB
+{
+    x: 394;
+    y: $polySynthSecondLine;
+}
+
+PolySynthEditor Bar#PolyModDstFreqA
+{
+    x: 324;
+    y: $polySynthThirdLine;
+}
+
+PolySynthEditor Bar#PolyModDstPWA
+{
+    x: 394;
+    y: $polySynthThirdLine;
+}
+
+PolySynthEditor Bar#PolyModDstFilter
+{
+    x: 464;
+    y: $polySynthThirdLine;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// LFO
+//----------------------------------------------------------------------------------------------------------------------
+
+PolySynthEditor Bar#LFOFreq
+{
+    x: 324;
+    y: $polySynthFirstLine;
+}
+
+PolySynthEditor Bar#LFOMode
+{
+    x: 394;
+    y: $polySynthFirstLine;
+
+    width: 74;
+    height: 66;
+}
+
+PolySynthEditor Bar#LFOEnvTrig
+{
+    x: 464;
+    y: $polySynthFirstLine;
+}
+
+PolySynthEditor Bar#LFOSaw
+{
+    x: 558;
+    y: $polySynthFirstLine;
+}
+
+PolySynthEditor Bar#LFOTriangle
+{
+    x: 628;
+    y: $polySynthFirstLine;
+}
+
+PolySynthEditor Bar#LFOPulse
+{
+    x: 698;
+    y: $polySynthFirstLine;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// MODULATION
+//----------------------------------------------------------------------------------------------------------------------
+
+PolySynthEditor Bar#ModulationAmount
+{
+    x: 558;
+    y: $polySynthSecondLine;
+}
+
+PolySynthEditor Bar#ModulationLFONoiseMix
+{
+    x: 628;
+    y: $polySynthSecondLine;
+}
+
+PolySynthEditor Bar#ModulationDstFilter
+{
+    x: 698;
+    y: $polySynthSecondLine;
+}
+
+PolySynthEditor Bar#ModulationDstFreqA
+{
+    x: 558;
+    y: $polySynthThirdLine;
+}
+
+PolySynthEditor Bar#ModulationDstFreqB
+{
+    x: 628;
+    y: $polySynthThirdLine;
+}
+
+PolySynthEditor Bar#ModulationDstPWA
+{
+    x: 698;
+    y: $polySynthThirdLine;
+}
+
+PolySynthEditor Bar#ModulationDstPWB
+{
+    x: 768;
+    y: $polySynthThirdLine;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// INCREASE / DECREASE BUTTON
+//----------------------------------------------------------------------------------------------------------------------
+
+PolySynthEditor Bar#FilterMode Stack#m_pParameterStack,
+PolySynthEditor Bar#LFOMode Stack#m_pParameterStack,
+PolySynthEditor Bar#VoiceCount Stack#m_pParameterStack,
+PolySynthEditor Bar#VoiceMode Stack#m_pParameterStack
+{
+    height: 40;
+    width: 74;
+}
+
+// VALUE DISPLAY
+PolySynthEditor Bar#FilterMode Button#m_pEnumValue,
+PolySynthEditor Bar#LFOMode Button#m_pEnumValue,
+PolySynthEditor Bar#VoiceCount Button#m_pEnumValue,
+PolySynthEditor Bar#VoiceMode Button#m_pEnumValue
+{
+    image: no;
+    foreground-color-palette: 12;
+    margin-top: 1;
+    x: 18;
+    y: 0;
+    width: 28;
+}
+
+PolySynthEditor Bar#FilterMode Bar#m_pEnumBar,
+PolySynthEditor Bar#LFOMode Bar#m_pEnumBar,
+PolySynthEditor Bar#VoiceCount Bar#m_pEnumBar,
+PolySynthEditor Bar#VoiceMode Bar#m_pEnumBar
+{
+    image: url("Maschine/ParameterArea/PA_BTN_EnumDisplay.png");
+    fixed-left: 10;
+    fixed-right: 10;
+    fixed-top: 3;
+    fixed-bottom: 3;
+    outer-margin-top: 12;
+    outer-margin-left: 5;
+    height: 17;
+    width: 64;
+}
+
+// DECREASE
+PolySynthEditor Bar#FilterMode Button#m_pEnumDec,
+PolySynthEditor Bar#LFOMode Button#m_pEnumDec,
+PolySynthEditor Bar#VoiceCount Button#m_pEnumDec,
+PolySynthEditor Bar#VoiceMode Button#m_pEnumDec
+{
+    image: url("Shared/InternalModules/SharedControls/intmod_modemenu_btn_left.png");
+    animations: 7;
+    x: 0;
+    y: 0;
+    foreground-color: no;
+}
+
+// INCREASE
+PolySynthEditor Bar#FilterMode Button#m_pEnumInc,
+PolySynthEditor Bar#LFOMode Button#m_pEnumInc,
+PolySynthEditor Bar#VoiceCount Button#m_pEnumInc,
+PolySynthEditor Bar#VoiceMode Button#m_pEnumInc
+{
+    image: url("Shared/InternalModules/SharedControls/intmod_modemenu_btn_right.png");
+    animations: 7;
+    x: 46;
+    y: 0;
+    foreground-color: no;
+}

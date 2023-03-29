@@ -1,0 +1,6 @@
+Label#BottomIcon[icon=pressencoder]
+{
+    foreground-color: no;
+    background-color: no;
+    image: $icon-pressencoder;
+}

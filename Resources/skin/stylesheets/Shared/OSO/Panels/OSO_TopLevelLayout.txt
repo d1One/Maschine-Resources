@@ -1,0 +1,49 @@
+//----------------------------------------------------------------------------------------------------------------------
+// ON SCREEN OVERLAY TOP LEVEL LAYOUT
+//----------------------------------------------------------------------------------------------------------------------
+
+// FULLSCREEN DARKENING
+Bar#OnScreenOverlayBackground
+{
+    oso-background-color:           rgba(0,0,0,78);    // 30%
+}
+
+
+
+
+
+// MAIN BACKGROUND (CONTAINS WINDOW SHADOW)
+Bar#OnScreenOverlay
+{
+    // STYLING WITH SHADOW
+
+    background-color:               no;
+
+    image:                          url("Shared/OSO/Global/Global_OSO_DropShadow.png");
+    picture-includes-margin:        true;
+
+    fixed-left:                     70;
+    fixed-right:                    70;
+    fixed-top:                      70;
+    fixed-bottom:                   70;
+
+    width:                          1090;
+    height:                         833;
+
+    margin:                         35;
+}
+
+
+
+// HEADER
+OnScreenOverlayHeader
+{
+    outer-margin-bottom:            2;
+}
+
+
+// TAG AREA / RESULT LIST SPACING
+Bar#OnScreenOverlay Bar#m_pBrowserWidget
+{
+    spacing:                        1;
+}

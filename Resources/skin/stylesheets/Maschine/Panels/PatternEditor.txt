@@ -1,0 +1,967 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// PATTERN EDITOR
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Bar#m_pGroupPanel Bar#pPatternEditing
+{
+    min-height:                         174;    // Fit sampler zone parameters for now
+    spacing:                            0;
+}
+
+Bar#m_pGroupPanel Bar#m_pPatternEditor
+{
+    spacing:                            0;
+    min-bars:                           4;
+    canvas-size-correction:             1.5;
+    song-view-margin-width:             40;
+}
+
+Bar#m_pGroupPanel Bar#m_pPatternEditor Stack#m_pEditorStack::Vector::Bar#widgets,    // Selector has to be like that, otherwise, Popup Menus in Pattern Grip will be fucked
+Bar#m_pGroupPanel ClipEditorSW#m_clipEditor Stack#m_body::Vector::Bar#widgets
+{
+    spacing:                            0;    // No spacing between drumgrid rows, don't change!
+    background-color:                   rgb(50,50,50);
+}
+
+ClipEditorSW Stack#body
+{
+    min-height:                         167;
+    background-color:                   rgb(50,50,50);
+}
+
+// Splitter between Pattern Editor / Modulation, Handle for scaling
+Bar#m_pGroupPanel Bar#pColumns Splitter#m_pSplitterModulation,
+ClipEditorSW Splitter#m_modulationSplitter
+{
+    background-color:                   rgba(0,0,0,0);
+    height:                             7;
+    outer-margin-top:                   -3;
+    outer-margin-bottom:                -3;
+    z-index:                            1;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Clip Editor Header
+//----------------------------------------------------------------------------------------------------------------------
+
+ClipEditorHeader
+{
+    height: 23;
+    background-color: $StandardBackgroundGrey;
+    border-color: $colorBlack
+}
+
+// Pattern Lane
+//----------------------------------------------------------------------------------------------------------------------
+
+ClipEditorHeader::PatternLane::Pattern
+{
+    dye-mask: url("Maschine/PatternEditor/PE_Pattern_Mask.png");
+
+    dye-color-palette: 1;
+
+    image: url("Maschine/PatternEditor/PE_Pattern_Overlay.png");
+
+    font-name: $fontPragmatica;
+    font-size: 11;
+    foreground-color: $colorBlack75;
+    foreground-color-palette: no;
+
+    fixed-left: 2;
+    fixed-right: 2;
+    fixed-top: 2;
+    fixed-bottom:2 ;
+
+    picture-includes-margin: true;
+    margin-left: 7;
+    margin-right: 7;
+}
+
+// Clip Lane
+//----------------------------------------------------------------------------------------------------------------------
+
+ClipEditorHeader::ClipLane
+{
+    cursor-mouse-move-start-picture-hotspot-x:  6;
+    cursor-mouse-move-start-picture-hotspot-y:  5;
+    cursor-mouse-move-start-picture:            url("Maschine/Cursor/CURSOR_ResizeMidiNoteLeft.png");
+    cursor-mouse-move-end-picture-hotspot-x:    4;
+    cursor-mouse-move-end-picture-hotspot-y:    5;
+    cursor-mouse-move-end-picture:              url("Maschine/Cursor/CURSOR_ResizeMidiNoteRight.png");
+}
+
+ClipEditorHeader::ClipLane::Clip
+{
+    dye-mask: url("Maschine/PatternEditor/PE_Clip_Mask_3px.png");
+    dye-mask-animations: 2;
+
+    dye-color-palette: 1;
+
+    image: url("Maschine/PatternEditor/PE_Clip_Overlay_3px.png");
+    animations: 4;
+
+    font-name: $fontPragmatica;
+    font-size: 11;
+    foreground-color: $colorBlack75;
+    foreground-color-palette: no;
+
+    fixed-left: 5;
+    fixed-right: 5;
+    fixed-top: 5;
+    fixed-bottom: 5;
+
+    picture-includes-margin: true;
+    margin-left: 8;
+    margin-right: 8;
+
+    dye-mask-animation-index: 0;
+    animation-index: 0;
+}
+
+// use same style for "focused" and "selected" states
+ClipEditorHeader::ClipLane::Clip[SelectionMode=Focused],
+ClipEditorHeader::ClipLane::Clip[SelectionMode=Selected]
+{
+    animation-index: 1;
+}
+
+FocusClipBackgroundHighlight
+{
+    background-color: rgba(255,255,255,12)
+}
+
+
+
+// Shade
+Bar#m_pPatternEditor Label#m_pShadeStart,
+Bar#m_pPatternEditor Label#m_pShadeEnd
+{
+    background-color:                   rgba(0,0,0,80);
+    min-width:                          0;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Pattern Editor Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pPatternEditorHeader
+{
+    // Common part with ArrangerHeader
+    background-color:                   rgb(50,50,50);
+    border-color:                       rgb(50,50,50);
+    color-palette:                      1;
+    height:                             22;
+    font-name:                          $fontPragmatica;
+    font-size:                          10;
+}
+
+
+// PATTERN NAME BUTTON
+Bar#m_pPatternEditorHeader Button#m_pName
+{
+    image:                              no;
+    background-color:                   no;
+    foreground-color-palette:           1;
+
+    margin-left:                        8;
+    horizontal-alignment:               left;
+}
+
+
+
+
+// PATTERN LENGTH LABEL
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pPatternEditorHeader Label#m_pPatternLengthLabel
+{
+    foreground-color:                   $colorWhite50;
+    width:                              44;
+    outer-margin-right:                 4;
+    margin-top:                         1;
+}
+
+Bar#m_pPatternEditorHeader Label#m_patternStartLabel
+{
+    foreground-color:                   $colorWhite50;
+    width:                              31;
+    outer-margin-right:                 4;
+    margin-top:                         1;
+}
+
+// PATTERN LENGTH DRAGGER
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pPatternEditorHeader Bar#m_pPatternLength,
+Bar#m_pPatternEditorHeader Bar#m_patternStart
+{
+    width:                              45;
+    outer-margin-right:                 4;
+}
+
+
+
+Bar#m_pPatternEditor Bar#m_pHeader PatternEditorTimeline#PatternEditorTimeline Label#m_pPatternEndDraggerLabel
+{
+    foreground-color-palette:           no;
+}
+
+
+
+// Container for Pattern Length Display
+Bar#m_pPatternEditorHeader Bar#m_pPatternLength Label#pDraggerContainer,
+Bar#m_pPatternEditorHeader Bar#m_patternStart Label#pDraggerContainer
+{
+    width:                              46;
+    outer-margin-right:                 0;
+    horizontal-alignment:               left;
+}
+
+
+
+// Pattern Length Display Label
+Bar#m_pPatternEditorHeader Bar#m_pPatternLength Label#m_pLabel,
+Bar#m_pPatternEditorHeader Bar#m_patternStart Label#m_pLabel
+{
+    width:                              46;
+    height:                             22;
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    foreground-color:                   $colorWhite;
+    horizontal-alignment:               left;
+    margin-top:                         1;
+    margin-left:                        1;
+}
+
+
+
+// Pattern Length Dragger
+Bar#m_pPatternEditorHeader Bar#m_pPatternLength Dragger#m_pDragger,
+Bar#m_pPatternEditorHeader Bar#m_patternStart Dragger#m_pDragger
+{
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+
+    foreground-color:                   $colorWhite;
+
+    width:                              46;
+    height:                             22;
+    horizontal-alignment:               left;
+    margin-top:                         1;
+    margin-left:                        1;
+}
+
+
+
+// MIDI DRAG
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pPatternEditorHeader Button#m_pDragButtonMidi
+{
+    image:                              url("Maschine/PatternEditor/PE_BTN_DragMidi.png");
+    animations:                         7;
+    background-color:                   $colorWhite;
+}
+
+
+
+// AUDIO DRAG
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pPatternEditorHeader Button#m_pDragButtonAudio
+{
+    image:                              url("Maschine/PatternEditor/PE_BTN_DragAudio.png");
+    animations:                         7;
+    background-color:                   $colorWhite;
+    outer-margin-right:                 12;
+}
+
+Bar#m_pPatternEditorHeader Button#m_pDragButtonMidi:selected,
+Bar#m_pPatternEditorHeader Button#m_pDragButtonAudio:selected,
+Bar#m_pPatternEditorHeader Button#m_pDragButtonMidi:!selected:down,
+Bar#m_pPatternEditorHeader Button#m_pDragButtonAudio:!selected:down,
+Bar#m_pPatternEditorHeader Button#m_pDragButtonMidi:selected:down,
+Bar#m_pPatternEditorHeader Button#m_pDragButtonAudio:selected:down,
+Bar#m_pPatternEditorHeader Button#m_pDragButtonMidi:selected:over,
+Bar#m_pPatternEditorHeader Button#m_pDragButtonAudio:selected:over
+{
+    background-color:                   $colorWhite;
+}
+
+Bar#m_pPatternEditorHeader Button#m_pDragButtonMidi:!selected:over,
+Bar#m_pPatternEditorHeader Button#m_pDragButtonAudio:!selected:over
+{
+    background-color:                   $colorWhite;
+}
+
+Bar#m_pPatternEditorHeader Button#m_pDragButtonMidi:!enabled,
+Bar#m_pPatternEditorHeader Button#m_pDragButtonAudio:!enabled
+{
+    background-color:                   $colorWhite30;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// PATTERN EDITOR TIMELINE
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER AROUND TIMELINE
+Bar#m_pGroupPanel Bar#pColumns Bar#m_pUpper Bar#m_pHeader
+{
+    background-color:                   rgb(0,0,0);
+    height:                             19;
+    margin:                             0;
+    spacing:                            0;
+}
+
+
+// TIMELINE
+Timeline,
+PatternEditorTimeline
+{
+    background-color:                   rgb(50,50,50);
+    foreground-color:                   $colorTimelineNumbers;
+    border-color:                       rgb(0,0,0);
+
+    beatin-color:                       rgb(148,148,148);
+    beatout-color:                      rgb(79,79,79);
+    barin-color:                        rgb(204,204,204);
+    barout-color:                       rgb(79,79,79);
+    timein-color:                       rgb(156,156,156);
+    timeout-color:                      rgb(79,79,79);
+
+    bg-out-overlay-color:               no;
+
+    margin:                             0;
+    min-width:                          $defaultWidth;
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    horizontal-alignment:               left;
+
+    height:                             18;
+
+    outer-margin-top:                   1;
+
+    left-text-offset:                   6;
+    top-text-offset:                    0;
+}
+
+
+// PATTERN END DRAGGER
+
+PatternEditorTimeline Label#m_pPatternStartDraggerLabel
+{
+    image:                              url("Maschine/PatternEditor/PE_HNDL_PatternStart.png");
+    margin-left:                        1;
+    foreground-color:                   no;
+}
+
+PatternEditorTimeline Label#m_pPatternEndDraggerLabel
+{
+    image:                              url("Maschine/PatternEditor/PE_HNDL_PatternEnd.png");
+    foreground-color:                   no;
+}
+
+
+PatternEditorTimeline Label:!enabled
+{
+    foreground-color:                   no;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// PATTERN EDITOR SCROLL VALUES
+//----------------------------------------------------------------------------------------------------------------------
+
+PatternEditorTimeline
+{
+    scroll-slow-fast-margin:            32;
+    scroll-slow-step:                   1;
+    scroll-fast-step:                   15;
+    scroll-timer-step:                  1;
+    active-range-color:                 rgb(72,72,72);
+}
+
+PatternEditorTimeline[Growing=true]
+{
+    active-range-color:                 rgb(50,50,50);
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// PATTERN EDITOR GRID
+//----------------------------------------------------------------------------------------------------------------------
+
+@define $heightDrumGridLane             41;
+@define $colorHorizontalGridLine        rgb(30,30,30);
+
+ClipEditorSWDrumGridLane,
+PatternEditorGrid
+{
+    min-width:                          $defaultWidth;
+    min-height:                         $sizeTrackHeight;
+    horizontal-alignment:               right;
+
+    color-separator:                    rgb(40,40,40);             // horizontal separator every 4 sound
+    color-drumgrid-border:              rgb(40,40,40);          // horizontal external border color
+    color-drumgrid-border-light:        rgb(50,50,50);          // horizontal internal border lightline
+
+    bg-out-overlay-color:               rgba(0,0,0,80);     // right grey overlay
+    bg-selection-color:                 $colorWhite30;       // selected area color
+    focus-sound-highlight-color:        $colorWhite5;        // selected sound background color
+
+    color-playmarker:                   $colorWhite;
+
+    foreground-color:                   $colorWidgetText;
+
+    font-name:                          $fontPragmatica;
+    font-size:                          10;
+
+    color-snap-out:                     $colorV-GridSubLine;    // vertical subdivision line
+    color-snap-in:                      $colorV-GridSubLine;
+    color-beat-out:                     $colorV-GridMainLine;   // vertical beat line
+    color-beat-in:                      $colorV-GridMainLine;
+    color-bar-out:                      $colorV-GridMainLine;   // vertical bar line
+    color-bar-in:                       $colorV-GridMainLine;
+}
+
+ClipEditorSWPianoLane,
+ClipEditorSWDrumGridLane,
+PatternEditorGrid
+{
+    bg-grid-color:                      rgb(50,50,50);          // background color
+}
+
+ClipEditorSWPianoLane::GridLane,
+ClipEditorSWDrumGridLane::GridLane
+{
+    snap-color:                     $colorV-GridSubLine;
+    beat-color:                     $colorV-GridMainLine;
+    bar-color:                      $colorV-GridMainLine;
+}
+
+// DEFAULT SIZE
+ClipEditorSWDrumGridLane,
+Vector<PatternEditorGrid>#m_pDrumgridVector PatternEditorGrid
+{
+    height:                            $sizeTrackHeight;
+}
+
+// DOUBLE SIZE
+ClipEditorSWDrumGridLane[zoom-y=true],
+Vector<PatternEditorGrid>#m_pDrumgridVector PatternEditorGrid[zoom-y=true]
+{
+    height:                             $sizeTrackHeight-x2;
+}
+
+ClipEditorSWDrumGridLane,
+ClipEditorSWPianoLane
+{
+    // RESIZING MOUSE CURSORS
+    cursor-mouse-move-start-picture-hotspot-x:  6;
+    cursor-mouse-move-start-picture-hotspot-y:  5;
+    cursor-mouse-move-start-picture:            url("Maschine/Cursor/CURSOR_ResizeMidiNoteLeft.png");
+    cursor-mouse-move-end-picture-hotspot-x:    4;
+    cursor-mouse-move-end-picture-hotspot-y:    5;
+    cursor-mouse-move-end-picture:              url("Maschine/Cursor/CURSOR_ResizeMidiNoteRight.png");
+    cursor-draw-picture-hotspot-x:              2;
+    cursor-draw-picture-hotspot-y:              16;
+    cursor-draw-picture:                        url("Maschine/Cursor/CURSOR_Draw.png");
+}
+
+
+// DRUM GRID WAVEDISPLAY
+//----------------------------------------------------------------------------------------------------------------------
+
+@define $colordWaveDefaultMuted         rgb(90,90,90);
+@define $colordWaveMutedActive          rgb(102,102,102);
+@define $colordWaveMutedGate            rgb(118,118,118);
+@define $colordWaveMutedLooped      	rgb(79,79,79);
+
+@define $paletteWaveActive              17; // Basic 16 colors with 20% rgb(50,50,50) to desaturate
+@define $paletteWaveActiveGate          1;  // Basic 16 colors
+@define $paletteWaveActiveLoop          24; // Basic 16 colors with 75% rgb(50,50,50) to desaturate
+@define $paletteWaveActiveClips         1;  // Basic 16 colors
+@define $paletteWaveActiveLoopClips     19;
+
+
+
+// GENERIC
+ClipEditorSWDrumGridLane ClipAudioLane,
+PatternEditorGrid[Drumgrid=true] WaveDisplayWidget
+{
+    background-color:                   no;
+    background-disabled-color:          no;
+    decibel-line-color:                 no;
+    waveform-color-palette:             no;
+    waveform-disabled-color-palette:    no;
+    active-waveform-disabled-color-palette: 21;
+    active-waveform-loop-disabled-color-palette: 6;
+    height:                             16;
+    margin-top:                         2;
+}
+
+PatternEditorGrid[Drumgrid=true] WaveDisplayWidget
+{
+    active-waveform-color-palette:      $paletteWaveActive;
+    active-waveform-loop-color-palette: $paletteWaveActiveLoop;
+}
+
+ClipEditorSWDrumGridLane ClipAudioLane
+{
+    active-waveform-color-palette:      $paletteWaveActiveClips;
+    active-waveform-loop-color-palette: $paletteWaveActiveLoopClips;
+}
+
+// SIZE SETTING FOR ZOOM
+ClipEditorSWDrumGridLane[zoom-y=true] ClipAudioLane,
+PatternEditorGrid[Drumgrid=true][zoom-y=true] WaveDisplayWidget
+{
+    height:                             29;
+    margin-top:                         6;
+}
+
+
+// GATED
+ClipEditorSWDrumGridLane ClipAudioLane[Loop=false][Muted=false],
+PatternEditorGrid WaveDisplayWidget[Loop=false][Muted=false]
+{
+    active-background-color-palette:    no;
+    active-background-color:            no;
+    active-waveform-color-palette:      $paletteWaveActiveGate;
+    active-waveform-loop-color-palette: $paletteWaveActiveGate;
+    active-waveform-disabled-color-palette: 17;
+    active-waveform-loop-disabled-color-palette: 6;
+    waveform-color:                     $colordWaveMutedActive;
+    waveform-disabled-color:            $colordWaveMutedActive;
+}
+
+// GATED MUTED
+ClipEditorSWDrumGridLane ClipAudioLane[Loop=false][Muted=true],
+PatternEditorGrid WaveDisplayWidget[Loop=false][Muted=true]
+{
+    active-background-color:            no;
+    active-waveform-color-palette:      no;
+    active-waveform-loop-color-palette: no;
+    active-waveform-disabled-color-palette: no;
+    active-waveform-loop-disabled-color-palette: no;
+    active-waveform-color:              $colordWaveMutedGate;
+    active-waveform-loop-color:         $colordWaveMutedGate;
+    active-waveform-disabled-color:     $colordWaveMutedGate;
+    active-waveform-loop-disabled-color: $colordWaveMutedGate;
+    waveform-color:                     $colordWaveMutedActive;
+    waveform-disabled-color:            $colordWaveMutedActive;
+}
+
+// LOOP
+ClipEditorSWDrumGridLane ClipAudioLane[Loop=true],
+PatternEditorGrid WaveDisplayWidget[Loop=true]
+{
+    active-background-color:            $colorNone;
+    active-background-disabled-color:   $colorNone;
+}
+
+// LOOP ON MUTED
+ClipEditorSWDrumGridLane ClipAudioLane[Loop=true][Muted=true],
+PatternEditorGrid WaveDisplayWidget[Loop=true][Muted=true]
+{
+    active-waveform-color-palette:      no;
+    active-waveform-loop-color-palette: no;
+    active-waveform-disabled-color-palette: no;
+    active-waveform-loop-disabled-color-palette: no;
+    active-waveform-color:              $colordWaveMutedActive;
+    active-waveform-loop-color:         $colordWaveMutedLooped;
+    active-waveform-disabled-color:     $colordWaveMutedActive;
+    active-waveform-loop-disabled-color: $colordWaveMutedLooped;
+}
+
+
+// PIANOROLL WAVEDISPALY
+//----------------------------------------------------------------------------------------------------------------------
+
+@define $colordWaveMutedActivePR        $colorWhite20;
+@define $colordWaveMutedLoopedPR        $colorWhite10;
+
+@define $paletteWaveActivePR            21;
+@define $paletteWaveActiveLoopPR        6;
+
+// GENERIC
+ClipEditorSWPianoLane ClipAudioLane,
+PatternEditorGrid#m_pPianorollWidget WaveDisplayWidget
+{
+    min-height:                         21;
+    background-color:                   no;
+    background-disabled-color:          no;
+    decibel-line-color:                 no;
+    waveform-color:                     $colorWhite20;
+    waveform-disabled-color:            $colorWhite20;
+    waveform-color-palette:             no;
+}
+
+// GATED
+ClipEditorSWPianoLane ClipAudioLane[Loop=false][Muted=false],
+PatternEditorGrid#m_pPianorollWidget WaveDisplayWidget[Loop=false][Muted=false]
+{
+    active-waveform-color-palette:      $paletteWaveActivePR;
+    active-waveform-loop-color-palette: $paletteWaveActivePR;
+    active-waveform-disabled-color-palette: 15;
+    active-waveform-loop-disabled-color-palette: 22;
+    active-background-color-palette:    10;
+    active-background-disabled-color-palette: 10;
+}
+
+// GATED MUTED
+ClipEditorSWPianoLane ClipAudioLane[Loop=false][Muted=true],
+PatternEditorGrid#m_pPianorollWidget WaveDisplayWidget[Loop=false][Muted=true]
+{
+    active-waveform-color:              $colorWhite30;
+    active-waveform-disabled-color:     $colorWhite30;
+    active-waveform-loop-color:         $colorWhite30;
+    active-waveform-loop-disabled-color:$colorWhite30;
+    active-background-color:            $colorWhite5;
+    active-background-disabled-color:   $colorWhite5;
+}
+
+// LOOP ON
+ClipEditorSWPianoLane ClipAudioLane[Loop=true][Muted=false],
+PatternEditorGrid#m_pPianorollWidget WaveDisplayWidget[Loop=true][Muted=false]
+{
+    active-waveform-color-palette:      $paletteWaveActivePR;
+    active-waveform-disabled-color-palette: 15;
+    active-waveform-loop-color-palette: $paletteWaveActiveLoopPR;
+    active-waveform-loop-disabled-color-palette: 22;
+    active-background-color:            no;
+    active-background-disabled-color:   no;
+    active-background-color-palette:    no;
+    active-background-disabled-color-palette: no;
+}
+
+// LOOP ON MUTED
+ClipEditorSWPianoLane ClipAudioLane[Loop=true][Muted=true],
+PatternEditorGrid#m_pPianorollWidget WaveDisplayWidget[Loop=true][Muted=true]
+{
+    active-waveform-color:              $colordWaveMutedActivePR;
+    active-waveform-disabled-color:     $colordWaveMutedActivePR;
+    active-waveform-loop-color:         $colordWaveMutedLoopedPR;
+    active-waveform-loop-disabled-color: $colordWaveMutedLoopedPR;
+    active-waveform-color-palette:      no;
+    active-waveform-disabled-color-palette: no;
+    active-background-color:            no;
+    active-background-disabled-color:   no;
+    active-background-color-palette:    no;
+    active-background-disabled-color-palette: no;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// NOTES LANE
+//----------------------------------------------------------------------------------------------------------------------
+
+// MIDI NOTES FOR MIDI DRUM-GRID AND PIANOROLL
+//----------------------------------------------------------------------------------------------------------------------
+
+ClipEditorSWDrumGridLane[AudioModule=false] NotesLane,
+ClipEditorSWPianoLane[AudioModule=false] NotesLane,
+PatternEditorGrid[AudioModule=false] NotesLane,
+PatternEditorGrid#m_pPianorollWidget NotesLane
+{
+    note-color-palette:                 1;
+    note-muted-color:                   rgb(128,128,128);
+
+    note-disabled-color-palette:        25;
+    note-disabled-muted-color:          rgb(64,64,64);
+
+    note-inner-selected-border-color:   $colorBlack;
+
+    note-outer-border-color:            rgb(30,30,30);
+    note-outer-selected-border-color:   $colorWhite;
+
+    note-fill-min-velocity-alpha:       68;                 // values go from 0-255
+    note-fill-max-velocity-alpha:       216;
+
+    note-border-min-velocity-alpha:     0;                 // values go from 0-255
+    note-border-max-velocity-alpha:     0;
+
+    note-selected-overlay-color:        $colorWhite15;
+}
+
+// MIDI NOTES FOR AUDIO MODULE LANE IN DRUMGRID
+//----------------------------------------------------------------------------------------------------------------------
+
+ClipEditorSWDrumGridLane[AudioModule=true] NotesLane,
+ClipEditorSWPianoLane[AudioModule=true] NotesLane,
+PatternEditorGrid[AudioModule=true] NotesLane
+{
+    note-color-palette:                 1;
+    note-muted-color:                   rgb(128,128,128);
+
+    note-disabled-color-palette:        24;
+    note-disabled-muted-color:          rgb(64,64,64);
+
+    note-inner-border-color:            $colorWhite;
+    note-inner-selected-border-color:   $colorBlack;
+
+    note-outer-border-color:            rgb(30,30,30);
+    note-outer-selected-border-color:   $colorWhite;
+
+    note-fill-min-velocity-alpha:       68;                 // values go from 0-255
+    note-fill-max-velocity-alpha:       216;
+
+    note-border-min-velocity-alpha:     0;                 // values go from 0-255
+    note-border-max-velocity-alpha:     0;
+
+    note-selected-overlay-color:        no;
+}
+
+
+// SIZE SETTINGS FOR NOTES LANE
+//----------------------------------------------------------------------------------------------------------------------
+
+// DEFAULT SIZE
+ClipEditorSWDrumGridLane NotesLane,
+Vector<PatternEditorGrid>#m_pDrumgridVector PatternEditorGrid NotesLane
+{
+    drum-note-margin-top:               2;
+    drum-note-margin-bottom:            3;
+}
+
+ClipEditorSWDrumGridLane[zoom-y=true][AudioModule=true] NotesLane,
+Vector<PatternEditorGrid>#m_pDrumgridVector PatternEditorGrid[zoom-y=true][AudioModule=true] NotesLane
+{
+    drum-note-margin-top:               2;
+    drum-note-margin-bottom:            3;
+}
+
+// DOUBLE SIZE
+ClipEditorSWDrumGridLane[zoom-y=true][AudioModule=false] NotesLane,
+Vector<PatternEditorGrid>#m_pDrumgridVector PatternEditorGrid[zoom-y=true][AudioModule=false] NotesLane
+{
+    drum-note-margin-top:               12;
+    drum-note-margin-bottom:            14;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// AUDIO EVENTS LANE
+//----------------------------------------------------------------------------------------------------------------------
+
+// COLORS
+ClipEditorSWDrumGridLane[AudioModule=true]::ClipAudioEventsLane,
+ClipEditorSWPianoLane[AudioModule=true]::ClipAudioEventsLane,
+PatternEditorGrid AudioEventsLane
+{
+    event-selection-border-color:       rgba(255,255,255,50);
+}
+
+// SIZE SETTINGS
+//----------------------------------------------------------------------------------------------------------------------
+
+// DRUM GRID
+ClipEditorSWDrumGridLane[AudioModule=true]::ClipAudioEventsLane,
+ClipEditorSWPianoLane[AudioModule=true]::ClipAudioEventsLane,
+PatternEditorGrid[zoom-y=false] AudioEventsLane,
+PatternEditorGrid[zoom-y=true] AudioEventsLane
+{
+    event-margin-top:                   2;
+    event-margin-bottom:                3;
+}
+
+// PIANOROLL
+PatternEditorGrid#m_pPianorollWidget AudioEventsLane
+{
+    event-margin-top:                   0;
+    event-margin-bottom:                0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// PIANOROLL GRID IN PATTERN EDITOR
+//----------------------------------------------------------------------------------------------------------------------
+
+ClipEditorSWPianoLane,
+PatternEditorGrid#m_pPianorollWidget
+{
+    min-height:                         100;
+
+    color-whitekey:                     rgb(64,64,64);
+    color-blackkey:                     rgb(50,50,50);
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Modulation Editor
+//----------------------------------------------------------------------------------------------------------------------
+
+// Container Around Modulation Editor
+Bar#m_pGroupPanel Bar#pColumns Bar#m_pLower,
+ClipEditorSW Bar#m_modulationBody
+{
+    background-color:                   no;
+    background-border-color:            no;
+    margin:                             0;
+    spacing:                            0;
+
+}
+
+// Framework Dummy on right side of Modulation Lane
+Bar#m_pGroupPanel Bar#pColumns Bar#m_pLower Label#pSkinDummy,
+ClipEditorSW Label#rightMarginPlaceholder
+{
+    background-color:                   $StandardBackgroundGrey;
+    width:                              16;
+    outer-margin-left:                  1;
+}
+
+ClipModulationEditor
+{
+    bg-grid-color:                      $LightBackgroundGrey;
+
+    margin:                             0;
+    min-width:                          $defaultWidth;
+}
+
+ModulationGridLane
+{
+    snap-color:                         rgb(56,56,56);
+    beat-color:                         $colorV-GridMainLine;
+    bar-color:                          $colorV-GridMainLine;
+
+    minor-lines-color:                  rgb(56,56,56);        // horizontal gridlines
+    minor-lines-color-light:            $LightBackgroundGrey; // horizontal gridlines contrasting line
+
+    major-lines-color:                  rgb(56,56,56);        // modulation min/max line
+    major-lines-color-light:            $LightBackgroundGrey; // modulation min/max contrasting line
+}
+
+ClipModulationEditor::ClipModulationLane
+{
+    margin-top:                                     7;
+    margin-bottom:                                  7;
+    font-name:                                      $fontPragmatica;
+    font-size:                                      10;
+
+    event-color-palette:                            1;
+    event-selected-color:                           $colorWhite;
+    tooltip-text-color:                             $colorBlack80;
+    tooltip-bg-color:                               $colorWhite80;
+    tooltip-border-color:                           no;
+
+    cursor-mouse-drag-vertical-picture-hotspot-x:   7;
+    cursor-mouse-drag-vertical-picture-hotspot-y:   7;
+    cursor-mouse-drag-vertical-picture:             url("Maschine/Cursor/CURSOR_ResizeAutomationEvent.png");
+    cursor-draw-picture-hotspot-x:                  2;
+    cursor-draw-picture-hotspot-y:                  16;
+    cursor-draw-picture:                            url("Maschine/Cursor/CURSOR_Draw.png");
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+ModulationEditor
+{
+    background-color:                   $LightBackgroundGrey;
+
+    margin:                             0;
+    min-width:                          $defaultWidth;
+    font-name:                          $fontPragmatica;
+    font-size:                          10;
+
+    pattern-end-line-color:             $colorWhite;
+
+    event-color-palette:                1;
+    event-selected-color:               $colorWhite;
+
+    snap-in-color:                      rgb(64,64,64);
+    snap-out-color:                     rgb(64,64,64);      //beat grid lines, not visible right now
+    beat-in-color:                      $colorV-GridMainLine;
+    beat-out-color:                     $colorV-GridMainLine;     //beat line outside
+    bar-in-color:                       $colorV-GridMainLine;      //bar line inside pattern
+    bar-out-color:                      $colorV-GridMainLine;      //bar line outside pattern
+    border-color:                       $colorWhite;
+
+    minor-lines-color:                  rgb(64,64,64);      // horizontal gridlines
+    minor-lines-color-light:            rgb(79,79,79);      // horizontal gridlines contrasting line
+    major-lines-color:                  rgb(64,64,64);      // modulation min/max line
+    major-lines-color-light:            rgb(79,79,79);      // modulation min/max contrasting line
+
+    selection-color:                    $colorWhite30;
+    selection-frame-color:              $colorWhite;
+
+    // MODULATION / Velocity VALUE LABEL
+    tooltip-text-color:                 $colorBlack80;
+    tooltip-bg-color:                   $colorWhite80;
+    tooltip-border-color:               no;
+}
+
+
+
+// TODO: PROPERTY SHOULD BE CALLED "event-in-color-palette" and should use the palette system
+ModulationEditor[color=color1]  { event-in-color: $color1; }
+ModulationEditor[color=color2]  { event-in-color: $color2; }
+ModulationEditor[color=color3]  { event-in-color: $color3; }
+ModulationEditor[color=color4]  { event-in-color: $color4; }
+ModulationEditor[color=color5]  { event-in-color: $color5; }
+ModulationEditor[color=color6]  { event-in-color: $color6; }
+ModulationEditor[color=color7]  { event-in-color: $color7; }
+ModulationEditor[color=color8]  { event-in-color: $color8; }
+ModulationEditor[color=color9]  { event-in-color: $color9; }
+ModulationEditor[color=color10] { event-in-color: $color10; }
+ModulationEditor[color=color11] { event-in-color: $color11; }
+ModulationEditor[color=color12] { event-in-color: $color12; }
+ModulationEditor[color=color13] { event-in-color: $color13; }
+ModulationEditor[color=color14] { event-in-color: $color14; }
+ModulationEditor[color=color15] { event-in-color: $color15; }
+ModulationEditor[color=color16] { event-in-color: $color16; }
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// PIANOROLL GRID IN SEQUENCER
+//----------------------------------------------------------------------------------------------------------------------
+
+PianorollWidget
+{
+    background-color:                   $colorBlack;
+    foreground-color:                   $colorWidgetText;
+    margin:                             2;
+    min-width:                          $defaultWidth;
+    font-name:                          $fontPragmatica;
+    font-size:                          10;
+    horizontal-alignment:               right;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// PIANOROLL IN SOUNDLIST
+//----------------------------------------------------------------------------------------------------------------------
+
+PianorollKeyboardWidget
+{
+    lines-color:                        rgb(30,30,30);
+    whitekeys-color:                    rgb(132,132,132);
+    blackkeys-color:                    rgb(30,30,30);
+    base-key-color-palette:             1;
+    play-key-color-palette:             1;
+    octave-label-bg-color:              no;
+    octave-label-text-color:            $colorBlack;
+    whitekeys-inrange-color:            rgba(255,255,255,200);
+
+    outer-margin-top:                   1;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// FOOTER
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pPatternEditor Bar#m_pFoot,
+Bar#m_pWaveEditor Bar#m_pFoot,
+ClipEditorSW Bar#foot
+{
+    image:                              url("Maschine/PatternEditor/PE_BG_ZoomSlider.png");
+    picture-includes-margin:            true;
+    fixed-left:                         15;
+    fixed-right:                        15;
+
+    margin-right:                       19;
+}

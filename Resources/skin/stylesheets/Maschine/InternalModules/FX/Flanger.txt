@@ -1,0 +1,144 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// FLANGER
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+FlangerEditor
+{
+    //image:                              url("Maschine/InternalModules/FX/xx_dummy_flanger.png"); 
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png"); 
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-474;   
+}
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+FlangerEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_flanger.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+// SUBHEADLINE
+//--------------------------------------------------------------------------------------------------------
+
+FlangerEditor Bar#m_pSubHeadline1
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_subheadline_mod.png");
+    x:                                  144;
+    y:                                  $Y-FX-SubHeadline;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// MODE SELECTOR SWITCH
+//--------------------------------------------------------------------------------------------------------
+
+// SWITCH MOD SOURCE (Enum)
+FlangerEditor Bar#Source
+{
+    x:                                  257;
+    y:                                  16;
+}
+
+//--------------------------------------------------------------------------------------------------------
+// CONTROLS
+//--------------------------------------------------------------------------------------------------------
+
+// TOP ROW
+//--------------------------------------------------------------------------------------------------------
+
+// CENTER (rename to Frenquency?)
+FlangerEditor Bar#Freq
+{
+    x:                                  61;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// AMOUNT (MOD)
+FlangerEditor Bar#Modulation
+{
+    x:                                  230;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// MIX
+FlangerEditor Bar#Mix
+{
+    x:                                  371;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+// BOTTOM ROW
+//--------------------------------------------------------------------------------------------------------
+
+// FEEDBACK
+FlangerEditor Bar#FBAmount
+{
+    x:                                  24;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// SWITCH INVERT
+FlangerEditor Bar#FBInvert
+{
+    x:                                  95;
+    y:                                  $Y-FX-Switch-Bottom;
+}
+
+// MOD SECTION
+
+// SPEED
+FlangerEditor Bar#LFOSpeed,
+// SHAPE
+FlangerEditor Bar#EnvShape
+{
+    x:                                  193;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// STEREO
+FlangerEditor Bar#Stereo
+{
+    x:                                  267;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+FlangerEditor#m_pEditor Bar#m_pParamSeparator
+
+{
+    x:                                  171;
+    y:                                  0;
+}
+
+FlangerEditor#m_pEditor Bar#m_pSeparator1
+{
+    x:                                  342;
+    y:                                  0;
+}
+
+// Dotted Line
+//----------------------------------------------------------------------------------------------------------------------
+
+FlangerEditor#m_pEditor Bar#m_pDottedLines
+
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_dotline_flanger.png");
+    x:                                  85;
+    y:                                  151;
+}
+
+
+
+
+
+
+

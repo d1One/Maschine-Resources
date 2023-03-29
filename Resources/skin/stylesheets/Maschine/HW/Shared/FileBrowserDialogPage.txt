@@ -1,0 +1,484 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Left Screen
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#FileBrowserDialogPageScreenLeft MultilineLabel#LabelLeft
+{
+    font-name: $fontPragmatica;
+    font-size: 21;
+    foreground-color: $colorWhite;
+
+    horizontal-alignment: center;
+
+    outer-margin-left: 20;
+    outer-margin-right: 20;
+}
+
+Bar#FileBrowserDialogPageScreenLeft[Style=Empty] MultilineLabel#LabelLeft
+{
+    vertical-alignment: center;
+}
+
+Bar#FileBrowserDialogPageScreenLeft[Style=LibraryUserLocation] MultilineLabel#LabelLeft
+{
+    vertical-alignment: top;
+}
+
+Bar#FileBrowserDialogPageScreenLeft[Style=LibraryUserLocation] Bar#Icon
+{
+    image: url("Maschine/HW/Shared/Pin.png");
+
+    outer-margin-top: 65;
+    outer-margin-left: 204;
+    outer-margin-bottom: 24;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Button Bar
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#FileBrowserDialogPageScreenRight Button#Button5
+{
+    image: url("Shared/HW/Studio/Standard/std_button_back.png");
+    animations: 3;
+
+    height: 24;
+
+    outer-margin-top: 0;
+    outer-margin-right: 0;
+}
+
+Bar#FileBrowserDialogPageScreenRight Button#Button6
+{
+    image: url("Shared/HW/Studio/Standard/std_button_next.png");
+    animations: 3;
+
+    height: 24;
+
+    outer-margin-top: 0;
+    outer-margin-right: 0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Parameter Bar
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#FileBrowserDialogPageScreenRight Bar#ParameterBar
+{
+    height: 39;
+    margin-bottom: 2;
+    background-color: $colorStandardBGColor;
+}
+
+Bar#FileBrowserDialogPageScreenRight Label#CwdDisplay,
+Bar#FileBrowserDialogPageScreenRight Label#ItemCount
+{
+    background-color: no;
+
+    font-name: $fontPragmatica;
+    font-size: 14;
+
+    margin-left: 6;
+    margin-right: 6;
+    margin-top: 1;
+}
+
+Bar#FileBrowserDialogPageScreenRight Label#CwdDisplay
+{
+    horizontal-alignment: left;
+    foreground-color: rgb(102,102,102);
+}
+
+Bar#FileBrowserDialogPageScreenRight Label#ItemCount
+{
+    width: 120;
+
+    horizontal-alignment: center;
+    foreground-color: $colorWhite;
+
+    image: url("Shared/HW/Studio/BrowsePages/bp_frame_paramLabel.png");
+    animations: 2;
+    animation-index: 1;
+    picture-includes-margin: true;
+    fixed-left: 5;
+    fixed-right: 5;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// ColumnFileBrowser
+//----------------------------------------------------------------------------------------------------------------------
+
+FileListItem
+{
+    height: 21;
+    margin-right: 5;
+}
+
+FileList
+{
+    outer-margin-top: 9;
+    outer-margin-bottom: 7;
+    width: 240;
+}
+
+FileList Vector<FileListItem>#m_vector
+{
+    spacing: 0;
+    focus-anim: $animtype-none;
+}
+
+FileList Vector<FileListItem>#m_vector Bar#widgets
+{
+    spacing: 5;
+}
+
+FileListItem Label#m_labelPicture
+{
+    outer-margin-top: 3;
+    outer-margin-left: 5;
+}
+
+FileListItem Label#m_labelSelected
+{
+    outer-margin-top: 3;
+    outer-margin-left: 5;
+}
+
+FileListItem Label#m_labelSelected[checkstate=Checked]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_checkMark.png");
+    animations: 3;
+    animation-index: 1;
+}
+
+FileList#ColumnRight FileListItem[HasFocus=true] Label#m_labelSelected[checkstate=Checked]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_checkMark.png");
+    animations: 3;
+    animation-index: 0;
+}
+
+FileListItem Label#m_labelSelected[checkstate=Halfchecked]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_hyphen.png");
+    animations: 3;
+    animation-index: 1;
+}
+
+FileList#ColumnRight FileListItem[HasFocus=true] Label#m_labelSelected[checkstate=Halfchecked]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_hyphen.png");
+    animations: 3;
+    animation-index: 0;
+}
+
+FileListItem AutoScrollingLabel#m_labelName
+{
+    outer-margin-left: 9;
+}
+
+FileListItem AutoScrollingLabel#m_labelName Label#m_label
+{
+    font-name: $fontPragmatica;
+    font-size: 14;
+
+    horizontal-alignment: right;
+}
+
+FileList#ColumnLeft FileListItem[HasFocus=true]
+{
+    background-color: rgb(40, 40, 40);
+}
+
+FileList#ColumnLeft FileListItem AutoScrollingLabel#m_labelName Label#m_label,
+FileList#ColumnLeft FileListItem[HasFocus=true] AutoScrollingLabel#m_labelName Label#m_label
+{
+    foreground-color: rgb(120, 120, 120);
+}
+
+FileList#ColumnRight FileListItem[HasFocus=true]
+{
+    background-color: $colorWhite;
+}
+
+FileList#ColumnRight FileListItem[HasFocus=true] AutoScrollingLabel#m_labelName Label#m_label
+{
+    foreground-color: $colorBlack;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Folder icon
+//----------------------------------------------------------------------------------------------------------------------
+
+FileList#ColumnLeft FileListItem Label#m_labelPicture[Type=Folder]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_folder.png");
+    animations: 3;
+    animation-index: 2;
+}
+
+FileList#ColumnRight FileListItem Label#m_labelPicture[Type=Folder]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_folder.png");
+    animations: 3;
+    animation-index: 1;
+}
+
+FileList#ColumnRight FileListItem[HasFocus=true] Label#m_labelPicture[Type=Folder]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_folder.png");
+    animations: 3;
+    animation-index: 0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Project icon
+//----------------------------------------------------------------------------------------------------------------------
+
+FileList#ColumnLeft FileListItem Label#m_labelPicture[Type=Project]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_project.png");
+    animations: 3;
+    animation-index: 2;
+}
+
+FileList#ColumnRight FileListItem Label#m_labelPicture[Type=Project]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_project.png");
+    animations: 3;
+    animation-index: 1;
+}
+
+FileList#ColumnRight FileListItem[HasFocus=true] Label#m_labelPicture[Type=Project]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_project.png");
+    animations: 3;
+    animation-index: 0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Group icon
+//----------------------------------------------------------------------------------------------------------------------
+
+FileList#ColumnLeft FileListItem Label#m_labelPicture[Type=Group]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_group.png");
+    animations: 3;
+    animation-index: 2;
+}
+
+FileList#ColumnRight FileListItem Label#m_labelPicture[Type=Group]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_group.png");
+    animations: 3;
+    animation-index: 1;
+}
+
+FileList#ColumnRight FileListItem[HasFocus=true] Label#m_labelPicture[Type=Group]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_group.png");
+    animations: 3;
+    animation-index: 0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Sound icon
+//----------------------------------------------------------------------------------------------------------------------
+
+FileList#ColumnLeft FileListItem Label#m_labelPicture[Type=Sound]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_sound.png");
+    animations: 3;
+    animation-index: 2;
+}
+
+FileList#ColumnRight FileListItem Label#m_labelPicture[Type=Sound]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_sound.png");
+    animations: 3;
+    animation-index: 1;
+}
+
+FileList#ColumnRight FileListItem[HasFocus=true] Label#m_labelPicture[Type=Sound]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_sound.png");
+    animations: 3;
+    animation-index: 0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Instrument icon
+//----------------------------------------------------------------------------------------------------------------------
+
+FileList#ColumnLeft FileListItem Label#m_labelPicture[Type=Instrument]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_instrument.png");
+    animations: 3;
+    animation-index: 2;
+}
+
+FileList#ColumnRight FileListItem Label#m_labelPicture[Type=Instrument]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_instrument.png");
+    animations: 3;
+    animation-index: 1;
+}
+
+FileList#ColumnRight FileListItem[HasFocus=true] Label#m_labelPicture[Type=Instrument]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_instrument.png");
+    animations: 3;
+    animation-index: 0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Effect icon
+//----------------------------------------------------------------------------------------------------------------------
+
+FileList#ColumnLeft FileListItem Label#m_labelPicture[Type=Effect]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_effect.png");
+    animations: 3;
+    animation-index: 2;
+}
+
+FileList#ColumnRight FileListItem Label#m_labelPicture[Type=Effect]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_effect.png");
+    animations: 3;
+    animation-index: 1;
+}
+
+FileList#ColumnRight FileListItem[HasFocus=true] Label#m_labelPicture[Type=Effect]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_effect.png");
+    animations: 3;
+    animation-index: 0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Sample icon
+//----------------------------------------------------------------------------------------------------------------------
+
+FileList#ColumnLeft FileListItem Label#m_labelPicture[Type=Sample]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_sample.png");
+    animations: 3;
+    animation-index: 2;
+}
+
+FileList#ColumnRight FileListItem Label#m_labelPicture[Type=Sample]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_sample.png");
+    animations: 3;
+    animation-index: 1;
+}
+
+FileList#ColumnRight FileListItem[HasFocus=true] Label#m_labelPicture[Type=Sample]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_sample.png");
+    animations: 3;
+    animation-index: 0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Drive icon
+//----------------------------------------------------------------------------------------------------------------------
+
+FileList#ColumnLeft FileListItem Label#m_labelPicture[Type=Drive]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_hardDrive.png");
+    animations: 3;
+    animation-index: 2;
+}
+
+FileList#ColumnRight FileListItem Label#m_labelPicture[Type=Drive]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_hardDrive.png");
+    animations: 3;
+    animation-index: 1;
+}
+
+FileList#ColumnRight FileListItem[HasFocus=true] Label#m_labelPicture[Type=Drive]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_hardDrive.png");
+    animations: 3;
+    animation-index: 0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// SD icon
+//----------------------------------------------------------------------------------------------------------------------
+
+FileList#ColumnLeft FileListItem Label#m_labelPicture[Type=SD]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_SDCard.png");
+    animations: 3;
+    animation-index: 2;
+}
+
+FileList#ColumnRight FileListItem Label#m_labelPicture[Type=SD]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_SDCard.png");
+    animations: 3;
+    animation-index: 1;
+}
+
+FileList#ColumnRight FileListItem[HasFocus=true] Label#m_labelPicture[Type=SD]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_SDCard.png");
+    animations: 3;
+    animation-index: 0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// USB icon
+//----------------------------------------------------------------------------------------------------------------------
+
+FileList#ColumnLeft FileListItem Label#m_labelPicture[Type=USB]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_hardDrive.png");
+    animations: 3;
+    animation-index: 2;
+}
+
+FileList#ColumnRight FileListItem Label#m_labelPicture[Type=USB]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_hardDrive.png");
+    animations: 3;
+    animation-index: 1;
+}
+
+FileList#ColumnRight FileListItem[HasFocus=true] Label#m_labelPicture[Type=USB]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_hardDrive.png");
+    animations: 3;
+    animation-index: 0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Unknown icon
+//----------------------------------------------------------------------------------------------------------------------
+
+FileList#ColumnLeft FileListItem Label#m_labelPicture[Type=Unknown]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_file.png");
+    animations: 3;
+    animation-index: 2;
+}
+
+FileList#ColumnRight FileListItem Label#m_labelPicture[Type=Unknown]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_file.png");
+    animations: 3;
+    animation-index: 1;
+}
+
+FileList#ColumnRight FileListItem[HasFocus=true] Label#m_labelPicture[Type=Unknown]
+{
+    image: url("Maschine/HW/Shared/Browser/ICN_file.png");
+    animations: 3;
+    animation-index: 0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------

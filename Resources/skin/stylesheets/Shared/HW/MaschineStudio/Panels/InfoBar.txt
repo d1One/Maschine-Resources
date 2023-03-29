@@ -1,0 +1,138 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// INFO BAR
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@define $infoBarHeight              24;
+
+Bar#InfoBar,
+Bar#InfoBarRight
+{
+    height: $infoBarHeight;
+    spacing: 4;
+    margin-left: 0;
+    margin-top: 0;
+    margin-right: 10;
+    background-color: $infoBarColor;
+}
+
+Bar#InfoBar Label#InfoBarName
+{
+    foreground-color-palette: 1;
+    horizontal-alignment: left;
+    margin-left: 6;
+}
+
+Bar#InfoBar Label#InfoBarNumber
+{
+    font-name: $fontPragmatica;
+    font-size: 13;
+
+    background-color-palette: 2;
+    foreground-color: $colorBlack;
+    vertical-alignment: center;
+
+    width: 24;
+    height: 24;
+}
+
+Bar#InfoBar Label#InfoBarName,
+Bar#InfoBar Label#InfoBarTransport,
+Bar#InfoBar Label#InfoBarCPUValue,
+Bar#InfoBar Label#InfoBarLabelValue,
+Bar#InfoBarRight Label#InfoBarSampleLengthValue
+{
+    font-name: $fontPragmatica;
+    font-size: 14;
+    vertical-alignment: bottom;
+    foreground-color: $colorWhite;
+
+    height: 18;
+    outer-margin-top: 3;
+    outer-margin-bottom: 3;
+}
+
+Bar#InfoBar Label#InfoBarCPUTitle,
+Bar#InfoBar Label#InfoBarLabelTitle,
+Bar#InfoBarRight Label#InfoBarSampleLengthTitle
+{
+    font-name: $fontPragmatica;
+    font-size: 11;
+    vertical-alignment: bottom;
+    foreground-color: $colorWhite50;
+
+    height: 16;
+    outer-margin-top: 4;
+    outer-margin-bottom: 4;
+}
+
+Bar#InfoBar Label#InfoBarCPUValue,
+Bar#InfoBar Label#InfoBarLabelValue
+{
+    outer-margin-left: 4;
+}
+
+Bar#InfoBarRight Label#InfoBarSampleName
+{
+    font-name: $fontPragmatica;
+    font-size: 14;
+    vertical-alignment: bottom;
+    horizontal-alignment: left;
+    foreground-color: $colorWhite;
+
+    height: 18;
+    outer-margin-top: 3;
+    outer-margin-bottom: 3;
+    outer-margin-left: 10;
+    outer-margin-right: 10;
+}
+
+Bar#InfoBar Bar#InfoBarCPUWarning
+{
+    image: url("Shared/Global/ICN_InfoBarWarning.png");
+    outer-margin-left: 8;
+    outer-margin-right: 9;
+    outer-margin-top: 4;
+}
+
+Bar#InfoBar Label#InfoBarTransport
+{
+    foreground-color-palette: 1;
+
+    outer-margin-left: 4;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// InfoBar Level Meters
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#InfoBarLevelMeter LevelMeter
+{
+    foreground-color-palette: 1;
+    background-color: no;
+
+    width: 3;
+}
+
+Bar#InfoBarLevelMeter
+{
+    height: 18;
+    width: 8;
+    spacing: 1;
+    margin-top: 2;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// InfoBar ScanWheel
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#InfoBar Animation#InfoBarScanWheel
+{
+    image: url("Shared/HW/Components/Library_Progress_active.png");
+    animations: 32;
+    timer: 4;
+
+    width: 18;
+    height: 18;
+    outer-margin-top: 3;
+    outer-margin-left: 4;
+}

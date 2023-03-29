@@ -1,0 +1,15 @@
+Bar#SaveDialogPageStudioScreenLeft MultilineLabel#LabelLeft,
+Bar#SaveDialogPageStudioScreenRight MultilineLabel#LabelRight
+{
+    outer-margin-left:            5;
+    outer-margin-right:           5;
+    outer-margin-top:             5;
+    outer-margin-bottom:          5;
+
+    font-name:                    $fontPragmatica;
+    font-size:                    24;
+    foreground-color:             $colorWhite;
+
+    vertical-alignment:           center;
+    horizontal-alignment:         center;
+}

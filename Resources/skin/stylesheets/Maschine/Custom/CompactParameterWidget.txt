@@ -1,0 +1,92 @@
+// Container for one Parameter
+Bar.CompactParameterWidget
+{
+    width:                              66;
+}
+
+
+// BUTTON / DRAGGER STACK
+Bar.CompactParameterWidget Stack#m_pParamValueStack
+{
+    height:                             18;
+    margin-right:                       5;
+}
+
+
+// BOOL BUTTON
+Bar.CompactParameterWidget Stack#m_pParamValueStack Button#m_pBoolParameterWidget
+{
+    width:                              61;
+
+    image:                              no;
+    foreground-color:                   $colorWhite;
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    height:                             15;
+    horizontal-alignment:               right;
+}
+
+Bar.CompactParameterWidget Stack#m_pParamValueStack Button#m_pBoolParameterWidget:!enabled
+{
+    foreground-color:                   $colorGrey;
+}
+
+
+// ENUM BUTTON
+Bar.CompactParameterWidget Stack#m_pParamValueStack Button#m_pEnumParameterWidget
+{
+    width:                              61;
+
+    image:                              no;
+    foreground-color:                   $colorWhite;
+
+    height:                             15;
+    horizontal-alignment:               right;
+}
+
+Bar.CompactParameterWidget Stack#m_pParamValueStack Button#m_pEnumParameterWidget:!enabled
+{
+    foreground-color:                   $colorGrey;
+}
+
+
+// DEVICE BUTTON
+Bar.CompactParameterWidget Stack#m_pParamValueStack Button#m_pDeviceParameterWidget
+{
+    width:                              61;
+
+    image:                              no;
+    foreground-color:                   $colorWhite;
+
+    height:                             15;
+    horizontal-alignment:               right;
+}
+
+Bar.CompactParameterWidget Stack#m_pParamValueStack Button#m_pDeviceParameterWidget:!enabled
+{
+    foreground-color:                   $colorGrey;
+}
+
+
+// DRAGGER
+Bar.CompactParameterWidget Stack#m_pParamValueStack DraggerableValueEdit
+{
+    height:                             18;
+    width:                              61;
+}
+
+Bar.CompactParameterWidget Stack#m_pParamValueStack Dragger
+{
+    image:                              no;
+    foreground-color:                   $colorWhite;
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    height:                             18;
+    horizontal-alignment:               right;
+    width:                              61;
+}
+
+Bar.CompactParameterWidget Stack#m_pParamValueStack Dragger:!enabled
+{
+    foreground-color:                   $colorGrey;
+}

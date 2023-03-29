@@ -1,0 +1,418 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SONG AND GROUP PANEL
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Shared Elements for Song- and GROUP PANEL
+
+// This stylesheet gathers the similar blocks used in:
+//      - the SongPanel
+//      - the ParameterArea
+//      - the TrackPanel
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// PANEL TITLE
+//----------------------------------------------------------------------------------------------------------------------
+
+// TITLE CONTAINER
+Bar#m_pSongPanel Bar#m_pColumnsManager Bar#pTitle,
+Bar#m_pGroupPanel Bar#m_pColumnsManager Bar#pTitleManagers
+{
+    background-color:                    $colorStandardBGGrey;
+}
+
+// ARRANGER TITLE CONTAINER HEIGHT
+Bar#m_pSongPanel Bar#m_pColumnsManager Bar#pTitle
+{
+    height:                     42;
+}
+
+// PATTERN EDITOR TITLE CONTAINER HEIGHT
+Bar#m_pGroupPanel Bar#m_pColumnsManager Bar#pTitleManagers
+{
+    height:                     40;
+}
+
+// TITLE CONTAINER
+Bar#m_pSongPanel Bar#m_pColumnsManager Bar#pTitle Bar#titleTop,
+Bar#m_pGroupPanel Bar#m_pColumnsManager Bar#pTitle Bar#titleTop
+{
+    height:                     22;
+}
+
+// TITLE LABEL
+Bar#m_pSongPanel Bar#m_pColumnsManager Bar#pTitle Label#m_pInfo,
+Bar#m_pGroupPanel Bar#m_pColumnsManager Bar#pTitle Label#m_pInfo
+{
+    font-name:                  $fontPragmatica;
+    font-size:                  14;
+    outer-margin-left:          6;
+    outer-margin-top:           1;
+    margin-top:                 2;
+    height:                     22;
+}
+
+// GROUP NAME BUTTON
+Bar#m_pGroupPanel Bar#m_pColumnsManager Bar#pTitleManagers Button#m_pInfo
+{
+    font-name:                  $fontPragmatica;
+    font-size:                  14;
+    image:                      no;
+    foreground-color-palette:   2;
+    horizontal-alignment:       left;
+    margin-left:                6;
+    outer-margin-top:           1;
+    height:                     21;
+}
+
+
+
+// BUTTONS BELOW PANEL TITLE
+//----------------------------------------------------------------------------------------------------------------------
+
+// BUTTON CONTAINERS
+Bar#m_pSongPanel Bar#m_pColumnsManager Bar#pTitle Bar#titleBottom
+{
+    height:                     20;
+}
+
+// SONG CLIP LAYER BUTTON
+Bar#m_pSongPanel Bar#m_pColumnsManager Bar#pTitle Button#m_sceneLayerVisible
+{
+    image:                      url("Maschine/SongPanel/SP_BTN_SceneLayer.png");
+    animations:                 7;
+    outer-margin-left:          0;
+    outer-margin-top:           2;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// LIST ITEMS
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINERS
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pColumnsManager Bar#m_pGroupManager Vector<Bar>#m_pGroupVector,
+Bar#m_pColumnsManager Bar#m_pSoundManager Vector<Bar>#m_pSoundVector
+{
+    image:                      url("Maschine/SongGroupPanelShared/SGPS_BG_Frame.png");
+    fixed-top:                  20;
+    fixed-bottom:               20;
+    fixed-left:                 2;
+
+    picture-includes-margin:    true;
+    margin-top:                 1;
+    margin-left:                0;
+    margin-bottom:              1;
+}
+
+// SOUND LIST, MODULATION PANEL VISIBLE
+Bar#m_pColumnsManager Bar#m_pSoundManager Vector<Bar>#m_pSoundVector[LowerAreaVisible=true]
+{
+    margin-bottom:          0;
+}
+
+Bar#m_pColumnsManager Bar#m_pGroupManager   Vector<Bar>#m_pGroupVector::Bar#widgets,
+Bar#m_pColumnsManager Bar#m_pSoundManager   Vector<Bar>#m_pSoundVector::Bar#widgets
+{
+    background-color:           rgb(50,50,50);
+}
+
+
+// LISTITEM BAR
+//----------------------------------------------------------------------------------------------------------------------
+
+// GROUP LIST ITEM HEIGHT
+Bar#m_pColumnsManager Bar#m_pGroupManager Vector<Bar>#m_pGroupVector::Bar#widgets::Bar
+{
+    height:                     $sizeTrackHeight;
+}
+
+// SOUND LIST ITEM HEIGHT
+Bar.SoundGroupListItem
+{
+    image:                      url("Maschine/SongGroupPanelShared/SGPS_BG_ListItem.png");
+    picture-includes-margin:    true;
+    animations:                 4;
+    animation-index:            0;
+    background-color:           no;
+    height:                     $sizeTrackHeight;
+
+    fixed-left:                 1;
+    fixed-right:                1;
+    fixed-top:                  0;
+    fixed-bottom:               4;
+    margin-right:               2;
+    margin-left:                0;
+}
+
+// ZOOM x2
+Vector<Bar>#m_pSoundVector Bar.SoundGroupListItem[zoom-y=true]
+{
+    height:                     $sizeTrackHeight-x2;
+}
+
+Bar.SoundGroupListItem[HasFocus=false][IsSeparator=false]{animation-index: 0;}
+Bar.SoundGroupListItem[HasFocus=true][IsSeparator=false] {animation-index: 1;}
+Bar.SoundGroupListItem[HasFocus=false][IsSeparator=true] {animation-index: 2;}
+Bar.SoundGroupListItem[HasFocus=true][IsSeparator=true]  {animation-index: 3;}
+Bar.SoundGroupListItem:selected
+{
+    animation-index:            1;
+}
+
+Bar.SoundGroupListItem[HasFocus=false][IsSeparator=false][DragHighlight=true]
+{
+    animation-index:            1;
+}
+
+
+
+// BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// MUTE BUTTON (NUMBER)
+Button.SoundGroupListItemMute
+{
+    image:                      no;
+    background-color:           $colorStandardBGGrey;
+    foreground-color:           rgba(255,255,255,191);
+    font-name:                  $fontPragmatica;
+    font-size:                  11;
+    horizontal-alignment:       left;
+    margin-left:                5;
+    margin-top:                 1;
+
+    width:                      27;
+    outer-margin-bottom:        1;
+}
+
+Vector<Bar>#m_pSoundVector Button.SoundGroupListItemMute
+{
+    horizontal-alignment:       center;
+    margin-left:                no;
+    margin-right:               3;
+}
+
+Button.SoundGroupListItemMute[muted=true][HasFocus=false]:!selected
+{
+    foreground-color:           rgb(102,102,102);
+}
+
+Button.SoundGroupListItemMute[HasFocus=true]:!selected
+{
+    background-color-palette:   1;
+    foreground-color:           rgb(50,50,50);
+}
+
+Button.SoundGroupListItemMute[HasFocus=true]:selected
+{
+    background-color-palette:   13;
+    foreground-color:           rgb(50,50,50);
+}
+
+Button.SoundGroupListItemMute[HasFocus=false]:selected
+{
+    background-color:           $colorSoundBGMidiActivity;
+}
+
+Button.SoundGroupListItemMute[HasFocus=true][muted=true]:!selected
+{
+    image:                      no;
+    background-color-palette:   4;
+    foreground-color:           rgb(50,50,50);
+
+}
+
+
+
+// COLORED BIT RIGHT OF MUTE BUTTON
+Label#m_pBite
+{
+    width:                      4;
+    outer-margin-bottom:        1;
+}
+
+Label#m_pBite:!selected
+{
+    background-color:           no;
+    background-color-palette:   1;
+}
+
+Label#m_pBite:selected
+{
+    background-color:           no;
+    background-color-palette:   13;
+}
+
+Label#m_pBite[muted=true]:!selected
+{
+
+    fixed-top:                  1;
+    fixed-bottom:               1;
+    background-color-palette:   4;
+
+}
+
+// NAME BUTTON
+Button.SoundGroupListItemName
+{
+    image:                      no;
+    background-color:           no;
+    foreground-color:           rgba(255,255,255,191);
+
+
+    horizontal-alignment:       left;
+    vertical-alignment:         center;
+
+    margin-left:                10;
+    margin-bottom:              0;
+}
+
+// METER
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pGroupManager Bar#m_pLevelMeter,
+Bar#m_pSoundManager Bar#m_pLevelMeter
+{
+    spacing:                    1;
+    height:                     21;
+    width:                      5;
+    outer-margin-left:          2;
+    outer-margin-top:           0;
+}
+
+// SPECIAL ALIGNMENT
+Vector<Bar>#m_pSoundVector Bar.SoundGroupListItem[zoom-y=true] Bar#m_pLevelMeter
+{
+    outer-margin-top:           10;
+}
+
+Vector<Bar>#m_pSoundVector Bar.SoundGroupListItem[zoom-y=true] TextEdit#m_pEdit
+{
+    outer-margin-top:           11;
+}
+
+LevelMeter.SoundGroupListLevelMeter
+{
+    foreground-color-palette:   1;
+    background-color:           no;
+    margin:                     0;
+    outer-margin-top:           1;
+    width:                      2;
+    height:                     16;
+}
+
+Button.SoundGroupListItemName[muted=true]
+{
+    foreground-color:           rgb(102,102,102);
+}
+
+Button.SoundGroupListItemName[HasFocus=true][muted=false]
+{
+    foreground-color-palette:   no;
+    foreground-color:           $colorWhite;
+}
+
+
+
+// ADD BUTTON
+//----------------------------------------------------------------------------------------------------------------------
+
+ButtonMenu.SoundGroupListItem,
+Button.SoundGroupListItem
+{
+    image:                      url("Maschine/SharedButtons/SHARED_BTN_Plus.png");
+    picture-includes-margin:    false;
+    animations:                 7;
+    fixed-left:                 15;
+    fixed-right:                2;
+    background-color:           no;
+    foreground-color:           no;
+    width:                      160;
+    margin-top:                 1;
+    menu-offset-x:              -4;
+    menu-offset-y:              0;
+}
+
+
+Button.SoundGroupListItem[HasFocus=true],
+Button.SoundGroupListItem[DragHighlight=true],
+Button.SoundGroupListItem:focus,
+ButtonMenu.SoundGroupListItem[HasFocus=true]
+{
+    animation-index:            1;
+    background-color:           rgb(79,79,79);
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// FOOTER (EDIT TOOLS)
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#m_pSongPanel Bar#m_pColumnsManager Bar#pFooter,
+Bar#m_pGroupPanel Bar#pColumns Bar#m_pColumnsManager Bar#m_pFoot
+{
+    image:                      url("Maschine/SongGroupPanelShared/SGPS_BG_Footer.png");
+    picture-includes-margin:    true;
+
+    fixed-left:                 15;
+    fixed-right:                15;
+
+    margin-left:                3;
+    margin-right:               4;
+
+    spacing:                    5;
+}
+
+// GRID BUTTON
+Bar#m_pSongPanel Bar#m_pColumnsManager Bar#pFooter Button#m_pGridSnap,
+Bar#m_pGroupPanel Bar#pColumns Bar#m_pColumnsManager Bar#m_pFoot Button#m_pGrid
+{
+    background-color:           no;
+    foreground-color:           no;
+
+    image:                      url("Maschine/SongGroupPanelShared/SGPS_BTN_Grid.png");
+    animations:                 7;
+    outer-margin-top:           1;
+
+}
+
+// SNAP BUTTON
+Bar#m_pSongPanel Bar#m_pColumnsManager Bar#pFooter Button#m_pGridValues,
+Bar#m_pGroupPanel Bar#pColumns Bar#m_pColumnsManager Bar#m_pFoot Button#m_pSnap
+{
+    font-name:                  $fontPragmatica;
+    font-size:                  10;
+    foreground-color:			$colorWhite;
+
+    background-color:           no;
+    image:                      no;
+
+    horizontal-alignment:       left;
+    width:                      33;
+    outer-margin-top:           2;
+
+}
+
+// PENCIL MODE BUTTON
+Bar#m_pGroupPanel Bar#pColumns Bar#m_pColumnsManager Bar#m_pFoot Button#m_pencilMode
+{
+    background-color:           no;
+    foreground-color:           no;
+
+    image:                      url("Maschine/SongGroupPanelShared/SGPS_BTN_Draw.png");
+    animations:                 7;
+
+    outer-margin-top:           2;
+
+}
+
+// DUMMY LABEL
+Bar#m_pGroupPanel Bar#pColumns Bar#m_pColumnsManager Bar#m_pFoot Label#pDummy
+{
+    background-color:           no;
+    min-width:                  10;
+}

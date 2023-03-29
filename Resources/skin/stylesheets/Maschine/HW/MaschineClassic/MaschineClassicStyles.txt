@@ -1,0 +1,1879 @@
+
+//----------------------------------------------------------------------------------------------------------------------
+// Anims
+//----------------------------------------------------------------------------------------------------------------------
+
+@define $animtype-none          0;
+@define $animtype-linear        1;
+@define $animtype-smoothin      2;
+@define $animtype-smoothout     3;
+@define $animtype-smoothinout   4;
+
+//----------------------------------------------------------------------------------------------------------------------
+// Metrics
+//----------------------------------------------------------------------------------------------------------------------
+
+@define $metricMini             6;
+@define $metricGrid             18;
+@define $metricBig              96;
+
+@define $spacingGroup           3;
+@define $spacingPanel           2;
+@define $sizeSplitter           4;
+@define $sizeSplitterPanel      3;
+
+@define $defaultHeight          64;
+
+//----------------------------------------------------------------------------------------------------------------------
+// Colors
+//----------------------------------------------------------------------------------------------------------------------
+
+// Root
+
+@define $colorRootBackground    rgb(  0,   0,   0);
+
+
+// Developer
+
+@define $colorBlack             rgb(  0,   0,   0);     // basic colors
+@define $colorWhite             rgb(255, 255, 255);
+@define $colorGrey              rgb(160, 160, 160);
+
+@define $colorRed               rgb(255,   0,   0);
+@define $colorGreen             rgb(  0, 255,   0);
+@define $colorBlue              rgb(  0,   0, 255);
+@define $colorYellow            rgb(  255, 255, 0);
+
+@define $colorDarkRed           rgb(128,   0,   0);
+@define $colorDarkGreen         rgb(  0, 128,   0);
+@define $colorDarkBlue          rgb(  0,   0, 128);
+
+@define $colorTextBackground        rgb(208, 208, 208);     // text & special
+@define $colorListBackground        rgb(192, 192, 192);
+@define $colorListBackgroundDark    rgb( 48,  48,  48);
+@define $colorTextLight             $colorWhite;
+@define $colorTextDark              $colorBlack;
+@define $colorFocus                 rgb(128, 128, 128);
+
+@define $colorGroup                 rgb( 54,  54,  54);     // bars
+@define $colorPanel                 rgb( 48,  48,  48);
+@define $colorUnion                 no;
+@define $colorSplitter              $colorRootBackground;
+
+@define $colorWidget                rgb( 96,  96,  96);     // widget
+@define $colorWidgetOver            rgb(128, 128, 128);
+@define $colorWidgetDown            $colorWidget;
+@define $colorWidgetSelected        $colorWhite;
+@define $colorWidgetText            $colorTextDark;
+@define $colorWidgetTextSelected    $colorTextLight;
+@define $colorWidgetTextDisabled    $colorWidgetOver;
+
+@define $colorListItem              $colorTextBackground;   // listitem
+@define $colorListItemOver          $colorWhite;
+@define $colorListItemDown          $colorListItem;
+@define $colorListItemSelected      rgb( 40,  40,  40);
+@define $colorListItemText          $colorTextDark;
+@define $colorListItemTextSelected  $colorTextLight;
+
+@define $colorSliderBackground  $colorPanel;
+@define $colorFillerBackground  $colorPanel;
+@define $colorTitleBackground   $colorGroup;
+@define $colorTitleForeground   rgb(144, 144, 144);
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Fonts
+//----------------------------------------------------------------------------------------------------------------------
+
+@define $fontPixelId            1;
+@define $fontPixelSize          12;
+
+
+// kroeger 05_55
+@define $fontKroeger            url("Shared/Kroe0555.ttf");
+
+@define $fontNormalName         url("Shared/Uni05_53v1.ttf");
+@define $fontUniBoldName        url("Shared/Uni0563vR1.ttf");
+@define $fontStandard           url("Shared/Standard0756vR1.ttf");
+@define $fontStandardBold       url("Shared/Standard0765vR1.ttf");
+
+
+@define $fontStandardWithLowercase     url("Shared/Standard0756vR1_WithLowercase.ttf");
+@define $fontStandardBoldWithLowercase url("Shared/Standard0765vR1_WithLowercase.ttf");
+
+
+@define $fontSize               8;
+@define $fontSizeUniBold        6;
+
+//----------------------------------------------------------------------------------------------------------------------
+// Bar
+//----------------------------------------------------------------------------------------------------------------------
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.Page
+{
+    width:                      $defaultWidth;
+    height:                     $defaultHeight;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.HalfPage
+{
+    width:                      $halfWidth;
+    height:                     $defaultHeight;
+
+    max-width:                  $halfWidth;
+    max-height:                 $defaultHeight;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+Bar#RecordBarRight, Bar#EditBarRight, Bar#SlicingBarRight
+{
+    width:                      253;
+    height:                     40;
+}
+
+Bar#EditBarLeft, Bar.RecordBarLeft
+{
+    width:                      $halfWidth;
+    height:                     24;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+Bar#ControlPageControlScreenLeft Bar.Parameters,
+Bar#ControlPageControlScreenRight Bar.Parameters,
+Bar#DuplicatePageScreenLeft Bar.Parameters,
+Bar#IdeasPageScreenLeft Bar.Parameters,
+Bar#SectionsPageScreenLeft Bar.Parameters,
+Bar#GridPageScreenLeft Bar.Parameters,
+Bar#PatternPagePatternScreenLeft Bar.Parameters,
+Bar#ClipPageScreenLeft Bar.Parameters,
+Bar#PadModePageScreenLeft Bar.Parameters,
+Bar#SnapshotsPageScreenLeft Bar.Parameters,
+Bar#MixerPageScreenLeft Bar.Parameters,
+Bar#MixerPageScreenRight Bar.Parameters,
+Bar#NavigatePageViewScreenLeft Bar.Parameters,
+Bar#NavigatePageViewScreenRight Bar.Parameters,
+Bar#NavigatePagePageNavScreenLeft Bar.Parameters,
+Bar#NavigatePagePageNavScreenRight Bar.Parameters,
+Bar#StepPageScreenLeft Bar.Parameters,
+Bar#RecModePageScreenLeft Bar.Parameters,
+Bar#RepeatPageScreenLeft Bar.Parameters,
+Bar#RepeatPageScreenRight Bar.Parameters,
+Bar#ModulePageScreenLeft Bar.Parameters,
+Bar#PatternLengthPageScreenLeft Bar.Parameters,
+Bar#RecModePageScreenRight Bar.Parameters,
+Bar#PatternLengthPageScreenRight Bar.Parameters,
+Bar#StepPageModScreenLeft Bar.Parameters,
+Bar#StepPageModScreenRight Bar.Parameters,
+Bar#pParamsLeft Bar.Parameters,
+Bar#pParamsRight Bar.Parameters,
+Bar#LoopPage Bar.Parameters
+{
+    outer-margin-top:           3;
+}
+
+Bar#SamplingPageScreenRight Bar.Parameters
+{
+    outer-margin-top:           7;
+}
+
+
+
+Bar.Parameters
+{
+    height:                     30;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.GroupNames
+{
+    height:                     7;
+    margin-top:                 0;
+    spacing:                    5;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.Grid
+{
+    width:                      255;
+    height:                     52;
+    margin-top:                 0;
+    spacing:                    2;
+}
+
+Bar.Grid4Rows
+{
+    height:                     15;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+Bar#DuplicatePageScreenLeft Bar.PadRow1,
+Bar#SelectPageQuietScreenLeft Bar.PadRow1,
+Bar#SelectPageEventsScreenLeft Bar.PadRow1,
+Bar#SoloPageScreenLeft Bar.PadRow1,
+Bar#MutePageScreenLeft Bar.PadRow1
+{
+    outer-margin-top:           1;
+}
+Bar#DuplicatePageScreenLeft Bar.PadRow2,
+Bar#SelectPageQuietScreenLeft Bar.PadRow2,
+Bar#SelectPageEventsScreenLeft Bar.PadRow2,
+Bar#SoloPageScreenLeft Bar.PadRow2,
+Bar#MutePageScreenLeft Bar.PadRow2
+{
+    outer-margin-top:           2;
+}
+
+Bar#SamplingPageSliceApplyScreenLeft Bar.PadRow1,
+Bar#SamplingPageSliceApplyScreenLeft Bar.PadRow2
+{
+    outer-margin-top:           1;
+}
+
+Bar.PadRow,
+Bar.PadRow1,
+Bar.PadRow2
+{
+    width:                      255;
+    height:                     11;
+    spacing:                    5;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#SamplingPageScreenLeft Bar.HeadRow,
+Bar#ControlPageControlScreenLeft Bar.HeadRow,
+Bar#ModulePageScreenLeft Bar.HeadRow,
+Bar#StepPageModScreenLeft Bar.HeadRow,
+Bar#MixerPageScreenLeft Bar.HeadRow
+{
+    spacing:                    0;
+    margin-left:                -2;
+}
+
+Bar#ModulePageScreenLeft Bar.HeadRow,
+Bar#StepPageModScreenLeft Bar.HeadRow
+{
+    image:                      url("Maschine/HW/Classic/bar_headRow.png");
+    picture-includes-margin:    true;
+}
+
+Bar#GridPageScreenLeft Bar.HeadRow
+{
+    spacing:                    0;
+    margin-left:                0;
+}
+
+Bar#GridPageScreenLeft Bar.HeadRow Button#Button2
+{
+    image:                      url("Maschine/HW/Classic/MA2HW_Tab_left.png");
+    animations:                 3;
+    outer-margin-left:          3;
+}
+
+Bar#ControlPageControlScreenLeft Bar.HeadRow Button#Button3[isShiftPluginMode=false]
+{
+    margin-left:       0;
+    outer-margin-left: 0;
+}
+Bar#ControlPageControlScreenLeft Bar.HeadRow Button#Button3[isShiftPluginMode=true]
+{
+    margin-left:       4;
+    outer-margin-left: 2;
+}
+
+Bar#ControlPageControlScreenLeft Bar.HeadRow Button#Button4[isShiftPluginMode=false]
+{
+    outer-margin-left: 2;
+}
+Bar#ControlPageControlScreenLeft Bar.HeadRow Button#Button4[isShiftPluginMode=true]
+{
+    outer-margin-left: 5;
+}
+
+Bar#NavigatePageViewScreenLeft Bar.HeadRow
+{
+    spacing:                    0;
+}
+
+Bar#NavigatePageViewScreenLeft Bar.HeadRow Button.HeadPin
+{
+    outer-margin-right:         3;
+}
+
+Bar#NavigatePageViewScreenLeft Bar.HeadRow Button.HeadButton
+{
+    outer-margin-left:          2;
+}
+
+Bar#NavigatePageViewScreenLeft Bar.HeadRow Button.HeadTabLeft
+{
+    outer-margin-left:          0;
+}
+
+Bar#NavigatePageViewScreenLeft Bar.HeadRow Button#Button3
+{
+    outer-margin-right:         2;
+}
+
+
+Bar#BrowsePageScreenLeft Bar.HeadRow,
+Bar#BrowsePageScreenRight Bar.HeadRow,
+Bar#ControlPageControlScreenRight Bar.HeadRow,
+Bar#SamplingPageSliceApplyScreenLeft Bar.HeadRow,
+Bar#SamplingPageSliceApplyScreenRight Bar.HeadRow,
+Bar#SamplingPageScreenRight Bar.HeadRow,
+Bar#NavigatePageViewScreenLeft Bar.HeadRow,
+Bar#NavigatePageViewScreenRight Bar.HeadRow,
+Bar#NavigatePagePageNavScreenLeft Bar.HeadRow,
+Bar#NavigatePagePageNavScreenRight Bar.HeadRow,
+Bar#IdeasPageScreenLeft Bar.HeadRow,
+Bar#IdeasPageScreenRight Bar.HeadRow,
+Bar#SectionsPageScreenLeft Bar.HeadRow,
+Bar#SectionsPageScreenRight Bar.HeadRow,
+Bar#ModulePageScreenRight Bar.HeadRow,
+Bar#PatternPagePatternScreenLeft Bar.HeadRow,
+Bar#ClipPageScreenLeft Bar.HeadRow,
+Bar#PatternPagePatternScreenRight Bar.HeadRow,
+Bar#ClipPageScreenRight Bar.HeadRow,
+Bar#PadModePageScreenLeft Bar.HeadRow,
+Bar#PadModePageScreenRight Bar.HeadRow,
+Bar#SnapshotsPageScreenLeft Bar.HeadRow,
+Bar#SnapshotsPageScreenRight Bar.HeadRow,
+Bar#DuplicatePageScreenLeft Bar.HeadRow,
+Bar#DuplicatePageScreenRight Bar.HeadRow,
+Bar#SelectPageQuietScreenLeft Bar.HeadRow,
+Bar#SelectPageEventsScreenLeft Bar.HeadRow,
+Bar#SelectPageQuietScreenRight Bar.HeadRow,
+Bar#SelectPageEventsScreenRight Bar.HeadRow,
+Bar#SoloPageScreenLeft Bar.HeadRow,
+Bar#SoloPageScreenRight Bar.HeadRow,
+Bar#MutePageScreenLeft Bar.HeadRow,
+Bar#MutePageScreenRight Bar.HeadRow,
+Bar#GridPageScreenRight Bar.HeadRow,
+Bar#StepPageScreenLeft Bar.HeadRow,
+Bar#StepPageScreenRight Bar.HeadRow,
+Bar#RecModePageScreenLeft Bar.HeadRow,
+Bar#RepeatPageScreenLeft Bar.HeadRow,
+Bar#RepeatPageScreenRight Bar.HeadRow,
+Bar#PatternLengthPageScreenLeft Bar.HeadRow,
+Bar#PatternLengthPageScreenRight Bar.HeadRow,
+Bar#StepPageModScreenRight Bar.HeadRow,
+Bar#MixerPageScreenRight Bar.HeadRow,
+Bar#LoopPageScreenRight Bar.HeadRow,
+Bar#SaveDialogPageScreenRight Bar.HeadRow
+{
+    spacing:                    5;
+    margin-left:                0;
+}
+
+Bar.HeadRow
+{
+    width:                      255;
+    height:                     12;
+    margin-left:                -2;
+    spacing:                    5;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.ArrowOff
+{
+    width:                      125;
+    height:                     12;
+    outer-margin-left:          0;
+    outer-margin-top:           0;
+    spacing:                    5;
+}
+
+// Arrows
+Bar.ArrowOn
+{
+    image:                      url("Maschine/HW/Classic/button_arrowOn.png");
+    outer-margin-left:          0;
+    outer-margin-top:           1;
+    spacing:                    0;
+}
+
+Button.ArrowRight
+{
+    outer-margin-left:          105;
+}
+
+Button.ArrowLeft,
+Button.ArrowRight
+{
+    image:                      no;
+
+    width:                      9;
+    height:                     9;
+
+    background-color:           no;
+    foreground-color:           no;
+
+    outer-margin-top:           1;
+    outer-margin-left:          1;
+}
+
+Button.ArrowLeft:!enabled,
+Button.ArrowRight:!enabled
+{
+    background-color:           $colorWhite;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#SamplingPageScreenRight Bar.InfoBar
+{
+    image:                      url("Maschine/HW/Classic/bg_infoBarSampler.png");
+    picture-includes-margin:    true;
+    outer-margin-top:           2;
+    margin-left:                0;
+    margin-top:                 0;
+}
+
+Bar#SamplingPageScreenRight Bar.InfoBar[StretchMode=true]
+{
+    image:                      url("Maschine/HW/Classic/sp_bg_infoBar_stretch.png");
+    picture-includes-margin:    true;
+    outer-margin-top:           4;
+    margin-left:                0;
+    margin-top:                 0;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+SampleOwnerWaveEditor#EditWaveBar, SlicingWaveEditor#SlicingWaveDisplay, RecorderWaveEditor#RecordWaveBar
+{
+    height:                     40;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+//Bar#BrowsePageScreenLeft
+
+Bar#BrowsePageScreenLeft Bar#BottomBar
+{
+    width:                      255;
+    height:                     31;
+}
+
+Bar.BankAttributeBar
+{
+    width:                      189;
+    height:                     31;
+}
+
+Bar.BankChainBar,
+Bar.AttributesBar
+{
+    image:                      url("Maschine/HW/Classic/bg_bankAttributeBar.png");
+}
+
+Bar.BankChainBar Bar#ButtonBar,
+Bar.AttributesBar Bar#ButtonBar
+{
+    height:                     20;
+    margin-left:                1;
+    margin-right:               1;
+}
+
+Bar.BankChainBar Bar#ButtonBar Label#Slot2,
+Bar.AttributeBar Bar#ButtonBar Label#Slot2
+{
+    width:                      65;
+}
+
+Bar.BankChainBar Bar#ButtonBar Label,
+Bar.AttributesBar Bar#ButtonBar Label
+{
+    width:                      60;
+    height:                     20;
+}
+
+Bar#BrowsePageScreenLeft Bar#PrehearBar
+{
+    image:                      no;
+    width:                      66;
+    height:                     31;
+}
+
+Bar#BrowsePageScreenLeft Bar#PrehearBar Button#PrehearButton
+{
+    image:                      no;
+    height:                     18;
+    font-name:                  $fontUniBoldName;
+    font-size:                  6;
+    horizontal-alignment:       left;
+    margin-left:                13;
+    vertical-alignment:         center;
+    margin-top:                 13;
+}
+
+Bar#BrowsePageScreenLeft Bar#PrehearBar Label#Spacer
+{
+    width:                      66;
+    height:                     1;
+}
+
+Bar#BrowsePageScreenLeft Bar#PrehearBar Label.InfoBar
+{
+    width:                      46;
+    height:                     12;
+    font-name:                  $fontStandardBold;
+    font-size:                  8;
+    horizontal-alignment:       center;
+    margin-top:                 1;
+    outer-margin-left:          13;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#ParamWidgetBar,
+Bar.KompleteEmuParam
+{
+    spacing:                    1;
+}
+Bar#ParamWidgetBar Bar,
+Bar.KompleteEmuParam
+{
+    width:                      63;
+}
+
+Bar#pParamNameBar,
+Bar#pParamValueBar
+{
+  height: 9;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Stack
+//----------------------------------------------------------------------------------------------------------------------
+
+Stack.BankAttributeStack
+{
+    width:                      189;
+    height:                     31;
+}
+
+
+Stack.DemoScreenPictureStack
+{
+    spacing:                    0;
+}
+
+Stack
+{
+    min-height:                 $defaultHeight;
+    max-height:                 $defaultHeight;
+    min-width:                  $defaultWidth;
+    max-width:                  $defaultWidth;
+    spacing:                    1;
+    background-color:           $colorWhite;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#SamplingPageScreenRight Stack.SamplingPage
+{
+    background-color:           no;
+    image:                      url("Maschine/HW/Classic/bg_stackSampler.png");
+    picture-includes-margin:    true;
+    margin-left:                1;
+    margin-bottom:              1;
+    margin-right:               1;
+}
+
+
+Stack.SamplingPage
+{
+    width:                      255;
+    height:                     24;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Label
+//----------------------------------------------------------------------------------------------------------------------
+
+
+Label.ArrowLabel
+{
+    foreground-color:           $colorWidgetText;
+    font-name:                  $fontStandardBold;
+    font-size:                  8;
+
+    width:                      125;
+    height:                     11;
+
+    horizontal-alignment:       center;
+    vertical-alignment:         center;
+
+    margin-left:                12;
+    margin-right:               12;
+
+    margin-bottom:              1;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label:!enabled
+{
+    foreground-color:           $colorGrey;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+// Busy Labels
+Bar#BusyPage Label.BusyLabel
+{
+    vertical-alignment:         center;
+    outer-margin-top:           0;
+}
+// Big Save Changes ? on the left Screen
+Label.BusyLabel
+{
+    font-name:                  $fontNormalName;
+    font-size:                  16;
+    horizontal-alignment:       center;
+    vertical-alignment:         center;
+
+    margin-left:                8;
+    margin-right:               8;
+    width:                      $halfWidth;
+    height:                     $defaultHeight;
+
+    outer-margin-top:           -11;
+}
+
+Bar#SaveDialogPage MultilineLabel
+{
+    vertical-alignment: center;
+    horizontal-alignment: center;
+    font-name: $fontNormalName;
+    font-size: 16;
+    background-color: $colorWhite;
+    foreground-color: $colorBlack;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#VariationPageScreenLeft Bar#ButtonBar Button#Button1
+{
+    outer-margin-left: 2;
+}
+
+Bar#BrowsePageScreenLeft Bar#BottomBar Bar#ButtonBar Label.InfoBar
+{
+    width:                      60;
+    height:                     20;
+
+    margin-top:                 3;
+    margin-left:                2;
+    margin-right:               2;
+
+    font-name:                  $fontKroeger;
+    font-size:                  8;
+    horizontal-alignment:       center;
+    vertical-alignment:         center;
+}
+
+Label.InfoBar
+{
+    font-name:                  $fontStandard;
+    font-size:                  8;
+    width:                      62;
+    height:                     11;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#SamplingPageSliceApplyScreenLeft Bar#LabelBar Label#Label1
+{
+    horizontal-alignment:       left;
+    margin-left:                11;
+}
+
+Label.InfoLabelBig
+{
+    font-name:                  $fontStandard;
+    font-size:                  8;
+    margin-left:                0;
+    margin-right:               8;
+    width:                      127;
+    height:                     11;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.InfoLabelMedium
+{
+    font-name:                  $fontStandard;
+    font-size:                  8;
+    margin-left:                8;
+    margin-right:               8;
+    width:                      63;
+    height:                     11;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#SamplingPageScreenRight Bar.InfoBar Label#Label2
+{
+    horizontal-alignment:       right;
+    margin-right:               0;
+}
+
+Bar.InfoBar Label.SampleEditLabel
+{
+    height:                     11;
+    foreground-color:           $colorWhite;
+
+    font-name:                  $fontStandard;
+    font-size:                  8;
+    horizontal-alignment:       left;
+
+    margin-top:                 -1;
+    margin-left:                2;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+
+Label.ParameterGroupName
+{
+    height:                     8;
+
+    font-name:                  $fontUniBoldName;
+    font-size:                  $fontSizeUniBold;
+    vertical-alignment:         top;
+
+    margin-left:                2;
+    margin-right:               2;
+    margin-top:                 0;
+    margin-bottom:              0;
+
+    outer-margin-left:          0;
+}
+
+Label.ParameterGroupName[span=span1]
+{
+    horizontal-alignment:       left;
+    width:                      60;
+}
+Label.ParameterGroupName[span=span2]
+{
+    horizontal-alignment:       left;
+    width:                      125;
+}
+Label.ParameterGroupName[span=span3]
+{
+    horizontal-alignment:       left;
+    width:                      190;
+}
+Label.ParameterGroupName[span=span4]
+{
+    horizontal-alignment:       left;
+    width:                      255;
+}
+Label.ParameterGroupName[span=pages]
+{
+    horizontal-alignment:       right;
+    width:                      60;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.ParameterName
+{
+    font-name:                  $fontUniBoldName;
+    font-size:                  $fontSizeUniBold;
+    width:                      63;
+    height:                     9;
+    margin:                     0;
+    margin-top:                 1;
+
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.ParameterValue
+{
+    font-name:                  $fontStandardBold;
+    font-size:                  $fontSize;
+    width:                      63;
+    margin:                     0;
+    height:                     9;
+}
+
+
+
+Label.ParameterValue[isPadMode=true]
+{
+    font-name:                  $fontStandardBoldWithLowercase;
+    font-size:                  $fontSize;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.DoubleGrid
+{
+    width:                      124;
+    horizontal-alignment:       left;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.HalfPage
+{
+    width:                      255;
+    horizontal-alignment:       left;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+
+ResultListItemWidget Label#m_pTextLabel,
+Label.VectorItem
+{
+    height:                     9;
+
+    font-name:                  $fontStandard;
+    font-size:                  8;
+
+    margin:                     0;
+    margin-right:               13;
+
+    horizontal-alignment:       right;
+}
+
+Label.VectorItem
+{
+    width:                      255;
+}
+
+ResultListItemWidget
+{
+    width:                      255;
+    height:                     9;
+}
+
+ResultListItemWidget Label#m_pTextLabel
+{
+    width:                      215;
+}
+
+ResultListItemWidget Label#m_pTextLabel:selected
+{
+    foreground-color:           $colorWhite;
+}
+
+Label.VectorItem:selected
+{
+    foreground-color:           $colorWhite;
+    background-color:           $colorBlack;
+}
+
+ResultListItemWidget:selected
+{
+    background-color:           $colorBlack;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+ResultListItemWidget Label#m_pFavoriteIcon
+{
+    image:                      url("Maschine/HW/Classic/HW_Icon_Fav.png");
+    animations:                 2;
+    margin-right:               22;
+    margin-top:                 0;
+}
+
+ResultListItemWidget Label#m_pFavoriteIcon[Favorite=true]
+{
+
+    animation-index:            1;
+}
+
+ResultListItemWidget Label#m_pFavoriteIcon[Favorite=true]:selected
+{
+    animation-index:            0;
+}
+
+ResultListItemWidget Label#m_pFavoriteIcon[Favorite=false]:selected
+{
+    image:                      no;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#RecModePageScreenRight
+{
+    margin-top:                 12;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.LineX
+{
+	// The image is in total 255px long, and is a dotted line with 9px of white on the left & right sides.
+    image:                      url("Shared/HW/MA2HW_Line.png");
+    animations:                 1;
+    animation-index:            0;
+
+    width:                      255;
+    height:                     1;
+    margin:                     0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.LineY
+{
+    image:                      url("Shared/HW/MA2HW_LineVertical.png");
+    animations:                 1;
+    animation-index:            0;
+
+    width:                      1;
+    height:                     18;
+    margin:                     0;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+
+Bar#PatternLengthPageScreenRight Label.BlackLine
+{
+    outer-margin-top:           10;
+}
+
+Label.BlackLine
+{
+    background-color:           $colorBlack;
+    width:                      255;
+    height:                     1;
+    margin:                     0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#SamplingPageScreenLeft Bar#EditBarLeft Label#Spacer
+{
+    height:                     4;
+}
+
+Bar#BrowsePageScreenRight Label.Spacer3px
+{
+    height:                     2;
+}
+
+// ASK DEVELOPERS TO UPDATE THIS !!!!
+Label.Spacer3px
+{
+    background-color:           $colorWhite;
+    width:                      255;
+    height:                     4;
+    margin:                     0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.Spacer6px
+{
+    background-color:           $colorWhite;
+    width:                      255;
+    height:                     6;
+    margin:                     0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.Spacer9px
+{
+    background-color:           $colorWhite;
+    width:                      255;
+    height:                     9;
+    margin:                     0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.StyleTitle
+{
+    background-color:           $colorTitleBackground;
+    foreground-color:           $colorTitleForeground;
+    horizontal-alignment:       left;
+    margin:                     2;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.StyleTitle#m_pTitle
+{
+    background-color:           $colorTitleBackground;
+    foreground-color:           $colorWhite;
+    horizontal-alignment:       left;
+    margin:                     2;
+
+    width:                      255;
+    height:                     12;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.DemoFullScreen
+{
+    width:                      $defaultWidth;
+    height:                     $defaultHeight;
+    margin-left:                0;
+    margin-right:               0;
+    margin-top:                 0;
+    margin-bottom:              0;
+
+}
+
+Label
+{
+    foreground-color:           $colorBlack;
+    font-name:                  $fontNormalName;
+    font-size:                  $fontSize;
+    horizontal-alignment:       center;
+    margin:                     2;
+}
+
+Label#root
+{
+    foreground-color:           $colorBlack;
+    font-name:                  $fontNormalName;
+    font-size:                  $fontSize;
+    horizontal-alignment:       center;
+    margin:                     0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Switcher
+//----------------------------------------------------------------------------------------------------------------------
+
+Switcher.PatternStep
+{
+    image:                      url("Maschine/HW/Classic/step_seqStep.png");
+    animations_for_range:       17;
+    animations:                 17;
+    animation-index:            0;
+
+    picture-includes-margin:    true;
+
+    width:                      14;
+    height:                     18;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// INFO BAR
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#SamplingPageScreenRight Bar.InfoBar
+{
+    margin-right:               no;
+}
+
+
+// Container
+Bar.InfoBar
+{
+    height:                     11;
+    margin-left:                9;
+    margin-right:               9;
+    spacing:                    5;
+}
+
+// Labels (generic)
+Bar.InfoBar Label
+{
+    height:                     11;
+
+    font-name:                  $fontStandard;
+    font-size:                  8;
+
+    margin:                     0;
+    margin-left:                2;
+    margin-top:                 1;
+}
+
+Bar.InfoBar Label.InfoBarLeft1
+{
+	width:					    116;
+	horizontal-alignment:       left;
+	margin-right:               2;
+}
+
+
+// Attribute "isPadMode" tells if the label is used for harmonies or normal usage
+
+Bar.InfoBar Label.InfoBarLeft2
+{
+	horizontal-alignment:       left;
+	margin-right:               2;
+}
+
+Bar.InfoBar Label.InfoBarLeft2[isPadMode=true]
+{
+    margin-top:                 1;
+    font-name:                  $fontStandardWithLowercase;
+    font-size:                  $fontSize;
+}
+
+Bar.InfoBar Label.InfoBarLeft3
+{
+	horizontal-alignment:       right;
+	margin-right:               0;
+	outer-margin-left:          -4;
+    max-width:                  68;
+}
+
+Bar.InfoBar Label.InfoBarRight1
+{
+	width:                      244;
+	horizontal-alignment:       right;
+	margin-right:               7;
+}
+
+
+//----------------------------------------------------------------------------------------
+
+SampleOwnerWaveEditor#EditWaveBar,
+SlicingWaveEditor#SlicingWaveDisplay,
+RecorderWaveEditor#RecordWaveBar
+{
+    height:                     40;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// ZoomSliderWidget
+//----------------------------------------------------------------------------------------------------------------------
+
+ZoomSlider
+{
+    background-color:           rgba(80, 80, 80, 150);
+    foreground-border-color:    rgba(0, 0, 0, 128);
+
+    margin:                     1;
+}
+
+ZoomGrip
+{
+    background-color:           rgba(25, 25, 25, 150);
+    foreground-border-color:    rgb(0, 0, 0);
+
+    min-width:                  3;
+    min-height:                 3;
+}
+
+ZoomHandle
+{
+    background-color:           rgba(255, 0, 0, 75);
+
+    min-width:                  1;
+    min-height:                 1;
+}
+
+ZoomHandle.Handle-Horizontal
+{
+    max-width:                  6;
+}
+
+ZoomHandle.Handle-Vertical
+{
+    max-height:                 6;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// HardwarePatternGuide
+//----------------------------------------------------------------------------------------------------------------------
+
+HardwarePatternGuide
+{
+    foreground-color:           $colorBlack;
+
+    image:                      url("Shared/HW/HW_Button.png");
+    picture-includes-margin:    true;
+    animations:                 4;
+    animation-index:            0;
+
+    fixed-top:                  1;
+    fixed-bottom:               1;
+    fixed-left:                 1;
+    fixed-right:                1;
+
+    margin-left:                0;
+    margin-right:               1;
+    margin-top:                 1;
+    margin-bottom:              1;
+
+    outer-margin-top:           2;
+    outer-margin-left:          9;
+    outer-margin-right:         6;
+    height:                     6;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// HardwarePatternGrid
+//----------------------------------------------------------------------------------------------------------------------
+
+HardwarePatternGrid
+{
+    height:				        22;
+    spacing:			        1;
+
+    margin-top:			        2;
+    margin-left:		        0;
+    margin-right:		        0;
+    margin-bottom:		        2;
+
+    outer-margin-left:		    9;
+    outer-margin-right:		    6;
+    outer-margin-bottom:        0;
+}
+
+
+
+// ARRANGER TIMELINE
+//----------------------------------------------------------------------------------------------------------------------
+SongTimeline
+{
+    playcursor-color:           $colorBlack;
+    playcursor-color-shadow:    $colorWhite;
+    playcursor-has-shadow:      true;
+    playcursor-width:           2;
+
+    font-name:                  $fontKroeger;
+    font-size:                  8;
+
+    background-color:           $colorWhite;
+    foreground-color:           $colorBlack;
+
+    timein-color:               $colorBlack;
+    beatin-color:               $colorBlack;
+    barin-color:                $colorBlack;
+    border-color:               $colorBlack;
+
+    marker-color:               rgb(0,0,0);
+    marker-line-height:         5;
+
+    width:                      255;
+    height:                     13;
+
+    outer-margin-top:           5;
+    outer-margin-bottom:        0;
+
+    left-text-offset:           3;
+    top-text-offset:            -8;
+
+    // loop
+    loop-header-top-margin:     6;
+}
+
+// LOOP OFF
+SongTimeline[LoopActive=false]
+{
+    loop-header-image:              url("Maschine/HW/Classic/loop_header_off.png");
+    loop-header-image-fixed-left:   6;
+    loop-header-image-fixed-right:  6;
+}
+
+// LOOP ON
+SongTimeline[LoopActive=true]
+{
+    loop-header-image:              url("Maschine/HW/Classic/loop_header_on.png");
+    loop-header-image-fixed-left:   6;
+    loop-header-image-fixed-right:  6;
+}
+
+
+
+
+ArrangerTrack
+{
+    font-name:                  $fontNormalName;
+    font-size:                  $fontSize;
+    foreground-color:           $colorBlack;
+    background-color:           $colorWhite;
+    playcursor-color:           $colorBlack;
+    snap-line-color:            $colorBlack;
+    beat-line-color:            $colorBlack;
+    bar-line-color:             $colorBlack;
+    border-color:               $colorWhite;
+    border-color-light:         $colorWhite;
+    separator-color:            $colorWhite;
+    scene-end-line-color:       $colorBlack;
+    scene-end-fill-color:       $colorBlack;
+
+    loop-left-color:            no;
+    loop-right-color:           no;
+
+    min-width:                  255;
+    max-width:                  255;
+    min-height:                 15;
+    max-height:                 15;
+}
+
+
+// SCENE HEADER
+//----------------------------------------------------------------------------------------------------------------------
+ArrangerHeader
+{
+    font-name:                  $fontStandardBold;
+    font-size:                  $fontSize;
+
+    background-color:           $colorWhite;
+
+    clip-background-color:      no;
+    clip-foreground-color:      $colorWhite;
+    clip-border-color:               no;
+
+    focused-clip-foreground-color: $colorBlack;
+    focused-clip-background-color: no;
+    focused-clip-border-color:  no;
+
+    grip-color:                 $colorBlack; // Sets black divider line between the scenes
+
+    playcursor-color:           $colorBlack;
+    playcursor-color-shadow:    $colorWhite;
+    playcursor-has-shadow:      true;
+    playcursor-width:           2;
+
+    color1:                     $colorBlack;
+    color2:                     $colorBlack;
+    color3:                     $colorBlack;
+    color4:                     $colorBlack;
+    color5:                     $colorBlack;
+    color6:                     $colorBlack;
+    color7:                     $colorBlack;
+    color8:                     $colorBlack;
+    color9:                     $colorBlack;
+    color10:                    $colorBlack;
+    color11:                    $colorBlack;
+    color12:                    $colorBlack;
+    color13:                    $colorBlack;
+    color14:                    $colorBlack;
+    color15:                    $colorBlack;
+    color16:                    $colorBlack;
+
+    width:                      255;
+    height:                     13;
+
+    clip-text-truncation-indicator-margin: 1;
+    clip-truncation-indicator-width: 7;
+
+    clip-text-left-margin:      3;
+    clip-text-right-margin:     2;
+    clip-text-top-margin:       1;
+    clip-top-margin:            2;
+    clip-left-margin:           1;
+    clip-right-margin:          0;
+}
+
+SceneBGWidget
+{
+    image:                      url("Maschine/HW/Classic/ARR_SceneHeader.png");
+    picture-includes-margin:    false;
+
+    animations:                 4;
+
+    fixed-left:                 2;
+    fixed-right:                6;
+    margin-left:                1;
+
+
+    // Animation Indices (build your own property out of these:
+    // animidx-focusedG-focusedS-header-referenced-truncated-recording-noScene(-mask)
+    // ! OBEY THE ORDER !
+
+    animidx-header:                                 0;
+    animidx-header-noScne:                          0;
+    animidx-focusedS-header:                        1;
+    animidx-focusedS-header-noScene:                1;
+    animidx-header-truncated:                       2;
+    animidx-focusedS-header-truncated:              3;
+
+    animidx-header-referenced:                      0;
+    animidx-focusedS-header-referenced:             1;
+    animidx-header-referenced-truncated:            2;
+    animidx-focusedS-header-referenced-truncated:   3;
+
+    animidx-header-recording:                       0;
+    animidx-header-truncated-recording:             2;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Master Level Meter
+//----------------------------------------------------------------------------------------------------------------------
+
+MasterLevelMeter
+{
+    image:                      url("Maschine/HW/Classic/HW_Rec_LevelMeterBG.png");
+    background-color:           no;
+    foreground-color:           no;
+}
+
+MasterLevelMeter::Bar
+{
+    width:                      238;
+    height:                     4;
+    outer-margin-left:          9;
+}
+
+MasterLevelMeter::Bar#pChannelLeft
+{
+    height:                     4;
+    outer-margin-top:           6;
+}
+
+MasterLevelMeter::Bar#pChannelRight
+{
+    outer-margin-top:           3;
+}
+
+MasterLevelMeter LevelMeter.Channel // levelmeter widget
+{
+    background-color:           no;
+    foreground-color:           $colorBlack;
+    width:                      233;
+    height:                     4;
+}
+
+MasterLevelMeter LevelMeter.Volume  // 1 pixel line between channels
+{
+    foreground-color:           $colorWhite;
+    margin-left:                2;
+    margin-right:               5;
+    height:                     1;
+}
+
+// Clip indicators
+MasterLevelMeter Label
+{
+    background-color:           no;
+    width:                      3;
+    height:                     4;
+    outer-margin-left:          2;
+}
+
+MasterLevelMeter Label:selected
+{
+    background-color:           $colorBlack;
+}
+
+MasterLevelMeter::Slider#m_pVolumeSlider
+{
+    background-color:           no;
+
+    width:                      244;
+    height:                     5;
+
+    margin-left:                7;
+    margin-top:                 2;
+
+    thumb-outer-margin:         1;
+}
+
+MasterLevelMeter::Slider#m_pVolumeSlider::Grip
+{
+    image:                      url("Maschine/HW/Classic/HW_Rec_Slider.png");
+
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Wave Display
+//----------------------------------------------------------------------------------------------------------------------
+
+WaveDisplayWidget
+{
+    width:                      253;
+    waveform-color:             $colorBlack;
+    background-color:           $colorWhite;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+MarkerWaveDisplay
+{
+    monochrome:                 true;               // activates inverted play cursor and dithered areas
+
+    waveform-color:             $colorBlack;
+    background-color:           $colorWhite;
+
+    playrange-waveform-color:   $colorBlack;
+    playrange-background-color: $colorWhite;
+
+    selection-waveform-color:   $colorWhite;
+    selection-background-color: $colorBlack;
+
+    marker-width:               2;
+    marker-color:               $colorBlack;
+    marker-contrast-color:      $colorWhite;
+    marker-text-color:          $colorBlack;
+
+    loop-marker-image:          url("Maschine/HW/Classic/loop_marker.png");
+    loop-marker-image-fixed-left: 4;
+    loop-marker-image-fixed-right: 4;
+
+    loop-marker-height:         38;
+
+    min-width:                  253;
+    height:                     39;
+    outer-margin-top:           1;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// SlicingWaveDisplay
+//----------------------------------------------------------------------------------------------------------------------
+
+SlicingWaveDisplay
+{
+    monochrome:                 true;           // activates inverted play cursor and dithered areas
+
+    background-color:           $colorWhite;
+    waveform-color:             $colorBlack;    // waveform segments not included in a slice
+
+    active-slice-background-color: $colorWhite;
+    active-slice-waveform-color:   $colorBlack;
+
+    focus-slice-background-color:  $colorBlack;
+    focus-slice-waveform-color:    $colorWhite;
+
+    slice-marker-color:          $colorBlack;
+    slice-marker-changed-color:  $colorBlack;
+    slice-marker-contrast-color: $colorWhite;
+
+    slice-marker-width:         2;
+
+    focus-slice-start-marker-color:          $colorBlack;    // setup like M 1.8
+    focus-slice-start-marker-changed-color:  $colorBlack;
+    focus-slice-start-marker-contrast-color: $colorWhite;
+
+    focus-slice-end-marker-color:          $colorBlack;
+    focus-slice-end-marker-changed-color:  $colorBlack;
+    focus-slice-end-marker-contrast-color: $colorWhite;
+
+    focus-slice-marker-width:   2;
+
+    min-width:                  253;
+    height:                     38;
+    outer-margin-top:           1;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Button
+//----------------------------------------------------------------------------------------------------------------------
+
+Button
+{
+    image:                      url("Maschine/HW/Classic/MA2HW_Pad.png");
+    animations:                 3;
+    animation-index:            0;
+
+    foreground-color:           $colorWidgetText;
+    font-name:                  $fontStandardBold;
+    font-size:                  $fontSize;
+    horizontal-alignment:       center;
+
+    width:                      62;
+    height:                     13;
+}
+
+Button:selected
+{
+    animation-index:            1;
+    foreground-color:           $colorWidgetTextSelected;
+}
+
+Button:!enabled
+{
+    animation-index:            2;
+}
+
+Button#show-frame
+{
+    image:                      no;
+    background-border-color:    rgba(200, 100, 50, 255);
+    background-color:           rgba(250, 250, 250, 32);
+    min-width:                  0;
+    min-height:                 0;
+    fixed-top:                  1;
+    fixed-left:                 1;
+    fixed-right:                1;
+    fixed-bottom:               1;
+}
+
+Button.HeadPin
+{
+    image:                      url("Maschine/HW/Classic/MA2HW_Pin.png");
+    picture-includes-margin:    true;
+    animations:                 2;
+
+    outer-margin-top:           1;
+
+    font-name:                  $fontUniBoldName;
+    font-size:                  6;
+    vertical-alignment:         center;
+    margin-top:                 1;
+}
+
+Button.HeadPin:!enabled
+{
+    animation-index:            0;
+}
+
+Button.HeadTab
+{
+    image:                      url("Maschine/HW/Classic/MA2HW_Tab.png");
+    animations:                 3;
+}
+
+Button.HeadTabRight
+{
+    image:                      url("Maschine/HW/Classic/MA2HW_Tab_right.png");
+    animations:                 3;
+}
+
+Button.HeadTabLeft
+{
+    image:                      url("Maschine/HW/Classic/MA2HW_Tab_left.png");
+    animations:                 3;
+}
+
+Button.HeadTabLeft,
+Button.HeadTabRight,
+Button.HeadTab
+{
+    picture-includes-margin:    true;
+    width:                      66;
+    height:                     11;
+    margin-top:                 1;
+    outer-margin-top:           1;
+}
+
+Button.HeadTabRight:!enabled,
+Button.HeadTab:!enabled
+{
+    foreground-color:           $colorWidgetSelected;
+}
+
+
+Bar#GridPageScreenRight Bar.HeadRow Button.HeadButton
+{
+    foreground-color:           no;
+    image:                      url("Maschine/HW/Classic/MA2HW_Button_arrowDown.png");
+    animations:                 3;
+}
+
+Button.HeadButton
+{
+    image:                      url("Maschine/HW/Classic/MA2HW_Button.png");
+    picture-includes-margin:    true;
+    animations:                 3;
+    width:                      66;
+    height:                     11;
+    margin-top:                 1;
+    outer-margin-top:           1;
+    outer-margin-left:          0;
+}
+
+
+Bar#BrowsePageScreenLeft Bar#ButtonBar Button.ArrowHeadButton
+{
+    width:                      123;
+}
+
+
+Button.ArrowHeadButton
+{
+    image:                      url("Maschine/HW/Classic/MA2HW_ArrowButton.png");
+    picture-includes-margin:    true;
+    animations:                 3;
+    width:                      132;
+    height:                     11;
+    margin-top:                 1;
+    outer-margin-top:           1;
+    fixed-left:                 10;
+    fixed-right:                10;
+}
+
+Button.ArrowHeadButton:selected // Do not show select state of ArrowHeadButton
+{
+    animation-index:            0;
+    foreground-color:           $colorWidgetText;
+}
+
+
+
+
+Bar#IdeasPageScreenRight Bar.HeadRow Button#Button7,
+Bar#SectionsPageScreenRight Bar.HeadRow Button#Button7,
+Bar#PatternPagePatternScreenRight Bar.HeadRow Button#Button7,
+Bar#ClipPageScreenRight Bar.HeadRow Button#Button7,
+Bar#StepPageScreenRight Bar.HeadRow Button#Button7,
+Bar#DuplicatePageScreenRight Bar.HeadRow Button#Button7
+{
+    foreground-color:           no;
+    image:                      url("Maschine/HW/Classic/MA2HW_Pad_arrowLeft.png");
+    picture-includes-margin:    true;
+    animations:                 3;
+}
+
+Bar#IdeasPageScreenRight Bar.HeadRow Button#Button8[HasArrow=true],
+Bar#SectionsPageScreenRight Bar.HeadRow Button#Button8[HasArrow=true],
+Bar#PatternPagePatternScreenRight Bar.HeadRow Button#Button8[HasArrow=true],
+Bar#ClipPageScreenRight Bar.HeadRow Button#Button8,
+Bar#StepPageScreenRight Bar.HeadRow Button#Button8,
+Bar#DuplicatePageScreenRight Bar.HeadRow Button#Button8
+{
+    foreground-color:           no;
+    image:                      url("Maschine/HW/Classic/MA2HW_Pad_arrowRight.png");
+    picture-includes-margin:    true;
+    animations:                 3;
+}
+
+
+
+Bar#SamplingPageSliceApplyScreenLeft Bar#ButtonBar Button.ScreenButton
+{
+    width:                      57;
+}
+
+
+
+Button.ScreenButton
+{
+    image:                      url("Maschine/HW/Classic/MA2HW_Pad.png");
+    picture-includes-margin:    true;
+    animations:                 3;
+    margin-top:                 1;
+    outer-margin-top:           1;
+}
+
+
+Button.AttributeButton
+{
+    image:                      url("Maschine/HW/Classic/button_bankChain.png");
+    picture-includes-margin:    true;
+    margin-top:                 1;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Pad Buttons
+//----------------------------------------------------------------------------------------------------------------------
+
+// Attribute "isPadMode" tells if the button is used for harmonies or normal usage
+
+Button.Pad[isPadMode=true]
+{
+
+    font-name:                  $fontStandardBoldWithLowercase;
+    font-size:                  $fontSize;
+}
+
+Button.Pad[isPadMode=false]
+{
+    font-name:                  $fontStandardBold;
+    font-size:                  $fontSize;
+}
+
+
+Button.Pad
+{
+     image:                     url("Maschine/HW/Classic/MA2HW_Pad.png");
+     picture-includes-margin:   true;
+     animations:                3;
+     width:                     60;
+     height:                    11;
+     margin-top:                1;
+     margin-left:               2;
+     margin-right:              1;
+     fixed-top:                 1;
+     fixed-bottom:              1;
+}
+
+Button.SelectPad
+{
+    image:                      url("Maschine/HW/Classic/MA2HW_Pad.png");
+    picture-includes-margin:    true;
+    animations:                 3;
+    width:                      60;
+    height:                     11;
+    margin-top:                 1;
+    fixed-top:                  1;
+    margin-left:                2;
+    margin-right:               1;
+    fixed-bottom:               1;
+    fixed-left:                 1;
+    fixed-right:                1;
+}
+
+Button.Pad:selected,
+Button.SelectPad:selected
+{
+    animation-index:            1;
+    foreground-color:           $colorWidgetTextSelected;
+}
+
+Button.Pad[isFocused=true]:!selected,
+Button.SelectPad[isFocused=true]:!selected
+{
+    animation-index:            1;
+    foreground-color:           $colorWidgetTextSelected;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Vectors
+//----------------------------------------------------------------------------------------------------------------------
+
+Vector<ResultListItemWidget>,
+Vector<Label>
+{
+    height:                     45; //!!!!!!!!!!!! 45 = 5 lines x 9 pixels
+	focus-anim:                 $animtype-none;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// HardwareDisplayWidget
+//----------------------------------------------------------------------------------------------------------------------
+
+HardwareDisplayWidget
+{
+    min-width:                  510;
+    max-width:                  510;
+    min-height:                 64;
+    max-height:                 64;
+}
+
+//----------------------------------------------------------------------------------------------------------------------

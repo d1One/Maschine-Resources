@@ -1,0 +1,285 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// BANK MANAGERS
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Container
+BankManager Bar#pBar
+{
+    background-color:                   rgb(30,30,30);
+
+    width:                              274;
+    height:                             362;
+
+    outer-margin-top:                   1;
+
+    margin-left:                        8;
+    margin-top:                         19;
+    margin-bottom:                      9;
+
+    spacing:                            18;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// List Item
+//----------------------------------------------------------------------------------------------------------------------
+
+// Container
+BankManager Bar#pBar Vector<BankManagerListItem>
+{
+    width:                              134;
+}
+
+BankManager Bar#pBar Vector<BankManagerListItem> Bar#widgets
+{
+    width:                              134;
+    spacing:                            2;
+}
+
+// Container
+BankManagerListItem.BankManagerList
+{
+    width:                              134;
+    height:                             19;
+
+    image:                              url("Maschine/BankManager/BM_BG_ListItem.png");
+    animations:                         7;
+    animation-index:                    0;
+}
+BankManagerListItem.BankManagerList:selected
+{
+    animation-index:                    1;
+}
+BankManagerListItem.BankManagerList[combined_mouse_over=true]
+{
+    animation-index:                    4;
+}
+
+
+
+//ColorLabel
+BankManager Bar#pBar Vector<BankManagerListItem> Bar#widgets BankManagerListItem Label#m_pColorLabel
+{
+    width:                              5;
+    background-color-palette:           2;
+    image:                              url("Maschine/BankManager/BM_LBL_ColorLabelSpacer.png");
+    animations:                         2;
+}
+
+BankManager Bar#pBar Vector<BankManagerListItem> Bar#widgets BankManagerListItem[empty=true] Label#m_pColorLabel
+{
+  animation-index:                      0;
+}
+
+BankManager Bar#pBar Vector<BankManagerListItem> Bar#widgets BankManagerListItem[empty=false] Label#m_pColorLabel
+{
+  animation-index:                      1;
+}
+
+
+
+// Name
+BankManager Bar#pBar Vector<BankManagerListItem> Bar#widgets BankManagerListItem Button#m_pName
+{
+    margin-left:                        4;
+    horizontal-alignment:               left;
+    image:                              no;
+    foreground-color-palette:           no;
+    foreground-color:                   $colorWhite;
+}
+
+
+// Rename
+BankManager Bar#pBar Vector<BankManagerListItem> Bar#widgets BankManagerListItem Button#m_pRename
+{
+    background-color:                   no;
+    foreground-color:                   no;
+
+    image:                              url("Maschine/BankManager/BM_BTN_Rename.png");
+    animations:                         7;
+}
+
+// Remove
+BankManager Bar#pBar Vector<BankManagerListItem> Bar#widgets BankManagerListItem Button#m_pRemove
+{
+    background-color:                   no;
+    foreground-color:                   no;
+
+    image:                              url("Maschine/BankManager/BM_BTN_Remove.png");
+    animations:                         7;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// ScrollBar
+//----------------------------------------------------------------------------------------------------------------------
+
+BankManager Scrollbar
+{
+    image:                               no;
+    width:                               10;
+    background-color:                    no;
+}
+
+BankManager Scrollbar Button#dec
+{
+    height:                             1;
+    image:                               no;
+    background-color:                    no;
+    outer-margin-bottom:                 -1;
+}
+
+BankManager Scrollbar Button#inc
+{
+    height:                              1;
+    image:                               no;
+    background-color:                    no;
+    outer-margin-top:                    -1;
+}
+
+BankManager Scrollbar Slider#value
+{
+    width:                              10;
+    background-color:                    no;
+}
+
+BankManager Scrollbar Grip#thumb
+{
+    image:                               url("Maschine/Scrollbars/scrollbar_vertical_slider2.png");
+    fixed-bottom:                        4;
+    fixed-top:                           4;
+    outer-margin-left:                   2;
+    outer-margin-right:                  2;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Bank
+//----------------------------------------------------------------------------------------------------------------------
+
+// Container
+BankManager Vector<BankManagerBank>
+{
+    width:                              112;
+}
+
+BankManager Vector<BankManagerBank> Bar#widgets,
+BankManager Vector<BankManagerBank> Bar#widgets BankManagerBank
+{
+    width:                              100;
+}
+
+BankManager Vector<BankManagerBank> Bar#widgets
+{
+    background-color:                   no;
+    spacing:                            13;
+}
+
+// Frame
+BankManager Vector<BankManagerBank> Bar#widgets BankManagerBank
+{
+    image:                              no;
+    height:                             84;
+}
+
+// Left Bar
+BankManager Vector<BankManagerBank> Bar#widgets BankManagerBank Bar#m_pLeft
+{
+    image:                              url("Maschine/BankManager/BM_FR_Bank.png");
+    animations:                         3;
+    animation-index:                    0;
+    picture-includes-margin:            true;
+
+
+    margin-top:                         3;
+    margin-left:                        0;
+
+    fixed-left:                         5;
+    fixed-right:                        5;
+    fixed-top:                          5;
+    fixed-bottom:                       5;
+
+    width:                              82;
+    height:                             82;
+}
+BankManager Vector<BankManagerBank> Bar#widgets BankManagerBank Bar#m_pLeft[HasFocus=true]
+{
+    animation-index:                    1;
+}
+
+// Bank Delete
+BankManager Vector<BankManagerBank> Bar#widgets BankManagerBank Button#m_pRemove
+{
+    image:                              url("Maschine/BankManager/BM_BTN_RemoveBank.png");
+    animations:                         7;
+    foreground-color:                   no;
+
+    outer-margin-left:                  3;
+    outer-margin-top:                   4;
+}
+
+// Add Button
+BankManager Button#m_pAdd
+{
+    image:                              url("Maschine/BankManager/BM_BTN_AddBank.png");
+    animations:                         7;
+    fixed-left:                         11;
+    fixed-right:                        2;
+    outer-margin-top:                   4;
+    outer-margin-left:                  4;
+
+    background-color:                   no;
+    foreground-color:                   no;
+
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Style BankManagerPads
+//----------------------------------------------------------------------------------------------------------------------
+
+// Pad Container
+BankManagerPadItem.BankManagerPads
+{
+    width:                              19;
+    height:                             19;
+    margin:                             1;
+}
+
+// Actual Pad
+Button.BankManagerPads
+{
+    width:                              17;
+    height:                             17;
+}
+
+
+Button.BankManagerPads
+{
+    background-color-palette:           7;
+    image:                              url("Maschine/BankManager/BM_BTN_Pad.png");
+    animations:                         6;
+    animation-index:                    0;
+}
+Button.BankManagerPads:selected
+{
+    animation-index:                    1;
+}
+Button.BankManagerPads[empty=true]
+{
+    animation-index:                    2;
+}
+Button.BankManagerPads[empty=true][combined_mouse_over=true]
+{
+    animation-index:                    3;
+}
+Button.BankManagerPads[empty=false][frozen=true]
+{
+    animation-index:                    4;
+}
+Button.BankManagerPads[empty=false][combined_mouse_over=true]
+{
+    animation-index:                    5;
+}

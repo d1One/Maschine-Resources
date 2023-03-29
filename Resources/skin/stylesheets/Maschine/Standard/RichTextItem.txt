@@ -1,0 +1,77 @@
+//----------------------------------------------------------------------------------------------------------------------
+// RichTextItem
+//----------------------------------------------------------------------------------------------------------------------
+
+RichTextItem
+{
+    foreground-color:       rgb(200, 200, 200);
+    font-name:              					$fontClearName;
+    font-size:              16;
+    horizontal-alignment:   left;
+    margin-right:                 3;
+    min-width: 0;
+}
+
+
+
+RichTextItem.link
+{
+    foreground-color:       rgb(100, 100, 255);
+}
+
+RichTextItem.bullet
+{
+    margin-left:50;
+    margin-right:5;
+    image: url("Maschine/InternalModules/Sampler/circle.png");
+}
+
+RichTextItem.blank
+{
+    height: 16;
+}
+
+RichTextItem.bold
+{
+    margin-bottom: 1;
+    font-size:              18;
+    foreground-color:       rgb(255, 255, 255);
+}
+
+RichTextItem.italics
+{
+    foreground-color:       rgb(255, 255, 100);	
+}
+
+RichTextItem.bold_italics
+{
+    margin-bottom: 1;
+    font-size:              18;
+    foreground-color:       rgb(255, 255, 0);
+}
+
+RichTextItem.h1
+{
+    font-size:              32;
+    foreground-color: $colorWhite;
+    margin-top:                 6;
+    margin-bottom:           6;
+}
+
+RichTextItem.h2
+{
+    font-size:              26;
+    foreground-color: $colorWhite;	
+    margin-top:                 4;
+    margin-bottom:           4;
+}
+
+RichTextItem.h3
+{
+    font-size:              20;
+    foreground-color: $colorWhite;
+    margin-top:                 2;
+    margin-bottom:           2;
+}
+
+//----------------------------------------------------------------------------------------------------------------------

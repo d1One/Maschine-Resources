@@ -1,0 +1,79 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// LOFI
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+LoFiEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png"); 
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-316;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+LoFiEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_lofi.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// POTIS
+//--------------------------------------------------------------------------------------------------------
+
+// TOP ROW
+//--------------------------------------------------------------------------------------------------------
+
+// SAMPLE RATE
+LoFiEditor Bar#SampleRate
+{
+    x:                                  $X-FX-3-2-BigKnob1;
+    y:                                  $Y-FX-BigKnob-Top
+}
+
+
+
+// BITS
+LoFiEditor Bar#Bits
+{
+    x:                                  $X-FX-3-2-BigKnob2;
+    y:                                  $Y-FX-BigKnob-Top
+}
+
+
+
+// MIX
+LoFiEditor Bar#Mix
+{
+    x:                                  $X-FX-3-2-BigKnob3;
+    y:                                  $Y-FX-BigKnob-Top
+}
+
+
+
+
+// BOTTOM ROW
+//--------------------------------------------------------------------------------------------------------
+
+// SMOOTH
+LoFiEditor Bar#Smooth
+{
+    x:                                  $X-FX-3-2-SmallKnob1;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+// STEREO
+LoFiEditor Bar#Stereo
+{
+    x:                                  $X-FX-3-2-SmallKnob2;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+

@@ -1,0 +1,1214 @@
+// Definitions
+
+@import url("Maschine/Definitions/Colors.txt");
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Metrics
+//----------------------------------------------------------------------------------------------------------------------
+
+@define $metricMini         		6;
+@define $metricGrid         		18;
+@define $metricBig          		96;
+
+@define $width3Elements				42;
+
+@define $spacingGroup      			3;
+@define $spacingPanel	      		2;
+@define $sizeSplitter      			4;
+@define $sizeSplitterPanel  		3;
+
+@define $defaultWidth				128;
+@define $defaultHeight				64;
+
+@define $halfWidth					64;
+@define $quarterWidth				32;
+@define $threeQuarterWidth			96;
+@define $thirdWidth					42;
+@define $twoThirdWidth				86;
+
+@define $lineHeight					11;
+
+//----------------------------------------------------------------------------------------------------------------------
+// Colors
+//----------------------------------------------------------------------------------------------------------------------
+
+@define $colorText					$colorBlack;
+@define $colorTextSelected			$colorWhite;
+@define $colorTextDisabled			$colorBlack;
+
+@define $colorForeground			$colorBlack;
+@define $colorBackground			$colorWhite;
+@define $colorInvertedForeground	$colorWhite;
+@define $colorInvertedBackground	$colorBlack;
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Fonts
+//----------------------------------------------------------------------------------------------------------------------
+
+@define $fontUniRegular				url("Shared/Uni05_53v1.ttf");
+@define $fontUniBold				url("Shared/Uni0563vR1.ttf");
+@define $fontUniBoldWithLowercase   url("Shared/Uni0563vR1_WithLowercase.ttf");
+@define $fontStandardRegular		url("Shared/STAN0755v3.ttf");
+@define $fontStandard               url("Shared/Standard0756vR1.ttf");
+@define $fontStandardBold			url("Shared/Standard0765vR1.ttf");
+@define $fontStandardWithLowercase  url("Shared/Standard0756vR1_WithLowercase.ttf");
+
+@define $fontSizeDefault			8;
+@define $fontSizeTitle          	6;
+
+//----------------------------------------------------------------------------------------------------------------------
+// Bar
+//----------------------------------------------------------------------------------------------------------------------
+
+// Busy Screens
+
+Bar.BusyPage, Bar#SaveDialogPageMikro
+{
+    width:              $defaultWidth;
+    height:             $defaultHeight;
+}
+
+Bar.BusyPageLoading
+{
+	width:              $defaultWidth;
+	height:             $defaultHeight;
+	image:              url("Maschine/HW/Mikro/MM_BusyLoading.png");
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#RepeatPage Bar.HeadTabRow,
+Bar#ModulesPage Bar.HeadTabRow
+{
+    image:                                                                      url("Maschine/HW/Mikro/frame_headTab.png");
+}
+
+Bar.HeadTabRow
+{
+	height:							$lineHeight;
+	width:							129;
+	outer-margin-left: 				0;
+	outer-margin-bottom: 			1;
+	spacing:						0;
+}
+
+
+
+Bar.HeadButtonRow
+{
+	height: 						$lineHeight;
+	width:							$defaultWidth;
+	outer-margin-bottom: 			1;
+	spacing:						1;
+}
+
+
+// Navigate Buttons
+Bar.NavButtonRow
+{
+	width:							                                            $defaultWidth;
+	height:                                                                     25;
+	horizontal-alignment:			                                            center;
+	spacing:						                                            2;
+}
+
+// Nav Bottom
+
+Bar#BrowsePage Bar.NavSelectRow,
+Bar#ModulesPage Bar.NavSelectRow
+{
+    image:                                                                      no;
+}
+
+Bar.NavSelectRow
+{
+    image:                                                                      url("Maschine/HW/Mikro/bar_nav.png");
+	width:							                                            $defaultWidth;
+	horizontal-alignment:			                                            center;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.Info-Group
+{
+	height:							32;
+	outer-margin-bottom:			1;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.ParameterBar
+{
+	height:							9;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Explicit Bars
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#field-bar
+{
+	height:							9;
+	outer-margin-top:				0;
+}
+
+Bar#param-bar
+{
+	height:							9;
+}
+
+// Sampling page
+Bar.RecordBarStyle, Bar.WaveEditBarStyle
+{
+    width:  $defaultWidth;
+}
+
+// Step Mode page
+Bar.PatternGUIBarStyle
+{
+    width:  $defaultWidth;
+    height:                                                                     19;
+
+    outer-margin-bottom: 1;
+    outer-margin-top:                                                           0;
+}
+
+// Step Mode page
+Bar.FixVelocityBarStyle
+{
+	width:  $defaultWidth;
+    height: 20;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Stack
+//----------------------------------------------------------------------------------------------------------------------
+
+Stack
+{
+    min-width:              $defaultWidth;
+    min-height:             $defaultHeight;
+    max-width:              $defaultWidth;
+    max-height:             $defaultHeight;
+    spacing:                1;
+    background-color:       $colorWhite;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Stack.MikroMidScreenStack
+{
+    min-width:          0;
+    min-height:         0;
+    max-height:         $defaultHeight;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#StepPage Stack.StepPageStack
+{
+    height:                                                                     19;
+}
+
+Stack.SamplingPageStack, Stack.StepPageStack
+{
+    min-width:          0;
+    min-height:         0;
+    max-height:         $defaultHeight;
+
+
+	width:				$defaultWidth;
+	height:				20;
+
+	outer-margin-bottom: 0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+SampleOwnerWaveEditor, SlicingWaveEditor
+{
+	width:	                        $defaultWidth;
+	height:                         20;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Label
+//----------------------------------------------------------------------------------------------------------------------
+
+Label
+{
+	foreground-color:       		$colorBlack;
+	background-color:				no;
+
+	font-name:             			$fontUniRegular;
+	font-size:              		$fontSizeDefault;
+
+	horizontal-alignment:   		left;
+	margin:                 		0;
+	min-width:              		0;
+	max-width:              		$defaultWidth;
+	min-height:						0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label[align=right]
+{
+	horizontal-alignment:   		right;
+}
+
+Label[align=left]
+{
+	horizontal-alignment:   		left;
+}
+
+Label[align=center]
+{
+	horizontal-alignment:   		center;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+/*Label:selected  - causes problems with specific labels!
+{
+	foreground-color:       		$colorInvertedForeground;
+	background-color:       		$colorInvertedBackground;
+}*/
+
+//----------------------------------------------------------------------------------------------------------------------
+
+
+Bar#SamplingPage Bar#InfoGroupBar Label.Title,
+Bar#SamplingPageSliceApplyMikro Bar#InfoGroupBar Label.Title,
+Bar#BrowsePage Bar#InfoGroupBar Label.Title,
+Bar#ControlPage Bar#InfoGroupBar Label.Title,
+Bar#ScenePage Bar#InfoGroupBar Label.Title,
+Bar#LoopPage Bar#InfoGroupBar Label.Title,
+Bar#PatternPage Bar#InfoGroupBar Label.Title,
+Bar#PadModePage Bar#InfoGroupBar Label.Title,
+Bar#ViewPage Bar#InfoGroupBar Label.Title,
+Bar#DuplicatePage Bar#InfoGroupBar Label.Title,
+Bar#SelectPage Bar#InfoGroupBar Label.Title,
+Bar#SoloPage Bar#InfoGroupBar Label.Title,
+Bar#MutePage Bar#InfoGroupBar Label.Title,
+Bar#GroupPage Bar#InfoGroupBar Label.Title,
+Bar#GridPage Bar#InfoGroupBar Label.Title,
+Bar#StepPage Bar#InfoGroupBar Label.Title,
+Bar#RecModePage Bar#InfoGroupBar Label.Title,
+Bar#RepeatPage Bar#InfoGroupBar Label.Title,
+Bar#PatternLengthPageMikro Bar#InfoGroupBar Label.Title,
+Bar#ModulesPage Bar#InfoGroupBar Label.Title,
+Bar#MainPage Bar#InfoGroupBar Label.Title,
+Bar#VariationPage Bar#InfoGroupBar Label.Title
+{
+    image:                                                                      no;
+    background-color:                                                           $colorBlack;
+    height:                                                                     11;
+}
+
+Bar#BrowsePage Bar#NavGroupBar Label.Title,
+Bar#ModulesPage Bar#NavGroupBar Label.Title
+{
+    image:                                                                      url("Maschine/HW/Mikro/label_title_rounded.png");
+}
+
+Label.Title
+{
+    image:                                                                      url("Maschine/HW/Mikro/label_title.png");
+    picture-includes-margin:                                                    true;
+	foreground-color:       		                                            $colorWhite;
+	background-color:       		                                            no;
+
+	font-name:              		                                            $fontUniBold;
+	font-size:              		                                            6;
+	horizontal-alignment:   		                                            left;
+	margin-left:					                                            4;
+	margin-right:					                                            4;
+	margin-top:						                                            1;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.NavSelect
+{
+	foreground-color:       		$colorWhite;
+	background-color:				$colorBlack;
+
+	font-name:             			$fontUniRegular;
+	font-size:              		$fontSizeDefault;
+
+	margin:                 		0;
+	max-width:              		$defaultWidth;
+	height:							20;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.Parameter
+{
+	width:             				$halfWidth;
+	height:             			9;
+
+	font-name:             			$fontUniRegular;
+	font-size:              		$fontSizeDefault;
+
+	margin-top:						1;
+	margin-left:					2;
+	margin-right:					0;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+
+Label.HalfPage
+{
+	width:             				$halfWidth;
+
+	font-name:                      $fontUniRegular;
+	font-size:                      $fontSizeDefault;
+	horizontal-alignment:           left;
+
+	margin-top:						1;
+	margin-left:					2;
+	margin-right:					0;		// set to "2" to trim fields and writings without scratching the edge
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.Large
+{
+    width:              			$defaultWidth;
+
+	font-name:      				$fontStandardRegular;
+	font-size:     					$fontSizeDefault;
+    horizontal-alignment:           center;
+
+	height:							20;
+	margin-left:					3;
+	margin-right:					3;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.Small
+{
+	font-size:              		9;
+	height:							18;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.Filler
+{
+	background-color:				$colorWhite;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#SamplingPage Stack#MikroMidScreenStack Label.Spacer3px
+{
+    height:                             3;
+}
+
+Bar#StepPage Stack#MikroMidScreenStack Label.Spacer3px
+{
+    height:                             1;
+}
+
+Label.Spacer3px
+{
+    background-color:       $colorWhite;
+    width:                  $defaultWidth;
+    height:                 3;
+    margin:                 0;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.Spacer6px
+{
+    background-color:       $colorWhite;
+    width:                  $defaultWidth;
+    height:                 6;
+    margin:                 0;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.LineX
+{
+    image:                                                                      url("Shared/HW/MA2HW_Line.png");
+	background-color:		                                                    $colorBlack;
+	width:					                                                    $defaultWidth;
+	height:					                                                    1;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.BlackLine
+{
+    background-color:       $colorBlack;
+    width:                  $defaultWidth;
+    height:                 1;
+    margin:                 0;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// InfoBar
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.Infobar
+{
+	height: 20;
+}
+
+Bar.Infobar Label
+{
+	height:             20;
+	width:				64;
+
+	font-name:          $fontStandardRegular;
+	font-size:          $fontSizeDefault;
+
+	foreground-color:   $colorBlack;
+	background-color:	$colorWhite;
+}
+
+Bar.Infobar Label.InfobarMikro1
+{
+	horizontal-alignment:	left;
+	margin-left:			3;
+	width:					78;
+}
+
+Bar.Infobar Label.InfobarMikro2
+{
+	horizontal-alignment:	right;
+	margin-right:			3;
+	width:					50;
+}
+
+Bar.Infobar Label.InfobarMikro2[isPadMode=true]
+{
+	font-name:          $fontStandardWithLowercase;
+	font-size:          $fontSizeDefault;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+// Specific margins
+Bar#SamplingPage Stack#MikroMidScreenStack Bar.NavSelectRow Label#Label1,
+Bar#SamplingPage Stack#MikroMidScreenStack Bar.NavSelectRow Label#Label3,
+Bar#ControlPage Stack#MikroMidScreenStack Bar.NavSelectRow Label#Label1,
+Bar#ControlPage Stack#MikroMidScreenStack Bar.NavSelectRow Label#Label3
+{
+    outer-margin-top:                                                           5;
+}
+
+
+// Left Arrow
+Bar#SamplingPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1,
+Bar#SamplingPage Stack#MikroMidScreenStack Bar.NavSelectRow Label#Label1,
+Bar#ControlPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1,
+Bar#ControlPage Stack#MikroMidScreenStack Bar.NavSelectRow Label#Label1,
+Bar#BrowsePage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1,
+Bar#ScenePage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1,
+Bar#LoopPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1,
+Bar#PatternPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1,
+Bar#PadModePage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1,
+Bar#ViewPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1,
+Bar#DuplicatePage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1,
+Bar#SelectPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1,
+Bar#SoloPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1,
+Bar#MutePage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1,
+Bar#GroupPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1,
+Bar#GridPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1,
+Bar#RecModePage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1,
+Bar#RepeatPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1,
+Bar#PatternLengthPageMikro Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1,
+Bar#ModulesPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1,
+Bar#LoopPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1,
+Bar#VariationPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label1
+{
+    foreground-color:                                                           no;
+    image:                                                                      url("Maschine/HW/Mikro/parameter_arrow.png");
+    animations:                                                                 3;
+    animation-index:                                                            1;
+    outer-margin-top:                                                           1;
+    outer-margin-left:                                                          3;
+}
+
+
+// Right Arrow
+Bar#SamplingPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3,
+Bar#SamplingPage Stack#MikroMidScreenStack Bar.NavSelectRow Label#Label3,
+Bar#ControlPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3,
+Bar#ControlPage Stack#MikroMidScreenStack Bar.NavSelectRow Label#Label3,
+Bar#BrowsePage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3,
+Bar#ScenePage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3,
+Bar#LoopPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3,
+Bar#PatternPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3,
+Bar#PadModePage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3,
+Bar#ViewPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3,
+Bar#DuplicatePage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3,
+Bar#SelectPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3,
+Bar#SoloPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3,
+Bar#MutePage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3,
+Bar#GroupPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3,
+Bar#GridPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3,
+Bar#RecModePage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3,
+Bar#RepeatPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3,
+Bar#PatternLengthPageMikro Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3,
+Bar#ModulesPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3,
+Bar#LoopPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3,
+Bar#VariationPage Stack#MikroMidScreenStack Bar.ParameterBar Label#Label3
+{
+    foreground-color:                                                           no;
+    image:                                                                      url("Maschine/HW/Mikro/parameter_arrow.png");
+    animations:                                                                 3;
+    animation-index:                                                            2;
+    outer-margin-top:                                                           1;
+}
+
+Bar#InfoGroupBar::Bar#LabelBar::Label.ParameterName,
+Bar#NavGroupBar::Bar#LabelBar::Label.ParameterName
+{
+    width:							                                            116;
+
+    font-name:                                                                  $fontUniRegular;
+    font-size:                                                                  8;
+	horizontal-alignment:			                                            center;
+}
+
+
+// Single Value Special Case
+Bar#InfoGroupBar::Bar#LabelBar[ListVisible=false],
+Bar#InfoGroupBar::Bar#LabelBar[StepMode=true]
+{
+    height:                                                                     9;
+    outer-margin-top:                                                           0;
+}
+
+ResultListItemWidget,
+Bar#InfoGroupBar::Bar#LabelBar[ListVisible=true],
+Bar#InfoGroupBar::Bar#LabelBar[StepMode=false]
+{
+    height:                                                                     10;
+    outer-margin-top:                                                           2;
+}
+ResultListItemWidget Label#m_pTextLabel,
+Bar#InfoGroupBar::Bar#LabelBar::Label.ParameterValue[ListVisible=true],
+Bar#InfoGroupBar::Bar#LabelBar::Label.ParameterValue[StepMode=false]
+{
+    font-name:                                                                  $fontStandardRegular;
+    font-size:                                                                  8;
+    outer-margin-top:                                                           1;
+}
+
+Bar#InfoGroupBar::Bar#LabelBar::Label.ParameterValue[isPadMode=true]
+{
+    font-name:                  $fontUniBoldWithLowercase;
+    font-size:                  6;
+    margin-bottom:              1;
+}
+
+ResultListItemWidget Label#m_pTextLabel,
+Bar#InfoGroupBar::Bar#LabelBar::Label.ParameterValue
+{
+    font-name:                                                                  $fontUniBold;
+    font-size:                                                                  6;
+	vertical-alignment:                                                         top;
+
+	outer-margin-top:                                                           0;
+	margin-left:                                                                3;
+	margin-right:                                                               3;
+}
+
+Bar#InfoGroupBar::Bar#LabelBar::Label.ParameterValue
+{
+    width:						                                				$defaultWidth;
+    horizontal-alignment:		                                                center;
+}
+
+ResultListItemWidget Label#m_pTextLabel
+{
+    width:	     	                 116;
+    horizontal-alignment:               left;
+}
+
+Bar#InfoGroupBar::Bar.Status
+{
+	height:                                                                     18;
+}
+
+
+//Favorite Icon
+
+Label#m_pFavoriteIcon
+{
+    image:                                                                      url("Maschine/HW/Classic/HW_Icon_Fav.png");
+    animations:																	2;
+    width: 12;
+    margin-right:																1;
+    margin-top:																	1;
+}
+
+Label#m_pFavoriteIcon[Favorite=true]
+{
+    animation-index:															1;
+}
+
+//----------------------------------------------------------
+
+Bar#InfoGroupBar::Bar#LabelBar::Label.Status
+{
+	font-name:					                                                $fontStandardRegular;
+	font-size:					                                                $fontSizeDefault;
+	horizontal-alignment:		                                                center;
+	vertical-alignment:			                                                top;
+	margin-top:                                                                 3;
+	height:						                                                20;
+	width:						                                                128;
+}
+
+Bar.ParameterValueBar
+{
+    height:                                                                     9;
+}
+
+
+Bar#InfoGroupBar::Bar#LabelBar::Label.ParameterValueSingle,
+Bar#InfoGroupBar::Stack#StepPageStack::Bar#LabelBar::Label.ParameterValueSingle
+{
+	font-name:					                                                $fontStandardRegular;
+	font-size:					                                                8;
+
+	horizontal-alignment:		                                                center;
+	width:						                                                $defaultWidth;
+	height:						                                                9;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.BusyLabel
+{
+	font-name:				$fontStandardBold;
+    font-size:              8;
+	horizontal-alignment:	center;
+    margin-left:            0;
+    margin-right:           0;
+    width:                  $defaultWidth;
+    height:                 $defaultHeight;
+}
+
+
+Bar.SaveDialogPageMikro Label.Title
+{
+    font-name: $fontStandardBold;
+    font-size: $fontSizeDefault;
+    margin-left: 3;
+    margin-right: 0;
+    width: $defaultWidth;
+    height: $lineHeight;
+}
+
+Bar#SaveDialogPageMikro MultilineTextEdit,
+Bar#SaveDialogPageMikro MultilineTextEditContentArea
+{
+    vertical-alignment: center;
+
+    foreground-color: $colorBlack;
+    font-name: $fontStandardRegular;
+    font-size: $fontSizeDefault;
+    margin-left: 3;
+    margin-right: 0;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Button
+//----------------------------------------------------------------------------------------------------------------------
+
+Button
+{
+	image:                  		                                            url("Shared/HW/HW_Button.png");
+	picture-includes-margin: 		                                            true;
+	animations:             		                                            4;
+	animation-index:       			                                             0;
+
+	foreground-color:       		$colorForeground;
+	font-name:              		$fontUniRegular;
+	font-size:              		$fontSizeDefault;
+	horizontal-alignment:   		center;
+
+	margin-top:						2;
+	margin-left:            		2;	// set to "2" to trim fields and writings without scratching the edge
+	margin-right:           		2;	// set to "2" to trim fields and writings without scratching the edge
+
+	height:							$lineHeight;
+	width:							$thirdWidth;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Button#show-frame
+{
+    image:                  no;
+    background-border-color:rgba(200, 100, 50, 255);
+    background-color:       rgba(250, 250, 250, 32);
+    min-width:              0;
+    min-height:             0;
+
+    fixed-top:      1;
+    fixed-left:     1;
+    fixed-right:    1;
+    fixed-bottom:   1;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#SelectPage Bar.HeadTabRow Button#Button1[Group=true]
+{
+    outer-margin-left:                                                          0;
+}
+
+Bar#SelectPage Bar.HeadTabRow Button.HeadButton,
+Bar#BrowsePage Bar.HeadTabRow Button.HeadButton
+{
+    outer-margin-left:                                                          1;
+}
+
+
+
+Button.HeadButton
+{
+	image:                  	url("Shared/HW/HW_Button.png");
+	picture-includes-margin:	true;
+	animations:             	4;
+	animation-index:       		0;
+	fixed-left:             	2;
+	fixed-right:            	2;
+
+	foreground-color:       	$colorForeground;
+	font-name:              	$fontUniRegular;
+	font-size:              	$fontSizeDefault;
+	horizontal-alignment:   	center;
+
+	margin-top:					1;
+	margin-left:            	1;	// set to "2" to trim fields and writings without scratching the edge
+	margin-right:           	1;	// set to "2" to trim fields and writings without scratching the edge
+
+	height:						$lineHeight;
+	width:						$thirdWidth;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#SamplingPage Bar.NavButtonRow Button.HeadButtonNav
+{
+    image:                  		                                            url("Maschine/HW/Mikro/nav_button.png");
+    animations:             		                                            4;
+    width:							                                            29;
+}
+
+// Button Navigate
+Button.HeadButtonNav
+{
+	image:                  		                                            url("Maschine/HW/Mikro/nav_button_small.png");
+	picture-includes-margin: 		                                            true;
+	animations:             		                                            4;
+	animation-index:       			                                            0;
+
+	foreground-color:       		                                            $colorForeground;
+
+	font-name:              		                                            $fontUniRegular;
+	font-size:              		                                            $fontSizeDefault;
+	horizontal-alignment:   		                                            center;
+	vertical-alignment:                                                         top;
+
+	margin-top:						                                            4;
+	margin-left:            		                                            2;
+	margin-right:           		                                            2;
+
+	outer-margin-top:                                                           5;
+
+	height:							                                            $lineHeight;
+	width:							                                            25;
+	min-width:						                                            4;
+}
+
+Bar#SamplingPage Bar.NavButtonRow Button.SmallButtonNav
+{
+    outer-margin-left:                                                          no;
+    picture:                                                                    no;
+    width:                                                                      1;
+}
+
+
+// lef arrow
+Bar.NavButtonRow Button#Button1
+{
+    outer-margin-left:                                                          4;
+    animation-index:                                                            0;
+}
+Bar.NavButtonRow Button#Button1:!enabled
+{
+    animation-index:                                                            2;
+}
+
+// right arrow
+Bar.NavButtonRow Button#Button6
+{
+    outer-margin-right:                                                         4;
+    animation-index:                                                            1;
+}
+Bar.NavButtonRow Button#Button6:!enabled
+{
+    animation-index:                                                            2;
+}
+
+// Navigate Arrows
+Button.SmallButtonNav
+{
+    outer-margin-top:                                                           7;
+    image:                  		                                            url("Maschine/HW/Mikro/nav_arrow.png");
+	animations:             		                                            3;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#BrowsePage Bar.HeadTabRow Button#Button1,
+Bar#ControlPage Bar.HeadTabRow Button#Button1,
+Bar#ScenePage Bar.HeadTabRow Button#Button1,
+Bar#PatternPage Bar.HeadTabRow Button#Button1,
+Bar#PadModePage Bar.HeadTabRow Button#Button1,
+Bar#ViewPage Bar.HeadTabRow Button#Button1,
+Bar#DuplicatePage Bar.HeadTabRow Button#Button1,
+Bar#SelectPage Bar.HeadTabRow Button#Button1[Group=false],
+Bar#RepeatPage Bar.HeadTabRow Button#Button1,
+Bar#GridPage Bar.HeadTabRow Button#Button1,
+Bar#ModulesPage Bar.HeadTabRow Button#Button1,
+Bar#MainPage Bar.HeadTabRow Button#Button1,
+Bar#VariationPage Bar.HeadTabRow Button#Button1
+{
+    outer-margin-left:                  -1;
+}
+
+// VIEW PAGE SPECIAL ALIGNMENT (FIXES UPDATE ISSUES)
+Bar#ViewPage Bar.HeadTabRow Button#Button3
+{
+  	outer-margin-left:                  1;
+}
+
+Bar#ViewPage Bar.HeadButtonRow Button#Button1
+{
+  	outer-margin-left:                  0;
+}
+
+Bar#ViewPage Bar.HeadButtonRow Button#Button3
+{
+  	outer-margin-left:                  0;
+}
+
+// VARIATION PAGE SPECIAL ALIGNMENT
+Bar#VariationPage Bar.HeadTabRow Button#Button3
+{
+  	outer-margin-left:                  1;
+}
+
+Button.HeadTab
+{
+    image:                  		                                            url("Maschine/HW/Mikro/HW_Tab.png");
+	picture-includes-margin: 		                                            true;
+	animations:            			                                            3;
+	animation-index:        		                                            0;
+	fixed-left:             		5;
+	fixed-right:            		4;
+	fixed-top:              		4;
+	fixed-bottom:           		4;
+
+	foreground-color:       		$colorForeground;
+	font-name:              		$fontUniRegular;
+	font-size:              		$fontSizeDefault;
+	horizontal-alignment:   		center;
+
+	margin-top:						2;
+	margin-left:            		2;	// set to "2" to trim fields and writings without scratching the edge
+	margin-right:           		2;	// set to "2" to trim fields and writings without scratching the edge
+	height:							$lineHeight;
+
+	width:							                                            43;
+	outer-margin-left:                                                          0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Button & Tab States
+//----------------------------------------------------------------------------------------------------------------------
+
+Button.HeadTab:selected
+{
+	animation-index:        		1;
+	foreground-color:      			$colorTextSelected;
+}
+
+Button.HeadButton:selected
+{
+	animation-index:        		2;
+	foreground-color:      			$colorTextSelected;
+}
+
+Button.HeadButtonNav:selected
+{
+	animation-index:        		2;
+	foreground-color:      			$colorTextSelected;
+}
+
+Button.HeadButton:!enabled,
+Button.HeadButtonNav:!enabled
+{
+	animation-index:        		3;
+	foreground-color:       		$colorTextDisabled;
+}
+
+Button.HeadTab:!enabled
+{
+	animation-index:        		2;
+	foreground-color:       		$colorTextDisabled;
+}
+
+Button.Grid
+{
+	width:	$metricGrid;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Explicit Buttons
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#ControlPage Button.HeadTab
+{
+	margin-top:						2;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Switcher.PatternStep
+{
+    image:                                                                      url("Maschine/HW/Mikro/step_patternStep.png");
+    animations:                                                                 9;
+    animations_for_range:                                                       9;
+    animation-index:                                                            0;
+    picture-includes-margin:                                                    true;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Hardware Pattern Guide
+//----------------------------------------------------------------------------------------------------------------------
+
+HardwarePatternGuide
+{
+    foreground-color:                                                           $colorBlack;
+
+    image:					                                                    url("Maschine/HW/Mikro/step_guideFrame.png");
+	picture-includes-margin:                                                    true;
+
+	margin-top:  			                                                    1;
+	margin-left:  			                                                    0;
+	margin-right:  			                                                    1;
+	margin-bottom:                                                              1;
+	outer-margin-top:		                                                    0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Hardware Pattern Grid
+//----------------------------------------------------------------------------------------------------------------------
+
+HardwarePatternGrid
+{
+    //background-color: rgba(80, 80, 80, 150);
+    //foreground-color: $colorBlack;
+
+	picture-includes-margin:	false;
+
+	height:				                                                        14;
+    spacing:			                                                        2;
+
+	margin-top:			                                                        2;
+	margin-left:		                                                        0;
+	margin-right:		                                                        1;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Master Level Meter
+//----------------------------------------------------------------------------------------------------------------------
+
+// Container
+Bar#SamplingPage Stack#MikroMidScreenStack MasterLevelMeter
+{
+    image:					                                                    url("Maschine/HW/Mikro/sp_levelMeter.png");
+	picture-includes-margin:                                                    true;
+
+    background-color:                                                           no;
+    foreground-color:                                                           no;
+
+	margin-left:			                                                    3;
+	margin-top:				                                                    1;
+
+	spacing:				                                                    0;
+}
+
+// Channels
+Bar#SamplingPage Stack#MikroMidScreenStack MasterLevelMeter::Bar
+{
+    width:                                                                      118;
+    height:                                                                     5;
+    spacing:                                                                    3;
+    outer-margin-top:		                                                    3;
+    outer-margin-left:                                                          2;
+}
+Bar#SamplingPage Stack#MikroMidScreenStack MasterLevelMeter::Bar#pChannelLeft
+{
+    outer-margin-top:		                                                    4;
+}
+Bar#SamplingPage Stack#MikroMidScreenStack MasterLevelMeter LevelMeter.Channel
+{
+	background-color:                                                           rgba(0,0,0,0);
+    foreground-color:                                                           $colorBlack;
+
+	width:					                                                    112;
+	height:					                                                    5;
+}
+
+// Clip
+Bar#SamplingPage Stack#MikroMidScreenStack MasterLevelMeter Label.Clip
+{
+    width:                                                                      3;
+    background-color:                                                           $colorWhite;
+}
+
+Bar#SamplingPage Stack#MikroMidScreenStack MasterLevelMeter Label.Clip:selected
+{
+    background-color:                                                           $colorBlack;
+}
+
+// Volume Slider
+MasterLevelMeter::Slider#m_pVolumeSlider
+{
+	background-color:		                                                    no;
+	width:					                                                    117;
+	thumb-outer-margin:		                                                    1;
+}
+
+MasterLevelMeter::Slider#m_pVolumeSlider::Grip
+{
+	image:					                                                    url("Maschine/HW/Mikro/sp_volumeSlider.png");
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Wave Display
+//----------------------------------------------------------------------------------------------------------------------
+
+WaveDisplayWidget
+{
+     waveform-color:                rgb(0,0,0);
+     background-color:              rgb(255,255,255);
+
+     channel-seperator-color:       rgb(56, 59, 64);
+     decibel-line-color:            rgb(67, 189, 255);
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+MarkerWaveDisplay
+{
+    outer-margin-top:                                                           1;
+    monochrome:                     true;               // activates inverted play cursor and dithered areas
+
+    waveform-color:                 $colorBlack;
+    background-color:               $colorWhite;
+
+    playrange-waveform-color:       $colorBlack;
+    playrange-background-color:     $colorWhite;
+
+    selection-waveform-color:       $colorWhite;
+    selection-background-color:     $colorBlack;
+
+    marker-width:                   2;
+    marker-color:                   $colorBlack;
+    marker-contrast-color:          $colorWhite;
+    marker-text-color:              $colorBlack;
+
+    loop-marker-image:                                                          url("Maschine/HW/Mikro/sp_loopHeader.png");
+    loop-marker-image-fixed-left:                                               2;
+    loop-marker-image-fixed-right:                                              2;
+    loop-marker-height:                                                         18;
+    start-marker-image-offset:     1;
+    end-marker-image-offset:       -14;
+
+    min-width: 128;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Slicing Wave Display
+//----------------------------------------------------------------------------------------------------------------------
+
+SlicingWaveDisplay
+{
+    outer-margin-top:                                                           1;
+
+    monochrome:                         true;               // activates inverted play cursor and dithered areas
+
+    background-color:					$colorBlack;
+	waveform-color:						$colorWhite;
+
+    channel-separator-color:            $colorBlack;
+    decibel-line-color:                 $colorBlack;
+    play-cursor-color:                  $colorBlack;
+
+	active-slice-background-color:      $colorWhite;
+    active-slice-waveform-color:        $colorBlack;
+
+    focus-slice-background-color:       $colorBlack;
+    focus-slice-waveform-color:         $colorWhite;
+
+    slice-marker-color:                 $colorBlack;
+    slice-marker-changed-color:         $colorBlack;
+    slice-marker-contrast-color:        $colorWhite;
+
+    slice-marker-width:                 2;
+
+    focus-slice-start-marker-color:             $colorBlack;    // setup like M 1.8
+    focus-slice-start-marker-changed-color:     $colorBlack;
+    focus-slice-start-marker-contrast-color:    $colorWhite;
+
+    focus-slice-end-marker-color:               $colorBlack;
+    focus-slice-end-marker-changed-color:       $colorBlack;
+    focus-slice-end-marker-contrast-color:      $colorWhite;
+
+    focus-slice-marker-width:           2;
+
+	min-width: 128;
+}
+
+//----------------------------------------------------------------------------------------------------------------------

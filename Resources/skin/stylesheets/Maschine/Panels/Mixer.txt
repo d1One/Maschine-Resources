@@ -1,0 +1,1991 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// MIXER
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// MIXER PANEL TOP LEVEL LAYOUT
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// MAIN BACKGROUND
+Bar#m_pMixerView
+{
+    background-color:                   $colorBlack;
+}
+
+
+
+// CHANNEL CONTAINER BACKGROUND
+Bar#m_pMixerView Bar#m_pChannelManager[NoGroup=true]
+{
+    background-color:                   $StandardBackgroundGrey;
+}
+
+
+
+// CHANNEL BODY CONTAINER
+Bar#m_pChannelArea
+{
+    background-color:                   $StandardBackgroundGrey;
+    outer-margin-top:                   1;
+    min-height:                         0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// LEFT SIDEPANEL
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Bar#m_pMixerPanel Bar#m_pVisibilityArea
+{
+    image:                              url("Maschine/SharedTexture/Shared_BG_SidepanelContrastLine.png");
+    picture-includes-margin:            true;
+    fixed-top:                          10;
+    fixed-bottom:                       10;
+    background-color:                   $LightBackgroundGrey;
+
+    width:                              27;
+    spacing:                            1;
+    outer-margin-right:                 2;
+}
+
+
+
+Bar#m_pMixerPanel Bar#m_pVisibilityArea Bar
+{
+    margin-top:                         0;
+    margin-bottom:                      0;
+}
+
+
+
+Bar#m_pMixerPanel Bar#m_pVisibilityArea Bar#m_pVisibilityLower
+{
+    spacing:                            2;
+    min-height:                         0;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// SIDEPANEL BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// SHARED PROPERTIES
+Bar#m_pMixerPanel Bar#m_pVisibilityArea Button
+{
+    foreground-color:                   no;
+}
+
+
+// UPPER BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// EXPANSION SPACER
+Bar#m_pMixerPanel Bar#m_pVisibilityArea Bar#m_pVisibilityUpper Label#m_pLengthAdjustment[IsExpanded=false]
+{
+    height:                             25;
+    background-color:                   no;
+}
+
+
+Bar#m_pMixerPanel Bar#m_pVisibilityArea Bar#m_pVisibilityUpper Label#m_pLengthAdjustment[IsExpanded=true]
+{
+    height:                             70;
+}
+
+
+// EXTEND/ COLLAPSE MIXER
+Bar#m_pMixerPanel Bar#m_pVisibilityArea Button#m_pShowHideFunctionalBlocks
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_Extend.png");
+    animations:                         7;
+    background-color:                   no;
+    outer-margin-left:                  1;
+    outer-margin-bottom:                1;
+}
+
+
+// SPACER LINE
+Bar#m_pMixerPanel Bar#m_pVisibilityArea Bar#m_pVisibilityUpper Bar#pDividerBar
+{
+    background-color:                   $colorBlack;
+    height:                             1;
+    outer-margin-top:                   2;
+    margin-top:                         0;
+    margin-bottom:                      0;
+}
+
+
+
+// LOWER BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// SHOW INS / OUTS
+Bar#m_pMixerPanel Bar#m_pVisibilityArea Button#m_pShowHideInOut
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_SP_InOut.png");
+    animations:                         7;
+    outer-margin-top:                   3;
+    outer-margin-left:                  1;
+}
+
+
+
+// SHOW PLUGINS
+Bar#m_pMixerPanel Bar#m_pVisibilityArea Button#m_pShowHideSlotMatrix
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_SP_Plugin.png");
+    animations:                         7;
+    outer-margin-left:                  1;
+}
+
+
+
+// SHOW AUX CHANNELS
+Bar#m_pMixerPanel Bar#m_pVisibilityArea Button#m_pShowHideSend
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_SP_Aux.png");
+    animations:                         7;
+    outer-margin-left:                  1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// CHANNEL HEADERS
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// CHANNEL HEADER  BASIC BACKGROUNDS
+//----------------------------------------------------------------------------------------------------------------------
+
+// GROUP CHANNEL HEADERS CONTAINER
+Bar#m_pMixerPanel Bar#m_pChannelHead
+{
+    background-color:                   $StandardBackgroundGrey;
+    height:                             40;
+    spacing:                            0;
+}
+
+
+// SECOND CONTAINER FOR MUTE OVERLAYS
+Bar.ChannelHeadRow Bar#m_pContainer
+{
+    height:                             40;
+}
+
+
+// GROUP CHANNEL HEADER BACKGROUND, MODE: SOUNDS VISIBLE
+//----------------------------------------------------------------------------------------------------------------------
+
+// NO SEPARATOR
+Bar.ChannelHeadRow[SoundsVisible=true][HasSeparator=false]
+{
+    image:                              url("Maschine/Mixer/MIX_BG_GroupChannelHeader.png");
+    picture-includes-margin:            true;
+}
+
+
+
+// WITH SEPARATOR
+Bar.ChannelHeadRow[SoundsVisible=true][HasSeparator=true]
+{
+    image:                              url("Maschine/Mixer/MIX_BG_GroupChannelHeaderSeparator.png");
+    picture-includes-margin:            true;
+}
+
+
+
+// GROUP CHANNEL HEADER BACKGROUND, MODE: SOUNDS INVISIBLE
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.ChannelHeadRow[SoundsVisible=false][HasSeparator=false]
+{
+    image:                              url("Maschine/Mixer/MIX_BG_GroupChannelHeaderSI.png");
+    picture-includes-margin:            true;
+}
+
+
+
+Bar.ChannelHeadRow[SoundsVisible=false][HasSeparator=true]
+{
+    image:                              url("Maschine/Mixer/MIX_BG_GroupChannelHeaderSISeparator.png");
+    picture-includes-margin:            true;
+}
+
+
+
+// SOUND CHANNEL HEADER BACKGROUND
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.SoundChannelHead
+{
+    width:                              71;
+    height:                             40;
+
+    outer-margin-left:                  0;
+}
+
+
+
+// MASTER CHANNEL HEADER, MODE: SOUNDS VISIBLE
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pMixerView Bar#m_pMixerPanel Bar#m_pMasterChannelItem::Bar#m_pHead
+{
+    height:                             40;
+
+    outer-margin-left:                  5;
+    outer-margin-right:                 5;
+    outer-margin-bottom:                0;
+}
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// CHANNEL HEADER  BACKGROUND COLOR STATES
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// GROUP, MODE: SOUNDS VISIBLE
+//----------------------------------------------------------------------------------------------------------------------
+
+// DEFAULT
+Bar.ChannelHeadRow[SoundsVisible=true][HasFocus=false]
+{
+    background-color:                   $StandardBackgroundGrey;
+}
+
+
+
+// GROUP, MODE: SOUNDS VISIBLE
+//----------------------------------------------------------------------------------------------------------------------
+
+// DEFAULT
+Bar.ChannelHeadRow[SoundsVisible=false][HasFocus=false]
+{
+    background-color:                   $colorLightBackgroundGrey;
+}
+
+
+
+// SELECTED
+Bar.ChannelHeadRow[SoundsVisible=false][HasFocus=false]:selected
+{
+    background-color:                   $colorMixerChannelSelected;
+}
+
+
+
+// GROUP & SOUND CHANNEL HEADER FOCUS STATES
+//----------------------------------------------------------------------------------------------------------------------
+
+// FOCUS
+Bar.ChannelHeadRow[HasFocus=true],
+Bar.SoundChannelHead[HasFocus=true]
+{
+    background-color:                   no;
+    background-color-palette:           1;
+}
+
+
+
+// FOCUS-MUTE
+Bar.ChannelHeadRow[HasFocus=true][IsMute=true],
+Bar.SoundChannelHead[HasFocus=true][IsMute=true]
+{
+    background-color:                   no;
+    background-color-palette:           4;
+}
+
+
+
+// MASTER CHANNEL HEADER FOCUS, MODE: SOUNDS INVISIBLE
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem::Bar#m_pHead[HasFocus=true]
+{
+    background-color:                   $colorWhite;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// SHARED ELEMENTS, USED IN EACH CHANNEL HEADER
+//----------------------------------------------------------------------------------------------------------------------
+
+// SOUND / GROUP NUMBER AND MINI LEVEL METER CONTAINER
+Bar#m_pMixerPanel Bar#pIdAndLevelBar
+{
+    height:                             22;
+    margin-left:                        4;
+}
+
+
+
+// MINI LEVEL METER
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pMixerPanel Bar#pIdAndLevelBar Bar#m_pHeadLevelMeter
+
+{
+    outer-margin-top:                   0;
+    outer-margin-left:                  21;
+    width:                              2;
+}
+
+
+
+// MINI LEVEL METER IN MASTER HEADER
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#pIdAndLevelBar Bar#m_pHeadLevelMeter
+{
+    outer-margin-left:                  60;
+}
+
+
+
+// BUTTON ADD GROUP
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pMixerPanel Bar#m_pChannelHead Button#m_pAddTrack
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_AddGroup.png");
+    foreground-color:                   no;
+    animations:                         7;
+}
+
+
+
+// COLORED SEPARATOR LINE (MODE: SOUNDS VISIBLE)
+//----------------------------------------------------------------------------------------------------------------------
+
+// DEFAULT
+Bar#m_pMixerPanel Label#m_pHeadBodySplitter
+{
+    height:                             3;
+    background-color-palette:           1;
+    outer-margin-bottom:                1;
+}
+
+// MUTE
+Bar#m_pMixerPanel Label#m_pHeadBodySplitter[IsMute=true]
+{
+    background-color-palette:           4;
+}
+
+// EMPTY MIXER
+Bar#m_pMixerPanel Label#m_pHeadBodySplitter[NoGroup=true]
+{
+    height:                             1;
+    background-color:                   $colorBlack;
+}
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// CHANNEL NUMBER LABELS
+//----------------------------------------------------------------------------------------------------------------------
+
+// CHANNEL NUMBER LABELS BASIC STYLING
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pMixerPanel Bar#pIdAndLevelBar Label
+{
+    font-name:                          $fontPragmatica;
+    font-size:                          14;
+    margin-top:                         1;
+    width:                              37;
+    height:                             18;
+    outer-margin-top:                   1;
+}
+
+
+
+// CHANNEL NUMBER LABELS COLOR STATES
+//----------------------------------------------------------------------------------------------------------------------
+
+// DEFAULT, GROUP NUMBER, SOUND NUMBER
+Bar.ChannelHeadRow Label#m_pGroupId[IsMute=false],                                                  // Group Number Label
+Bar.ChannelHeadRow Label#m_pGroupId[SoundsVisible=false][HasFocus=false][IsMute=true]:selected,     // Group Number Label
+Bar.SoundChannelHead Label#m_pSoundId[IsMute=false],                                                // Sound Number Label
+Bar.SoundChannelHead Label#m_pSoundId[IsMute=true][HasFocus=false]:selected,                        // Sound Number Label
+Bar#m_pMasterChannelItem Bar#m_pGroupBody Label#m_pGroupId[IsMute=false]                            // Group Channel under Master
+{
+    foreground-color:                   no;
+    foreground-color-palette:           1;
+}
+
+
+
+// FOCUS, GROUP NUMBER, SOUND NUMBER
+Bar.ChannelHeadRow Label#m_pGroupId[SoundsVisible=false][HasFocus=true][IsMute=false],              // Group Number Label, Sounds Invisible
+Bar.ChannelHeadRow Label#m_pGroupId[SoundsVisible=false][HasFocus=true][IsMute=true],               // Group Number Label, Sounds Invisible
+Bar.SoundChannelHead Label#m_pSoundId[HasFocus=true][IsMute=false],                                 // Sound Number Label
+Bar.SoundChannelHead Label#m_pSoundId[HasFocus=true][IsMute=true],                                  // Sound Number Label
+Bar#m_pMasterChannelItem Bar#m_pGroupBody Label#m_pGroupId[HasFocus=true][IsMute=false],            // Group Channel under Master
+Bar#m_pMasterChannelItem Bar#m_pGroupBody Label#m_pGroupId[HasFocus=true][IsMute=true]              // Group Channel under Master
+{
+    foreground-color:                   $StandardBackgroundGrey;
+    foreground-color-palette:           no;
+}
+
+
+
+// MUTE, GROUP NUMBER, SOUND NUMBER
+Bar.ChannelHeadRow Label#m_pGroupId[SoundsVisible=true][IsMute=true],                               // Group Number Label, Sounds Visible
+Bar.ChannelHeadRow Label#m_pGroupId[SoundsVisible=false][IsMute=true],                              // Group Number Label, Sounds Invisible
+Bar.SoundChannelHead Label#m_pSoundId[HasFocus=false][IsMute=true],                                 // Sound Number Label
+Bar#m_pMasterChannelItem Bar#m_pGroupBody Label#m_pGroupId[IsMute=true][HasFocus=false]:selected    // Group Channel under Master
+{
+    foreground-color:                   no;
+    foreground-color-palette:           4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// CHANNEL NAME LABELS
+//----------------------------------------------------------------------------------------------------------------------
+
+// BASIC LAYOUT
+Bar.ChannelHeadRow Label#m_pGroupName,
+Bar.SoundChannelHead Label#m_pSoundName,
+Bar.SoundChannelHead Label#m_pGroupName
+{
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    width:                              71;
+
+    height:                             18;
+    margin-left:                        4;
+    margin-top:                         1;
+
+    horizontal-alignment:               left;
+}
+
+
+
+// CHANNEL NAME LABELS COLOR STATES
+//----------------------------------------------------------------------------------------------------------------------
+
+// DEFAULT TYPE COLOR
+Bar.ChannelHeadRow Label#m_pGroupName[HasFocus=false],                                                  // Group Name Label
+Bar.ChannelHeadRow Label#m_pGroupName[SoundsVisible=false][HasFocus=false][IsMute=true]:selected,       // Group Name Label
+Bar.SoundChannelHead Label#m_pSoundName,                                                                // Sound Name Label
+Bar.SoundChannelHead Label#m_pSoundName[HasFocus=false][IsMute=true]:selected,                          // Sound Name Label
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Label#m_pName,                                               // Master Name Label, Sounds Invisible
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Label#m_pName[SoundsVisible=true][HasFocus=false],           // Master Name Label
+Bar.SoundChannelHead Label#m_pGroupName                                                                 // Group Name Label under Master
+{
+    foreground-color:                   $colorWhite75;
+    foreground-color-palette:           no;
+}
+
+
+
+// FOCUS TYPE COLOR
+Bar.ChannelHeadRow Label#m_pGroupName[HasFocus=true],                                                   // Group Name Label
+Bar.SoundChannelHead Label#m_pSoundName[HasFocus=true],                                                 // Sound Name Label
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Label#m_pName[SoundsVisible=false][HasFocus=true],           // Master Name Label, Sounds Invisible
+Bar.SoundChannelHead Label#m_pGroupName[HasFocus=true]                                                  // Group Name Label under Master
+{
+    foreground-color:                   $StandardBackgroundGrey;
+    foreground-color-palette:           no;
+}
+
+
+
+// MUTE TYPE COLOR
+Bar.ChannelHeadRow Label#m_pGroupName[SoundsVisible=true][HasFocus=false][IsMute=true],                  // Group Name Label
+Bar.ChannelHeadRow Label#m_pGroupName[SoundsVisible=false][HasFocus=false][IsMute=true],                 // Group Name Label
+Bar.SoundChannelHead Label#m_pSoundName[HasFocus=false][IsMute=true],                                    // Sound Name Label
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Label#m_pName,                                                // Master Name Label, Sounds Invisible
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Label#m_pName[SoundsVisible=true][HasFocus=false],            // Master Name Label
+Bar.SoundChannelHead Label#m_pGroupName[HasFocus=false][IsMute=true]:selected                            // Group Name Label under Master
+{
+    foreground-color:                   $colorWhite20;
+    foreground-color-palette:           no;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// CHANNEL BODIES
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// CHANNEL BODIES BASIC STYLING
+//----------------------------------------------------------------------------------------------------------------------
+
+// Container For Channels
+Bar#m_pSoundChannelItems,
+Bar#m_pGroupChannelItems,
+Bar#m_pMasterChannelItem,
+Bar#m_pMasterChannelItem
+{
+    min-height:                         0;
+}
+
+
+
+// SOUND CHANNEL BACKGROUND CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+
+// DEFAULT
+Bar.ChannelBackground
+{
+    image:                              url("Maschine/Mixer/MIX_BG_ChannelRightStroke.png");
+    fixed-top:                          10;
+    fixed-bottom:                       10;
+    background-color:                   $colorLightBackgroundGrey;
+    width:                              72;
+    min-height:                             0;
+}
+
+
+// SEPARATOR
+Bar.ChannelBackground[HasSeparator=true]
+{
+    image:                              url("Maschine/Mixer/MIX_BG_ChannelRightStrokeSeparator.png");
+    fixed-top:                          10;
+    fixed-bottom:                       10;
+    width:                              73;
+}
+
+
+Bar.ChannelBackground:selected
+{
+    background-color:                   $colorMixerChannelSelected;
+}
+
+Bar.ChannelBackground[HasFocus=true]
+{
+    background-color:                   $colorMixerChannelSelected;
+}
+
+
+Bar#m_pMixerPanel Bar#m_pChannelArea Bar#m_pSoundChannelItems Bar#Sound[IsMute=true]
+{
+    background-color:                   rgb(47,47,47);
+}
+
+
+// Focused State for Master Channel doesn't work with styles, has to be done like this
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pGroupBody[HasFocus=true],
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pMasterBody[HasFocus=true]
+{
+    background-color:                   $colorMixerChannelSelected;
+}
+
+// Channel Background Alignment Tweaks for Master
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pGroupBody,
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pMasterBody
+{
+    outer-margin-top:                   1;
+    outer-margin-left:                  5;
+    outer-margin-right:                 5;
+}
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// CHANNEL MUTE OVERLAYS
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// SOUND HEADER
+//----------------------------------------------------------------------------------------------------------------------
+
+// DEFAULT
+// Bar#m_pMixerPanel Bar#m_pOverlayHead
+// {
+//     background-color:                    $colorChannelMute70;
+// }
+
+
+// SELECTED
+Bar#m_pMixerPanel Bar#m_pOverlayHead:selected,
+Bar.ChannelHeadRow[SoundsVisible=false][IsMute=true] Bar#m_pOverlay:selected
+{
+    background-color:                     $colorMixerChannelSelectedMute;
+}
+
+// SELECTED FOCUS
+// Bar#m_pMixerPanel Bar#m_pOverlayHead[HasFocus=true]:selected
+// {
+//     background-color:                    $colorChannelMute70;
+// }
+
+
+
+
+// CONTROLS
+//----------------------------------------------------------------------------------------------------------------------
+
+// DEFAULT
+Bar#m_pMixerPanel Bar#m_pOverlayAudioInput,
+Bar#m_pMixerPanel Bar#m_pOverlayMidiInput,
+Bar#m_pMixerPanel Bar#m_pOverlayAudioOutput,
+Bar#m_pMixerPanel Bar#m_pOverlayAux,
+Bar#m_pMixerPanel Bar#m_pOverlayMidiOutput
+{
+    background-color:                    $colorChannelMute50;
+}
+
+
+
+// SELECTED
+Bar#m_pMixerPanel Bar#m_pOverlayAudioInput:selected,
+Bar#m_pMixerPanel Bar#m_pOverlayMidiInput:selected,
+Bar#m_pMixerPanel Bar#m_pOverlayAudioOutput:selected,
+Bar#m_pMixerPanel Bar#m_pOverlayAux:selected,
+Bar#m_pMixerPanel Bar#m_pOverlayMidiOutput:selected
+{
+    background-color:                     $colorMixerChannelSelectedMute;
+}
+
+
+
+// SELECTED FOCUS
+Bar#m_pMixerPanel Bar#m_pOverlayAudioInput[HasFocus=true]:selected,
+Bar#m_pMixerPanel Bar#m_pOverlayMidiInput[HasFocus=true]:selected,
+Bar#m_pMixerPanel Bar#m_pOverlayAudioOutput[HasFocus=true]:selected,
+Bar#m_pMixerPanel Bar#m_pOverlayAux[HasFocus=true]:selected,
+Bar#m_pMixerPanel Bar#m_pOverlayMidiOutput[HasFocus=true]:selected
+{
+    background-color:                     $colorMixerChannelSelectedMute;
+}
+
+
+
+// SLOTS LIST
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pMixerPanel Bar#Sound Bar#m_pOverlaySlots,
+Bar#m_pMixerPanel Bar#Group Bar#m_pOverlaySlots,
+Bar#m_pMixerPanel Bar#m_pGroupBody Bar#m_pOverlaySlots
+{
+    background-color:                    $colorPluginListMute;
+}
+
+
+
+Bar#m_pMixerPanel Bar#Sound Bar#m_pOverlaySlots:selected,
+Bar#m_pMixerPanel Bar#Group Bar#m_pOverlaySlots:selected,
+Bar#m_pMixerPanel Bar#m_pGroupBody Bar#m_pOverlaySlots:selected
+{
+    background-color:                    $colorPluginListMuteSelected;
+}
+
+
+
+// LEVEL METER
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pMixerPanel Bar#m_pOverlayLevel
+{
+    image:                              url("Maschine/Mixer/MIX_BG_LevelMeterMute.png");
+    animations:                         2;
+    animation-index:                    0;
+}
+
+Bar#m_pMixerPanel Bar#m_pOverlayLevel:selected
+{
+    animation-index:                    1;
+}
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// MASTER CHANNEL BASIC STYLING
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem
+{
+    image:                              url("Maschine/Mixer/MIX_BG_MasterOuterStrokes.png");
+    animations:                         2;
+    picture-includes-margin:            true;
+    fixed-top:                          50;
+    fixed-bottom:                       5;
+}
+
+
+
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem[SoundsVisible=true]
+{
+    animation-index:                    0;
+}
+
+
+
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem[SoundsVisible=false]
+{
+    animation-index:                    1;
+}
+
+
+
+
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pGroupBody,
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pMasterBody
+{
+    background-color:                   $colorLightBackgroundGrey;
+    min-height:                         0;
+    outer-margin-top:                   1;
+    outer-margin-left:                  5;
+    outer-margin-right:                 5;
+}
+
+
+
+
+// DUMMY ELEMENTS
+//----------------------------------------------------------------------------------------------------------------------
+
+// MASTER CHANNEL HEAD/ BODY SPLITTER LINE
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Label#m_pHeadBodySplitter
+{
+    outer-margin-right:                 0;
+}
+
+
+// SHADOW LEFT OF MASTER CHANNEL
+Bar#m_pMixerPanel Bar#m_pShadowBar[SoundsVisible=true]
+{
+    image:                              url("Maschine/Mixer/MIX_SHADOW_Master.png");
+    picture-includes-margin:            true;
+    animations:                         2;
+    animation-index:                    0;
+    fixed-top:                          47;
+    fixed-bottom:                       5;
+}
+
+Bar#m_pMixerPanel Bar#m_pShadowBar[SoundsVisible=false][IsExpanded=true]
+{
+    image:                              url("Maschine/Mixer/MIX_SHADOW_Master.png");
+    picture-includes-margin:            true;
+    animations:                         2;
+    animation-index:                    1;
+    fixed-top:                          47;
+    fixed-bottom:                       5;
+}
+
+Bar#m_pMixerPanel Bar#m_pShadowBar[SoundsVisible=false][IsExpanded=false]
+{
+    image:                              url("Maschine/Mixer/MIX_SHADOW_MasterCollapsed.png");
+    picture-includes-margin:            true;
+    animations:                         1;
+    animation-index:                    0;
+    fixed-top:                          0;
+    fixed-bottom:                       0;
+}
+
+
+
+// MIDI OUTPUT FILL DUMMY
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pGroupBody Bar#m_pMidiOutput
+{
+    image:                              url("Maschine/Mixer/MIX_BG_MidiOutDummyMaster.png");
+    picture-includes-margin:            true;
+    fixed-left:                         3;
+    fixed-right:                        3;
+    fixed-top:                          3;
+    fixed-bottom:                       3;
+}
+
+
+
+
+
+// SCROLLBAR FILLER ON BOTTOM
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pScrollDummy
+{
+    background-color:                   $LightBackgroundGrey;
+    image:                              url("Maschine/Mixer/MIX_BG_DummyScrollbarMaster.png");
+    picture-includes-margin:            true;
+    fixed-left:                         3;
+    fixed-right:                        3;
+    fixed-top:                          3;
+    fixed-bottom:                       3;
+
+    height:                             19;
+    outer-margin-left:                  5;
+    outer-margin-right:                 5;
+}
+
+
+
+
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pScrollDummy:selected
+{
+    background-color:                   rgb(105,105,105);
+}
+
+
+
+
+
+// MASTER CHANNEL MASTER AND CUE BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pHead Bar#m_pTab
+{
+    height:                             18;
+    margin-left:                        3;
+    margin-bottom:                      0;
+    spacing:                            7;
+}
+
+
+
+// MASTER
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pHead Bar#m_pTab Button#m_pMasterButton
+{
+    image:                              no;
+    foreground-color:                   $colorWhite40;
+    horizontal-alignment:               left;
+
+    height:                             18;
+    width:                              40;
+    margin-top:                         1;
+}
+
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pHead Bar#m_pTab Button#m_pMasterButton:over
+{
+    foreground-color:                   $colorWhite60;
+}
+
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pHead Bar#m_pTab Button#m_pMasterButton:selected,
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pHead Bar#m_pTab Button#m_pMasterButton:selected:over
+{
+    foreground-color:                   $colorWhite;
+}
+
+
+// MASTER BUTTONS FOCUS (WHITE BACKGROUND)
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pHead Bar#m_pTab Button#m_pMasterButton[HasFocus=true]
+{
+    foreground-color:                   $colorBlack50;
+}
+
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pHead Bar#m_pTab Button#m_pMasterButton[HasFocus=true]:over
+{
+    foreground-color:                   $colorBlack60;
+}
+
+
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pHead Bar#m_pTab Button#m_pMasterButton[HasFocus=true]:selected,
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pHead Bar#m_pTab Button#m_pMasterButton[HasFocus=true]:selected:over
+{
+    foreground-color:                   $colorBlack;
+}
+
+
+
+// CUE (HEADPHONE ICON)
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pHead Bar#m_pTab Button#m_pCueButton
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_Cue.png");
+    animations:                         7;
+    foreground-color:                   no;
+    outer-margin-top:                   -1;
+}
+
+
+
+// CUE FOCUS ON WHITE BACKGROUND
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pHead Bar#m_pTab Button#m_pCueButton[HasFocus=true]
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_CueFocus.png");
+    animations:                         7;
+    foreground-color:                   no;
+    outer-margin-top:                   -1;
+}
+
+
+
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// SOUND GROUP CHANNEL CONTROLS
+//-----------------------------------------------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------------------------------------
+// INPUT SECTION
+//-----------------------------------------------------------------------------------------------------------------------
+
+// SOUND CHANNEL INPUT SECTION
+Bar#m_pMixerPanel Bar#m_pInput
+{
+    image:                              url("Maschine/Mixer/MIX_BG_ChannelInputSound.png");
+    picture-includes-margin:            true;
+    fixed-left:                         2;
+    fixed-right:                        2;
+
+    width:                              71;
+
+    margin-top:                         1;
+    spacing:                            1;
+}
+
+
+
+// GROUP CHANNEL INPUT SECTION
+Bar#m_pMixerPanel Bar#m_pGroupChannelItems Bar#m_pInput,
+Bar#m_pMixerPanel Bar#m_pMasterBody Bar#m_pInput
+{
+    image:                              url("Maschine/Mixer/MIX_BG_ChannelInputGroup.png");
+    picture-includes-margin:            true;
+    fixed-left:                         2;
+    fixed-right:                        2;
+
+    margin-top:                         0;
+}
+
+
+
+// MASTER CHANNEL GROUP INPUT SPACER LABEL
+Bar#m_pMixerPanel Bar#m_pMasterChannelItem Bar#m_pGroupBody Bar#m_pInput Label#m_pDummy
+{
+    height:                             21;
+}
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// AUX IN AND OUTS
+//-----------------------------------------------------------------------------------------------------------------------
+
+
+// POTIS AUDIO IN / OUT LEVEL
+//-----------------------------------------------------------------------------------------------------------------------
+
+// POTI AUDIO IN LEVEL (MODE: UNASSIGNED)
+Bar#m_pMixerPanel Bar#m_pInput Bar#m_pAudioInput Dragger#m_pAudioInLevel[IsAssigned=false],
+Bar#m_pMixerPanel Bar#m_pAuxBar Bar#m_pAux1LevelBar Dragger#m_pAux1Knob[IsAssigned=false],
+Bar#m_pMixerPanel Bar#m_pAuxBar Bar#m_pAux2LevelBar Dragger#m_pAux2Knob[IsAssigned=false]
+{
+    image:                              url("Maschine/Mixer/MIX_KNOB_SmallUnassigned.png");
+    animations:                         129;
+    animations_for_range:               129;
+    foreground-color:                   no;
+}
+
+
+Bar#m_pMixerPanel Bar#m_pInput Bar#m_pAudioInput Dragger#m_pAudioInLevel[IsAssigned=false]:over,
+Bar#m_pMixerPanel Bar#m_pAuxBar Bar#m_pAux1LevelBar Dragger#m_pAux1Knob[IsAssigned=false]:over,
+Bar#m_pMixerPanel Bar#m_pAuxBar Bar#m_pAux2LevelBar Dragger#m_pAux2Knob[IsAssigned=false]:over
+{
+    animation-index:                    0;
+}
+
+
+// POTI AUDIO IN LEVEL (MODE: ASSIGNED)
+Bar#m_pMixerPanel Bar#m_pInput Bar#m_pAudioInput Dragger#m_pAudioInLevel[IsAssigned=true],
+Bar#m_pMixerPanel Bar#m_pAuxBar Bar#m_pAux1LevelBar Dragger#m_pAux1Knob[IsAssigned=true],
+Bar#m_pMixerPanel Bar#m_pAuxBar Bar#m_pAux2LevelBar Dragger#m_pAux2Knob[IsAssigned=true]
+{
+    image:                              url("Maschine/Mixer/MIX_KNOB_SmallAssigned.png");
+    animations:                         129;
+    animations_for_range:               129;
+    foreground-color:                   no;
+}
+
+Bar#m_pMixerPanel Bar#m_pInput Bar#m_pAudioInput Dragger#m_pAudioInLevel[IsAssigned=true]:over,
+Bar#m_pMixerPanel Bar#m_pAuxBar Bar#m_pAux1LevelBar Dragger#m_pAux1Knob[IsAssigned=true]:over,
+Bar#m_pMixerPanel Bar#m_pAuxBar Bar#m_pAux2LevelBar Dragger#m_pAux2Knob[IsAssigned=true]:over
+{
+    animation-index:                    0;
+}
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// AUX IN (SOUNDCHANNEL ONLY)
+//-----------------------------------------------------------------------------------------------------------------------
+
+// AUDIO INPUT CONTAINER
+Bar#m_pMixerPanel Bar#m_pInput Bar#m_pAudioInput
+{
+    height:                             21;
+    width:                              71;
+    margin-top:                         2;
+    margin-bottom:                      2;
+    margin-right:                       2;
+    margin-left:                        1;
+}
+
+
+
+// AUDIO INPUT CONTROLS BACKGROUND LABEL
+Bar#m_pMixerPanel Bar#m_pInput Bar#m_pAudioInput[IsAssigned=false]
+{
+    image:                              url("Maschine/Mixer/MIX_BG_AudioInput.png");
+    picture-includes-margin:            false;
+}
+
+
+
+Bar#m_pMixerPanel Bar#m_pInput Bar#m_pAudioInput[IsAssigned=true]
+{
+    image:                              url("Maschine/Mixer/MIX_BG_AudioInputAssigned.png");
+    picture-includes-margin:            false;
+}
+
+
+
+// BUTTON AUDIO IN PORT
+//-----------------------------------------------------------------------------------------------------------------------
+Bar#m_pMixerPanel Bar#m_pInput Button#m_pAudioInDevice
+{
+    image:                              no;
+    horizontal-alignment:               right;
+    margin-right:                       3;
+    margin-top:                         1;
+    font-name:                          $fontPragmatica;
+    font-size:                          10;
+    width:                              50;
+    height:                             17;
+}
+
+
+
+// BUTTON AUDIO IN PORT (MODE: UNASSIGNED)
+Bar#m_pMixerPanel Bar#m_pInput Button#m_pAudioInDevice[IsAssigned=false]
+{
+    foreground-color:                   $colorWhite20;
+}
+
+
+
+// BUTTON AUDIO IN PORT (MODE: ASSIGNED)
+Bar#m_pMixerPanel Bar#m_pInput Button#m_pAudioInDevice[IsAssigned=true]
+{
+    foreground-color:                   $colorBlack65;
+}
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// AUX OUT
+//-----------------------------------------------------------------------------------------------------------------------
+
+// AUX SEND CONTAINER
+Bar#m_pMixerPanel Bar#m_pAuxBar
+{
+    image:                              url("Maschine/Mixer/MIX_BG_AuxSendContainer.png");
+    picture-includes-margin:            true;
+    fixed-left:                         3;
+    fixed-right:                        3;
+    fixed-top:                          3;
+    fixed-bottom:                       3;
+
+    width:                              71;
+    height:                             62;
+
+    margin-left:                        1;
+    margin-top:                         3;
+}
+
+
+
+// AUX SEND CONTROLS BACKGROUND
+//-----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pMixerPanel Bar#m_pAuxBar Bar#m_pAux1LevelBar,
+Bar#m_pMixerPanel Bar#m_pAuxBar Bar#m_pAux2LevelBar
+{
+    height:                             17;
+    width:                              71;
+    margin-right:                       2;
+    margin-left:                        1;
+}
+
+
+
+// UNASSIGNED
+Bar#m_pMixerPanel Bar#m_pAuxBar Bar#m_pAux1LevelBar[IsAssigned=false],
+Bar#m_pMixerPanel Bar#m_pAuxBar Bar#m_pAux2LevelBar[IsAssigned=false]
+{
+    image:                              url("Maschine/Mixer/MIX_BG_AuxSend.png");
+    picture-includes-margin:            false;
+}
+
+
+
+// ASSIGNED
+Bar#m_pMixerPanel Bar#m_pAuxBar Bar#m_pAux1LevelBar[IsAssigned=true],
+Bar#m_pMixerPanel Bar#m_pAuxBar Bar#m_pAux2LevelBar[IsAssigned=true]
+{
+    image:                              url("Maschine/Mixer/MIX_BG_AuxSendAssigned.png");
+    picture-includes-margin:            false;
+}
+
+
+
+
+// AUX SEND DESTINATION BUTTONS
+//-----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pMixerPanel Bar#m_pAuxBar Button#m_pAux1,
+Bar#m_pMixerPanel Bar#m_pAuxBar Button#m_pAux2
+{
+    image:                              no;
+    horizontal-alignment:               left;
+    font-name:                          $fontPragmatica;
+    font-size:                          10;
+    height:                             17;
+    width:                              51;
+    margin-left:                        4;
+    margin-top:                         1;
+}
+
+
+
+
+Bar#m_pMixerPanel Bar#m_pAuxBar Button#m_pAux1[IsAssigned=false],
+Bar#m_pMixerPanel Bar#m_pAuxBar Button#m_pAux2[IsAssigned=false]
+{
+    foreground-color:                   $colorWhite20;
+}
+
+
+
+
+Bar#m_pMixerPanel Bar#m_pAuxBar Button#m_pAux1[IsAssigned=true],
+Bar#m_pMixerPanel Bar#m_pAuxBar Button#m_pAux2[IsAssigned=true]
+{
+    foreground-color:                   $colorBlack65;
+}
+
+
+
+
+// POST PRE BUTTONS, ONLY APPEAR, WHEN ASSIGNED
+//-----------------------------------------------------------------------------------------------------------------------
+Bar#m_pMixerPanel Bar#m_pAuxBar Button#m_pAux1Button,
+Bar#m_pMixerPanel Bar#m_pAuxBar Button#m_pAux2Button
+{
+    font-name:                          $fontPragmatica;
+    font-size:                          10;
+    image:                              no;
+    horizontal-alignment:               left;
+    foreground-color:                   $colorMixerButtonBG;
+    width:                              71;
+    height:                             12;
+    margin-left:                        3;
+    margin-bottom:                      1;
+}
+
+
+
+
+Bar#m_pMixerPanel Bar#m_pAuxBar Button#m_pAux1Button[IsAssigned=false],
+Bar#m_pMixerPanel Bar#m_pAuxBar Button#m_pAux2Button[IsAssigned=false]
+{
+    foreground-color:                   $colorMixerButtonBG;
+}
+
+
+
+
+
+Bar#m_pMixerPanel Bar#m_pAuxBar Button#m_pAux1Button[IsAssigned=true],
+Bar#m_pMixerPanel Bar#m_pAuxBar Button#m_pAux2Button[IsAssigned=true]
+{
+    foreground-color:                   $colorWhite;
+}
+
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// MIDI IN (Sound and Group Channels)
+//-----------------------------------------------------------------------------------------------------------------------
+
+// MIDI IN CONTAINER
+Bar#m_pMixerPanel Bar#m_pMidiInput
+{
+    height:                             21;
+    width:                              71;
+    margin-top:                         2;
+    margin-left:                        1;
+}
+
+
+
+// SHARED BUTTON PROPERTIES
+Bar#m_pMixerPanel Bar#m_pMidiInput Button
+{
+    font-name:                          $fontPragmatica;
+    font-size:                          10;
+}
+
+
+
+Bar#m_pMixerPanel Bar#m_pMidiInput Button#m_pMidiInChannel[IsAssigned=false],
+Bar#m_pMixerPanel Bar#m_pMidiInput Button#m_pMidiInDevice[IsAssigned=false]
+{
+    foreground-color:                   $colorWhite20;
+}
+
+
+
+Bar#m_pMixerPanel Bar#m_pMidiInput Button#m_pMidiInChannel[IsAssigned=true],
+Bar#m_pMixerPanel Bar#m_pMidiInput Button#m_pMidiInDevice[IsAssigned=true]
+{
+    foreground-color:                   $colorBlack65;
+}
+
+
+
+// BUTTON MIDI IN CHANNEL
+//-----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pMixerPanel Button#m_pMidiInChannel
+{
+    image:                              no;
+    horizontal-alignment:               center;
+
+    margin-left:                        1;
+    margin-top:                         1;
+}
+
+
+
+// UNASSIGNED BUTTON MIDI IN CHANNEL
+Bar#m_pMixerPanel Button#m_pMidiInChannel[IsAssigned=false]
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_MidiInChannel.png");
+    picture-includes-margin:            true;
+}
+
+
+
+// ASSIGNED BUTTON MIDI IN CHANNEL
+Bar#m_pMixerPanel Button#m_pMidiInChannel[IsAssigned=true]
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_MidiInChannelAssigned.png");
+    picture-includes-margin:            true;
+}
+
+
+
+
+// BUTTON MIDI IN DEVICE
+//-----------------------------------------------------------------------------------------------------------------------
+Bar#m_pMixerPanel Button#m_pMidiInDevice,
+Bar#m_pMixerPanel Button#m_pMidiInActivePlugin
+{
+
+    horizontal-alignment:               right;
+    margin-right:                       4;
+    margin-top:                         1;
+}
+
+
+
+
+// MIDI IN DEVICE UNASSIGNED
+Bar#m_pMixerPanel Button#m_pMidiInDevice[IsAssigned=false],
+Bar#m_pMixerPanel Button#m_pMidiInActivePlugin[IsAssigned=false]
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_MidiInDevice.png");
+    picture-includes-margin:            true;
+}
+
+
+
+// MIDI IN DEVICE ASSIGNED
+Bar#m_pMixerPanel Button#m_pMidiInDevice[IsAssigned=true],
+Bar#m_pMixerPanel Button#m_pMidiInActivePlugin[IsAssigned=true]
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_MidiInDeviceAssigned.png");
+    picture-includes-margin:            true;
+}
+
+//-----------------------------------------------------------------------------------------------------------------------
+// KIT MODE
+//-----------------------------------------------------------------------------------------------------------------------
+Bar#m_pMixerPanel Button#m_midiInputKitMode
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_ChannelRouting.png");
+    picture-includes-margin:            true;
+    horizontal-alignment:               left;
+    foreground-color:                   $colorWhite20;
+    font-name:                          $fontPragmatica;
+    font-size:                          10;
+    margin-left:                        4;
+    outer-margin-top:                   1;
+    outer-margin-left:                  3;
+    margin-top:                         1;
+}
+
+Bar#m_pMixerPanel Bar#m_pMidiInput Button#m_midiInputKitMode[IsAssigned=true]
+{
+    foreground-color:                   $colorWhite;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// PLUG IN SLOTS
+//-----------------------------------------------------------------------------------------------------------------------
+
+
+// BACKGROUND CONTAINER
+Bar#m_pMixerPanel Bar#m_pSlotMatrix Bar#m_pSlotListManager
+{
+    image:                              url("Maschine/Mixer/MIX_BG_PluginSlots.png");
+    picture-includes-margin:            true;
+    background-color:                   $colorMixerPluginSlotBG;
+    fixed-top:                          10;
+    fixed-bottom:                       6;
+    margin-top:                         2;
+}
+
+
+Bar#m_pMixerPanel Bar#m_pSlotMatrix Bar#pBody Vector
+{
+    width:                              71;
+}
+
+
+
+// BUTTONS
+//-----------------------------------------------------------------------------------------------------------------------
+
+// BUTTONS LIST ITEM CONTAINER
+Bar#m_pMixerPanel Bar#m_pSlotMatrix Bar#pBody Vector<Bar>#m_pSlotVector::Bar#widgets::Bar
+{
+    image:                              url("Maschine/Mixer/MIX_BG_PluginSlotsListitem.png");
+    picture-includes-margin:            true;
+}
+
+
+Bar#m_pMixerPanel Bar#m_pSlotMatrix Bar#pBody Vector<Bar>#m_pSlotVector::Bar#widgets::Bar[HasFocus=true]
+{
+    background-color:                   $colorWhite10;
+}
+
+
+
+// BUTTON PLUGIN BYPASS (NOTE: Button#m_pActive also has attribute "type", possible value "instrument" or "effect")
+//-----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pMixerPanel Bar#m_pSlotMatrix Button#m_pActive
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_PluginSlotsActive.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+    foreground-color:                   no;
+    background-color:                   no;
+}
+
+
+
+// ACTIVE
+Bar#m_pMixerPanel Bar#m_pSlotMatrix Button#m_pActive[active=true]
+{
+    animation-index:                    0;
+}
+
+
+
+// BYPASS
+Bar#m_pMixerPanel Bar#m_pSlotMatrix Button#m_pActive[active=false]
+{
+    animation-index:                    2;
+}
+
+
+
+// FOCUS
+Bar#m_pMixerPanel Bar#m_pSlotMatrix Button#m_pActive[active=true][HasFocus=true]
+{
+    animation-index:                    1;
+}
+
+
+
+// FOCUS BYPASS
+Bar#m_pMixerPanel Bar#m_pSlotMatrix Button#m_pActive[active=false][HasFocus=true]
+{
+    animation-index:                    2;
+}
+
+
+
+
+// BUTTON PLUGIN NAME
+//-----------------------------------------------------------------------------------------------------------------------
+Bar#m_pMixerPanel Bar#m_pSlotMatrix Button#m_pName
+{
+    image:                              no;
+    foreground-color:                   $colorWhite50;
+    background-color:                   no;
+    horizontal-alignment:               left;
+    vertical-alignment:                 top;
+
+    height:                             14;
+    max-width:                          59;
+    margin-right:                       3;
+    margin-left:                        1;
+//     margin-top:                         1;
+}
+
+
+
+
+Bar#m_pMixerPanel Bar#m_pSlotMatrix Button#m_pName[active=true]
+{
+    foreground-color:                   $colorWhite50;
+}
+
+
+
+
+Bar#m_pMixerPanel Bar#m_pSlotMatrix Button#m_pName[active=false]
+{
+    foreground-color:                   $colorWhite20;
+}
+
+
+
+
+Bar#m_pMixerPanel Bar#m_pSlotMatrix Button#m_pName[active=true][HasFocus=true]
+{
+    foreground-color:                   $colorWhite;
+}
+
+
+
+Bar#m_pMixerPanel Bar#m_pSlotMatrix Button#m_pName[active=false][HasFocus=true]
+{
+    foreground-color:                   $colorWhite20;
+}
+
+
+
+// ADD PLUGIN (+)
+//-----------------------------------------------------------------------------------------------------------------------
+Bar#m_pMixerPanel Bar#m_pSlotMatrix Button#m_pAddSlot
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_PluginSlotsAdd.png");
+    animations:                         7;
+    fixed-left:                         12;
+    fixed-right:                        1;
+    foreground-color:                   no;
+    width:                              71;
+}
+
+
+
+
+//=======================================================================================================================
+// Level Meter Module
+//=======================================================================================================================
+
+// Level Meter Module Background
+Bar#m_pMixerPanel Bar#m_pLevel
+{
+    image:                              url("Maschine/Mixer/MIX_BG_LevelMeter.png");
+    picture-includes-margin:            true;
+    height:                             164;
+}
+
+
+// Level Meter Area With Dark Background, Container
+Bar#m_pMixerPanel Bar#m_pLevel Bar#m_pLevelSetup
+{
+    height:                             142;
+    width:                              71;
+}
+
+
+//-------------------------------------------------------------------------------------------------------------------------
+// Pan Slider
+//-------------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pMixerPanel Slider#m_pPanKnob
+{
+    image:                              url("Maschine/Mixer/MIX_BG_PanDragger.png");
+    foreground-color:                   no;
+    background-color-palette:           1;
+    background-color:                   $colorWhite10;
+    outer-margin-left:                  5;
+    outer-margin-top:                   6;
+}
+
+
+Bar#m_pMixerPanel Slider#m_pPanKnob:over
+{
+    background-color:                   $colorWhite20;
+}
+
+
+Bar#m_pMixerPanel Slider#m_pPanKnob:selected
+{
+    background-color:                   $colorWhite30;
+}
+
+
+Bar#m_pMixerPanel Slider#m_pPanKnob:selected:over
+{
+    background-color:                   $colorWhite40;
+}
+
+
+
+Bar#m_pMixerPanel Slider#m_pPanKnob Grip#thumb
+{
+    image:                              no;
+    width:                              0;
+}
+
+
+
+//--------------------------------------------------------------------------------------------------------------------------
+// LEVEL METER AND VOLUME SLIDER GROUP
+//--------------------------------------------------------------------------------------------------------------------------
+
+// HEADROOM BUTTON
+//--------------------------------------------------------------------------------------------------------------------------
+
+// BASIC STYLING
+Bar#m_pMixerPanel Button#m_pHeadRoom
+{
+    font-name:                          $fontPragmatica;
+    font-size:                          9;
+    foreground-color-palette:           no;
+    foreground-color:                   $colorWhite20;
+    image:                              no;
+    width:                              71;
+    height:                             11;
+    horizomtal-alignment:               center;
+    outer-margin-top:                   2;
+}
+
+// HEADROOM CLIPPING
+Bar#m_pMixerPanel Button#m_pHeadRoom[HasClipped=true]
+{
+	foreground-color:                   $colorWhite;
+}
+
+
+
+//--------------------------------------------------------------------------------------------------------------------------
+// ACTUAL LEVEL METER
+//--------------------------------------------------------------------------------------------------------------------------
+
+// LEVEL METER MAIN CONTAINER
+//--------------------------------------------------------------------------------------------------------------------------
+Bar#m_pMixerPanel Bar#pScaleAndMeter
+{
+    width:                              71;
+    height:                             99;
+}
+
+
+
+// LEVEL METER dB SCALE
+//--------------------------------------------------------------------------------------------------------------------------
+Bar#m_pMixerPanel Label#m_pLevelScale
+{
+    image:                              url("Maschine/Mixer/MIX_MTR_LevelScale.png");
+}
+
+
+
+
+// LEVEL METER AND SLIDER CONTAINER
+//--------------------------------------------------------------------------------------------------------------------------
+Bar#m_pMixerPanel Bar#m_pLevel Bar#m_pLevelMeter
+{
+    image:                              url("Maschine/Mixer/MIX_MTR_ZeroLine.png");
+    picture-includes-margin:            true;
+    fixed-left:                         3;
+    fixed-right:                        21;
+    fixed-top:                          27;
+    fixed-bottom:                       3;
+
+    width:                              53;
+    height:                             100;
+    margin-left:                        11;
+    spacing:                            1;
+}
+
+
+// LEVEL METER
+//--------------------------------------------------------------------------------------------------------------------------
+
+// GROUP / SOUND
+LevelMeter.Default
+{
+    foreground-color-palette:           1;
+    margin:                             0;
+    width:                              6;
+    height:                             96;
+    outer-margin-top:                   1;
+}
+
+
+// MASTER
+Bar#m_pMasterChannelItem LevelMeter.Default
+{
+    foreground-color:                   $colorWhite;
+}
+
+
+
+// VOLUME SLIDER
+//--------------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#m_pMixerPanel Slider#m_pVolumeSlider
+{
+    background-color:                   no;
+    height:                             100;
+    width:                              28;
+}
+
+
+// HANDLE
+Bar#m_pMixerPanel Slider#m_pVolumeSlider Grip#thumb
+{
+    image:                              url("Maschine/Mixer/MIX_MTR_Handle.png");
+    picture-includes-margin:            true;
+    fixed-left:                         1;
+    fixed-right:                        18;
+
+    width:                              28;
+
+//     move-border-top:    -3;
+//     move-border-bottom:    -3;
+}
+
+
+
+
+//--------------------------------------------------------------------------------------------------------------------------
+// MUTE AND CUE BUTTON
+//--------------------------------------------------------------------------------------------------------------------------
+
+// Button Container
+Bar#m_pMixerPanel Bar#pMonitorSoloMuteBar
+{
+    width:                              71;
+    height:                             19;
+    margin-left:                        1;
+    margin-right:                       0;
+    spacing:                            16;
+
+    outer-margin-top:                   0;
+}
+
+
+
+// MONITOR
+Bar#m_pMixerPanel Button#m_pMonitor
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_Monitor.png");
+    animations:                         7;
+    foreground-color:                   no;
+ }
+
+
+
+// MUTE
+Bar#m_pMixerPanel Button#m_pMute
+{
+    image:                              no;
+    foreground-color:                   $colorWhite20;
+    width:                              34;
+    margin-top:                         2;
+}
+
+Bar#m_pMixerPanel Button#m_pMute:over {foreground-color: $colorWhite35;}
+Bar#m_pMixerPanel Button#m_pMute:selected {foreground-color: $colorWhite;}
+Bar#m_pMixerPanel Button#m_pMute:selected:over {foreground-color: $colorWhite;}
+
+
+
+//--------------------------------------------------------------------------------------------------------------------------
+// CHANNEL ROUTING
+//--------------------------------------------------------------------------------------------------------------------------
+
+
+// CONTAINER
+Bar#m_pMixerPanel Bar#m_pLevel Bar#m_pAudioOutput
+{
+    height:                             21;
+    width:                              71;
+    outer-margin-top:                   1;
+}
+
+
+// BUTTON OUT DEVICE
+Bar#m_pMixerPanel Bar#m_pLevel Button#m_pAudioOutDevice
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_ChannelRouting.png");
+    picture-includes-margin:            true;
+    horizontal-alignment:               left;
+    foreground-color:                   $colorWhite20;
+    font-name:                          $fontPragmatica;
+    font-size:                          10;
+    margin-left:                        4;
+    outer-margin-top:                   3;
+    outer-margin-left:                  3;
+    margin-top:                         1;
+}
+
+
+
+// UNASSIGNED
+Bar#m_pMixerPanel Bar#m_pLevel Button#m_pAudioOutDevice[IsAssigned=false]
+{
+    foreground-color:                   $colorWhite20;
+}
+
+
+
+// UNASSIGNED
+Bar#m_pMixerPanel Bar#m_pLevel Button#m_pAudioOutDevice[IsAssigned=true]
+{
+
+    foreground-color:                   $colorWhite70;
+}
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// MIDI OUT SECTION
+//-----------------------------------------------------------------------------------------------------------------------
+
+// MIDI OUT CONTAINER
+Bar#m_pMixerPanel Bar#m_pMidiOutput
+{
+    image:                              url("Maschine/Mixer/MIX_BG_AuxSendContainer.png");
+    picture-includes-margin:            true;
+    fixed-left:                         3;
+    fixed-right:                        3;
+    fixed-top:                          3;
+    fixed-bottom:                       3;
+
+    width:                              71;
+    height:                             22;
+
+    margin-top:                         3;
+    margin-left:                        2;
+    margin-bottom:                      2;
+}
+
+
+
+
+// BUTTON MIDI OUT DEVICE
+//-----------------------------------------------------------------------------------------------------------------------
+Bar#m_pMixerPanel Bar#m_pSoundChannelItems Bar#m_pMidiOutput Button#m_pMidiOutDevice
+{
+    horizontal-alignment:               left;
+    margin-left:                        4;
+    font-name:                          $fontPragmatica;
+    font-size:                          10;
+    margin-top:                         1;
+}
+
+
+
+// UNASSIGNED
+Bar#m_pMixerPanel Bar#m_pSoundChannelItems Bar#m_pMidiOutput Button#m_pMidiOutDevice[IsAssigned=false]
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_MidiOutDevice.png");
+    picture-includes-margin:            true;
+    foreground-color:                   $colorWhite20;
+}
+
+
+
+// ASSIGNED
+Bar#m_pMixerPanel Bar#m_pSoundChannelItems Bar#m_pMidiOutput Button#m_pMidiOutDevice[IsAssigned=true]
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_MidiOutDeviceAssigned.png");
+    picture-includes-margin:            true;
+    foreground-color:                   $colorBlack65;
+}
+
+
+
+// BUTTON MIDI OUT CHANNEL
+//-----------------------------------------------------------------------------------------------------------------------
+Bar#m_pMixerPanel Bar#m_pSoundChannelItems Bar#m_pMidiOutput Button#m_pMidiOutChannel
+{
+    font-name:                          $fontPragmatica;
+    font-size:                          10;
+    horizontal-alignment:               center;
+    margin-right:                       3;
+    margin-top:                         1;
+}
+
+
+
+// UNASSIGNED
+Bar#m_pMixerPanel Bar#m_pSoundChannelItems Bar#m_pMidiOutput Button#m_pMidiOutChannel[IsAssigned=false]
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_MidiOutChannel.png");
+    picture-includes-margin:            true;
+    foreground-color:                   $colorWhite20;
+}
+
+
+
+// ASSIGNED
+Bar#m_pMixerPanel Bar#m_pSoundChannelItems Bar#m_pMidiOutput Button#m_pMidiOutChannel[IsAssigned=true]
+{
+    image:                              url("Maschine/Mixer/MIX_BTN_MidiOutChannelAssigned.png");
+    picture-includes-margin:            true;
+    foreground-color:                   $colorBlack65;
+}
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// HORIZONTAL SCROLLBAR
+//-----------------------------------------------------------------------------------------------------------------------
+
+// BACKGROUND
+Bar#m_pMixerPanel Bar#m_pChannelArea Scrollbar#m_pScrollbarTracks,
+Bar#m_pMixerPanel Bar#m_pChannelArea Scrollbar#m_pScrollbarSounds
+{
+    image:                              url("Maschine/Mixer/MIX_BG_BottomScrollbar01.png");
+    picture-includes-margin:            true;
+    fixed-top:                          2;
+    fixed-bottom:                       2;
+    fixed-left:                         2;
+    fixed-right:                        2;
+    background-color:                   $colorBlack;
+
+    margin-top:                         1;
+    margin-left:                        5;
+    margin-right:                       5;
+    height:                             19;
+}
+
+
+// INCDEC BUTTONS SET TO ZERO
+Bar#m_pMixerPanel Bar#m_pChannelArea Scrollbar#m_pScrollbarTracks Button,
+Bar#m_pMixerPanel Bar#m_pChannelArea Scrollbar#m_pScrollbarSounds Button
+{
+    image:                              no;
+    width:                              1;
+}
+
+
+
+Bar#m_pMixerPanel Bar#m_pChannelArea Scrollbar#m_pScrollbarTracks Grip,
+Bar#m_pMixerPanel Bar#m_pChannelArea Scrollbar#m_pScrollbarSounds Grip
+{
+    image:                              url("Maschine/Mixer/MIX_HANDLE_BottomScrollbar.png");
+    fixed-left:                         4;
+    fixed-right:                        4;
+}

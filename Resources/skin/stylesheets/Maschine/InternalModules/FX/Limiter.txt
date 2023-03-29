@@ -1,0 +1,153 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// LIMITER
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+LimiterEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png"); 
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-316;
+}
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+LimiterEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_limiter.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// CONTROLS
+//--------------------------------------------------------------------------------------------------------
+
+// MODE SWITCH (Enum)
+LimiterEditor Bar#Mode
+{
+    x:                                  200;
+    y:                                  16;
+}
+
+// THRESHOLD TRANSPARENT MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Parent
+LimiterEditor[Mode=Transparent] Bar#ThresholdLevelMeterBar
+{
+    x:                                  34;
+    y:                                  $Y-FX-Meter;
+}
+
+// Slider
+LimiterEditor[Mode=Transparent] Bar#ThresholdSlider
+{
+    x:                                  34;
+    y:                                  $Y-FX-Meter;
+}
+
+// Mask
+LimiterEditor[Mode=Transparent] Bar#ThresholdLevelMeterBar Label.InternalFXLevelMeterMask
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_mask_limiter_threshold.png");
+    x:                                  0;
+    y:                                  0;
+}
+
+// THRESHOLD LEGACY MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Parent
+LimiterEditor[Mode=Legacy] Bar#ThresholdLevelMeterBar
+{
+    x:                                  131;
+    y:                                  $Y-FX-Meter;
+}
+
+// Slider
+LimiterEditor[Mode=Legacy] Bar#ThresholdSlider
+{
+    x:                                  131;
+    y:                                  $Y-FX-Meter;
+}
+
+// Mask
+LimiterEditor[Mode=Legacy] Bar#ThresholdLevelMeterBar Label.InternalFXLevelMeterMask
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_mask_limiter_threshold.png");
+    x:                                  0;
+    y:                                  0;
+}
+
+// GAIN REDUCTION METER
+//--------------------------------------------------------------------------------------------------------
+
+// Parent
+LimiterEditor Bar#GainReductionLevelMeterBar
+{
+    x:                                  92;
+    y:                                  $Y-FX-Meter;
+    width:                              26;
+    height:                             148;
+}
+
+LimiterEditor Bar#GainReductionLevelMeterBar Label#pLevelMeterBackground
+{
+    image:                              url("Maschine/InternalModules/FX/IntFX_MTR_NoScale_BG.png");
+    x:                                  0;
+    y:                                  0;
+}
+
+// Mask
+LimiterEditor Bar#GainReductionLevelMeterBar Label#pLevelMeterMask
+{
+    image:                              url("Maschine/InternalModules/FX/IntFX_MTR_NoScale_Mask.png");
+    x:                                  0;
+    y:                                  0;
+}
+
+// GAIN LABEL
+LimiterEditor Label#GainReductionLabel
+{
+    x:                                  92;
+    y:                                  172;
+}
+
+// RELEASE
+//--------------------------------------------------------------------------------------------------------
+
+LimiterEditor Bar#HilbertRelease
+{
+    x:                                  136;
+    y:                                  $Y-FX-BigKnob-Middle;
+}
+
+// CEILING
+//--------------------------------------------------------------------------------------------------------
+
+// Parent
+LimiterEditor Bar#HilbertCeilingLevelMeterBar
+{
+    x:                                  225;
+    y:                                  $Y-FX-Meter;
+}
+
+// Slider
+LimiterEditor Bar#HilbertCeilingSlider
+{
+    x:                                  225;
+    y:                                  $Y-FX-Meter;
+}
+
+// Mask
+LimiterEditor Bar#HilbertCeilingLevelMeterBar Label.InternalFXLevelMeterMask
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_mask_limiter_threshold.png");
+    x:                                  0;
+    y:                                  0;
+}
+

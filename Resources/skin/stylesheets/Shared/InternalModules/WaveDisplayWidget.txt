@@ -1,0 +1,105 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// WAVE DISPLAY
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// WAVE DISPLAY CONTAINER
+WaveEditorWidget.InternalModule
+
+{
+    image:                              url("Shared/InternalModules/PanelElements/Intmod_BG_Wavedisplay.png");
+    fixed-left:                         10;
+    fixed-right:                        10;
+    fixed-top:                          20;
+    fixed-bottom:                       20;
+    picture-includes-margin:            true;
+
+    margin-left:                        2;
+    margin-right:                       2;
+    margin-top:                         2;
+    outer-margin-left:                  0;
+
+    width:                              830;
+}
+
+// WAVE DISPLAY TIMELINE
+WaveEditorWidget.InternalModule WaveDisplayTimeline
+{
+    height:                             16;
+
+    background-color:                   no;
+
+    // BIG TIMELINE NUMBER
+    foreground-color:                   $colorWhite50;
+
+
+    font-resid:                         $fontRaldoId;
+    font-size:                          10;
+
+    foreground-relative-top:            2;
+    horizontal-alignment:               left;
+    outer-margin-bottom:                1;
+
+    // BIG TIME MARKER
+    text-marker-color:                  $colorBlack25;
+    nontext-marker-color:               $colorBlack25;
+
+    small-marker-height:                8;
+    medium-marker-height:               8;
+    large-marker-height:                16;
+}
+
+WaveEditorWidget.InternalModule MarkerWaveDisplay
+{
+    margin-left:                        1;
+
+    // Background Colors
+    background-color:                   rgb(47,47,47);
+    playrange-background-color:         rgb(47,47,47);
+    selection-background-color:         rgb(71,71,71);
+
+    // Waveform Colors
+    waveform-color:                     rgb(89,89,89); // Waveform out of playrange
+    playrange-waveform-color-palette:   2;
+    selection-waveform-color-palette:   2;
+
+    channel-separator-color:            no;
+    decibel-line-color:                 rgb(30,30,30);
+    play-cursor-color:                  rgba(255,255,255,198);
+    selection-line-color:               rgb(100, 100, 100);
+
+    // Playrange Marker
+    marker-width:                       3;
+    marker-color:                       rgb(255,255,255);
+    marker-contrast-color:              rgb(50,50,50);
+    marker-text-color:                  no;
+    start-marker-image:                 url("Shared/InternalModules/SharedControls/intmod_wave_start_marker.png");
+    end-marker-image:                   url("Shared/InternalModules/SharedControls/intmod_wave_end_marker.png");
+
+    shade-color:                        rgb(255,0,0);
+
+    // Loop
+    marker-loop-color:                  $colorWhite;
+    loop-marker-image:                  url("Shared/InternalModules/SharedControls/sampler_loop_frame.png");
+    loop-marker-image-fixed-left:       24;
+    loop-marker-image-fixed-right:      5;
+    loop-marker-image-fixed-top:        24;
+    loop-marker-image-fixed-bottom:     24;
+
+    // Selection
+    selection-marker-image:                 url("Shared/InternalModules/SharedControls/intmod_sample_selection_overlay.png");
+    selection-marker-image-fixed-left:      1;
+    selection-marker-image-fixed-right:     1;
+}
+
+// MODULE SPECIFIC ADJUSTMENTS
+
+SamplerEditor WaveEditorWidget
+{
+    height:                             150;
+}
+
+// SPECIAL HEIGHT FOR AUDIO
+AudioModuleEditor WaveEditorWidget
+{
+    height:                             245;
+}

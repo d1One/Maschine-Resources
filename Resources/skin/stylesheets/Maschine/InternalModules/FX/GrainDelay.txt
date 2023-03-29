@@ -1,0 +1,135 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// GRAIN DELAY
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+GrainDelayEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png"); 
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-474;   
+}
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+GrainDelayEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_graindelay.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+// SUBHEADLINE
+//--------------------------------------------------------------------------------------------------------
+
+GrainDelayEditor Bar#m_pSubHeadline1
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_subheadline_cloud.png");
+    x:                                  268;
+    y:                                  $Y-FX-SubHeadline;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// CONTROLS
+//--------------------------------------------------------------------------------------------------------
+
+// TOP ROW
+//--------------------------------------------------------------------------------------------------------
+
+// PITCH
+GrainDelayEditor Bar#Pitch
+{
+    x:                                  31;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+
+// SIZE
+GrainDelayEditor Bar#Size
+{
+    x:                                  117;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+
+// SPACE
+GrainDelayEditor Bar#Space
+{
+    x:                                  248;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+
+// MIX
+GrainDelayEditor Bar#Mix
+{
+    x:                                  334;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+
+// BOTTOM ROW
+//--------------------------------------------------------------------------------------------------------
+
+// JITTER
+GrainDelayEditor Bar#Jitter
+{
+    x:                                  31;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+// REVERSE SWITCH
+GrainDelayEditor Bar#Reverse
+{
+    x:                                  116;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+// DENSITY
+GrainDelayEditor Bar#Density
+{
+    x:                                  205;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+// MOD
+GrainDelayEditor Bar#Modulation
+{
+    x:                                  291;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+// STEREO
+GrainDelayEditor Bar#Stereo
+{
+    x:                                  377;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+GrainDelayEditor#m_pEditor Bar#m_pParamSeparator
+
+{
+    x:                                  191;
+    y:                                  0;
+}
+

@@ -1,0 +1,31 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Stack
+//----------------------------------------------------------------------------------------------------------------------
+
+Stack
+{
+    // min-width:              $defaultWidth;
+    background-color:           no;
+    spacing:                    no;
+}
+//----------------------------------------------------------------------------------------------------------------------
+// DeveloperPanel
+//----------------------------------------------------------------------------------------------------------------------
+
+Stack.DeveloperPanel
+{
+    min-height:             $metricGrid;
+    margin:                 2;
+    spacing:                $spacingPanel;
+    background-color:       $colorPanel;
+}
+Stack.DeveloperPanel:focus
+{
+    draw_foreground:        true;
+    background-border-color:$colorFocus;
+}
+
+Stack#m_pWork
+{
+    spacing:                 2;
+}

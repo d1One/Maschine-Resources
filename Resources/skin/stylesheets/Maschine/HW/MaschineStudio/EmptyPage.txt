@@ -1,0 +1,20 @@
+// RIGHT SCREEN
+
+Bar#NavigatePageViewStudioScreenRight Label#EmptyInfo,
+Bar#VariationPageStudioScreenRight Label#EmptyInfo,
+Bar#VariationPageMK3ScreenRight Label#EmptyInfo,
+Bar#MacroAssignPageScreenRight Label#EmptyInfo,
+Bar#FilePageMK3ScreenRight Label#EmptyInfo
+{
+    foreground-color:               $colorWhite;
+    background-color:               $colorStandardBGColor;
+    //image: 			                    url("Shared/HW/Studio/Standard/std_soundInfo.png");
+    image:                          no;
+    picture-includes-margin:	       true;
+
+    font-name:                      $fontPragmatica;
+    font-size:                      14;
+    horizontal-alignment:           right;
+    margin-right:                   21;
+    margin-left:                    21;
+}

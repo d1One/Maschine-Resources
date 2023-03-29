@@ -1,0 +1,64 @@
+//----------------------------------------------------------------------------------------------------------------------
+// STEP PAGE + PAD (STEP EDIT PAGE)
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#StepPageModStudioScreenLeft Bar#StudioDisplayBar,
+Bar#StepPageModMK3ScreenLeft Bar#StudioDisplayBar
+{
+    background-color:               $colorStandardBGColor;
+    outer-margin-top:               1;
+}
+
+Bar#StepPageModStudioScreenLeft Bar#StudioDisplayBar Bar#ChannelScreen,
+Bar#StepPageModMK3ScreenLeft Bar#StudioDisplayBar Bar#ChannelScreen
+{
+    background-color:               $colorStandardBGColor;
+}
+
+Bar#StepPageModStudioScreenRight Label.SoundInfo,
+Bar#StepPageModMK3ScreenRight Label.SoundInfo
+{
+    width:                          480;
+    image:                          url("Maschine/HW/Studio/StepEditPage/sep_bg_soundInfo.png");
+    picture-includes-margin:        true;
+    fixed-left:                     5;
+    fixed-right:                    5;
+    outer-margin-top:               0;
+    background-color:               $infoBarColor;
+
+    font-name:                      $fontPragmatica;
+    font-size:                      14;
+    horizontal-alignment:           right;
+    margin-right:                   16;
+}
+
+Bar#StepPageModStudioScreenRight Label.SoundInfo[HasText=true][IsExternalModule=false],
+Bar#StepPageModMK3ScreenRight Label.SoundInfo[HasText=true][IsExternalModule=false]
+{
+    background-color:               $infoBarColor;
+}
+
+Bar#StepPageModStudioScreenRight Label.SoundInfo[HasText=false][IsExternalModule=false],
+Bar#StepPageModMK3ScreenRight Label.SoundInfo[HasText=false][IsExternalModule=false]
+{
+    background-color:               no;
+}
+
+Bar#StepPageModStudioScreenRight Label.SoundInfo[HasText=true][IsExternalModule=true],
+Bar#StepPageModMK3ScreenRight Label.SoundInfo[HasText=true][IsExternalModule=true]
+{
+    background-color:               no;
+}
+
+Bar#StepPageModStudioScreenRight Label.SoundInfo[HasText=false][IsExternalModule=true],
+Bar#StepPageModMK3ScreenRight Label.SoundInfo[HasText=false][IsExternalModule=true]
+{
+    background-color:               no;
+}
+
+Bar#StepPageModStudioScreenRight Bar#StudioDisplayBar,
+Bar#StepPageModMK3ScreenRight Bar#StudioDisplayBar
+{
+    background-color:               $colorStandardBGColor;
+    outer-margin-top:               1;
+}

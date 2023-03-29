@@ -1,0 +1,996 @@
+//----------------------------------------------------------------------------------------------------------------------
+// IDEA SPACE
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// MAIN CONTAINER
+Bar#IdeaSpace
+{
+    background-color:           $colorBlack;
+    spacing:                    0;
+    width:                      960;
+    height:                     272;
+}
+
+Bar#IdeaSpaceScreenButtons
+{
+    width:                      960;
+    height:                     31;
+}
+
+Bar#IdeaSpaceScreenButtons Bar#ButtonBar
+{
+    width:                      480;
+    height:                     31;
+}
+
+Bar#IdeaSpace Button
+{
+    image:                              url("Shared/Global/Button_18.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+    animation-index:                    0;
+    fixed-left:                         4;
+    fixed-right:                        4;
+    fixed-top:                          4;
+    fixed-bottom:                       4;
+    foreground-color:                   $colorWidgetText;
+    background-color:                   no;
+    font-name:                          $fontPragmatica;
+    font-size:                          12;
+    horizontal-alignment:               center;
+    vertical-alignment:                 center;
+}
+
+
+Bar#IdeaSpace Label
+{
+    foreground-color:           $colorWhite;
+    background-color:           no;
+    font-name:                  $fontPragmatica;
+    font-size:                  12;
+    margin:                     0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// SCENE HEADER
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#IdeaSpace Bar#m_sceneArea
+{
+    background-color:           $StandardBackgroundGrey;
+}
+
+// SCENE SCROLL CONTAINER
+
+
+Bar#IdeaSpace[IdeaSpace=true] Vector<Button>#m_sceneList
+{
+    background-color:           $colorBlack;
+    height:                     31;
+    image:                      url("Maschine/IdeaSpace/IS_LBL_LineBottom.png");
+    fixed-left:                 3;
+    fixed-right:                3;
+    fixed-top:                  3;
+    fixed-bottom:               3;
+    focus-delay:                12;
+    focus-anim:                 $animtype-smoothinout;
+    item-width:                 120;     // Used for correct width calculation for scrolling
+    last-item-width:            120;     // Used for correct width calculation for scrolling
+}
+
+Bar#IdeaSpace[IdeaSpace=false] Vector<Button>#m_sceneList
+{
+    background-color:           $colorBlack;
+    height:                     31;
+    focus-delay:                12;
+    focus-anim:                 $animtype-smoothinout;
+    item-width:                 120;     // Used for correct width calculation for scrolling
+    last-item-width:            120;     // Used for correct width calculation for scrolling
+}
+
+
+// SCENE BUTTON CONTAINER
+Bar#IdeaSpace Vector<Button>#m_sceneList::Bar#widgets
+{
+    background-color:           no;
+    height:                     31;
+    image:                      no;
+    fixed-left:                 3;
+    fixed-right:                3;
+    fixed-top:                  3;
+    fixed-bottom:               3;
+}
+
+
+// SCENE BUTTON
+Bar#IdeaSpace[IdeaSpace=true]  Vector<Button>#m_sceneList Button
+{
+    height:                     31;
+    width:                      121;
+
+    background-color:           no;
+    foreground-color-palette:   1;
+
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BTN_SceneTab.png");
+    picture-includes-margin:    true;
+    animations:                 7;
+    fixed-left:                 5;
+    fixed-right:                5;
+    fixed-top:                  3;
+    fixed-bottom:               3;
+
+    margin-top:                 6;
+    margin-bottom:              4;
+
+    margin-left:                6;
+    margin-right:               6;
+
+    outer-margin-top:           0;
+    outer-margin-left:          -1;
+
+    font-name:                  $fontPragmatica;
+    font-size:                  14;
+}
+
+Bar#IdeaSpace[IdeaSpace=false] Vector<Button>#m_sceneList Button
+{
+    height:                     31;
+    width:                      121;
+
+    background-color-palette:   no;
+    foreground-color:           rgb(26, 26, 26);
+
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BTN_SceneTab.png");
+    picture-includes-margin:    true;
+    animations:                 7;
+    fixed-left:                 5;
+    fixed-right:                5;
+    fixed-top:                  3;
+    fixed-bottom:               3;
+
+    margin-top:                 6;
+    margin-bottom:              4;
+
+    margin-left:                6;
+    margin-right:               6;
+
+    outer-margin-top:           0;
+    outer-margin-left:          -1;
+
+    font-name:                  $fontPragmatica;
+    font-size:                  14;
+}
+
+Bar#IdeaSpace Vector<Button>#m_sceneList::Bar#widgets::Button:selected
+{
+    animation-index:            1;
+    background-color-palette:   1;
+    foreground-color:           rgb(0,0,0);
+}
+
+// SCENE BUTTON TEXT EDIT
+Bar#IdeaSpace Vector<Button>#m_sceneList TextEdit
+{
+    height:                     20;
+    width:                      92;
+    font-name:                  $fontPragmatica;
+    font-size:                  12;
+
+    background-color:           rgb(26,26,26);
+
+    foreground-relative-top:    0;
+
+    margin-left:                2;
+    margin-right:               2;
+    margin-top:                 2;
+    margin-bottom:              2;
+}
+
+// ADD SCENE BUTTON
+Bar#IdeaSpace[IdeaSpace=true]  Vector<Button>#m_sceneList Button[IsAddButton=true]
+{
+    background-color:           no;
+    foreground-color:           no;
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BTN_AddScene.png");
+    animations:                 7;
+
+    width:                      120;
+    outer-margin-left:          1;
+    outer-margin-top:           1;
+}
+
+// COLOR LINE
+Bar#IdeaSpace Label#m_sceneFocusLine
+{
+    background-color:           rgb(40,40,40);
+    height:                     3;
+}
+
+Bar#IdeaSpace[IdeaSpace=false] Label#m_sceneFocusLine
+{
+    background-color:           rgb(26, 26, 26);
+    height:                     3;
+}
+
+// NAVI BUTTON LEFT
+Bar#IdeaSpace Button#m_sceneNavButtonLeft
+{
+    image:                      url("Maschine/IdeaSpace/IS_BTN_SceneNavLeft.png");
+    animations:                 7;
+    foreground-color:           no;
+}
+
+// NAVI BUTTON RIGHT
+Bar#IdeaSpace Button#m_sceneNavButtonRight
+{
+    image:                      url("Maschine/IdeaSpace/IS_BTN_SceneNavRight.png");
+    animations:                 7;
+    foreground-color:           no;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// PATTERN GRID
+//----------------------------------------------------------------------------------------------------------------------
+
+// PATTERN GRID MAIN CONTAINER
+Bar#IdeaSpace Bar#m_patternArea
+{
+    background-color:           rgb(8,8,8);
+    outer-margin-top:           1;
+}
+
+Bar#IdeaSpace[IdeaSpace=false] Bar#m_patternArea
+{
+    background-color:           rgb(10,10,10);
+    outer-margin-top:           1;
+}
+
+// GROUP COLUMN
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#IdeaSpace Vector<Bar>#m_patternColumns
+{
+    item-width:                 120;
+    last-item-width:            120;
+}
+
+// GROUP PATTERN VECTOR WRAPPERS
+Bar#IdeaSpace Bar#m_patternArea Vector<Bar>#m_patternColumns::Bar#widgets::Bar,
+Bar#IdeaSpace Bar#m_patternArea Vector<Button>#m_groupPatterns::Bar#widgets::Bar
+{
+    width:                      120;
+}
+
+Bar#IdeaSpace Bar#m_patternArea Vector<Bar>#m_patternColumns::Bar#widgets::Bar[Focused=false]
+{
+    background-color:           no;
+}
+
+Bar#IdeaSpace[IdeaSpace=false] Bar#m_patternArea Vector<Bar>#m_patternColumns::Bar#widgets::Bar[Focused=true]
+{
+    background-color:           $colorBlack;
+}
+
+// ACTUAL GROUP PATTERN VECTOR
+Bar#IdeaSpace Bar#m_patternArea Vector<Button>#m_groupPatterns::Bar#widgets
+{
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_LBL_PatternColumnBG.png");
+    picture-includes-margin:    true;
+    fixed-left:                 5;
+    fixed-right:                5;
+    fixed-top:                  5;
+    fixed-bottom:               5;
+}
+
+// ACTUAL GROUP PATTERN VECTOR FOCUS
+Bar#IdeaSpace Bar#m_patternArea Vector<Bar>#m_patternColumns::Bar#widgets::Bar[Focused=true] Vector<Button>#m_groupPatterns::Bar#widgets
+{
+    background-color:           $colorWhite3;
+}
+
+
+// PATTERN CELLS
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#IdeaSpace Bar#m_patternArea Vector<Button>#m_groupPatterns::Bar#widgets::Button
+{
+    height:                     24;
+    width:                      119;
+    horizontal-alignment:       left;
+    foreground-relative-left:   7;
+    margin-right:               6;
+}
+
+// EMPTY PATTERN CELL
+Bar#IdeaSpace[IdeaSpace=true] Bar#m_patternArea Vector<Button>#m_groupPatterns::Bar#widgets::Button[Empty=true]
+{
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BTN_PatternCellEmpty.png");
+    picture-includes-margin:    true;
+    animations:                 7;
+    fixed-top:                  2;
+    fixed-bottom:               2;
+    fixed-left:                 2;
+    fixed-right:                2;
+}
+
+// EMPTY PATTERN CELL FOCUS
+Bar#IdeaSpace[IdeaSpace=true] Bar#m_patternArea Vector<Button>#m_groupPatterns::Bar#widgets::Button[Empty=true]
+{
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BTN_PatternCellEmpty.png");
+    picture-includes-margin:    true;
+    animations:                 7;
+    animation-index:            3;
+    fixed-top:                  2;
+    fixed-bottom:               2;
+    fixed-left:                 2;
+    fixed-right:                2;
+}
+
+// PATTERN AVAILABLE
+Bar#IdeaSpace[IdeaSpace=true] Bar#m_patternArea Vector<Button>#m_groupPatterns::Bar#widgets::Button[Empty=false]
+{
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BTN_PatternCellFilled.png");
+    picture-includes-margin:    true;
+    animations:                 7;
+    fixed-top:                  3;
+    fixed-bottom:               4;
+    fixed-left:                 5;
+    fixed-right:                5;
+    foreground-color:           $colorBlack;
+    background-color-palette:   2;
+}
+
+// PATTERN ASSIGNED
+Bar#IdeaSpace[IdeaSpace=true] Bar#m_patternArea Vector<Button>#m_groupPatterns::Bar#widgets::Button[Empty=false][Assigned=true][Focused=false]
+{
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BTN_PatternCellAssigned.png");
+    picture-includes-margin:    true;
+    animations:                 7;
+    fixed-top:                  3;
+    fixed-bottom:               4;
+    fixed-left:                 5;
+    fixed-right:                5;
+    foreground-color:           $colorBlack;
+    background-color-palette:   1;
+}
+
+// PATTERN FOCUS
+Bar#IdeaSpace[IdeaSpace=true] Bar#m_patternArea Vector<Button>#m_groupPatterns::Bar#widgets::Button[Empty=false][Assigned=true][Focused=true]
+{
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BTN_PatternCellFocus.png");
+    picture-includes-margin:    true;
+    animations:                 7;
+    fixed-top:                  3;
+    fixed-bottom:               4;
+    fixed-left:                 5;
+    fixed-right:                5;
+    foreground-color:           $colorBlack;
+    background-color-palette:   1;
+}
+
+
+// PATTERN MUTED DEFAULT
+Bar#IdeaSpace[IdeaSpace=true] Bar#m_patternArea Vector<Bar>#m_patternColumns::Bar#widgets::Bar[Muted=true] Vector<Button>#m_groupPatterns::Bar#widgets Button[Empty=false][Assigned=false]
+{
+    background-color-palette:   no;
+    background-color:           rgb(40,40,40);
+    foreground-color:           $colorBlack;
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BTN_PatternCellMuted.png");
+    animations:                 7;
+    fixed-top:                  3;
+    fixed-bottom:               4;
+    fixed-left:                 5;
+    fixed-right:                5;
+}
+
+// PATTERN MUTED ASSIGNED
+Bar#IdeaSpace[IdeaSpace=true] Bar#m_patternArea Vector<Bar>#m_patternColumns::Bar#widgets::Bar[Muted=true] Vector<Button>#m_groupPatterns::Bar#widgets Button[Empty=false][Assigned=true]
+{
+    background-color-palette:   no;
+    background-color:           rgb(71,71,71);
+    foreground-color:           $colorBlack;
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BTN_PatternCellMuted.png");
+    animations:                 7;
+    fixed-top:                  3;
+    fixed-bottom:               4;
+    fixed-left:                 5;
+    fixed-right:                5;
+}
+
+// PATTERN MUTED FOCUSED
+Bar#IdeaSpace[IdeaSpace=true] Bar#m_patternArea Vector<Bar>#m_patternColumns::Bar#widgets::Bar[Muted=true] Vector<Button>#m_groupPatterns::Bar#widgets Button[Empty=false][Assigned=true][Focused=true]
+{
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BTN_PatternCellFocus.png");
+    picture-includes-margin:    true;
+    animations:                 7;
+    fixed-top:                  3;
+    fixed-bottom:               4;
+    fixed-left:                 5;
+    fixed-right:                5;
+    foreground-color:           $colorBlack;
+    background-color-palette:   1;
+}
+
+// PATTERN NAME TEXT EDIT
+Bar#IdeaSpace[IdeaSpace=true] Bar#m_patternArea Vector<Bar>#m_patternColumns Vector<Button>#m_groupPatterns::Bar#widgets Button TextEdit
+{
+    height:                     16;
+    width:                      86;
+
+    x:                          6;
+    y:                          3;
+
+    foreground-color:           $colorWhite;
+    background-color:           $colorBlack65;
+
+    margin-left:                1;
+    margin-right:               1;
+    margin-top:                 1;
+    margin-bottom:              1;
+}
+
+
+// PATTERN CELLS LOCKED
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#IdeaSpace[IdeaSpace=false] Bar#m_patternArea Vector<Button>#m_groupPatterns::Bar#widgets::Button
+{
+    height:                     24;
+    width:                      119;
+    horizontal-alignment:       left;
+    foreground-relative-left:   7;
+    margin-right:               6;
+}
+
+// LOCKED EMPTY PATTERN CELL
+Bar#IdeaSpace[IdeaSpace=false] Bar#m_patternArea Vector<Button>#m_groupPatterns::Bar#widgets::Button[Empty=true]
+{
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BTN_LockedPatternCellEmpty.png");
+    picture-includes-margin:    true;
+    animations:                 7;
+    fixed-top:                  2;
+    fixed-bottom:               2;
+    fixed-left:                 2;
+    fixed-right:                2;
+}
+
+// LOCKED EMPTY PATTERN CELL FOCUS
+Bar#IdeaSpace[IdeaSpace=false] Bar#m_patternArea Vector<Button>#m_groupPatterns::Bar#widgets::Button[Empty=true]
+{
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BTN_PatternCellEmpty.png");
+    picture-includes-margin:    true;
+    animations:                 7;
+    animation-index:            3;
+    fixed-top:                  2;
+    fixed-bottom:               2;
+    fixed-left:                 2;
+    fixed-right:                2;
+}
+
+// LOCKED PATTERN AVAILABLE
+Bar#IdeaSpace[IdeaSpace=false] Bar#m_patternArea Vector<Button>#m_groupPatterns::Bar#widgets::Button[Empty=false]
+{
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BTN_LockedPatternCellFilled.png");
+    picture-includes-margin:    true;
+    animations:                 7;
+    fixed-top:                  3;
+    fixed-bottom:               4;
+    fixed-left:                 5;
+    fixed-right:                5;
+    foreground-color:           $colorBlack;
+    background-color-palette:   4;
+}
+
+// LOCKED PATTERN ASSIGNED
+Bar#IdeaSpace[IdeaSpace=false] Bar#m_patternArea Vector<Button>#m_groupPatterns::Bar#widgets::Button[Empty=false][Assigned=true][Focused=false]
+{
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BTN_LockedPatternCellAssigned.png");
+    picture-includes-margin:    true;
+    animations:                 7;
+    fixed-top:                  3;
+    fixed-bottom:               4;
+    fixed-left:                 5;
+    fixed-right:                5;
+    foreground-color:           $colorBlack;
+    background-color-palette:   4;
+}
+
+// LOCKED PATTERN FOCUS
+Bar#IdeaSpace[IdeaSpace=false] Bar#m_patternArea Vector<Button>#m_groupPatterns::Bar#widgets::Button[Empty=false][Assigned=true][Focused=true]
+{
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BTN_LockedPatternCellFocus.png");
+    picture-includes-margin:    true;
+    animations:                 7;
+    fixed-top:                  3;
+    fixed-bottom:               4;
+    fixed-left:                 5;
+    fixed-right:                5;
+    foreground-color:           $colorWhite;
+    background-color-palette:   4;
+}
+
+// LOCKED PATTERN MUTED DEFAULT
+Bar#IdeaSpace[IdeaSpace=false] Bar#m_patternArea Vector<Bar>#m_patternColumns::Bar#widgets::Bar[Muted=true] Vector<Button>#m_groupPatterns::Bar#widgets Button[Empty=false][Assigned=false]
+{
+    background-color:           rgb(16,16,16);
+    foreground-color:           $colorBlack;
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BTN_LockedPatternCellMuted.png");
+    animations:                 7;
+    fixed-top:                  3;
+    fixed-bottom:               4;
+    fixed-left:                 5;
+    fixed-right:                5;
+}
+
+// LOCKED PATTERN MUTED ASSIGNED
+Bar#IdeaSpace[IdeaSpace=false] Bar#m_patternArea Vector<Bar>#m_patternColumns::Bar#widgets::Bar[Muted=true] Vector<Button>#m_groupPatterns::Bar#widgets Button[Empty=false][Assigned=true]
+{
+    background-color:           rgb(20,20,20);
+    foreground-color:           $colorBlack;
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BTN_LockedPatternCellMuted.png");
+    animations:                 7;
+    fixed-top:                  3;
+    fixed-bottom:               4;
+    fixed-left:                 5;
+    fixed-right:                5;
+}
+
+// LOCKED PATTERN MUTED FOCUSED
+Bar#IdeaSpace[IdeaSpace=false] Bar#m_patternArea Vector<Bar>#m_patternColumns::Bar#widgets::Bar[Muted=true] Vector<Button>#m_groupPatterns::Bar#widgets Button[Empty=false][Assigned=true][Focused=true]
+{
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BTN_LockedPatternCellEmpty.png");
+    picture-includes-margin:    true;
+    animations:                 7;
+    fixed-top:                  3;
+    fixed-bottom:               4;
+    fixed-left:                 5;
+    fixed-right:                5;
+    foreground-color:           $colorWhite;
+    background-color-palette:   1;
+}
+
+// LOCKED PATTERN NAME TEXT EDIT
+Bar#IdeaSpace[IdeaSpace=false] Bar#m_patternArea Vector<Bar>#m_patternColumns Vector<Button>#m_groupPatterns::Bar#widgets Button TextEdit
+{
+    height:                     16;
+    width:                      86;
+
+    x:                          6;
+    y:                          3;
+
+    foreground-color:           $colorWhite;
+    background-color:           $colorBlack;
+
+    margin-left:                1;
+    margin-right:               1;
+    margin-top:                 1;
+    margin-bottom:              1;
+}
+
+
+
+
+
+
+
+
+
+// PATTERN GRID SCROLLBAR
+//----------------------------------------------------------------------------------------------------------------------
+
+// BACKGROUND
+Bar#IdeaSpace Bar#m_patternArea Scrollbar#m_scrollBar
+{
+    image:                      url("Maschine/IdeaSpace/IS_BG_ScrollbarVer.png");
+    picture-includes-margin:    true;
+    fixed-top:                  3;
+    fixed-bottom:               3;
+    margin-top:                 5;
+    margin-bottom:              5;
+}
+
+// SLIDER
+Bar#IdeaSpace Bar#m_patternArea Scrollbar#m_scrollBar Grip
+{
+    background-color:           no;
+    image:                      url("Maschine/Scrollbars/scrollbar_vertical_slider.png");
+    picture-includes-margin:    true;
+    fixed-top:                  4;
+    fixed-bottom:               4;
+}
+
+// GET RID OF INC/DEC BUTTONS
+Bar#IdeaSpace Bar#m_patternArea Scrollbar#m_scrollBar Button#dec
+{
+    image:                    no;
+    width:                    17;
+    height:                   1;
+    outer-margin-bottom:      -1;
+}
+
+Bar#IdeaSpace Bar#m_patternArea Scrollbar#m_scrollBar Button#inc
+{
+    image:                    no;
+    width:                    17;
+    height:                   1;
+    outer-margin-top:         -1;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// GROUP LIST
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#IdeaSpace Bar#m_groupArea
+{
+    background-color:           $StandardBackgroundGrey;
+    outer-margin-top:           1;
+    image:                      url("Maschine/IdeaSpace/IS_LBL_Lightline.png");
+    fixed-left:                 3;
+    fixed-right:                3;
+    fixed-top:                  3;
+    fixed-bottom:               3;
+}
+
+Bar#IdeaSpace Vector<Bar>#m_groupList
+{
+    item-width:                 120;
+    last-item-width:            120;
+}
+
+// SCROLL CONTAINER
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets
+{
+    height:                     44;
+}
+
+
+// GROUP ITEM CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+
+// DEFAULT
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar
+{
+    image:                      url("Maschine/HW/Studio/IdeaSpace/IS_BG_GroupItem.png");
+    animations:                 2;
+    fixed-left:                 3;
+    fixed-right:                3;
+    fixed-top:                  3;
+    fixed-bottom:               3;
+    height:                     46;
+    width:                      120;
+}
+
+// DEFAULT
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=false][Selected=false]
+{
+    animation-index:            0;
+    background-color:           rgb(8,8,8);
+}
+
+// MUTED
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=false][Selected=false][Muted=true]
+{
+    animation-index:            0;
+    background-color:           rgb(16,16,16);
+}
+
+// FOCUS
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=true][Selected=true]
+{
+    animation-index:            1;
+    background-color-palette:   1;
+    animation-index:            1;
+}
+
+// FOCUS MUTED
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=true][Selected=true][Muted=true]
+{
+    animation-index:            1;
+    background-color-palette:   4;
+    animation-index:            1;
+}
+
+// SELECTED
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=false][Selected=true]
+{
+    animation-index:            0;
+    background-color:           $colorWhite10;
+    animation-index:            1;
+}
+
+// SELECTED MUTED
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=false][Selected=true][Muted=true]
+{
+    animation-index:            0;
+    background-color:           $colorWhite10;
+    animation-index:            1;
+}
+
+
+// GROUP INDICATOR / MUTE BUTTON
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets Bar Button#m_label
+{
+    font-size:                  14;
+    font-name:                  $fontPragmatica;
+    height:                     16;
+    width:                      32;
+    margin-top:                 4;
+    margin-left:                3;
+    margin-right:               4;
+    horizontal-alignment:       center;
+    image:                      no;
+    dye-mask:                   url("Maschine/IdeaSpace/IS_BTN_MuteDefault_Dye.png");
+    dye-mask-animations:        7;
+    animation-index:            0;
+    fixed-left:                 3;
+    fixed-right:                3;
+    outer-margin-left:          2;
+    outer-margin-top:           3;
+}
+
+// DEFAULT
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=false][Muted=false] Button#m_label
+{
+    foreground-color-palette:   1;
+}
+
+// DEFAULT MUTED
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=false][Muted=true] Button#m_label
+{
+    foreground-color-palette:   4;
+}
+
+// FOCUSED
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=true][Selected=true] Button#m_label
+{
+    foreground-color:           $colorBlack;
+}
+
+// FOCUSED MUTED
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=true][Selected=true][Muted=true] Button#m_label
+{
+    foreground-color:           $colorControlPageBG;
+}
+
+
+// GROUP NAME
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar Label#m_name
+{
+    width:                      80;
+    height:                     14;
+    outer-margin-left:          20;
+//HACK - MUST FIX
+    outer-margin-top:                 -12;
+
+    font-size:                  14;
+    font-name:                  $fontPragmatica;
+    foreground-relative-left:   12;
+    horizontal-alignment:       left;
+}
+
+// DEFAULT
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=false] Label#m_name
+{
+    foreground-color:           $colorWhite60;
+}
+
+// DEFAULT MUTED
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=false][Muted=true] Label#m_name
+{
+    foreground-color:           $colorWhite20;
+}
+
+// FOCUSED
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=true][Selected=true] Label#m_name
+{
+    foreground-color:           $colorBlack;
+}
+
+// FOCUSED MUTED
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=true][Selected=true][Muted=true] Label#m_name
+{
+    foreground-color:           $colorControlPageBG;
+}
+
+// GROUP NAME TEXT EDIT
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar TextEdit
+{
+    width:                      86;
+    height:                     16;
+    background-color:           $StandardBackgroundGrey;
+    foreground-relative-top:    0;
+    margin-left:                1;
+    margin-right:               1;
+    margin-top:                 1;
+    margin-bottom:              1;
+}
+
+
+
+// GROUP PROGRESS INDICATOR
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar Bar#m_progress
+{
+    width:                      107;
+    height:                     6;
+    outer-margin-left:          6;
+    outer-margin-top:           9;
+    no-pattern-color:           $colorProgressNoPattern;
+    separator-color:            rgb(8,8,8);
+    max-bars:                   8;
+    separator-width:            1;
+}
+
+// DEFAULT
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=false][Selected=false] Bar#m_progress
+{
+    no-pattern-color:           $colorBlack25;
+    unfilled-color:             no;
+    unfilled-color-palette:     5;
+    filled-color-palette:       1;
+    filled-color:               no;
+}
+
+// MUTED
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=false][Selected=false][Muted=true] Bar#m_progress
+{
+    unfilled-color:             rgb(38,38,38);
+    unfilled-color-palette:     no;
+    filled-color-palette:       no;
+    filled-color:               rgb(71,71,71);
+}
+
+// FOCUS
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=true][Selected=true] Bar#m_progress
+{
+    no-pattern-color:           $colorBlack25;
+    separator-color:            no;
+    separator-color-palette:    4;
+    unfilled-color:             $colorBlack40;
+    unfilled-color-palette:     no;
+    filled-color-palette:       no;
+    filled-color:               $colorBlack90;
+}
+
+// FOCUS MUTED
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=true][Selected=true][Muted=true] Bar#m_progress
+{
+    no-pattern-color:           $colorBlack20;
+    separator-color-palette:    4;
+    unfilled-color:             $colorBlack20;
+    filled-color-palette:       no;
+    filled-color:               $colorControlPageBG;
+}
+
+// SELECTED
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=false][Selected=true] Bar#m_progress
+{
+    separator-color:            rgb(70,70,70);
+    no-pattern-color:           $colorWhite10;
+    separator-color-palette:    no;
+    unfilled-color:             no;
+    unfilled-color-palette:     15;
+    filled-color-palette:       1;
+    filled-color:               no;
+}
+
+// SELECTED MUTED
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets::Bar[Focused=false][Selected=true][Muted=true] Bar#m_progress
+{
+    separator-color:            rgb(70,70,70);
+    no-pattern-color:           $colorWhite10;
+    separator-color-palette:    4;
+    unfilled-color:             $colorWhite15;
+    unfilled-color-palette:     no;
+    filled-color-palette:       no;
+    filled-color:               $colorProgressMuteFillSelect;
+}
+
+
+// GROUP ITEM BUTTONS & LABELS
+//----------------------------------------------------------------------------------------------------------------------
+
+// ADD GROUP BUTTON
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets Bar[IsAddButton=true]
+{
+    image:                      no;
+    foreground-color:           no;
+    width:                      120;
+}
+
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets Button#m_add,
+Bar#IdeaSpace Vector<Bar>#m_groupList::Bar#widgets ButtonMenu#m_add
+{
+//    image:                      url("Maschine/IdeaSpace/IS_BTN_AddGroup.png");
+//    animations:                 7;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// FOOTER
+//----------------------------------------------------------------------------------------------------------------------
+
+// FOOTER CONTAINER
+Bar#IdeaSpace Bar#footer
+{
+    width:                      17;
+}
+
+// SPACER ABOVE SIZE DRAGGER, WHEN SCROLLBAR IS VISIBLE
+Bar#IdeaSpace Bar#m_footerSpacer[WithScrollbar=false]
+{
+    height:                     120;
+}
+
+Bar#IdeaSpace Bar#m_footerSpacer[WithScrollbar=true]
+{
+    image:                      url("Maschine/IdeaSpace/IS_LBL_ScrollSpacer.png");
+    fixed-top:                  3;
+    fixed-bottom:               3;
+    fixed-left:                 3;
+    fixed-right:                3;
+    height:                     48;
+    width:                      17;
+}
+
+// SIZE DRAGGER
+Bar#IdeaSpace Bar#m_sizeDragger
+{
+    image:                      url("Maschine/Arranger/ARR_BTN_Resizer.png");
+}
+
+
+
+// SCROLLBAR
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#IdeaSpace Bar#m_groupArea Scrollbar
+{
+    image:                      url("Maschine/IdeaSpace/IS_BG_ScrollbarHor.png");
+    picture-includes-margin:    true;
+    fixed-left:                 3;
+    fixed-right:                3;
+    height:                     21;
+    margin-left:                5;
+    margin-right:               5;
+}
+
+Bar#IdeaSpace Bar#m_groupArea Scrollbar Grip#thumb
+{
+    image:                      url("Maschine/Scrollbars/SCROLL_Light_HSlider_21px.png");
+    picture-includes-margin:    true;
+    fixed-left:                 4;
+    fixed-right:                4;
+    height:                     21;
+}
+
+// GET RID OF INC/DEC BUTTONS
+Bar#IdeaSpace Bar#m_groupArea Scrollbar Button#dec
+{
+    image:                    no;
+    width:                    1;
+    height:                   21;
+    outer-margin-left:        -1;
+}
+
+Bar#IdeaSpace Bar#m_groupArea Scrollbar Button#inc
+{
+    image:                    no;
+    width:                    1;
+    height:                   21;
+    outer-margin-right:       -1;
+}

@@ -1,0 +1,435 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// DISPLAY BAR
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// Remark : Height of the DisplayBar has to stay free because it is automatically computed to fill the height  depending on the other widgets.
+
+//----------------------------------------------------------------------------------------------------------------------
+// SELECT PAGE / SOLO PAGE / MUTE PAGE
+//----------------------------------------------------------------------------------------------------------------------
+
+
+//!!!! TODO: USE STYLES? YEAH!
+
+//
+// LEFT SCREEN
+//
+
+// Container
+Bar#SelectPageStudioScreenLeft Bar#StudioDisplayBar,
+Bar#PadModePageMK3ScreenLeft Bar#StudioDisplayBar,
+Bar#SoloPageStudioScreenLeft Bar#StudioDisplayBar,
+Bar#MutePageStudioScreenLeft Bar#StudioDisplayBar,
+Bar#DuplicatePageStudioScreenLeft Bar#StudioDisplayBar[ShowGroupButtons=true],
+Bar#SamplingPageSliceApplyStudioScreenLeft Bar#StudioDisplayBar,
+Bar#SaveAsPageScreenLeft Bar#StudioDisplayBar
+{
+    margin-left:                    4;
+    margin-right:                   1;
+    margin-top:                     4;
+    margin-bottom:                  1;
+
+    background-color:               $colorBlack;
+    spacing:                        4;
+}
+
+Bar#DuplicatePageStudioScreenLeft Bar#StudioDisplayBar[ShowGroupButtons=true],
+Bar#SoloPageStudioScreenLeft Bar#StudioDisplayBar,
+Bar#MutePageStudioScreenLeft Bar#StudioDisplayBar,
+Bar#DuplicatePageStudioScreenRight Bar#StudioDisplayBar
+{
+    background-color:               $colorBlack;
+}
+
+// BG color exceptions
+Bar#StepPageStudioScreenRight Bar#StudioDisplayBar,
+Bar#StepPageStudioScreenRight Bar#StudioDisplayBar,
+Bar#StepPageMK3ScreenRight Bar#StudioDisplayBar,
+Bar#StepPageMK3ScreenRight Bar#StudioDisplayBar,
+Bar#EventsPageStudioScreenRight Bar#StudioDisplayBar
+{
+    background-color:               rgb(19,19,19);
+}
+
+
+Bar#DuplicatePageStudioScreenLeft Bar#StudioDisplayBar[ShowGroupButtons=false]
+{
+    margin-left:                    9;
+    margin-right:                   7;
+    margin-top:                     12;
+    margin-bottom:                  8;
+
+    spacing:                        8;
+    background-color:               $colorStandardBGColor
+}
+
+
+// Bar Row
+Bar#SelectPageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow,
+Bar#SoloPageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow,
+Bar#MutePageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow,
+Bar#DuplicatePageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow,
+Bar#SamplingPageSliceApplyStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow
+{
+    width:                          476;
+    height:                         100;
+    spacing:                        4;
+}
+
+Bar#PadModePageMK3ScreenLeft Bar#StudioDisplayBar Bar#GroupRow,
+Bar#SaveAsPageScreenLeft Bar#StudioDisplayBar Bar#GroupRow
+{
+    width:                          476;
+    height:                         68;
+    spacing:                        4;
+}
+
+// Button
+Bar#SelectPageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar,
+Bar#PadModePageMK3ScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar,
+Bar#SoloPageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar,
+Bar#MutePageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar,
+Bar#DuplicatePageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar,
+Bar#SamplingPageSliceApplyStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar,
+Bar#SaveAsPageScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar
+{
+    width:                          115;
+    height:                         100;
+
+    margin-left:                    7;
+    margin-top:                     3;
+
+    spacing:                        0;
+}
+
+// Text
+Bar#SelectPageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar Label#NameShort,
+Bar#PadModePageMK3ScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar Label#NameShort,
+Bar#SoloPageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar Label#NameShort,
+Bar#MutePageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar Label#NameShort,
+Bar#DuplicatePageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar Label#NameShort,
+Bar#SamplingPageSliceApplyStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar Label#NameShort,
+Bar#SaveAsPageScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar Label#NameShort
+{
+    height:                         30;
+
+    font-name:                      $fontPragmatica;
+    font-size:                      25;
+
+    horizontal-alignment:           left;
+    vertical-alignment:             top;
+    margin-left:                    -1;
+}
+
+Bar#MutePageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar MultilineTextEdit#NameLong,
+Bar#SoloPageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar MultilineTextEdit#NameLong,
+Bar#SelectPageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar MultilineTextEdit#NameLong,
+Bar#PadModePageMK3ScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar MultilineTextEdit#NameLong,
+Bar#DuplicatePageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar MultilineTextEdit#NameLong,
+Bar#SaveAsPageScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar MultilineTextEdit#NameLong
+{
+    vertical-alignment:             top;
+}
+
+Bar#SelectPageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar MultilineTextEditContentArea,
+Bar#PadModePageMK3ScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar MultilineTextEditContentArea,
+Bar#SoloPageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar MultilineTextEditContentArea,
+Bar#MutePageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar MultilineTextEditContentArea,
+Bar#DuplicatePageStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar MultilineTextEditContentArea,
+Bar#SamplingPageSliceApplyStudioScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar MultilineTextEditContentArea,
+Bar#SaveAsPageScreenLeft Bar#StudioDisplayBar Bar#GroupRow Bar#GroupBar MultilineTextEditContentArea
+{
+    width:                          94;
+    height:                         50;
+
+    font-name:                      $fontPragmatica;
+    font-size:                      14;
+
+    horizontal-alignment:           left;
+    vertical-alignment:             top;
+    margin-right:                   0;
+}
+
+//
+// RIGHT SCREEN
+//
+
+
+
+
+// Grid Container
+Bar#SelectPageStudioScreenRight Bar#StudioDisplayBar,
+Bar#SoloPageStudioScreenRight Bar#StudioDisplayBar,
+Bar#MutePageStudioScreenRight Bar#StudioDisplayBar,
+Bar#DuplicatePageStudioScreenRight Bar#StudioDisplayBar,
+Bar#PadModePageStudioScreenRight Bar#StudioDisplayBar,
+Bar#PadModePageMK3ScreenRight Bar#StudioDisplayBar,
+Bar#SixteenVelModePageMK3ScreenRight Bar#StudioDisplayBar,
+Bar#KeyboardModePageMK3ScreenRight Bar#StudioDisplayBar,
+Bar#ChordsModePageMK3ScreenRight Bar#StudioDisplayBar,
+Bar#SnapshotsPageStudioScreenRight Bar#StudioDisplayBar,
+Bar#ScenePageStudioScreenRight Bar#StudioDisplayBar,
+Bar#SectionsPageStudioScreenRight Bar#StudioDisplayBar,
+Bar#PatternPageStudioPatternScreenRight Bar#StudioDisplayBar,
+Bar#ClipPageStudioScreenRight Bar#StudioDisplayBar,
+Bar#NavigatePagePageNavStudioScreenRight Bar#StudioDisplayBar,
+Bar#NavigatePageMH1071ScreenRight Bar#StudioDisplayBar,
+Bar#SamplingPageSliceApplyStudioScreenRight Bar#StudioDisplayBar,
+Bar#GridPageStudioScreenRight Bar#StudioDisplayBar,
+Bar#DuplicatePageStudioScreenLeft Bar#StudioDisplayBar,
+Bar#SelectPageStudioScreenLeft Bar#StudioDisplayBar,
+Bar#SaveAsPageScreenLeft Bar#StudioDisplayBar,
+Bar#SaveAsPageScreenRight Bar#StudioDisplayBar
+{
+    margin-left:                    1;
+    margin-right:                   1;
+    margin-top:                     0;
+    margin-bottom:                  1;
+    background-color:               $colorBlack;
+}
+
+
+// Grid
+Bar#SelectPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid,
+Bar#SoloPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid,
+Bar#MutePageStudioScreenRight Bar#StudioDisplayBar Bar#Grid,
+Bar#DuplicatePageStudioScreenRight Bar#StudioDisplayBar Bar#Grid,
+Bar#PadModePageStudioScreenRight Bar#StudioDisplayBar Bar#Grid,
+Bar#PadModePageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid,
+Bar#SixteenVelModePageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid,
+Bar#KeyboardModePageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid,
+Bar#ChordsModePageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid,
+Bar#SnapshotsPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid,
+Bar#PatternPageStudioPatternScreenRight Bar#StudioDisplayBar Bar#Grid,
+Bar#ClipPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid,
+Bar#ScenePageStudioScreenRight Bar#StudioDisplayBar Bar#Grid,
+Bar#SectionsPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid,
+Bar#NavigatePagePageNavStudioScreenRight Bar#StudioDisplayBar Bar#Grid,
+Bar#NavigatePageMH1071ScreenRight Bar#StudioDisplayBar Bar#Grid,
+Bar#SamplingPageSliceApplyStudioScreenRight Bar#StudioDisplayBar Bar#Grid,
+Bar#SaveAsPageScreenRight Bar#StudioDisplayBar Bar#Grid
+{
+    spacing:                        4;
+    outer-margin-bottom:            3;
+    margin-left:                    3;
+}
+
+// Bar Row
+Bar#SelectPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#SoloPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#MutePageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#DuplicatePageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#PadModePageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#PadModePageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#SixteenVelModePageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#KeyboardModePageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#ChordsModePageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#SnapshotsPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#ScenePageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#SectionsPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#PatternPageStudioPatternScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#ClipPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#NavigatePageViewStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#NavigatePagePageNavStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#NavigatePageMH1071ScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#SamplingPageSliceApplyStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#GridPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#GridPageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar,
+Bar#SaveAsPageScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar
+{
+    width:                          476;
+    height:                         55;
+    spacing:                        4;
+}
+
+
+// Arranger pages
+Bar#LoopPageMK3ScreenRight Bar#StudioDisplayBar,
+Bar#LoopPageStudioScreenRight Bar#StudioDisplayBar,
+Bar#ArrangerPageClipsStudioScreenRight Bar#StudioDisplayBar,
+Bar#ArrangerPageSectionsStudioScreenRight Bar#StudioDisplayBar
+{
+    background-color:                   rgb(16,16,16);
+}
+
+
+// Button
+Bar#SelectPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#SoloPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#MutePageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#DuplicatePageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#PadModePageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#PadModePageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#SixteenVelModePageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#KeyboardModePageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#ChordsModePageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#SnapshotsPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#ScenePageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#SectionsPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#PatternPageStudioPatternScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#ClipPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#NavigatePageViewStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#NavigatePagePageNavStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#NavigatePageMH1071ScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#SamplingPageSliceApplyStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#GridPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#GridPageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad,
+Bar#SaveAsPageScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar.GridPad
+{
+    width:                          115;
+    height:                         54;
+
+    margin-left:                    5;
+    margin-right:                   0;
+    margin-top:                     2;
+    margin-bottom:                  0;
+
+    vertical-alignment:             center;
+}
+
+Bar#SelectPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#SoloPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#MutePageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#DuplicatePageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#PadModePageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#SixteenVelModePageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#KeyboardModePageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#ChordsModePageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#PadModePageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#SnapshotsPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#ScenePageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#SectionsPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#PatternPageStudioPatternScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#ClipPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#NavigatePageViewStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#NavigatePagePageNavStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#NavigatePageMH1071ScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#SamplingPageSliceApplyStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#GridPageStudioScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#GridPageMK3ScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea,
+Bar#SaveAsPageScreenRight Bar#StudioDisplayBar Bar#Grid Bar#ButtonBar Bar MultilineTextEditContentArea
+{
+    height:                         47;
+    font-name:                      $fontPragmatica;
+    font-size:                      13;
+
+    margin-left:                    2;
+    margin-top:                     2;
+    horizontal-alignment:           left;
+    vertical-alignment:             top;
+}
+
+
+//---------------------------------------------------------------------------------------------
+// Group Level Meters
+Bar#GroupRow LevelMeter
+{
+    width:                          4;
+}
+
+Bar#GroupLevelMeter
+{
+    spacing:                        1;
+    width:                          110;
+    outer-margin:                   10;
+    margin-top:                     65;
+    margin-left:                    91;
+    margin-bottom:                  8;
+    height:                         97;
+}
+
+Bar#GroupRow LevelMeter[isFocused=true]
+{
+    foreground-color:               rgb(0,0,0);
+}
+
+Bar#GroupRow LevelMeter[isFocused=false]
+{
+    foreground-color-palette:       1;
+}
+
+//---------------------------------------------------------------------------------------------
+// Sound Level Meters
+
+Bar#Grid LevelMeter
+{
+    width:                          2;
+}
+
+Bar#PadLevelMeter
+{
+    spacing:                        1;
+    width:                          5;
+    outer-margin-right:             4;
+    outer-margin-bottom:            4;
+    outer-margin-top:               25;
+}
+
+Bar#Grid LevelMeter[isFocused=true]
+{
+    foreground-color:               rgb(0,0,0);
+}
+
+Bar#Grid LevelMeter[isFocused=false]
+{
+    foreground-color-palette:       1;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Various Pages BG Skinning
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#ControlPageStudioScreenLeft Bar#StudioDisplayBar,
+Bar#ControlPageMK3ScreenLeft Bar#StudioDisplayBar,
+Bar#SnapshotsPageStudioScreenLeft Bar#StudioDisplayBar,
+Bar#ModulePageStudioScreenLeft Bar#StudioDisplayBar,
+Bar#NavigatePageViewStudioScreenLeft Bar#StudioDisplayBar,
+Bar#NavigatePagePageNavStudioScreenLeft Bar#StudioDisplayBar,
+Bar#NavigatePageMH1071ScreenLeft Bar#StudioDisplayBar,
+Bar#VariationPageStudioScreenLeft Bar#StudioDisplayBar,
+Bar#VariationPageMK3ScreenLeft Bar#StudioDisplayBar,
+Bar#MacroPageStudioScreenLeft Bar#StudioDisplayBar,
+Bar#MacroAssignPageScreenLeft Bar#StudioDisplayBar,
+Bar#FilePageMK3ScreenLeft Bar#StudioDisplayBar,
+Bar#VariationPageMK3ScreenRight Bar#StudioDisplayBar
+{
+    background-color:               $colorStandardBGColor;
+    outer-margin-top:               1;
+}
+
+
+Bar#FilePageMK3ScreenRight Bar#StudioDisplayBar,
+Bar#NavigatePageViewStudioScreenRight Bar#StudioDisplayBar
+{
+    outer-margin-top:               1;
+    image:                          no;
+    background-color:               $colorStandardBGColor;
+}
+
+
+Bar#VariationPageStudioScreenRight Bar#StudioDisplayBar,
+Bar#VariationPageMK3ScreenRight Bar#StudioDisplayBar,
+Bar#MacroAssignPageScreenRight Bar#StudioDisplayBar
+{
+    width:                          480;
+    height:                         169;
+    background-color:               $colorStandardBGColor;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// PAD MODE PAGE
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#PadModePageStudioScreenLeft Bar#StudioDisplayBar
+{
+    background-color:               $colorStandardBGColor;
+    outer-margin-top:               1;
+}

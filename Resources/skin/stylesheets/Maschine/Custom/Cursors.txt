@@ -1,0 +1,124 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// MOUSE CURSORS
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// PATTERN EDITOR AND MODULATION LANE COMMON
+//----------------------------------------------------------------------------------------------------------------------
+PatternEditorGrid,
+ModulationEditor
+{
+    // DRAW
+    cursor-draw-picture-hotspot-x:                 2;
+    cursor-draw-picture-hotspot-y:                 16;
+    cursor-draw-picture:                           url("Maschine/Cursor/CURSOR_Draw.png");
+}
+
+// PATTERN EDITOR
+//----------------------------------------------------------------------------------------------------------------------
+
+PatternEditorGrid
+{
+    // RESIZE MIDI NOTE
+    cursor-mouse-move-start-picture-hotspot-x:     2;
+    cursor-mouse-move-start-picture-hotspot-y:     11;
+    cursor-mouse-move-start-picture:               url("Maschine/Cursor/CURSOR_ResizeMidiNoteLeft.png");
+
+    cursor-mouse-move-end-picture-hotspot-x:       7;
+    cursor-mouse-move-end-picture-hotspot-y:       11;
+    cursor-mouse-move-end-picture:                 url("Maschine/Cursor/CURSOR_ResizeMidiNoteRight.png");
+
+    start-handle-area:                             5;
+    inner-length-handle-area:                      5;
+    outer-length-handle-area:                      5;
+    move-area-minimum:                             8;
+
+    // DRAW
+    cursor-draw:                                  url("Maschine/Cursor/CURSOR_Draw.png");
+
+    // DELETE
+    cursor-delete:                                 url("Maschine/Cursor/CURSOR_Remove.png");
+}
+
+
+// MODULATION LANE
+//----------------------------------------------------------------------------------------------------------------------
+
+ModulationEditor
+{
+    // CURSOR DRAG AUTOMATION PARAMETER
+    cursor-mouse-drag-vertical-picture-hotspot-x:   7;
+    cursor-mouse-drag-vertical-picture-hotspot-y:   7;
+    cursor-mouse-drag-vertical-picture:             url("Maschine/Cursor/CURSOR_ResizeAutomationEvent.png");
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// SAMPLING TABS
+//----------------------------------------------------------------------------------------------------------------------
+
+// SLICE WAVE DISPLAY
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pLowerArea Stack#m_pColumnEditors Bar#m_pSamplingPanel SlicingWaveDisplay
+{
+    // ERASE SLICE
+    cursor-erase-picture:                           url("Maschine/Cursor/CURSOR_Erase.png");
+    cursor-erase-picture-hotspot-x:                 0;
+    cursor-erase-picture-hotspot-y:                 17;
+
+    // MERGE SLICE
+    cursor-merge-picture:                           url("Maschine/Cursor/CURSOR_SliceMerge.png");
+    cursor-merge-picture-hotspot-x:                 -1;
+    cursor-merge-picture-hotspot-y:                 17;
+
+    // CURSOR SPLIT
+    cursor-split-picture:                           url("Maschine/Cursor/CURSOR_Slice.png");
+    cursor-split-picture-hotspot-x:                 0;
+    cursor-split-picture-hotspot-y:                 17;
+
+    // CURSOR SIZE
+    cursor-size-we:                                 url("Maschine/Cursor/CURSOR_SizeWE.png");
+}
+
+
+
+// MARKER WAVE DISPLAY
+//----------------------------------------------------------------------------------------------------------------------
+
+// Bar#m_pLowerArea Stack#m_pColumnEditors Bar#m_pSamplingPanel MarkerWaveDisplay
+MarkerWaveDisplay
+{
+    // CURSOR SIZE
+    cursor-size-we:                     url("Maschine/Cursor/CURSOR_SizeWE.png");
+}
+
+
+
+
+// ZONE EDITOR
+//----------------------------------------------------------------------------------------------------------------------
+
+ZoneEditorGridWidget,
+ZoneWidget
+{
+    // HORIZONTAL RESIZER
+    cursor-size-we:                     url("Maschine/Cursor/CURSOR_SizeWE.png");
+
+    // VERTICAL RESIZER
+    cursor-size-ns:                     url("Maschine/Cursor/CURSOR_SizeNS.png");
+
+    // DIAGONAL RESIZER
+    cursor-size-nwse:                   url("Maschine/Cursor/CURSOR_SizeNWSE.png");
+    cursor-size-nwse-picture-hotspot-x: 8;
+    cursor-size-nwse-picture-hotspot-y: 8;
+
+    // UDOWN / LEFTRIGHT RESIZER
+    cursor-size-nesw:                   url("Maschine/Cursor/CURSOR_SizeNESW.png");
+    cursor-size-nesw-picture-hotspot-x: 8;
+    cursor-size-nesw-picture-hotspot-y: 8;
+
+    // DIAGONAL RESIZER
+    cursor-move:                         url("Maschine/Cursor/CURSOR_MoveZone.png");
+}

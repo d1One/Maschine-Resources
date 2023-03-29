@@ -1,0 +1,48 @@
+Bar.ParameterPageFullScreenBar
+{
+    width:                      $defaultWidth;
+    height:                     $defaultHeight;
+}
+
+Bar.ParameterPageFullScreenBar Label.TopText
+{
+    width:                      $defaultWidth;
+    height:                     $halfHeight;
+    font-name:                  $fontDefaultBold;
+    font-size:                  $fontSize;
+}
+
+Stack.ParameterPageBottomStack
+{
+    width:                      $defaultWidth;
+    height:                     $halfHeight;
+}
+
+Bar.ParameterPageHalfScreenBar
+{
+    width:                      $defaultWidth;
+    height:                     $halfHeight;
+}
+
+Stack.ParameterPageBottomStack Label#parameterName
+{
+    min-width:                  42;
+    horizontal-alignment: 	    left;
+    foreground-color: 		    $colorWhite;
+    vertical-alignment: 	    top;
+}
+
+Stack.ParameterPageBottomStack Label#parameterValue
+{
+    horizontal-alignment: 	    right;
+    outer-margin-left: 		    5;
+    foreground-color: 		    $colorWhite;
+    vertical-alignment: 	    top;
+}
+
+Stack.ParameterPageBottomStack Label#noParameterLabel
+{
+    outer-margin-top:           1;
+    width:                      $defaultWidth;
+    height:                     $halfHeight;
+}

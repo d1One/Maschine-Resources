@@ -1,0 +1,27 @@
+Bar#WelcomeErrorTryAgainPageScreenLeft MultilineLabel#LabelLeft
+{
+    font-name: $fontPragmatica;
+    font-size: 21;
+    foreground-color: $colorWhite;
+
+    horizontal-alignment: center;
+    vertical-alignment: top;
+
+    outer-margin-left: 20;
+    outer-margin-right: 20;
+}
+
+Bar#WelcomeErrorTryAgainPageScreenLeft Bar#Icon
+{
+    image: url("Maschine/HW/Shared/Error.png");
+
+    outer-margin-top: 65;
+    outer-margin-left: 204;
+    outer-margin-bottom: 24;
+}
+
+
+Bar#WelcomeErrorTryAgainPageScreenRight Bar#StudioDisplayBar
+{
+    image: url("Maschine/HW/MH1071/Welcome/OOB_Activate_Error.png");
+}

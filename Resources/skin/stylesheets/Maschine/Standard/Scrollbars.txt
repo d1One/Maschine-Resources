@@ -1,0 +1,601 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SCROLLBARS
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// DEFAULT
+//----------------------------------------------------------------------------------------------------------------------
+
+Scrollbar
+{
+    background-color:                   $colorUnion;
+}
+
+Scrollbar Button
+{
+    width:                              $metricGrid;
+    height:                             $metricGrid;
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// VERTICAL SCROLLBARS
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// STANDARD WIDTH LIGHT GREY: MAIN VIEW VERTICAL, BROWSER RESULT LISTS, BROWSER BANK CHAIN 2&3, PREFERENCES
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Scrollbar.MainViewVertical
+{
+    image:                              url("Maschine/Scrollbars/Scrollbar_BG_Vertical.png");
+    picture-includes-margin:            true;
+    fixed-top:                          2;
+    fixed-bottom:                       2;
+    
+    margin-top:                         5;
+    margin-bottom:                      5;
+}
+
+Scrollbar.BrowserScroll
+{
+    image:                                      no;
+    background-color:                           rgb(50,50,50);
+    fixed-top:                                  2;
+    fixed-bottom:                               2;
+
+    margin-top:                                 5;
+    margin-bottom:                              5;
+
+    width:                                      13;
+}
+
+
+// DIALOG SCROLLBAR CONTAINERS
+DialogPreferences Stack#m_pTabs Scrollbar#m_pScrollbar,
+DialogAudioExport Scrollbar#m_pScrollbar,
+DialogMPCImport Vector<Button>#m_pPadVector Scrollbar#m_pScrollbar,
+DialogMissingPlugins Scrollbar#m_pScrollbar,
+DialogMessageList Scrollbar#m_pScrollbar
+{
+    background-color:                   no;
+    image:                              url("Maschine/Dialogs/Preferences/PREF_BG_Scrollbar.png");
+    picture-includes-margin:            true;
+    fixed-top:                          5;
+    fixed-bottom:                       5;
+
+    margin-top:                         5;
+    margin-bottom:                      5;
+}
+
+
+
+// SLIDER
+Scrollbar.MainViewVertical Slider#value,
+Slider.BrowserScroll,
+Bar#m_pBrowserPanel Bar#m_pFileBrowser Scrollbar Slider,
+DialogAudioExport Scrollbar#m_pScrollbar Slider,
+DialogMPCImport Vector<Button>#m_pPadVector Scrollbar#m_pScrollbar Slider,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#m_aBankSelectorBars_1 Scrollbar#m_pScrollV Slider,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#m_aBankSelectorBars_2 Scrollbar#m_pScrollV Slider,
+DialogMissingPlugins Scrollbar#m_pScrollbar Slider,
+DialogMessageList Scrollbar#m_pScrollbar Slider
+{
+    background-color:                   no;
+}
+
+
+
+// HANDLE
+Scrollbar.MainViewVertical Grip#thumb,
+DialogPreferences Scrollbar Grip,
+DialogAudioExport Scrollbar#m_pScrollbar Grip,
+DialogMPCImport Vector<Button>#m_pPadVector Scrollbar#m_pScrollbar Grip,
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pPropertiesPage MultilineTextEdit Scrollbar Slider Grip#thumb,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#m_aBankSelectorBars_1 Scrollbar#m_pScrollV Slider Grip,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#m_aBankSelectorBars_2 Scrollbar#m_pScrollV Slider Grip,
+DialogMissingPlugins Scrollbar#m_pScrollbar Grip,
+DialogMessageList Scrollbar#m_pScrollbar Grip
+{
+    background-color:                           no;
+    image:                                      url("Maschine/Scrollbars/scrollbar_vertical_slider.png");
+    picture-includes-margin:            true;
+    fixed-top:                                  4;
+    fixed-bottom:                               4;    
+}
+
+Slider.BrowserScroll Grip
+{
+    background-color:                           no;
+    image:                                      url("Maschine/Scrollbars/SCROLL_Light_Vslider_Narrow.png");
+    picture-includes-margin:                    true;
+    fixed-top:                                  4;
+    fixed-bottom:                               4;    
+    min-height:                                 24;  
+}
+
+
+
+// PREFERNCES SCROLLBAR BUTTON REMOVAL
+
+// INC / DEC BUTTONS SET TO ZERO
+DialogPreferences Scrollbar Button,
+DialogAudioExport Scrollbar#m_pScrollbar Button,
+DialogMPCImport Vector<Button>#m_pPadVector Scrollbar#m_pScrollbar Button,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#m_aBankSelectorBars_1 Scrollbar#m_pScrollV Button,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#m_aBankSelectorBars_2 Scrollbar#m_pScrollV Button
+{
+    image:                              no;
+    background-color:                   no;
+    height:                             1;
+}
+
+DialogPreferences Scrollbar Button#inc,
+DialogAudioExport Scrollbar#m_pScrollbar Button#inc,
+DialogMPCImport Vector<Button>#m_pPadVector Scrollbar#m_pScrollbar Button#inc,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#m_aBankSelectorBars_1 Scrollbar#m_pScrollV Button#inc,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#m_aBankSelectorBars_2 Scrollbar#m_pScrollV Button#inc
+{
+    outer-margin-top:                   -1;
+}
+
+
+DialogPreferences Scrollbar Button#dec,
+DialogAudioExport Scrollbar#m_pScrollbar Button#dec,
+DialogMPCImport Vector<Button>#m_pPadVector Scrollbar#m_pScrollbar Button#dec,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#m_aBankSelectorBars_1 Scrollbar#m_pScrollV Button#dec,
+Bar#m_pBrowserPanel Stack#m_pStack Bar#m_pBody Bar#BankChain Bar#m_aBankSelectorBars_2 Scrollbar#m_pScrollV Button#dec
+{
+    outer-margin-bottom:                -1;
+}
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// MIDAREA PLUGIN LIST
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// CONTAINER
+Bar#m_pChainPanel Bar#m_pSlotManager Vector<Bar>#m_pSlotVector::Scrollbar
+{
+    background-color:                   no;
+    image:                              no;
+    width:                              12;
+
+}
+
+
+// SLIDER
+Bar#m_pChainPanel Bar#m_pSlotManager Vector<Bar>#m_pSlotVector::Scrollbar Grip
+{
+    image:                              url("Maschine/Scrollbars/SCROLL_PluginList_Vslider.png");
+    picture-includes-margin:            true;
+    
+    fixed-bottom:                       4;
+    fixed-top:                          4;
+}
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// VERTICAL NARROW: BROWSER TAG EDITOR, MIXER PLUGIN LIST
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// TO DO: STYLE Scrollbar.VerticalNarrow
+
+
+// SCROLLBAR CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pBrowserPanel UniformBar#pAttributeEditorUniformBar Scrollbar,
+Bar#m_pMixerPanel Bar#m_pSlotMatrix Bar#pBody::Vector<Bar>#m_pSlotVector::Scrollbar
+{
+    background-color:                   no;
+    image:                              no;
+}
+
+
+
+// TAG EDITOR
+Bar#m_pBrowserPanel UniformBar#pAttributeEditorUniformBar Scrollbar
+{
+    margin-top:                         0;
+    margin-bottom:                      0;
+    width:                              7;
+}
+
+
+
+// MIXER
+Bar#m_pMixerPanel Bar#m_pSlotMatrix Bar#pBody::Vector<Bar>#m_pSlotVector::Scrollbar
+{
+    margin-top:                         0;
+    margin-bottom:                      4;
+    width:                              6;
+}
+
+
+
+// SCROLLBAR SLIDER
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pBrowserPanel UniformBar#pAttributeEditorUniformBar Scrollbar Grip#thumb,
+Bar#m_pMixerPanel Bar#m_pSlotMatrix Bar#pBody::Vector<Bar>#m_pSlotVector::Scrollbar Grip#thumb
+{
+    image:                              url("Maschine/Scrollbars/SCROLL_Vslider_Narrow.png");
+    picture-includes-margin:            false;
+    fixed-top:                          2;
+    fixed-bottom:                       2;
+}
+
+
+// TAG EDITOR
+Bar#m_pBrowserPanel UniformBar#pAttributeEditorUniformBar Scrollbar Grip#thumb
+{
+    margin-left:                        2;
+    margin-right:                       2;
+    margin-top:                         1;
+    margin-bottom:                      1;
+}
+
+
+
+// MIXER
+Bar#m_pMixerPanel Bar#m_pSlotMatrix Bar#pBody::Vector<Bar>#m_pSlotVector::Scrollbar Grip#thumb
+{
+    margin-left:                        2;
+    margin-right:                       1;
+}
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SAMPLING TABS
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// RECORDING PREVIEWS
+Scrollbar.RecordingHistoryVector
+{
+    background-color:                   no;
+    image:                              no;
+    height:                             16; 
+}
+
+
+Scrollbar.RecordingHistoryVector Button#dec
+{
+    image:                              no;
+    width:                              1;
+    outer-margin-left:                  -1;
+}
+
+
+Scrollbar.RecordingHistoryVector Button#inc
+{
+    image:                              no;
+    width:                              1;
+    outer-margin-right:                 -1;
+}
+
+
+Slider.RecordingHistoryVector
+{
+    background-color:                   no;
+}
+
+
+Scrollbar.RecordingHistoryVector Grip
+{
+    image:                              url("Maschine/Scrollbars/scrollbar_horizontal_slider.png");
+    picture-includes-margin:            true;
+    
+    fixed-left:                         4;
+    fixed-right:                        4;   
+}
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// KPI VIEW
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// PLUGIN STRIP BOTTOM SCROLLBAR
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pKPI_Panel Scrollbar#m_pScrollH
+{
+    image:                              url("Maschine/KPI/KPI_BG_ScrollbarBottom.png");
+    picture-includes-margin:            true;
+    fixed-left:                         4;
+    fixed-right:                        4;
+
+    height:                             20;
+}
+
+
+
+// SLIDER
+Bar#m_pKPI_Panel Scrollbar#m_pScrollH Slider
+{
+    outer-margin-left:                  5;
+    outer-margin-right:                 5;
+    outer-margin-top:                   1;
+}
+
+
+
+Bar#m_pKPI_Panel Scrollbar#m_pScrollH Grip
+{
+    image:                              url("Maschine/Scrollbars/SCROLL_Main_HSlider.png");
+    fixed-left:                         4;
+    fixed-right:                        4;
+}
+
+
+
+// INC / DEC BUTTONS SET TO ZERO
+Bar#m_pKPI_Panel Scrollbar#m_pScrollH Button
+{
+    image:                              no;
+    background-color:                   no;
+    width:                             1;
+}
+
+
+
+Bar#m_pKPI_Panel Scrollbar#m_pScrollH Button#dec
+{
+    outer-margin-left:                  -1;
+}
+
+
+
+Bar#m_pKPI_Panel Scrollbar#m_pScrollH Button#inc
+{
+    outer-margin-right:                 -1;
+}
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// BROWSER
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// BROWSER SECTION
+//----------------------------------------------------------------------------------------------------------------------
+
+// MINIMIZE UNNECCESSARY HORIZONTAL SCROLLBAR IN FAVORITES SECTION
+Bar#m_pBrowserPanel Bar#m_pFileBrowser Scrollable<BrowserPanelFavorites>#m_pFavoritesContainer Scrollbar#m_pScrollH
+{
+    height:                             1;
+}
+
+// SCROLLBARS ON LIGHTGREY BACKGROUND
+
+// CONTAINER
+Bar#m_pBrowserPanel Bar#m_pFileBrowser Scrollable<BrowserPanelFavorites>#m_pFavoritesContainer Scrollbar#m_pScrollV,
+Bar#m_pBrowserPanel Bar#m_pTagSection Scrollbar
+{
+    background-color:                   $colorLightBackgroundGrey;
+    margin-top:                         5;
+    margin-bottom:                      5;
+    width:                              13;
+}
+
+
+// SLIDER
+DialogPreferences Bar#DialogPreferencesHardware Scrollable<Bar> Scrollbar Grip#thumb,
+Bar#m_pBrowserPanel Bar#m_pFileBrowser Scrollable<BrowserPanelFavorites>#m_pFavoritesContainer Grip#thumb,
+Bar#m_pBrowserPanel Bar#m_pTagSection Grip#thumb
+{
+    image:                                      url("Maschine/Scrollbars/SCROLL_Dark_Vslider_Narrow.png");
+    opacity:                                    100;
+    picture-includes-margin:                    true;
+    
+    fixed-bottom:                               4;
+    fixed-top:                                  4;
+}
+
+
+// INC / DEC BUTTONS SET TO ZERO
+Bar#m_pBrowserPanel Bar#m_pFileBrowser Scrollbar Button,
+Bar#m_pBrowserPanel Bar#m_pTagSection Scrollbar Button
+{
+    image:                              no;
+    background-color:                   no;
+    height:                             1;
+}
+
+
+
+// TOP BOTTOM MARGIN ADJUSTMENTS
+Bar#m_pBrowserPanel Bar#m_pFileBrowser Scrollbar Slider#value,
+Bar#m_pBrowserPanel Bar#m_pTagSection Scrollbar Slider#value
+{
+    outer-margin-top:                   3;
+    outer-margin-bottom:                3;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// BROWSER COMMENT EDITOR (MULTILINE TEXT EDIT)
+//----------------------------------------------------------------------------------------------------------------------
+
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pPropertiesPage MultilineTextEdit Scrollbar
+{
+    width:                                      17;
+}
+
+
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pPropertiesPage MultilineTextEdit Scrollbar Slider
+{
+    outer-margin-top:                           2;
+    outer-margin-bottom:                        2;
+}
+
+
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pPropertiesPage MultilineTextEdit Scrollbar Button
+{
+    image:                                      no;
+    background-color:                           no;
+    height:                                     1;  
+}
+
+
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pPropertiesPage MultilineTextEdit Scrollbar Button#dec
+{
+    outer-margin-top:                           -1;
+}
+
+
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget Bar#m_pPropertiesPage MultilineTextEdit Scrollbar Button
+{
+    outer-margin-bottom:                           -1;
+}
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// BROWSER ATTRIBUTE EDITOR
+//----------------------------------------------------------------------------------------------------------------------
+
+// INC / DEC BUTTONS SET TO ZERO
+Bar#m_pBrowserPanel UniformBar#pAttributeEditorUniformBar Scrollbar Button
+{
+    image:                              no;
+    background-color:                   no;
+    height:                             1;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// BROWSER VISUAL BROWSER
+//----------------------------------------------------------------------------------------------------------------------
+
+Popup.BrowserBank_0 Scrollbar#m_pScrollV
+{
+    width:                              9;
+    background-color:                   no;
+    outer-margin-top:                   9;
+}
+
+
+
+// SLIDER
+Popup.BrowserBank_0 Scrollbar#m_pScrollV Grip#thumb
+{
+    image:                              url("Maschine/Scrollbars/SCROLL_VB_Vert.png");
+    picture-includes-margin:            true;
+    
+    fixed-bottom:                       4;
+    fixed-top:                          4;
+}
+
+
+
+// TOP BOTTOM MARGIN ADJUSTMENTS
+Popup.BrowserBank_0 Scrollbar#m_pScrollV Slider#value
+{
+    outer-margin-top:                   3;
+    outer-margin-bottom:                3;
+}
+
+
+
+// INC / DEC BUTTONS SET TO ZERO
+Popup.BrowserBank_0 Scrollbar#m_pScrollV Button
+{
+    image:                              no;
+    background-color:                   no;
+    height:                             1;
+}
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// POPUP MENU
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// BACKGROUND
+PopupMenu#pContextMenu Scrollbar#scrollbar,
+PopupMenu#popup Scrollbar,
+PopupMenu#pPopup Scrollbar,
+AutocompletionPopup Scrollbar
+{
+    width:                              15;
+    outer-margin-top:                   5;
+    outer-margin-bottom:                5;
+}
+
+
+
+
+PopupMenu#pContextMenu Scrollbar Button#dec,
+PopupMenu#popup Scrollbar Button#dec,
+PopupMenu#pPopup Scrollbar Button#dec,
+AutocompletionPopup Scrollbar Button#dec
+{
+    height:                             1;
+    outer-margin-bottom:                -1;
+    background-color:                   no;
+    image:                              no;
+}
+
+
+
+
+PopupMenu#pContextMenu Scrollbar Button#inc,
+PopupMenu#popup Scrollbar Button#inc,
+PopupMenu#pPopup Scrollbar Button#inc,
+AutocompletionPopup Scrollbar Button#inc
+{
+    height:                             1;
+    outer-margin-top:                  -1;
+    background-color:                   no;
+    image:                              no;
+}
+
+
+
+
+PopupMenu#pContextMenu Scrollbar Grip#thumb,
+PopupMenu#popup Scrollbar Grip#thumb,
+PopupMenu#pPopup Scrollbar Grip#thumb,
+AutocompletionPopup Scrollbar Grip#thumb
+{
+    image:                              url("Maschine/Scrollbars/SCROLL_Popup_VSlider.png");
+    picture-includes-margin:            true;
+    
+    fixed-bottom:                       3;
+    fixed-top:                          3;
+}

@@ -1,0 +1,34 @@
+Bar#PowerPageScreenLeft Bar#PowerIcon
+{
+    image: url("Maschine/HW/Shared/Bypass.png");
+    outer-margin-top: 60;
+    outer-margin-left: 204;
+}
+
+Bar#PowerPageScreenLeft MultilineLabel#LeftScreenText,
+Bar#PowerPageScreenRight MultilineLabel#RightScreenText
+{
+    foreground-color: $colorWhite;
+
+    vertical-alignment: top;
+    horizontal-alignment: center;
+}
+
+Bar#PowerPageScreenLeft MultilineLabel#LeftScreenText
+{
+    font-name: $fontPragmatica;
+    font-size: 21;
+
+    outer-margin-left: 88;
+    outer-margin-right: 88;
+    outer-margin-top: 8;
+}
+
+
+Bar#PowerPageScreenRight MultilineLabel#RightScreenText
+{
+    font-name: $fontPragmatica;
+    font-size: 21;
+
+    outer-margin-top: 105;
+}

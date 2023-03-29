@@ -1,0 +1,419 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// BUTTONS
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// STANDARD BUTTON
+//----------------------------------------------------------------------------------------------------------------------
+
+Button
+{
+    image:                              url("Shared/Global/Button_18.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+    animation-index:                    0;
+    fixed-left:                         4;
+    fixed-right:                        4;
+    fixed-top:                          4;
+    fixed-bottom:                       4;
+    foreground-color:                   $colorWidgetText;
+    background-color:                   no;
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    horizontal-alignment:               center;
+    vertical-alignment:                 center;
+    min-width:                          $defaultWidth;
+    min-height:                         $metricGrid;
+}
+
+Button:selected
+{
+    animation-index:                    1;
+    foreground-color:                   $colorWidgetTextSelected;
+}
+Button:!selected:down
+{
+    animation-index:                    2;
+}
+Button:selected:down
+{
+    animation-index:                    3;
+    foreground-color:                   $colorWidgetTextSelected;
+}
+Button:over
+{
+    animation-index:                    4;
+}
+Button:over:selected
+{
+    animation-index:                    5;
+}
+Button:!enabled
+{
+    animation-index:                    6;
+    foreground-color:                   $colorWidgetTextDisabled;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Style Empty
+//----------------------------------------------------------------------------------------------------------------------
+
+Button.Empty
+{
+    image:                              no;
+    picture: no;
+    fixed-left:                         0;
+    fixed-right:                        0;
+    fixed-top:                          0;
+    fixed-bottom:                       0;
+    foreground-color:                   no;
+    background-color:                   no;
+}
+
+
+
+// POPUP BUTTON
+//----------------------------------------------------------------------------------------------------------------------
+
+ButtonPopup:selected
+{
+    animation-index:                    1;
+}
+
+ButtonPopup:down
+{
+    animation-index:                    2;
+}
+
+ButtonPopup:down
+{
+    animation-index:                    3;
+}
+
+ButtonPopup:over:!selected
+{
+    animation-index:                    4;
+}
+
+ButtonPopup:over:selected
+{
+    animation-index:                    5;
+}
+
+ButtonPopup:!enabled
+{
+    animation-index:                    6;
+}
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Buttons Arranger / Pattern Editor
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//----------------------------------------------------------------------------------------------------------------------
+// Header Area
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pPatternEditorHeader Button#m_pName
+{
+    image:                              no;
+    background-color:                   rgb(50,50,50);
+    foreground-color-palette:           1;
+
+    margin-left:                        7;
+    margin-top:                         1;
+    horizontal-alignment:               left;
+    outer-margin-right:                 16;
+}
+
+
+// Buttons on the right
+Button.GridHeader
+{
+    background-color:                   no;
+    foreground-color:                   no;
+}
+
+
+
+
+//======================================================================================================================
+// Buttons in Song / Group Panel
+//======================================================================================================================
+
+//----------------------------------------------------------------------------------------------------------------------
+// Panel Left Side Small
+//----------------------------------------------------------------------------------------------------------------------
+
+Button.PanelLeftsideSmall
+{
+    foreground-color:                   no;
+}
+
+
+
+
+//======================================================================================================================
+// Styles
+//======================================================================================================================
+
+//----------------------------------------------------------------------------------------------------------------------
+// Style FileType
+//----------------------------------------------------------------------------------------------------------------------
+
+Button.FileType
+{
+    width:                              20;
+    height:                             20;
+    spacing:                            1;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Style UserMode
+//----------------------------------------------------------------------------------------------------------------------
+
+Button.UserMode
+{
+    width:                              20;
+    height:                             20;
+    spacing:                            1;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Style Small
+//----------------------------------------------------------------------------------------------------------------------
+
+Button.Small
+{
+   width:                  $metricGrid;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//Style ParameterWidgetName
+//----------------------------------------------------------------------------------------------------------------------
+
+Button.ParameterWidgetName
+{
+	image:                  no;
+    font-resid:             $fontRaldoId;
+    font-size:              $fontRaldoSize;
+    background-color:       $colorListItem;
+    foreground-color:       $colorListItemText;
+    margin-left:            3;
+    horizontal-alignment:   left;
+    margin:                 1;
+    min-width:              $metricGrid;
+}
+
+Button.ParameterWidgetName:!enabled
+{
+    foreground-color:       $colorListItemText;
+}
+
+Button.ParameterWidgetName:over
+{
+    background-color:       $colorListItemOver;
+}
+
+Button.ParameterWidgetName:down
+{
+    background-color:       $colorListItemDown;
+}
+
+Button.ParameterWidgetName:selected,
+Button.ParameterWidgetName:selected:down,
+Button.ParameterWidgetName:selected:over
+{
+    background-color:       $colorListItemSelected;
+    foreground-color:       $colorListItemTextSelected;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Style ListItemName
+//----------------------------------------------------------------------------------------------------------------------
+
+Button.ListItemName
+{
+    image:                              no;
+    background-color:                   no;
+    horizontal-alignment:               left;
+}
+
+
+// Style ListItemMono
+Button.ListItemMono
+{
+    image:                  no;
+    font-name:              $fontMonoName;
+    font-size:              $fontMonoSize;
+    background-color:       $colorListItem;
+    foreground-color:       $colorListItemText;
+    margin-left:            3;
+    horizontal-alignment:   left;
+    margin:                 1;
+    min-width:              $metricGrid;
+}
+
+Button.ListItemMono:over
+{
+    background-color:       $colorListItemOver;
+}
+
+Button.ListItemMono:down
+{
+    background-color:       $colorListItemDown;
+}
+
+Button.ListItemMono:selected,
+Button.ListItemMono:selected:down,
+Button.ListItemMono:selected:over
+{
+    background-color:       $colorListItemSelected;
+    foreground-color:       $colorListItemTextSelected;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Style TreeExpander
+//----------------------------------------------------------------------------------------------------------------------
+
+Button.TreeExpander
+{
+    margin-top:             1;
+    animations:             2;
+    animation-index:        0;
+    min-width:              $metricGrid;
+}
+
+Button.TreeExpander[isExpanded=false]
+{
+    animation-index:        0;
+}
+
+Button.TreeExpander[isExpanded=true]
+{
+    animation-index:        1;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Style Transparent (centered)
+//----------------------------------------------------------------------------------------------------------------------
+
+Button.Transparent
+{
+    image:                  no;
+    foreground-color:       $colorWidgetText;
+    background-color:       no;
+    horizontal-alignment:   center;
+    min-width:              $defaultWidth;
+    min-height:             $metricGrid;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Style TransparentSmall (centered)
+//----------------------------------------------------------------------------------------------------------------------
+
+Button.TransparentSmall
+{
+    image:                  no;
+    foreground-color:       $colorTextBackground;
+    background-color:       no;
+    font-resid:             $fontRaldoId;
+    font-size:              $fontRaldoSize;
+    horizontal-alignment:   center;
+    margin:                 2;
+    min-width:              $metricGrid;
+    min-height:             $metricGrid;
+}
+
+Button.TransparentSmall:over
+{
+    foreground-color:       $colorWidgetText;
+    background-color:       rgba(0, 0, 0, 128);
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Style Checkbox
+//----------------------------------------------------------------------------------------------------------------------
+
+Button.Checkbox
+{
+    width:                  $metricGrid;
+}
+Button.Checkbox[checkstate=unchecked]
+{
+    animation-index:        0;
+}
+Button.Checkbox[checkstate=unchecked]:over
+{
+    animation-index:        4;
+}
+Button.Checkbox[checkstate=semichecked]
+{
+    animation-index:        6;
+}
+Button.Checkbox[checkstate=checked]
+{
+    animation-index:        1;
+    foreground-color:       $colorWidgetTextSelected;
+}
+Button.Checkbox[checkstate=checked]:over
+{
+    animation-index:        5;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Style RadioButton
+//----------------------------------------------------------------------------------------------------------------------
+
+Button.RadioButton
+{
+    width:                  $metricGrid;
+}
+Button.RadioButton[checked=false]
+{
+    animation-index:        0;
+}
+Button.RadioButton[checked=true]
+{
+    animation-index:        1;
+    foreground-color:       $colorWidgetTextSelected;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Style HeadDisplay
+//----------------------------------------------------------------------------------------------------------------------
+
+Button.HeadDisplay
+{
+    image:                  no;
+    foreground-color:       $colorWidgetText;
+    font-resid:             $fontRaldoId;
+    font-size:              $fontRaldoSize;
+    horizontal-alignment:   center;
+    min-width:              $defaultWidth;
+    height:                 $metricGrid;
+    outer-margin-left:      3;
+    outer-margin-top:       3;
+}
+
+Button.HeadDisplay:selected
+{
+    foreground-color:       $colorRed;
+}

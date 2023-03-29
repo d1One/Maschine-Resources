@@ -1,0 +1,47 @@
+// Standard
+
+@import url("Shared/HW/MaschineStudio/Colors.txt");
+@import url("Shared/HW/MaschineStudio/Standard.txt");
+
+@import url("Maschine/HW/MaschineStudio/Elements.txt");
+
+@import url("Maschine/Definitions/PluginIcons.txt");
+
+@import url("Shared/HW/MaschineStudio/Standard/Bar.txt");
+@import url("Shared/HW/MaschineStudio/Standard/Button.txt");
+@import url("Shared/HW/MaschineStudio/Standard/Label.txt");
+@import url("Shared/HW/MaschineStudio/Standard/Scrollbars.txt");
+@import url("Shared/HW/MaschineStudio/Standard/Stack.txt");
+@import url("Shared/HW/MaschineStudio/Standard/ZoomSlider.txt");
+
+// Pages
+
+@import url("Maschine/HW/MaschineStudio/ArrangerPage.txt");
+@import url("Maschine/HW/MaschineStudio/Dialogs.txt");
+@import url("Maschine/HW/MaschineStudio/EmptyPage.txt");
+@import url("Maschine/HW/MaschineStudio/GridPage.txt");
+@import url("Maschine/HW/MaschineStudio/MixerPage.txt");
+@import url("Maschine/HW/MaschineStudio/ModulePage.txt");
+@import url("Maschine/HW/MaschineStudio/RecModePage.txt");
+@import url("Maschine/HW/MaschineStudio/SamplingPage.txt");
+@import url("Maschine/HW/MaschineStudio/StepEditPage.txt");
+
+@import url("Shared/HW/MaschineStudio/BrowsePage.txt");
+@import url("Shared/HW/MaschineStudio/CapacitiveOverlays.txt");
+@import url("Shared/HW/MaschineStudio/ControlPage.txt");
+@import url("Shared/HW/MaschineStudio/IdeaSpace.txt");
+@import url("Shared/HW/MaschineStudio/Instructions.txt");
+
+//Dialogs
+
+@import url("Shared/HW/Dialogs/ModalDialogPage.txt");
+@import url("Shared/HW/Dialogs/SaveDialogPage.txt");
+
+// Panels
+
+@import url("Shared/HW/MaschineStudio/Panels/ButtonBar.txt");
+@import url("Shared/HW/MaschineStudio/Panels/DisplayBar.txt");
+@import url("Shared/HW/MaschineStudio/Panels/InfoBar.txt");
+@import url("Shared/HW/MaschineStudio/Panels/ParamBar.txt");
+
+

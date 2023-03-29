@@ -1,0 +1,51 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// MODULE PAGES
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Right Screen
+
+
+
+
+
+// Container
+Bar#ModulePageStudioScreenRight Bar.StudioDisplay
+{
+    width:                          480;
+    height:                         240;
+    outer-margin-top:               1;
+
+    image:                          no;
+    background-color:               $colorStandardBGColor;
+}
+
+
+
+
+// RESULT LIST
+// ---------------------------------------------------------------------------------------------------------------------
+
+// VECTOR
+Bar#ModulePageStudioScreenRight Vector<Label>#ResultList
+{
+    width:                          240;
+
+	  margin-top:                     8;
+	  margin-bottom:                  19;
+
+	  margin-left:                    1;
+	  spacing:                        0;
+	  outer-margin-top:               0;
+
+    outer-margin-left:              240;
+
+    focus-anim:	                    $animtype-none;
+}
+
+
+Bar#ModulePageStudioScreenRight Vector<Label>#ResultList Bar#widgets
+{
+    width:                          231;
+    spacing:                        5;
+}

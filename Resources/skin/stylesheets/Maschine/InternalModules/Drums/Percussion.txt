@@ -1,0 +1,477 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// PERCUSSION
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+PercEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_logo_percussion.png");
+    x:                                  $X-Drums-Logo;
+    y:                                  $Y-Drums-Logo;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// DISPLAY DRUM MODELS
+//--------------------------------------------------------------------------------------------------------
+
+PercEditor[Mode=Shaker] Bar#m_pInstrumentForeground
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_model_shaker_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_model_shaker_dye.png");
+    dye-color-palette:                  1;
+    x:                                  276;
+    y:                                  87;
+}
+
+PercEditor[Mode=ShakerPerformer] Bar#m_pInstrumentForeground
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_model_shaker_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_model_shaker_dye.png");
+    dye-color-palette:                  1;
+    x:                                  276;
+    y:                                  87;
+}
+
+PercEditor[Mode=Kettle] Bar#m_pInstrumentForeground
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_model_kettle_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_model_kettle_dye.png");
+    dye-color-palette:                  1;
+    x:                                  247;
+    y:                                  80;
+    width:                              136;
+    height:                             109;
+}
+
+PercEditor[Mode=Fractal] Bar#m_pInstrumentForeground
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_model_fractal_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_model_fractal_dye.png");
+    dye-color-palette:                  1;
+    x:                                  227;
+    y:                                  105;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// SHAKER MODE
+//----------------------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+PercEditor[Mode=Shaker] Bar#PercMode 
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_shaker_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_shaker_dyemask.png");
+}
+
+PercEditor[Mode=ShakerPerformer] Bar#PercMode 
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_shaker_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_shaker_dyemask.png");
+}
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+PercEditor#m_pEditor[Mode=Shaker] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-1-3;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+PercEditor#m_pEditor[Mode=Shaker] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_envelope.png");
+    x:                                  $X-Drums-SubheadlineB-1-3;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline A
+PercEditor#m_pEditor[Mode=ShakerPerformer] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-1-5;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+PercEditor#m_pEditor[Mode=ShakerPerformer] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_envelope.png");
+    x:                                  $X-Drums-SubheadlineB-1-5;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+PercEditor#m_pEditor[Mode=Shaker] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-1-3;
+    y:                                  $Y-Drums-Separator;
+}
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+PercEditor#m_pEditor[Mode=ShakerPerformer] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-1-5;
+    y:                                  $Y-Drums-Separator;
+}
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+PercEditor#m_pEditor Bar#m_pParamSeparatorShort1
+{
+    x:                                  319;
+    y:                                  301;
+}
+
+PercEditor#m_pEditor Bar#m_pParamSeparatorShort2
+{
+    x:                                  518;
+    y:                                  301;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+         
+// Grain
+PercEditor Bar#ShakerGrain
+{
+    x:                                  $X-Drums-1-3-Knob1;
+    y:                                  $Y-Drums;
+}                                  
+
+// Grain
+PercEditor[Mode=ShakerPerformer] Bar#ShakerGrain
+{
+    x:                                  $X-Drums-1-5-Knob1;
+    y:                                  $Y-Drums;
+}                                  
+
+// Attack
+PercEditor Bar#ShakerAttack[EnvelopeMode=Machine]
+{
+    x:                                  $X-Drums-1-3-Knob2;
+    y:                                  $Y-Drums;
+}  
+
+// Attack
+PercEditor Bar#ShakerAttack[EnvelopeMode=Real]
+{
+    x:                                  $X-Drums-1-2-Knob2;
+    y:                                  $Y-Drums;
+}  
+
+// Hold
+PercEditor Bar#ShakerHold
+{
+    x:                                  $X-Drums-1-3-Knob3;
+    y:                                  $Y-Drums;
+}
+
+// Release
+PercEditor Bar#ShakerRelease[EnvelopeMode=Machine]
+{
+    x:                                  $X-Drums-1-3-Knob4;
+    y:                                  $Y-Drums;
+}
+
+PercEditor Bar#ShakerRelease[EnvelopeMode=Real]
+{
+    x:                                  $X-Drums-1-2-Knob3;
+    y:                                  $Y-Drums;
+}
+
+// PERFORMER KNOBS
+//........................................................................................
+
+PercEditor Bar#ShakerAccent
+{
+    x:                                  164;
+    y:                                  $Y-Drums-PotiSmall_Top;
+}
+
+PercEditor Bar#ShakerRelease
+{
+    x:                                  238;
+    y:                                  $Y-Drums-PotiSmall_Top;
+}
+
+PercEditor Bar#ShakerSpread
+{
+    x:                                  300;
+    y:                                  $Y-Drums-PotiSmall_Top;
+}
+PercEditor Bar#ShakerFill
+{
+    x:                                  343;
+    y:                                  $Y-Drums-PotiSmall_Bottom;
+}
+PercEditor Bar#ShakerFill Button#m_pName
+{
+    x:                                  -2;
+}
+PercEditor Bar#ShakerRate
+{
+    x:                                  343;
+    y:                                  $Y-Drums-PotiSmall_Top;
+}
+PercEditor Bar#ShakerRate Button#m_pName
+{
+    x:                                  -2;
+}
+
+PercEditor Bar#ShakerSwingA
+{
+    x:                                  526;
+    y:                                  $Y-Drums-PotiSmall_Top;
+}
+
+PercEditor Bar#ShakerSwingB
+{
+    x:                                  526;
+    y:                                  $Y-Drums-PotiSmall_Bottom;
+}
+PercEditor Bar#ShakerLength
+{
+    x:                                  425;
+    y:                                  $Y-Drums-PotiSmall_Bottom;
+}
+PercEditor Bar#ShakerLength Button#m_pName
+{
+    x:                                  -2;
+}
+
+PercEditor Bar#ShakerOffset
+{
+    x:                                  423;
+    y:                                  $Y-Drums-PotiSmall_Top;
+}
+PercEditor Bar#ShakerAlignment
+{
+    x:                                  460;
+    y:                                  $Y-Drums-PotiSmall_Bottom;
+}
+PercEditor Bar#ShakerSync
+{
+    x:                                  204;
+    y:                                  $Y-Drums-PotiSmall_Bottom;
+}
+PercEditor Bar#ShakerSync Button#m_pName
+{
+    x:                                  -2;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// FRACTAL MODE
+//----------------------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+PercEditor[Mode=Fractal] Bar#PercMode 
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_fractal_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_fractal_dyemask.png");
+}
+
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+PercEditor#m_pEditor[Mode=Fractal] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-1-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+PercEditor#m_pEditor[Mode=Fractal] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_harmonics.png");
+    x:                                  $X-Drums-SubheadlineB-1-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+  
+                        
+// Glide
+PercEditor Bar#FBMatrixGlide
+{
+    x:                                  $X-Drums-2-4-Knob1;
+    y:                                  $Y-Drums;
+} 
+
+// Imapct
+PercEditor[Mode=Fractal] Bar#PercImpact
+{
+    x:                                  $X-Drums-2-4-Knob2;
+    y:                                  $Y-Drums;
+} 
+    
+// Freq A
+PercEditor Bar#FBMatrixFreqA
+{
+    x:                                  $X-Drums-2-4-Knob3;
+    y:                                  $Y-Drums;
+}
+
+// Freq B
+PercEditor Bar#FBMatrixFreqB
+{
+    x:                                  $X-Drums-2-4-Knob4;
+    y:                                  $Y-Drums;
+}
+
+// Freq C
+PercEditor Bar#FBMatrixFreqC
+{
+    x:                                  $X-Drums-2-4-Knob5;
+    y:                                  $Y-Drums;
+}
+
+// AM
+PercEditor Bar#FBMatrixAM
+{
+    x:                                  526;
+    y:                                  $Y-Drums-PotiSmall_Top;
+}
+
+// FM
+PercEditor Bar#FBMatrixFM
+{
+    x:                                  526;
+    y:                                  $Y-Drums-PotiSmall_Bottom;
+}
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+PercEditor#m_pEditor[Mode=Fractal] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-2-4;
+    y:                                  $Y-Drums-Separator;
+}
+
+// Dotted Line
+//----------------------------------------------------------------------------------------------------------------------
+
+PercEditor#m_pEditor[Mode=Fractal] Bar#m_pDottedLine
+
+{
+    image:                              url("Maschine/InternalModules/Sampler/intmod_drums_dotline_percussionFractal.png");
+    x:                                  410;
+    y:                                  346;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Kettle Mode
+//----------------------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+PercEditor[Mode=Kettle] Bar#PercMode 
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_kettle_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_kettle_dyemask.png");
+}
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+PercEditor#m_pEditor[Mode=Kettle] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-0-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+PercEditor#m_pEditor[Mode=Kettle] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-1-2;
+    y:                                  $Y-Drums-Separator;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+// Puff
+PercEditor Bar#KettlePuff
+{
+    x:                                  $X-Drums-0-3-Knob1;
+    y:                                  $Y-Drums;
+} 
+
+// Damp
+PercEditor Bar#KettleDamp
+{
+    x:                                  $X-Drums-0-3-Knob2;
+    y:                                  $Y-Drums;
+} 
+
+PercEditor[Mode=Kettle] Bar#PercImpact
+{
+    x:                                  $X-Drums-0-3-Knob3;
+    y:                                  $Y-Drums;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

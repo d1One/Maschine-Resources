@@ -1,0 +1,269 @@
+//----------------------------------------------------------------------------------------------------------------------
+// ON SCREEN OVERLAY RESULT LIST
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// MAIN CONTAINER
+Vector.OnScreenOverlayResultList
+{
+    width:                      467;
+    height:                     692;
+    focus-delay:                0;
+}
+
+
+
+// DROPSHADOW LABELS
+//----------------------------------------------------------------------------------------------------------------------
+
+// LEFT
+Label.OSOLeftShadow
+{
+    image:                      url("Shared/OSO/ResultList/OSO_ResultList_BrowserDropShadow.png");
+    animations:                 2;
+    fixed-top:                  10;
+    fixed-bottom:               10;
+}
+
+Label.OSOLeftShadow[HasFocus=true]
+{
+    animation-index:            1;
+}
+
+Label.OSOLeftShadow[HasFocus=false]
+{
+   animation-index:             0;
+}
+
+
+// TOP
+Label.OSOTopShadow
+{
+    image:                      url("Shared/OSO/ResultList/OSO_ResultList_BrowserTopShadow.png");
+    animations:                 2;
+    fixed-left:                 10;
+    fixed-right:                10;
+}
+
+Label.OSOTopShadow[HasFocus=true]
+{
+        animation-index:        1;
+}
+
+Label.OSOTopShadow[HasFocus=false]
+{
+        animation-index:        0;
+}
+
+
+
+
+// LISTITEM & SCROLLBAR CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+
+Vector.OnScreenOverlayResultList Bar#widgets
+{
+    spacing:                    1;
+    width:                      467;
+}
+
+
+// UNFOCUSED BG (PROVIDES LISTITEM SEPARATORS)
+Vector.OnScreenOverlayResultList[HasFocus=false] Bar#widgets
+{
+    background-color:           $color-OSO-Unfocused-LI-Divider;
+}
+
+Vector.OnScreenOverlayResultList[HasFocus=false][ResultListFocus=true] Bar#widgets
+{
+    background-color:           $color-OSO-Unfocused-LI-Divider;
+}
+
+// FOCUSED BG (PROVIDES LISTITEM SEPARATORS)
+Vector.OnScreenOverlayResultList[HasFocus=true] Bar#widgets
+{
+    background-color:           $color-OSO-Focused-LI-Divider;
+}
+
+
+
+// LISTITEM LABEL
+//----------------------------------------------------------------------------------------------------------------------
+
+// LISTITEM LABEL BASIC STYLING
+Label.VectorItem
+{
+    height:                     32;
+
+    font-name:                  $fontPragmatica;
+    font-size:                  16;
+
+    vertical-alignment:         center;
+    margin-top:                 1;
+    margin-left:                20;
+    margin-right:               35;
+
+    width:                      467;
+}
+
+
+// LISTITEM LABEL UNFOCUSED STATE
+Label.VectorItem[HasFocus=false]
+{
+    background-color:           $color-OSO-Unfocused-BG;
+    foreground-color:           $colorWhite50;
+}
+
+Label.VectorItem[HasFocus=false]:selected
+{
+    background-color:           $colorWhite50;
+    foreground-color:           $colorBlack80;
+}
+
+
+// LISTITEM LABEL FAVORITES FILTER FOCUS
+Label.VectorItem[HasFocus=false][ResultListFocus=true]
+{
+    background-color:           $color-OSO-Standard-BG-Grey;
+}
+
+
+// LISTITEM LABEL FOCUSED STATE
+Label.VectorItem[HasFocus=true]
+{
+    background-color:           $color-OSO-Focus-BG-Grey;
+    foreground-color:           $colorWhite80;
+}
+
+Label.VectorItem[HasFocus=true]:selected
+{
+    background-color:           $colorWhite75;
+    foreground-color:           $colorBlack90;
+}
+
+
+// FAVORITE FILTER
+Label#m_pFavoritesFilter
+{
+    image:                      url("Shared/OSO/ResultList/OSO_FavFilter.png");
+    fixed-right:                33;
+    fixed-left:                 2;
+
+    animations:                 7;
+
+    height:                     33;
+    width:                      467;
+}
+
+
+// FAVORITE ICON
+Label#m_pFavoriteIcon
+{
+    image:                      url("Shared/OSO/ResultList/OSO_FavIcon.png");
+    animations:                 5;
+    x:                          433;
+    margin-left:                1;
+    margin-top:                 9;
+
+    height:                     16;
+    width:                      15;
+}
+
+
+// FAVORITE BUTTON ANIMATIONS
+Label#m_pFavoriteIcon[Favorite=false],
+Label#m_pFavoritesFilter[ResultListFocus=false][HasFocus=false]:!selected
+{
+    animation-index:            0;
+}
+
+Label#m_pFavoriteIcon[Favorite=true],
+Label#m_pFavoritesFilter[ResultListFocus=true][HasFocus=false]:!selected
+{
+    animation-index:            1;
+}
+
+Label#m_pFavoriteIcon[Favorite=true]:selected,
+Label#m_pFavoritesFilter[ResultListFocus=true][HasFocus=true]:!selected
+{
+    animation-index:            2;
+}
+
+Label#m_pFavoriteIcon[HasFocus=false][Favorite=true],
+Label#m_pFavoritesFilter[ResultListFocus=false][HasFocus=false]:selected
+{
+    animation-index:            3;
+}
+
+Label#m_pFavoriteIcon[HasFocus=false][Favorite=true]:selected,
+Label#m_pFavoritesFilter[HasFocus=false]:selected
+{
+    animation-index:            4;
+}
+
+Label#m_pFavoritesFilter[HasFocus=true]:selected
+{
+    animation-index:            5;
+}
+
+
+// RESULT LIST SCROLLBAR
+//----------------------------------------------------------------------------------------------------------------------
+
+// BACKGROUND
+Scrollbar.OnScreenOverlayResultList
+{
+    width:                      19;
+    outer-margin-left:          -19;
+}
+
+
+
+// SLIDER
+Scrollbar.OnScreenOverlayResultList Slider
+{
+    margin-top:                 5;
+    margin-bottom:              5;
+}
+
+
+
+// GRIP
+Scrollbar.OnScreenOverlayResultList Grip
+{
+    image:                      url("Shared/OSO/ResultList/OSO_ResultList_Scroll_Grip.png");
+    fixed-top:                  5;
+    fixed-bottom:               5;
+    animations:                 2;
+}
+
+
+Vector.OnScreenOverlayResultList[HasFocus=false] Grip
+{
+    animation-index:            0;
+}
+
+
+Vector.OnScreenOverlayResultList[HasFocus=true] Grip
+{
+    animation-index:            1;
+}
+
+
+
+// UP/DOWN BUTTONS SET TO ZERO
+Scrollbar.OnScreenOverlayResultList Button
+{
+    image:                      no;
+    height:                     1;
+}
+
+Scrollbar.OnScreenOverlayResultList Button#dec
+{
+    outer-margin-bottom:        -1;
+}
+
+Scrollbar.OnScreenOverlayResultList Button#inc
+{
+    outer-margin-top:           -1;
+}

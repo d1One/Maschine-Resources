@@ -1,0 +1,9 @@
+Bar#ExpandYourSoundPageScreenLeft Bar#StudioDisplayBar
+{
+    image: url("Maschine/HW/MH1071/Dialogs/DISCOVERY_Content_L.png");
+}
+
+Bar#ExpandYourSoundPageScreenRight Bar#StudioDisplayBar
+{
+    image: url("Maschine/HW/MH1071/Dialogs/DISCOVERY_Content_R.png");
+}

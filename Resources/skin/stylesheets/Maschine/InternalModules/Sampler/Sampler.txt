@@ -1,0 +1,1130 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SAMPLER
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+SamplerEditor
+{
+    image:                              url("Maschine/InternalModules/SharedPanelElements/intmod_bg_large.png");
+    fixed-left:                         30;
+    fixed-right:                        30;
+    width:                              870;
+}
+
+SamplerEditor MultiTabParameterWidget#pMultiTab
+{
+    width:                              870;
+    height:                             450;
+}
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+SamplerEditor Bar#m_pHeader
+{
+    image:                              url("Shared/InternalModules/PanelTitles/intmod_title_sampler.png");
+    fixed-left:                         95;
+    fixed-top:                          18;
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+    height:                             35;
+    width:                              828;
+}
+
+
+// HEADER BUTTONS
+//-----------------------------------------------------------------------------------------------------------------------
+
+// MAIN BUTTON
+SamplerEditor Bar#m_pHeader Button#pMultiTab1
+{
+    image:                              url("Maschine/InternalModules/Sampler/IntSampler_BTN_HeaderTab_Main.png");
+    animations:                         7;
+    foreground-color:                   no;
+    x:                                  329;
+}
+
+
+
+// ZONE BUTTON
+SamplerEditor Bar#m_pHeader Button#pMultiTab2
+{
+    image:                              url("Maschine/InternalModules/Sampler/IntSampler_BTN_HeaderTab_Zone.png");
+    animations:                         7;
+    foreground-color:                   no;
+    x:                                  419;
+}
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// SAMPLER PANEL
+//-----------------------------------------------------------------------------------------------------------------------
+
+SamplerEditor Stack#m_pStack
+{
+    x:                                  20;
+    y:                                  44;
+    width:                              870;
+}
+
+// SAMPLER PANEL MAIN CONTAINER BACKGROUND
+//-----------------------------------------------------------------------------------------------------------------------
+
+SamplerEditor Bar#pMainTabBar
+{
+    width:                              835;
+    height:                             415;
+}
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// MAIN TOOLBAR, BELOW WAVE DISPLAY
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+SamplerEditor Bar#pMainTabBar Bar#m_pMainToolBar:enabled
+{
+    image:                              url("Maschine/InternalModules/Sampler/IntSampler_BG_WavedisplayToolbar.png");
+}
+
+SamplerEditor Bar#pMainTabBar Bar#m_pMainToolBar:!enabled
+{
+    image:                              url("Maschine/InternalModules/Sampler/IntSampler_BG_WavedisplayToolbar_Empty.png");
+    fixed-left:                         10;
+    fixed-right:                        10;
+    width:                              830;
+}
+
+// TOOLBAR
+//-----------------------------------------------------------------------------------------------------------------------
+
+// TOOLBAR SPACER
+Label.SamplerToolBarSpacer
+{
+    image:                              no;
+}
+
+// CONTROL SECTION TITLE LABELS
+Label.SamplerToolBarSectionTitle
+{
+    foreground-color:                   no;
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+}
+
+// PARAMETER TITLE LABELS (--> STYLE: .SamplerToolbarParameterTitle)
+SamplerEditor Bar#m_pMainToolBar RangeParameterWidget Label#m_pLabelMin,
+SamplerEditor Bar#m_pMainToolBar RangeParameterWidget Label#m_pLabelMax,
+SamplerEditor Bar#m_pMainToolBar Label#pXFadeLabel,
+SamplerEditor Bar#m_pMainToolBar Label#pPolyphonyLabel,
+SamplerEditor Bar#m_pMainToolBar Label#pGlideLabel,
+SamplerEditor Bar#m_pMainToolBar Label#pEngineModeLabel,
+SamplerEditor Bar#m_pMainToolBar Label#pReverseSwitchLabel,
+SamplerEditor Bar#m_pMapToolBar Bar#pTuneBar::Label#pTuneLabel,
+SamplerEditor Bar#m_pMapToolBar Label#pGainLabel,
+SamplerEditor Bar#m_pMapToolBar Label#pPanLabel,
+SamplerEditor Bar#m_pMapToolBar Label#pNoteRootLabel,
+SamplerEditor Bar#m_pMapToolBar Label#m_pLabelMin,
+SamplerEditor Bar#m_pMapToolBar Label#m_pLabelMax
+{
+    foreground-color:                   no;
+
+}
+
+
+// SECTION TITLE LABELS
+//-----------------------------------------------------------------------------------------------------------------------
+
+// PLAY
+SamplerEditor Label#pPlay,
+SamplerEditor Label#pLoop,
+SamplerEditor Label#pVoiceEng,
+SamplerEditor Bar#pMainTabBar Bar#m_pMainToolBar Label#pSpacer1
+{
+    foreground-color:                   no;
+    image:                              no;
+    width:                              1;
+    x:                                  1;
+}
+
+
+// PLAY (TRIM)
+//-----------------------------------------------------------------------------------------------------------------------
+
+SamplerEditor RangeParameterWidget#pTrimRange
+{
+    width:                              120;
+    height:                             44;
+    x:                                  53;
+    y:                                  1;
+}
+
+SamplerEditor RangeParameterWidget#pTrimRange Bar#pBarMax,
+SamplerEditor RangeParameterWidget#pTrimRange Bar#pBarMin
+{
+    width:                              56;
+    height:                             44;
+}
+
+SamplerEditor RangeParameterWidget#pTrimRange Bar#pBarMax
+{
+    x:                                  66;
+}
+
+
+// LOOP
+//-----------------------------------------------------------------------------------------------------------------------
+
+SamplerEditor RangeParameterWidget#pLoopRange
+{
+    width:                              120;
+    height:                             44;
+    x:                                  276;
+    y:                                  1;
+}
+
+SamplerEditor RangeParameterWidget#pLoopRange Bar#pBarMax,
+SamplerEditor RangeParameterWidget#pLoopRange Bar#pBarMin
+{
+    width:                              60;
+    height:                             44;
+}
+
+SamplerEditor RangeParameterWidget#pLoopRange Bar#pBarMax
+{
+    x:                                  66;
+}
+
+// LOOP Button
+
+SamplerEditor Bar#pMainTabBar Bar#m_pMainToolBar Button#pLoopSwitch
+{
+    x:                                  238;
+    y:                                  19;
+}
+
+// DRAGGER DIMENSIONS
+SamplerEditor RangeParameterWidget DraggerableValueEdit,
+SamplerEditor RangeParameterWidget DraggerableValueEdit Dragger
+{
+    width:                              60;
+}
+
+
+// CROSSFADE
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+SamplerEditor Bar#m_pMainToolBar Bar#pXFadeBar
+{
+    width:                              50;
+    height:                             44;
+    x:                                  407;
+    y:                                  1;
+}
+
+// DRAGGER
+SamplerEditor Bar#m_pMainToolBar Bar#pXFadeBar DraggerableValueEdit,
+SamplerEditor Bar#m_pMainToolBar Bar#pXFadeBar DraggerableValueEdit Dragger
+{
+    width:                              50;
+}
+
+
+// REVERSE SWITCH
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+SamplerEditor Bar#pMainTabBar Bar#m_pMainToolBar Bar#pReverseSwitchBar
+{
+    width:                              60;
+    height:                             44;
+    x:                                  584;
+    y:                                  1;
+}
+
+
+// BUTTON REVERSE
+SamplerEditor Bar#pMainTabBar Bar#m_pMainToolBar Button#pReverseSwitch
+{
+    outer-margin-left:                  5;
+    outer-margin-top:                   0;
+}
+
+
+// POLY DROPDOWN
+//-----------------------------------------------------------------------------------------------------------------------
+
+SamplerEditor Bar#pMainTabBar Bar#m_pMainToolBar Bar#pPolyphonyBar
+{
+    width:                              60;
+    height:                             44;
+    x:                                  641;
+    y:                                  1;
+}
+
+// MENU BUTTON
+SamplerEditor Bar#pMainTabBar Bar#m_pMainToolBar Button#pPolyphony
+{
+    width:                              55;
+}
+
+// GLIDE
+//-----------------------------------------------------------------------------------------------------------------------
+
+SamplerEditor Bar#pMainTabBar Bar#m_pMainToolBar Bar#pGlideBar
+{
+    width:                              60;
+    height:                             44;
+    x:                                  702;
+    y:                                  1;
+}
+
+SamplerEditor Bar#pMainTabBar Bar#m_pMainToolBar Bar#pGlideBar Label#m_pGlideDummy
+{
+    foreground-color:                   $colorWhite35;
+}
+
+// DRAGGER
+SamplerEditor Bar#pMainTabBar Bar#m_pMainToolBar DraggerableValueEdit#pGlide,
+SamplerEditor Bar#pMainTabBar Bar#m_pMainToolBar DraggerableValueEdit#pGlide Dragger
+{
+    width:                              36;
+}
+
+// MODE SWITCH
+//-----------------------------------------------------------------------------------------------------------------------
+
+SamplerEditor Bar#pMainTabBar Bar#m_pMainToolBar Bar#pEngineModeBar
+{
+    width:                              70;
+    height:                             44;
+    x:                                  745;
+    y:                                  1;
+}
+
+SamplerEditor Bar#pMainTabBar Bar#m_pMainToolBar Bar#pEngineModeBar Button#pEngineMode
+{
+    width:                              67;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// MAIN PARAMETER AREA
+//-----------------------------------------------------------------------------------------------------------------------
+
+// MAIN CONTAINER
+SamplerEditor Bar#pMainParamBar
+{
+    fixed-top:                          20;
+    fixed-bottom:                       2;
+
+    height:                             178;
+    outer-margin-top:                   32;
+}
+
+
+//
+// LOWER HEADLINES
+//-----------------------------------------------------------------------------------------------------------------------
+
+// TUNE
+SamplerEditor Label#pHeadline1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_display_tune.png");
+    x:                                  31;
+    y:                                  $Y-Sampler-Subheadline;
+}
+
+// SATURATION
+SamplerEditor Label#pHeadline2
+{
+    image:                              url("Maschine/InternalModules/Sampler/intmod_sampler_headline_saturation.png");
+    x:                                  99;
+    y:                                  $Y-Sampler-Subheadline;
+}
+
+// LOFI
+SamplerEditor Label#pHeadline3
+{
+    image:                              url("Maschine/InternalModules/Sampler/intmod_sampler_headline_lofi.png");
+    x:                                  202;
+    y:                                  $Y-Sampler-Subheadline;
+}
+
+// FILTER
+SamplerEditor Label#pHeadline4
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_display_filter.png");
+    x:                                  324;
+    y:                                  $Y-Sampler-Subheadline;
+}
+
+// AMP ENVELOPE
+SamplerEditor Label#pHeadline5
+{
+    image:                              url("Maschine/InternalModules/Sampler/intmod_sampler_headline_ampenvelope.png");
+    x:                                  539;
+    y:                                  $Y-Sampler-Subheadline;
+}
+
+// SEPARATORS
+//----------------------------------------------------------------------------------------------------------------------
+
+SamplerEditor Label#pMultiTab1::Label#pSpacer1
+{
+    x:                                  97;
+    y:                                  $Y-Sampler-Separator;
+}
+
+
+SamplerEditor Label#pMultiTab1::Label#pSpacer2
+{
+    x:                                  200;
+    y:                                  $Y-Sampler-Separator;
+}
+
+SamplerEditor Label#pMultiTab1::Label#pSpacer3
+{
+    x:                                  303;
+    y:                                  $Y-Sampler-Separator;
+}
+
+SamplerEditor Label#pMultiTab1::Label#pSpacer4
+{
+    x:                                  534;
+    y:                                  $Y-Sampler-Separator;
+}
+
+
+// CURVE DISPLAY GENERIC STYLING
+//-----------------------------------------------------------------------------------------------------------------------
+
+// DISPLAY
+SamplerEditor CurveDisplayWidget
+{
+    background-color:                   rgb(45,45,45);
+
+    fill-color-palette:                 8;
+    line-color-palette:                 11;
+    height:                             51;
+}
+
+
+
+// FILTER CURVE DISPLAY
+//-----------------------------------------------------------------------------------------------------------------------
+
+// Handle
+
+SamplerEditor CurveDisplayWidget XYDragger
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_slider_mod_thumb_black.png");
+    dye-mask:                           url("Shared/InternalModules/SharedControls/intmod_slider_mod_thumb_dyemask.png");
+    dye-color:                          $colorDyeTest;
+    dye-color-palette:                  11;
+    margin:                             0;
+}
+
+
+// CONTAINER
+SamplerEditor Bar#pMainEQFilterBar
+{
+    width:                              206;
+    margin:                             0;
+    outer-margin-left:                  326;
+    outer-margin-top:                   33;
+    image:                              url("Maschine/InternalModules/Sampler/IntSampler_BG_Light_EQ.png");
+}
+
+// FILTER CURVE DISPLAY
+SamplerEditor CurveDisplayWidget#FilterDisplay
+{
+    width:                              206;
+    height:                             67;
+    margin:                             0;
+    draw-image:                         url("Maschine/InternalModules/Sampler/IntSampler_BG_CurveDisplay.png");
+    draw-margin-left:                   8;
+    draw-margin-top:                    9;
+    draw-margin-right:                  8;
+    draw-margin-bottom:                 9;
+    picture-includes-margin:            true;
+    line-width:                         2;
+}
+
+// FILTER CURVE DISPLAY
+SamplerEditor CurveDisplayWidget#FilterDisplay Bar#m_pCornerMask
+{
+    image:                              url("Maschine/InternalModules/Sampler/IntSampler_CornerMask_CurveDisplay.png");
+    picture-includes-margin:            true;
+    fixed-left:                         10;
+    fixed-right:                        10;
+    width:                              206;
+}
+
+
+// ENVELOPE CURVE DISPLAY
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+SamplerEditor Bar#pMainAmpEnvelopeBar
+{
+    width:                              270;
+    margin:                             0;
+    outer-margin-left:                  31;
+    outer-margin-top:                   33;
+    image:                              url("Maschine/InternalModules/Sampler/IntSampler_BG_Light_Envelope.png");
+}
+
+// ENVELOPE CURVE DISPLAY
+SamplerEditor CurveDisplayWidget#EnvelopeDisplay
+{
+    width:                              270;
+    height:                             67;
+    draw-image:                         url("Maschine/InternalModules/Sampler/IntSampler_BG_CurveDisplay_02.png");
+    draw-margin-left:                   8;
+    draw-margin-top:                    9;
+    draw-margin-right:                  8;
+    draw-margin-bottom:                 9;
+    picture-includes-margin:            true;
+    line-width:                         2;
+}
+
+// ENVELOPE CURVE DISPLAY MASK
+SamplerEditor CurveDisplayWidget#EnvelopeDisplay Bar#m_pCornerMask
+{
+    image:                              url("Maschine/InternalModules/Sampler/IntSampler_CornerMask_CurveDisplay.png");
+    fixed-left:                         10;
+    fixed-right:                        10;
+    width:                              270;
+    picture-includes-margin:            true;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// SUBMENUES
+//-----------------------------------------------------------------------------------------------------------------------
+
+// FITER MODE BUTTON (Enum)
+SamplerEditor Bar#pMainParamBar Bar#FilterMode
+{
+    x:                                  449;
+    y:                                  2;
+}
+
+// ENVELOPE MODE BUTTON (Enum)
+SamplerEditor Bar#pMainParamBar Bar#SamplerMode
+{
+    x:                                  744;
+    y:                                  2;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// CONTROLS
+//-----------------------------------------------------------------------------------------------------------------------
+
+// TUNE
+Bar#m_pEditorContainer SamplerEditor Bar#Tune
+{
+    x:                                  9;
+    y:                                  296;
+}
+
+// SATURATION
+//-----------------------------------------------------------------------------------------------------------------------
+
+// COMP
+SamplerEditor Bar#Comp
+{
+    x:                                  122;
+    y:                                  $Y-Sampler-SmallKnob-Top;
+}
+
+// DRIVE
+SamplerEditor Bar#Drive
+{
+    x:                                  122;
+    y:                                  $Y-Sampler-SmallKnob-Bottom;
+}
+
+// LO-FI
+//-----------------------------------------------------------------------------------------------------------------------
+
+// SR
+SamplerEditor Bar#SR
+{
+    x:                                  225;
+    y:                                  $Y-Sampler-SmallKnob-Top;
+}
+
+// BITS
+SamplerEditor Bar#Bits
+{
+    x:                                  225;
+    y:                                  $Y-Sampler-SmallKnob-Bottom;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// FILTERS
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CUTOFF
+SamplerEditor Bar#FilterCutoff
+{
+    x:                                  349;
+    y:                                  $Y-Sampler-SmallKnob-Bottom;
+}
+
+// CUTOFF BP" MODE
+SamplerEditor Bar#FilterCutoff[Mode=BP2]
+{
+    x:                                  392;
+    y:                                  $Y-Sampler-SmallKnob-Bottom;
+}
+
+// RESONANCE
+SamplerEditor Bar#FilterRes
+{
+    x:                                  435;
+    y:                                  $Y-Sampler-SmallKnob-Bottom;
+}
+
+
+// EQUALIZER
+//-----------------------------------------------------------------------------------------------------------------------
+
+// EQ FREQ
+SamplerEditor Bar#EQFreq
+{
+    x:                                  328;
+    y:                                  $Y-Sampler-SmallKnob-Bottom;
+}
+
+// EQ WIDTH
+SamplerEditor Bar#EQWidth
+{
+    x:                                  392;
+    y:                                  $Y-Sampler-SmallKnob-Bottom;
+}
+
+// EQ GAIN
+SamplerEditor Bar#EQGain
+{
+    x:                                  456;
+    y:                                  $Y-Sampler-SmallKnob-Bottom;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// ENVELOPES
+//-----------------------------------------------------------------------------------------------------------------------
+
+// ADSR
+//-----------------------------------------------------------------------------------------------------------------------
+
+// ATTACK
+SamplerEditor Bar#AmpAttack[Mode=ADSR]
+{
+    x:                                  559;
+    y:                                  $Y-Sampler-SmallKnob-Bottom;
+}
+
+// DECAY
+SamplerEditor Bar#AmpDecay[Mode=ADSR]
+{
+    x:                                  623;
+    y:                                  $Y-Sampler-SmallKnob-Bottom;
+}
+
+// SUSTAIN
+SamplerEditor Bar#AmpSustain
+{
+    x:                                  687;
+    y:                                  $Y-Sampler-SmallKnob-Bottom;
+}
+
+// RELEASE
+SamplerEditor Bar#AmpRelease
+{
+    x:                                  751;
+    y:                                  $Y-Sampler-SmallKnob-Bottom;
+}
+
+
+// ADSR
+//-----------------------------------------------------------------------------------------------------------------------
+
+// ATTACK
+SamplerEditor Bar#AmpAttack[Mode=AHD]
+{
+    x:                                  571;
+    y:                                  $Y-Sampler-SmallKnob-Bottom;
+}
+
+// HOLD
+SamplerEditor Bar#AmpHold
+{
+    x:                                  655;
+    y:                                  $Y-Sampler-SmallKnob-Bottom;
+}
+
+// DECAY
+SamplerEditor Bar#AmpDecay[Mode=AHD]
+{
+    x:                                  739;
+    y:                                  $Y-Sampler-SmallKnob-Bottom;
+}
+
+
+// FILTER  MODE BUTTON BAR
+//-----------------------------------------------------------------------------------------------------------------------
+
+SamplerEditor EnumParameterButtonBar#FilterMode
+{
+    width:                              149;
+}
+
+SamplerEditor EnumParameterButtonBar#FilterMode Button
+{
+    image:                              no;
+    width:                              30;
+    foreground-color:                   rgb(100,100,100);
+}
+
+SamplerEditor EnumParameterButtonBar#FilterMode Button:selected
+{
+    foreground-color:                   $colorBlack;
+}
+
+
+
+// ENVELOPE MODE BUTTON BAR
+//-----------------------------------------------------------------------------------------------------------------------
+
+SamplerEditor EnumParameterButtonBar#SamplerMode
+{
+    width:                              149;
+}
+
+SamplerEditor EnumParameterButtonBar#SamplerMode Button
+{
+    image:                              no;
+    width:                              50;
+    foreground-color:                   rgb(100,100,100);
+}
+
+SamplerEditor EnumParameterButtonBar#SamplerMode Button:selected
+{
+    foreground-color:                   $colorBlack;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ZONE PANEL
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// INFO BAR
+//-----------------------------------------------------------------------------------------------------------------------
+
+SamplerEditor Bar#pMultiTab2
+{
+    width:                              830;
+}
+
+// BACKGROUND
+//-----------------------------------------------------------------------------------------------------------------------
+SamplerEditor Bar#pMultiTab2 Bar#pInfoBar
+{
+    image:                              url("Maschine/InternalModules/Sampler/IntSampler_BG_ZoneInfoBar.png");
+    picture-includes-margin:            true;
+    fixed-left:                         5;
+    fixed-right:                        5;
+
+    margin-left:                        12;
+    margin-top:                         2;
+}
+
+
+// INFOBAR BUTTONS
+//-----------------------------------------------------------------------------------------------------------------------
+
+// PLAY
+SamplerEditor Bar#pMultiTab2 Bar#pInfoBar Button#m_pPlayButton
+{
+    image:                              url("Maschine/SamplingPages/sampling_pg_button_play_sample.png");
+    foreground-color:                   no;
+    outer-margin-top:                   2;
+    background-color-palette:           11;
+}
+
+
+
+// SAMPLE NAME
+SamplerEditor Bar#pMultiTab2 Bar#pInfoBar Button#m_pNameButton
+{
+    image:                              no;
+    horizontal-alignment:               left;
+    foreground-color:                   no;
+    foreground-color-palette:           11;
+    height:                             17;
+    outer-margin-left:                  6;
+}
+
+
+
+// TIME LABEL
+SamplerEditor Bar#pMultiTab2 Bar#pInfoBar Label#m_pTimeLabel
+{
+    horizontal-alignment:               left;
+    foreground-color:                   $colorWhite50;
+    font-size:                          11;
+    font-name:                          $fontPragmatica;
+    height:                             17;
+    outer-margin-right:                 8;
+}
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// ZONE LIST
+//-----------------------------------------------------------------------------------------------------------------------
+
+// ZONE LIST CONTAINER
+SamplerEditor Bar#pZoneManager
+{
+    image:                              url("Maschine/InternalModules/Sampler/IntSampler_BG_ZoneManager.png");
+    picture-includes-margin:            true;
+    fixed-top:                          10;
+    fixed-bottom:                       10;
+
+    height:                             368;
+
+    margin-left:                        12;
+    margin-right:                       11;
+    margin-top:                         5;
+    margin-bottom:                      12;
+}
+
+
+
+// ZONE LIST ITEM BUTTONS
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+SamplerEditor Bar#pZoneManager Vector<Bar>#m_pZoneVector Bar#widgets
+{
+    spacing:                            3;
+}
+
+
+
+SamplerEditor Bar#pZoneManager Vector<Bar>#m_pZoneVector Bar#widgets Bar
+{
+    height:                             16;
+}
+
+
+
+// BUTTON NAME
+SamplerEditor Bar#pZoneManager Vector<Bar>#m_pZoneVector Button#m_pName
+{
+    image:                              no;
+    background-border-color:            no;
+    background-color:                   no;
+    foreground-color:                   $colorWhite40;
+    height:                             16;
+    horizontal-alignment:               left;
+}
+
+
+
+SamplerEditor Bar#pZoneManager Bar#pMultiTab2 Button#m_pName:over
+{
+    foreground-color:                   $colorWhite70;
+}
+
+
+
+SamplerEditor Bar#pZoneManager Button#m_pName[HasFocus=true]
+{
+    foreground-color-palette:           11;
+}
+
+
+
+SamplerEditor Bar#pZoneManager Button#m_pName:selected
+{
+    foreground-color:                   $colorWhite;
+}
+
+
+
+// ADD BUTTON
+SamplerEditor Bar#pZoneManager Vector<Bar>#m_pZoneVector Button#m_pAddZone
+{
+    image:                              url("Maschine/SamplingPages/sampling_pg_btn_zone_list_add.png");
+    foreground-color:                   no;
+    animations:                         7;
+    fixed-left:                         7;
+    fixed-right:                        1;
+}
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// ZONE EDITOR
+//-----------------------------------------------------------------------------------------------------------------------
+
+//MAIN CONTAINER (HOLDS ZONE EDITOR AND TOOLBAR)
+//-----------------------------------------------------------------------------------------------------------------------
+SamplerEditor Bar#pMapDisplayBar
+{
+    height:                             368;
+    width:                              695;
+}
+
+SamplerEditor Bar#pMapDisplayBar Bar#m_pGridAndKeyboardBar
+{
+    background-color:                   $colorBlack;
+    margin-left:                        1;
+    margin-right:                       1;
+    margin-top:                         1;
+
+    //width:                              681;
+    //height:                             309;
+}
+
+
+// ZOOMSLIDER VERTICAL
+//-----------------------------------------------------------------------------------------------------------------------
+
+SamplerEditor Bar#pMapDisplayBar Bar#m_pZoneHBar ZoomSlider
+{
+    image:                              url("Maschine/InternalModules/Sampler/IntSampler_BG_ZoneVerticalZoomSlider.png");
+    picture-includes-margin:            true;
+    fixed-top:                          10;
+    fixed-bottom:                       10;
+
+    background-color:                   no;
+
+    width:                              15;
+    outer-margin-left:                  0;
+    outer-margin-right:                 -1;
+}
+
+
+// ZOOMSLIDER HORIZONTAL
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+SamplerEditor Bar#m_pHorizontalScrollbarSpacerBar
+{
+    image:                              url("Maschine/InternalModules/Sampler/IntSampler_BG_ZoneHorizontalZoomSlider.png");
+    picture-includes-margin:            true;
+    fixed-left:                         4;
+    fixed-right:                        18;
+
+    margin-top:                         1;
+    width:                              696;
+}
+
+SamplerEditor Bar#m_pHorizontalScrollbarSpacerBar ZoomSlider
+{
+    height:                             13;
+    width:                              682;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// ZONE TOOLBAR
+//-----------------------------------------------------------------------------------------------------------------------
+
+// TOOLBAR CONTAINER
+SamplerEditor Bar#m_pMapToolBar
+{
+    margin-left:                        2;
+    margin-right:                       2;
+    width:                              695;
+    height:                             44;
+}
+
+// BG empty
+SamplerEditor Bar#m_pMapToolBar:!enabled
+{
+    image:                              url("Maschine/InternalModules/Sampler/IntSampler_BG_Toolbar_Empty.png");
+    picture-includes-margin:            true;
+    fixed-left:                         5;
+    fixed-right:                        5;
+}
+
+// BG sample
+SamplerEditor Bar#m_pMapToolBar:enabled
+{
+    image:                              url("Maschine/InternalModules/Sampler/IntSampler_BG_ZoneToolbar_02.png");
+    picture-includes-margin:            true;
+}
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// LAYOUT FINETUNING
+//-----------------------------------------------------------------------------------------------------------------------
+
+// SECTION TITLE LABELS
+//-----------------------------------------------------------------------------------------------------------------------
+
+// TUNE
+SamplerEditor Bar#m_pMapToolBar::Label#pTuneLabel
+{
+    outer-margin-left:                  9;
+}
+
+
+
+// MAP
+SamplerEditor Bar#m_pMapToolBar Label#pMap
+{
+    outer-margin-left:                  19;
+}
+
+
+
+// DRAGGERS
+//-----------------------------------------------------------------------------------------------------------------------
+
+// TUNE
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+SamplerEditor Bar#m_pMapToolBar Bar#pTuneBar
+{
+    width:                              38;
+    outer-margin-left:                  91;
+}
+
+
+// DRAGGER
+SamplerEditor Bar#m_pMapToolBar DraggerableValueEdit#pTune
+{
+    width:                              38;
+    y:                                  $Y-Sampler-ZoneFooterValue;
+
+}
+
+
+
+// GAIN
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+SamplerEditor Bar#m_pMapToolBar Bar#pGainBar
+{
+    width:                              48;
+    outer-margin-left:                  13;
+}
+
+
+
+// DRAGGER
+SamplerEditor Bar#m_pMapToolBar DraggerableValueEdit#pGain
+{
+    width:                              48;
+    y:                                  $Y-Sampler-ZoneFooterValue;
+}
+
+
+
+
+// PAN
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+SamplerEditor Bar#m_pMapToolBar Bar#pPanBar
+{
+    width:                              46;
+    outer-margin-left:                  19;
+}
+
+
+
+// DRAGGER
+SamplerEditor Bar#m_pMapToolBar DraggerableValueEdit#pPan
+{
+    width:                              46;
+    y:                                  $Y-Sampler-ZoneFooterValue;
+}
+
+
+
+// ROOT
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+SamplerEditor Bar#m_pMapToolBar Bar#pNoteRootBar
+{
+    width:                              64;
+    outer-margin-left:                  19;
+    outer-margin-right:                 0;
+}
+
+
+
+// DRAGGER
+SamplerEditor Bar#m_pMapToolBar DraggerableValueEdit#pNoteRoot
+{
+    width:                              64;
+    y:                                  $Y-Sampler-ZoneFooterValue;
+}
+
+
+
+// KEY LO / HI (RANGE PARAMETER WIDGET)
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER DIMENSIONS
+SamplerEditor Bar#m_pMapToolBar RangeParameterWidget
+{
+    width:                              96;
+    spacing:                            8;
+}
+
+
+
+SamplerEditor Bar#m_pMapToolBar RangeParameterWidget Bar#pBarMax,
+SamplerEditor Bar#m_pMapToolBar RangeParameterWidget Bar#pBarMin
+{
+    width:                              44;
+}
+
+
+
+// DRAGGER DIMENSIONS
+SamplerEditor Bar#m_pMapToolBar RangeParameterWidget DraggerableValueEdit,
+SamplerEditor Bar#m_pMapToolBar RangeParameterWidget DraggerableValueEdit Dragger
+{
+    width:                              44;
+}
+
+
+
+// LO / HI KEY POSITIONING
+SamplerEditor Bar#m_pMapToolBar RangeParameterWidget#pKeyRange
+{
+    outer-margin-left:                  67;
+}
+
+
+// LO / HI VELOCITY POSITIONING
+SamplerEditor Bar#m_pMapToolBar RangeParameterWidget#pVelRange
+{
+    outer-margin-left:                  6;
+    outer-margin-right:                 9;
+}

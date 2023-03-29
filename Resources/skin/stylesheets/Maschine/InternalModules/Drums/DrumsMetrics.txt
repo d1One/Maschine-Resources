@@ -1,0 +1,201 @@
+
+//--------------------------------------------------------------------------------------------------------
+// MODULE HEADER LOGO POSITION
+//--------------------------------------------------------------------------------------------------------
+
+@define $X-Drums-Logo                   162;
+@define $Y-Drums-Logo                   12;
+
+//--------------------------------------------------------------------------------------------------------
+// KNOB POSITIONS
+//--------------------------------------------------------------------------------------------------------
+
+// Controls Positions 
+@define $Y-Drums                   		337;
+@define $Y-Drums-TuneDecay       		100;
+@define $Y-Drums-PotiSmall_Top	        312;
+@define $Y-Drums-PotiSmall_Bottom       382;
+
+
+// 0:2 layout
+@define $X-Drums-0-2-Knob1				228;
+@define $X-Drums-0-2-Knob2				331;
+
+// 0:3 layout
+@define $X-Drums-0-3-Knob1				176;
+@define $X-Drums-0-3-Knob2				279;
+@define $X-Drums-0-3-Knob3				382;
+
+// 0:4 layout
+@define $X-Drums-0-4-Knob1				125;
+@define $X-Drums-0-4-Knob2				228;
+@define $X-Drums-0-4-Knob3				331;
+@define $X-Drums-0-4-Knob4				434;
+
+// 1:2 layout
+@define $X-Drums-1-2-Knob1				76;
+@define $X-Drums-1-2-Knob2				331;
+@define $X-Drums-1-2-Knob3				430;
+
+// 1:3 layout
+@define $X-Drums-1-3-Knob1				76;
+@define $X-Drums-1-3-Knob2				277;
+@define $X-Drums-1-3-Knob3				380;
+@define $X-Drums-1-3-Knob4				483;
+
+// 1:5 layout
+@define $X-Drums-1-5-Knob1				39;
+
+// 2:2 layout
+@define $X-Drums-2-2-Knob1				76;
+@define $X-Drums-2-2-Knob2				179;
+@define $X-Drums-2-2-Knob3				380;
+@define $X-Drums-2-2-Knob4				483;
+
+// 2:2 layout with Main-Submenu
+@define $X-Drums-2-2M-Knob1				127;
+@define $X-Drums-2-2M-Knob2				179;
+@define $X-Drums-2-2M-Knob3				380;
+@define $X-Drums-2-2M-Knob4				483;
+
+// 2:3 layout
+@define $X-Drums-2-3-Knob1				51;
+@define $X-Drums-2-3-Knob2				153;
+@define $X-Drums-2-3-Knob3				304;
+@define $X-Drums-2-3-Knob4				406;
+@define $X-Drums-2-3-Knob5				507;
+
+// 2:4 layout
+@define $X-Drums-2-4-Knob1				39;
+@define $X-Drums-2-4-Knob2				128;
+@define $X-Drums-2-4-Knob3				253;
+@define $X-Drums-2-4-Knob4				342;
+@define $X-Drums-2-4-Knob5				431;
+@define $X-Drums-2-4-Knob6				520;
+
+
+// 3:2 layout
+@define $X-Drums-3-2-Knob1				51;
+@define $X-Drums-3-2-Knob2				153;
+@define $X-Drums-3-2-Knob3				255;
+@define $X-Drums-3-2-Knob4				406;
+@define $X-Drums-3-2-Knob5				507;
+
+// 2:2:2 layout
+@define $X-Drums-2-2-2-Knob1			34;
+@define $X-Drums-2-2-2-Knob2			119;
+@define $X-Drums-2-2-2-Knob3			236;
+@define $X-Drums-2-2-2-Knob4			321;
+@define $X-Drums-2-2-2-Knob5			439;
+@define $X-Drums-2-2-2-Knob6			524;
+
+// Middle Bar Mode Switches
+@define $DrumMidMode-X                  530;                
+@define $DrumMidMode-Y                  270;
+
+@define $Y-Kick-Row1                   30;
+@define $Y-Kick-Row1-Low               80;
+@define $Y-Kick-Row2                   300;
+@define $Y-Kick-Row2-Small             213;
+
+//--------------------------------------------------------------------------------------------------------
+// LOWER PANEL SUBHEADLINES A POSITIONS
+//--------------------------------------------------------------------------------------------------------
+
+// positions first headline ("Main")
+
+// Y position
+@define $Y-Drums-Subheadline	        275;
+
+// X position Layout 0:2
+@define $X-Drums-SubheadlineA-0-2        255;
+
+// X position Layout 1:2
+@define $X-Drums-SubheadlineA-1-2        53;
+
+// X position Layout 1:3
+@define $X-Drums-SubheadlineA-1-3        53;
+
+// X position Layout 1:5
+@define $X-Drums-SubheadlineA-1-5        15;
+
+// X position Layout 2:2
+@define $X-Drums-SubheadlineA-2-2        104;
+
+// X position Layout 2:3
+@define $X-Drums-SubheadlineA-2-3        78;
+
+// X position Layout 3:2
+@define $X-Drums-SubheadlineA-3-2        129;
+
+// X position Layout 2:4
+@define $X-Drums-SubheadlineA-2-4        61;
+
+// X position Layout 2:2:2
+@define $X-Drums-SubheadlineA-2-2-2      53;
+
+//--------------------------------------------------------------------------------------------------------
+// LOWER PANEL SUBHEADLINES B POSITIONS
+//--------------------------------------------------------------------------------------------------------
+
+// X position Layout 1:2
+@define $X-Drums-SubheadlineB-1-2        357;
+
+// X position Layout 1:3
+@define $X-Drums-SubheadlineB-1-3        355;
+
+// X position Layout 1:3
+@define $X-Drums-SubheadlineB-1-5        322;
+
+// X position Layout 2:2
+@define $X-Drums-SubheadlineB-2-2        408;
+
+// X position Layout 2:3
+@define $X-Drums-SubheadlineB-2-3        384;
+
+// X position Layout 3:2
+@define $X-Drums-SubheadlineB-3-2        432;
+
+// X position Layout 2:4
+@define $X-Drums-SubheadlineB-2-4        362;
+
+// X position Layout 2:2:2
+@define $X-Drums-SubheadlineB-2-2-2      255;
+
+//--------------------------------------------------------------------------------------------------------
+// LOWER PANEL SUBHEADLINES C POSITIONS
+//--------------------------------------------------------------------------------------------------------
+
+// X position Layout 2:2:2
+@define $X-Drums-SubheadlineC-2-2-2      458;
+
+//--------------------------------------------------------------------------------------------------------
+// LOWER PANEL SUBMENU POSITIONS
+//--------------------------------------------------------------------------------------------------------
+
+// Y position
+@define $Y-Drums-Submenu	        	272;
+
+// X position rightmost
+@define $X-Drums-Submenu-Right        	515;
+
+// X position Submenu Main 1:2 (left Subheadline)
+@define $X-Drums-Submenu-Left-1-2       230;
+
+
+//--------------------------------------------------------------------------------------------------------
+// LOWER PANEL SEPARATOR POSITIONS
+//--------------------------------------------------------------------------------------------------------
+
+@define $Y-Drums-Separator				275;
+
+
+@define $X-Drums-Separator-1-2          203;
+@define $X-Drums-Separator-1-3          203;
+@define $X-Drums-Separator-1-5          131;
+@define $X-Drums-Separator-2-2          305;
+@define $X-Drums-Separator-2-3          255;
+@define $X-Drums-Separator-2-4			217;
+@define $X-Drums-Separator-3-2          357;
+@define $X-Drums-SeparatorA-2-2-2       204;
+@define $X-Drums-SeparatorB-2-2-2       407;

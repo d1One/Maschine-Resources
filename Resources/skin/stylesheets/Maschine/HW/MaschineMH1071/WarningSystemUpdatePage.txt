@@ -1,0 +1,9 @@
+Bar#WarningSystemUpdatePageScreenLeft Bar#StudioDisplayBar
+{
+    image: url("Maschine/HW/MH1071/Dialogs/DISCOVERY_System_Update_L.png");
+}
+
+Bar#WarningSystemUpdatePageScreenRight Bar#StudioDisplayBar
+{
+    image: url("Maschine/HW/MH1071/Dialogs/DISCOVERY_System_Update_R.png");
+}

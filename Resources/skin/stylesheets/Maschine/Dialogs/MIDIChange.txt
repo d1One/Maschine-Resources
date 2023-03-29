@@ -1,0 +1,27 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// MIDI Change
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+DialogMIDIChange
+{
+    width:                      394;
+    height:                     600;
+}
+
+// BODY
+//----------------------------------------------------------------------------------------------------------------------
+
+DialogMIDIChange Bar#body
+{
+    margin-top:                 16;
+    margin-bottom:              20;
+    spacing:                    15;
+}
+
+// CONTROL ITEMS SPACING
+DialogMIDIChange Bar#body Bar#m_scene,
+DialogMIDIChange Bar#body Bar#m_section,
+DialogMIDIChange Bar#body Bar#m_lock
+{
+    spacing:                    9;
+}

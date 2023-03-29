@@ -1,0 +1,18 @@
+Bar#WelcomeConnectToWiFiPageScreenLeft Bar#StudioDisplayBar
+{
+    image: url("Maschine/HW/MH1071/Welcome/OOB_GetStarted.png");
+}
+
+
+Bar#WelcomeConnectToWiFiPageScreenRight Bar#WiFiStatusContainer,
+Bar#WelcomeConnectToWiFiPageScreenRight Bar#WiFiListContainer
+{
+    width: 240;
+}
+
+Bar#WelcomeConnectToWiFiPageScreenRight Label#WiFiStatus
+{
+    font-name: $fontPragmatica;
+    font-size: 16;
+    foreground-color: $colorWhite;
+}

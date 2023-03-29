@@ -1,0 +1,658 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// CONTROL PAGES
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Channel Page
+// ---------------------------------------------------------------------------------------------------------------------
+
+// Stack
+Stack#SlotStack,
+Bar#PluginBar
+{
+    background-color:               no;
+    width:                          480;
+}
+
+Stack#SlotStack Bar#ChannelBar
+{
+    width:                          96;
+}
+
+Stack#SlotStack Bar#ChannelScreen
+{
+    spacing: 8;
+    outer-margin-left: 36;
+    outer-margin-top: 48;
+}
+
+
+// INPUT
+Stack#SlotStack Bar#ChannelBar[HasFocus=false] Label#Icon[Channel=INPUT]
+{
+    image: url("Shared/HW/Components/Buttons/Control/TILE_Input.png");
+    animations: 2;
+    animation-index: 0;
+}
+
+Stack#SlotStack Bar#ChannelBar[HasFocus=true] Label#Icon[Channel=INPUT]
+{
+    image: url("Shared/HW/Components/Buttons/Control/TILE_Input.png");
+    animations: 2;
+    animation-index: 1;
+}
+
+
+// OUTPUT
+Stack#SlotStack Bar#ChannelBar[HasFocus=false] Label#Icon[Channel=OUTPUT]
+{
+    image: url("Shared/HW/Components/Buttons/Control/TILE_Output.png");
+    animations: 2;
+    animation-index: 0;
+}
+
+Stack#SlotStack Bar#ChannelBar[HasFocus=true] Label#Icon[Channel=OUTPUT]
+{
+    image: url("Shared/HW/Components/Buttons/Control/TILE_Output.png");
+    animations: 2;
+    animation-index: 1;
+}
+
+
+// GROOVE
+Stack#SlotStack Bar#ChannelBar[HasFocus=false] Label#Icon[Channel=GROOVE]
+{
+    image: url("Shared/HW/Components/Buttons/Control/TILE_Groove.png");
+    animations: 2;
+    animation-index: 0;
+}
+
+Stack#SlotStack Bar#ChannelBar[HasFocus=true] Label#Icon[Channel=GROOVE]
+{
+    image: url("Shared/HW/Components/Buttons/Control/TILE_Groove.png");
+    animations: 2;
+    animation-index: 1;
+}
+
+
+// MACRO
+Stack#SlotStack Bar#ChannelBar[HasFocus=false] Label#Icon[Channel=MACRO]
+{
+    image: url("Shared/HW/Components/Buttons/Control/TILE_Macro.png");
+    animations: 2;
+    animation-index: 0;
+}
+
+Stack#SlotStack Bar#ChannelBar[HasFocus=true] Label#Icon[Channel=MACRO]
+{
+    image: url("Shared/HW/Components/Buttons/Control/TILE_Macro.png");
+    animations: 2;
+    animation-index: 1;
+}
+
+Label.ChannelName
+{
+    foreground-color:               no;
+}
+
+
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// PLUGIN PAGE
+// ---------------------------------------------------------------------------------------------------------------------
+
+// LEFT SCREEN
+
+Stack#SlotStack Vector<PluginItem>#PluginList
+{
+
+//!!! this must be the same font as the one used to display the plugin name
+    font-name:                      $fontPragmatica;
+    font-size:                      14;
+
+//!!! whatever needs adding to the width of the picture to get to the next
+    slot-margin:                    10; //space between 2 slots
+    picture-margin:                 16; //total margin around a picture (i.e. Label#m_pPictureFrame margin)
+
+//!!! width of the small Instrument/Fx icon
+    icon-width:				                28; //8(margin left) + 12 (width) + 5(spacing) + 3 (margin)
+
+
+//!!! how much you reveal of the next/previous plugin
+    focus-margin:				              40;
+
+//!!! maximum width for the name
+    name-max-width:				            210;
+
+
+// BACKGROUND COLOR
+    background-color:               $colorBlack;
+
+// PLUGIN STRIP IMAGES
+
+    // GENERIC
+    image-empty:                    url("Shared/HW/Studio/Plugins/Generic_Empty_Thumb.png");
+    image-empty-selected:           url("Shared/HW/Studio/Plugins/Generic_Empty_Thumb_Selected.png");
+    image-vst:                      url("Shared/HW/Studio/Plugins/Generic_VST_Thumb.png");
+
+    // AUDIO
+    image-audio:                    url("Shared/HW/Studio/Plugins/Audio.png");
+
+    // INTERNAL FX
+    image-compressor:               url("Shared/HW/Studio/Plugins/FX_compressor_Thumb.png");
+    image-gate:                     url("Shared/HW/Studio/Plugins/FX_gate_Thumb.png");
+    image-transientmaster:          url("Shared/HW/Studio/Plugins/FX_transientmaster_Thumb.png");
+    image-limiter:                  url("Shared/HW/Studio/Plugins/FX_limiter_Thumb.png");
+    image-cabinet:                  url("Shared/HW/Studio/Plugins/FX_cabinet_Thumb.png");
+    image-maximizer:                url("Shared/HW/Studio/Plugins/FX_maximizer_Thumb.png");
+    image-eq:                       url("Shared/HW/Studio/Plugins/FX_eq_Thumb.png");
+    image-filter:                   url("Shared/HW/Studio/Plugins/FX_filter_Thumb.png");
+    image-chorus:                   url("Shared/HW/Studio/Plugins/FX_chorus_Thumb.png");
+    image-flanger:                  url("Shared/HW/Studio/Plugins/FX_flanger_Thumb.png");
+    image-fm:                       url("Shared/HW/Studio/Plugins/FX_fm_Thumb.png");
+    image-freqshifter:              url("Shared/HW/Studio/Plugins/FX_freqshifter_Thumb.png");
+    image-phaser:                   url("Shared/HW/Studio/Plugins/FX_phaser_Thumb.png");
+    image-ice:                      url("Shared/HW/Studio/Plugins/FX_ice_Thumb.png");
+    image-metaverb:                 url("Shared/HW/Studio/Plugins/FX_metaverb_Thumb.png");
+    image-reflex:                   url("Shared/HW/Studio/Plugins/FX_reflex_Thumb.png");
+    image-reverblegacy:             url("Shared/HW/Studio/Plugins/FX_reverb_Thumb.png");
+    image-reverb:                   url("Shared/HW/Studio/Plugins/FX_platereverb_Thumb.png");
+    image-beatdelay:                url("Shared/HW/Studio/Plugins/FX_beatdelay_Thumb.png");
+    image-graindelay:               url("Shared/HW/Studio/Plugins/FX_graindelay_Thumb.png");
+    image-grainstretch:             url("Shared/HW/Studio/Plugins/FX_grainstretch_Thumb.png");
+    image-resochord:                url("Shared/HW/Studio/Plugins/FX_resochord_Thumb.png");
+    image-distortion:               url("Shared/HW/Studio/Plugins/FX_distortion_Thumb.png");
+    image-lofi:                     url("Shared/HW/Studio/Plugins/FX_lofi_Thumb.png");
+    image-saturator:                url("Shared/HW/Studio/Plugins/FX_saturator_Thumb.png");
+    image-performfx:                url("Shared/HW/Studio/Plugins/FX_performfx_Thumb.png");
+
+    // INTERNAL INSTRUMENTS
+    image-sampler:                  $samplerIconUrl;
+    image-kick:                     url("Shared/HW/Studio/Plugins/Drums_kick_Thumb.png");
+    image-snare:                    url("Shared/HW/Studio/Plugins/Drums_snare_Thumb.png");
+    image-hi-hat:                   url("Shared/HW/Studio/Plugins/Drums_hihat_Thumb.png");
+    image-tom:                      url("Shared/HW/Studio/Plugins/Drums_tom_Thumb.png");
+    image-percussion:               url("Shared/HW/Studio/Plugins/Drums_percussion_Thumb.png");
+    image-cymbal:                   url("Shared/HW/Studio/Plugins/Drums_Cymbal_Thumb.png");
+    image-basssynth:                url("Shared/HW/Studio/Plugins/Synth_bass_Thumb.png");
+    image-polysynth:                url("Shared/HW/Studio/Plugins/Synth_polysynth_Thumb.png");
+}
+
+
+
+// Container
+Stack#SlotStack PluginItem
+{
+    background-color:               no;
+    margin-top:                     12;
+    margin-left:                    4;
+    margin-right:                   3;
+}
+
+
+
+
+// Plugin Header
+//----------------------------------------------------------------------------------------------------------------------
+
+Stack#SlotStack PluginItem Bar#m_header
+{
+    margin-left:                    2;
+    spacing:                        4;
+}
+
+
+
+
+// Plugin Icon
+//----------------------------------------------------------------------------------------------------------------------
+
+Stack#SlotStack PluginItem Label#m_type
+{
+    image:                          url("Shared/HW/Studio/ControlPages/cp_itemType.png");
+    animations:                     12;
+    foreground-color:               no;
+    margin-left:                    7;
+}
+
+
+
+// Type = Instrument
+Stack#SlotStack PluginItem[IsBypassed=false][HasFocus=true] Label#m_type[Type=instrument]
+{
+    animation-index:                0;
+}
+
+Stack#SlotStack PluginItem[IsBypassed=false][HasFocus=false] Label#m_type[Type=instrument]
+{
+    animation-index:                1;
+}
+
+Stack#SlotStack PluginItem[IsBypassed=true][HasFocus=true] Label#m_type[Type=instrument]
+{
+    animation-index:                2;
+}
+
+Stack#SlotStack PluginItem[IsBypassed=true][HasFocus=false] Label#m_type[Type=instrument]
+{
+    animation-index:                2;
+}
+
+
+// Type = FX
+Stack#SlotStack PluginItem[IsBypassed=false][HasFocus=true] Label#m_type[Type=effect]
+{
+    animation-index:                3;
+}
+
+Stack#SlotStack PluginItem[IsBypassed=false][HasFocus=false] Label#m_type[Type=effect]
+{
+    animation-index:                4;
+}
+
+Stack#SlotStack PluginItem[IsBypassed=true][HasFocus=true] Label#m_type[Type=effect]
+{
+    animation-index:                5;
+}
+
+Stack#SlotStack PluginItem[IsBypassed=true][HasFocus=false] Label#m_type[Type=effect]
+{
+    animation-index:                5;
+}
+
+
+// Type = Missing  FX / Instrument
+Stack#SlotStack PluginItem[IsBypassed=false][HasFocus=true] Label#m_type[Type=missing]
+{
+    animation-index:                6;
+}
+
+Stack#SlotStack PluginItem[IsBypassed=false][HasFocus=false] Label#m_type[Type=missing]
+{
+    animation-index:                7;
+}
+
+Stack#SlotStack PluginItem[IsBypassed=true][HasFocus=true] Label#m_type[Type=missing]
+{
+    animation-index:                8;
+}
+
+Stack#SlotStack PluginItem[IsBypassed=true][HasFocus=false] Label#m_type[Type=missing]
+{
+    animation-index:                8;
+}
+
+// Type = Audio
+Stack#SlotStack PluginItem[IsBypassed=false][HasFocus=true] Label#m_type[Type=audio]
+{
+    animation-index:            9;
+}
+
+Stack#SlotStack PluginItem[IsBypassed=false][HasFocus=false] Label#m_type[Type=audio]
+{
+    animation-index:            10;
+}
+
+Stack#SlotStack PluginItem[IsBypassed=true][HasFocus=true] Label#m_type[Type=audio]
+{
+    animation-index:            11;
+}
+
+
+// Plugin Name
+Stack#SlotStack PluginItem Label#m_name
+{
+    foreground-color:               $colorWhite50;
+    background-color:               no;
+
+    horizontal-alignment:           left;
+    vertical-alignment:             top;
+    margin-top:                     -1;
+    margin-right:                   3;
+    height:                         16;
+    min-width:                      54;
+
+    font-name:                      $fontPragmatica;
+    font-size:                      14;
+}
+
+
+Stack#SlotStack PluginItem[IsBypassed=true] Label#m_name
+{
+    foreground-color:               rgb(48,48,48);
+}
+
+Stack#SlotStack PluginItem[IsBypassed=false][HasFocus=false] Label#m_name
+{
+    foreground-color:               rgb(177,177,177);
+}
+Stack#SlotStack PluginItem[IsBypassed=false][HasFocus=true] Label#m_name
+{
+    foreground-color:               $colorWhite;
+}
+
+
+// PLUGIN FRAME (SHADOW & SELECTION)
+Stack#SlotStack PluginItem Label#m_pictureFrame
+{
+    image:                          url("Shared/HW/Studio/ControlPages/cp_itemSelectionFrame.png");
+    animations:                     4;
+    picture-includes-margin:        true;
+    background-color:               no;
+
+    fixed-left:                     11;
+    fixed-right:                    11;
+    fixed-top:                      11;
+    fixed-bottom:                   11;
+
+    margin-left:                    8; //update value up there if you change this
+    margin-right:                   8;
+    margin-top:                     6;
+    margin-bottom:                  6;
+}
+
+Stack#SlotStack PluginItem[HasFocus=false][Empty=false] Label#m_pictureFrame
+{
+    animation-index:                0;
+}
+
+Stack#SlotStack PluginItem[HasFocus=true][Empty=false] Label#m_pictureFrame
+{
+    animation-index:                1;
+}
+
+Stack#SlotStack PluginItem[HasFocus=false][Empty=true] Label#m_pictureFrame
+{
+    animation-index:                2;
+}
+
+Stack#SlotStack PluginItem[HasFocus=true][Empty=true] Label#m_pictureFrame
+{
+    animation-index:                2;
+}
+
+
+// Background color palette for internal effects
+Stack#SlotStack PluginItem Bar#m_picture
+{
+    background-color-palette:       1;
+}
+
+Stack#SlotStack PluginItem[HasFocus=false][Empty=true] Bar#m_picture
+{
+    image:                          no;
+    background-color-palette:       no;
+}
+
+Stack#SlotStack PluginItem[HasFocus=true][Empty=true] Bar#m_picture
+{
+    background-color-palette:       no;
+    background-color:               $colorWhite70;
+}
+
+
+
+
+// RIGHT SCREEN
+
+// Container
+Bar#ControlPageStudioScreenRight Bar.StudioDisplay,
+Bar#ControlPageMK3ScreenRight Bar.StudioDisplay
+{
+    height:							169;
+    background-color:               $colorStandardBGColor;
+}
+
+
+// Info Bar
+Bar#ControlPageStudioScreenRight Label#SoundInfo[IsExternalModule=true][HasText=true],
+Bar#ControlPageMK3ScreenRight Label#SoundInfo[IsExternalModule=true][HasText=true],
+Bar#MacroPageStudioScreenRight Label#SoundInfo
+{
+    foreground-color:               $colorWhite;
+    background-color:               no;
+    image:                          url("Shared/HW/Studio/Standard/std_soundInfo.png");
+    picture-includes-margin:        true;
+
+    font-name:                      $fontPragmatica;
+    font-size:                      14;
+    horizontal-alignment:           right;
+    margin-right:                   16;
+    margin-top:                     1;
+    margin-left:                    21;
+}
+
+Bar#ControlPageStudioScreenRight Label#SoundInfo[IsExternalModule=true][HasText=false],
+Bar#ControlPageMK3ScreenRight Label#SoundInfo[IsExternalModule=true][HasText=false]
+{
+    image:                          url("Shared/HW/Studio/Standard/std_soundInfo.png");
+    picture-includes-margin:        true;
+    background-color:               no;
+}
+
+Bar#ControlPageStudioScreenRight Label#SoundInfo[IsExternalModule=false][HasText=false],
+Bar#ControlPageMK3ScreenRight Label#SoundInfo[IsExternalModule=false][HasText=false],
+Bar#MacroPageStudioScreenRight Label#SoundInfo[IsExternalModule=false][HasText=false]
+{
+    foreground-color:               $colorWhite;
+    background-color:               $infoBarColor;
+    height:                         24;
+    image:                          no;
+}
+
+Bar#ControlPageStudioScreenRight Label#SoundInfo[IsExternalModule=false][HasText=true],
+Bar#ControlPageMK3ScreenRight Label#SoundInfo[IsExternalModule=false][HasText=true]
+{
+    foreground-color:               $colorWhite;
+    background-color:               $infoBarColor;
+    image:                          url("Shared/HW/Studio/Standard/std_soundInfo.png");
+    picture-includes-margin:        true;
+
+    font-name:                      $fontPragmatica;
+    font-size:                      14;
+    horizontal-alignment:           right;
+    margin-right:                   16;
+    margin-top:                     1;
+    margin-left:                    21;
+}
+
+
+// Plugin Name
+MultilineTextEdit#PluginName
+{
+    width :                         240;
+    vertical-alignment:             center;
+}
+
+
+MultilineTextEditContentArea.PluginName
+{
+    width :                         240;
+    font-name:                      $fontPragmatica;
+    font-size:                      28;
+    margin-left:                    30;
+    margin-right:                   30;
+}
+
+
+// Result List Vector
+Bar#ControlPageStudioScreenRight Vector<ResultListItemWidget>#ResultList,
+Bar#ControlPageMK3ScreenRight Vector<ResultListItemWidget>#ResultList
+{
+    width:                          240;
+    height:                         144;
+    image:                          no;
+
+    margin-top:                     8;
+    margin-bottom:                  6;
+
+    margin-left:                    1;
+    spacing:                        0;
+    outer-margin-top:               0;
+
+    focus-anim:	                    $animtype-none;
+}
+
+Bar#ControlPageStudioScreenRight Vector<ResultListItemWidget>#ResultList Bar#widgets,
+Bar#ControlPageMK3ScreenRight Vector<ResultListItemWidget>#ResultList Bar#widgets
+{
+    width:                          231;
+    spacing:                        0;
+}
+
+
+
+
+// Right Screen : Plugin Background
+Bar#PluginBG
+{
+    outer-margin-top:               0;
+    z-index:                        0;
+
+    // GENERIC
+    image-empty:                    no;
+    color-empty:                    $colorStandardBGColor;
+    image-vst:                      no;
+
+    // INTERNAL MODULE LOGOS
+
+    // AUDIO
+    image-audio:                    url("Shared/HW/Studio/Plugins/Audio_Logo.png");
+
+    // INSTRUMENTS
+    image-sampler:                  url("Shared/HW/Studio/Plugins/sampler_logo.png");
+    image-kick:                     url("Shared/HW/Studio/Plugins/Drums_kick_logo.png");
+    image-snare:                    url("Shared/HW/Studio/Plugins/Drums_snare_logo.png");
+    image-hi-hat:                   url("Shared/HW/Studio/Plugins/Drums_hihat_logo.png");
+    image-tom:                      url("Shared/HW/Studio/Plugins/Drums_tom_logo.png");
+    image-percussion:               url("Shared/HW/Studio/Plugins/Drums_percussion_logo.png");
+    image-cymbal:                   url("Shared/HW/Studio/Plugins/Drums_Cymbal_Logo.png");
+    image-basssynth:                url("Shared/HW/Studio/Plugins/Synth_bass_logo.png");
+    image-polysynth:                url("Shared/HW/Studio/Plugins/Synth_polysynth_logo.png");
+
+
+
+    // EFFECTS
+    image-compressor:               url("Shared/HW/Studio/Plugins/FX_compressor_logo.png");
+    image-gate:                     url("Shared/HW/Studio/Plugins/FX_gate_logo.png");
+    image-transientmaster:          url("Shared/HW/Studio/Plugins/FX_transientmaster_logo.png");
+    image-limiter:                  url("Shared/HW/Studio/Plugins/FX_limiter_logo.png");
+    image-cabinet:                  url("Shared/HW/Studio/Plugins/FX_cabinet_logo.png");
+    image-maximizer:                url("Shared/HW/Studio/Plugins/FX_maximizer_logo.png");
+    image-eq:                       url("Shared/HW/Studio/Plugins/FX_eq_logo.png");
+    image-filter:                   url("Shared/HW/Studio/Plugins/FX_filter_logo.png");
+    image-chorus:                   url("Shared/HW/Studio/Plugins/FX_chorus_logo.png");
+    image-flanger:                  url("Shared/HW/Studio/Plugins/FX_flanger_logo.png");
+    image-fm:                       url("Shared/HW/Studio/Plugins/FX_fm_logo.png");
+    image-freqshifter:              url("Shared/HW/Studio/Plugins/FX_freqshifter_logo.png");
+    image-phaser:                   url("Shared/HW/Studio/Plugins/FX_phaser_logo.png");
+    image-ice:                      url("Shared/HW/Studio/Plugins/FX_ice_logo.png");
+    image-metaverb:                 url("Shared/HW/Studio/Plugins/FX_metaverb_logo.png");
+    image-reflex:                   url("Shared/HW/Studio/Plugins/FX_reflex_logo.png");
+    image-reverblegacy:             url("Shared/HW/Studio/Plugins/FX_ReverbLegacy_Logo.png");
+    image-reverb:                   url("Shared/HW/Studio/Plugins/FX_reverb_logo.png");
+    image-beatdelay:                url("Shared/HW/Studio/Plugins/FX_beatdelay_logo.png");
+    image-graindelay:               url("Shared/HW/Studio/Plugins/FX_graindelay_logo.png");
+    image-grainstretch:             url("Shared/HW/Studio/Plugins/FX_grainstretch_logo.png");
+    image-resochord:                url("Shared/HW/Studio/Plugins/FX_resochord_logo.png");
+    image-distortion:               url("Shared/HW/Studio/Plugins/FX_distortion_logo.png");
+    image-lofi:                     url("Shared/HW/Studio/Plugins/FX_lofi_logo.png");
+    image-saturator:                url("Shared/HW/Studio/Plugins/FX_saturator_logo.png");
+    image-performfx:                url("Shared/HW/Studio/Plugins/FX_performfx_logo.png");
+
+
+
+
+    // Right Side Maschine Onboard Plugin Background
+    color-audio:	                $colorStandardBGColor;
+    color-sampler:                  $colorStandardBGColor;
+    color-kick:                     $colorStandardBGColor;
+    color-snare:                    $colorStandardBGColor;
+    color-hi-hat:                   $colorStandardBGColor;
+    color-tom:                      $colorStandardBGColor;
+    color-perc:                     $colorStandardBGColor;
+    color-compressor:               $colorStandardBGColor;
+    color-gate:                     $colorStandardBGColor;
+    color-transientdesigner:        $colorStandardBGColor;
+    color-limiter:                  $colorStandardBGColor;
+    color-maximizer:                $colorStandardBGColor;
+    color-eq:                       $colorStandardBGColor;
+    color-filter:                   $colorStandardBGColor;
+    color-chorus:                   $colorStandardBGColor;
+    color-flanger:                  $colorStandardBGColor;
+    color-fm:                       $colorStandardBGColor;
+    color-freqshifter:              $colorStandardBGColor;
+    color-phaser:                   $colorStandardBGColor;
+    color-iceverb:                  $colorStandardBGColor;
+    color-metaverb:                 $colorStandardBGColor;
+    color-reflex:                   $colorStandardBGColor;
+    color-reverb:                   $colorStandardBGColor;
+    color-platereverb:              $colorStandardBGColor;
+    color-beatdelay:                $colorStandardBGColor;
+    color-graindelay:               $colorStandardBGColor;
+    color-grainstretch:             $colorStandardBGColor;
+    color-resochord:                $colorStandardBGColor;
+    color-distortion:               $colorStandardBGColor;
+    color-lofi:                     $colorStandardBGColor;
+    color-saturator:                $colorStandardBGColor;
+    color-performfx:                $colorStandardBGColor;
+
+
+
+
+//////////////// CHANNEL PICTURES /////////////////////////////
+
+    image-input: url("Shared/HW/Theme/Icons/ICN_Input_L.png");
+    image-output:  url("Shared/HW/Theme/Icons/ICN_Output_L.png");
+    image-groove: url("Shared/HW/Theme/Icons/ICN_Groove_L.png");
+    image-macro: url("Shared/HW/Theme/Icons/ICN_Macro_L.png");
+
+    width: 480;
+    height: 172;
+
+    background-color: $colorStandardBGColor;
+}
+
+
+// Pictures margins (Plugin Mode)
+Bar#PluginBG[mode=plugin]
+{
+    margin-top:                     0;
+    margin-left:                    0;
+}
+
+// Pictures margins (Channel Mode)
+Bar#PluginBG[mode=channel]
+{
+    margin-top:                     45;
+    margin-left:                    193;
+}
+
+Label#PluginBGLabel
+{
+    foreground-color:               rgba(255,255,255,38);
+    font-name:                      $fontPragmatica;
+    font-size:                      20;
+    horizontal-alignment:           center;
+    margin-top:                     78;
+    //vertical-alignment:             center;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// MACRO PAGE
+//----------------------------------------------------------------------------------------------------------------------
+
+// Specific background color for the macro page right screen
+Bar#MacroPageStudioScreenRight Bar.StudioDisplay
+{
+    background-color:               $colorStandardBGColor;
+    outer-margin-top:               1;
+}

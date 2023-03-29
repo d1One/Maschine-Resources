@@ -1,0 +1,175 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ARRANGER ICONS
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// ZOOMING & SCROLLING
+// ---------------------------------------------------------------------------------------------------------------------
+
+Label#OverlayZoomHIcon
+{
+    image:                          url("Shared/HW/Studio/Overlays/Zoom.png");
+
+    x:                              526;
+    y:                              250;
+}
+
+Label#OverlayScrollHIcon
+{
+    image:                          url("Shared/HW/Studio/Overlays/H-Scroll.png");
+
+    x:                              646;
+    y:                              250;
+}
+
+Label#OverlayZoomVIcon
+{
+    image:                          url("Shared/HW/Studio/Overlays/V-Zoom.png");
+    animations:                     2;
+
+    x:                              766;
+    y:                              250;
+}
+
+Label#OverlayZoomVIcon[ZoomFactor=x1]
+{
+    animation-index:                0;
+}
+
+Label#OverlayZoomVIcon[ZoomFactor=x2]
+{
+    animation-index:                1;
+}
+
+Label#OverlayScrollVIcon
+{
+    image:                          url("Shared/HW/Studio/Overlays/V-Scroll.png");
+
+    x:                              886;
+    y:                              250;
+}
+
+
+
+// LISTS
+// ---------------------------------------------------------------------------------------------------------------------
+
+Bar#CapacitiveOverlayFrame
+{
+    foreground-color:               rgb(255, 255, 255);
+    background-color:               no;
+
+    image:                          url("Shared/HW/Studio/Overlays/LBL_CapListSelected.png");
+    fixed-right:                    32;
+    fixed-left:                     32;
+    fixed-top:                      3;
+    fixed-bottom:                   6;
+    margin-bottom:                  0;
+}
+
+Label.CapacitiveOverlayDefault
+{
+    image:                          url("Shared/HW/Studio/Overlays/LBL_CapListSelectedTriangle_left.png");
+    outer-margin-top:               194;
+}
+
+Label.CapacitiveOverlayBrowser
+{
+    image:                          url("Shared/HW/Studio/Overlays/LBL_CapListSelectedTriangle.png");
+    outer-margin-top:               222;
+}
+
+Bar.CapacitiveOverlayDefault
+{
+    top :                           61;
+    max-items:                      5;
+}
+
+Bar.CapacitiveOverlayBrowser
+{
+    top :                           37;
+    max-items:                      7;
+}
+
+Vector<Label>#CapacitiveListVector Bar#widgets[ScrollbarVisible=false]
+{
+    spacing:                        5;
+    margin-left:                    8;
+    margin-right:                   8;
+}
+
+Vector<Label>#CapacitiveListVector Bar#widgets[ScrollbarVisible=true]
+{
+    spacing:                        5;
+    margin-left:                    8;
+    margin-right:                   0;
+}
+
+Vector<Label>.CapacitiveOverlayDefault
+{
+    max-items:                      5;
+}
+
+Vector<Label>.CapacitiveOverlayBrowser
+{
+    max-items:                      7;
+}
+
+
+Label.CapacitiveList
+{
+    horizontal-alignment:           left;
+
+// must match Vector<Label>#CapacitiveListVector properties!
+    font-name:                      $fontPragmatica;
+    font-size:                      14;
+    height:                         21;
+    margin-left:                    4;
+    foreground-color-palette:       1;
+}
+
+Label.CapacitiveList:selected
+{
+    foreground-color:               rgb(0, 0, 0);
+    foreground-color-palette:       0;
+    background-color-palette:       1;
+    fixed-left:                     4;
+    fixed-right:                    4;
+    picture-includes-margin:        true;
+}
+
+Label.CapacitiveList:!enabled
+{
+    foreground-color:               rgb(128, 128, 128);
+}
+
+Label.CapacitiveList:selected:!enabled
+{
+    foreground-color:               rgb(128, 128, 128);
+    image:                          url("Shared/HW/Studio/Overlays/LBL_Selected.png");
+    fixed-left:                     4;
+    fixed-right:                    4;
+    picture-includes-margin:        true;
+}
+
+Vector<Label>#CapacitiveListVector
+{
+    focus-delay:                    0;
+    outer-margin-top:               9;
+    outer-margin-bottom:            10;
+
+// must match Label.CapacitiveList properties!
+    font-name:                      $fontPragmatica;
+    font-size:                      14;
+    label-margin:                   12;
+    label-height:                   26; //21(height) + 5(spacing)
+    max-items:                      5;
+}
+
+Vector<Label>#CapacitiveListVector Scrollbar Grip#thumb
+{
+    image:                          url("Shared/HW/Studio/Standard/std_slider_white.png");
+    picture-includes-margin:        true;
+    fixed-bottom:                   1;
+    fixed-top:                      1;
+}

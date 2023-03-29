@@ -1,0 +1,22 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Handle
+//----------------------------------------------------------------------------------------------------------------------
+
+XYDragger
+{
+    foreground-color:       $colorWhite;
+    font-resid:             $fontRaldoId;
+    font-size:              $fontRaldoSize;
+    horizontal-alignment:   left;
+    margin:                 2;
+
+    image:                  url("Maschine/InternalModules/Sampler/circle.png");
+    image-color-palette:    1;
+}
+
+XYDragger:!enabled
+{
+    foreground-color:       $colorWidgetTextDisabled;
+}
+
+//----------------------------------------------------------------------------------------------------------------------

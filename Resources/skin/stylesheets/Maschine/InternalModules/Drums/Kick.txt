@@ -1,0 +1,775 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// KICK
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+KickEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_logo_kick.png");
+    x:                                  $X-Drums-Logo;
+    y:                                  $Y-Drums-Logo;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// DISPLAY DRUM MODELS
+//--------------------------------------------------------------------------------------------------------
+
+KickEditor Bar#m_pInstrumentForeground
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_model_kick_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_model_kick_dye.png");
+    dye-color-palette:                  1;
+    x:                                  244;
+    y:                                  76;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// SUB MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+KickEditor[Mode=Sub] Bar#KickMode 
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_sub_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_sub_dyemask.png");
+}
+
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+KickEditor#m_pEditor[Mode=Sub] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_pitchbend.png");
+    x:                                  $X-Drums-SubheadlineA-2-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+KickEditor#m_pEditor[Mode=Sub] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_attack.png");
+    x:                                  $X-Drums-SubheadlineB-2-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+KickEditor#m_pEditor[Mode=Sub] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-2-2;
+    y:                                  $Y-Drums-Separator;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// Bend
+KickEditor[Mode=Sub] Bar#KickBend
+{
+    x:                                  $X-Drums-2-2-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Time
+KickEditor Bar#SubKickTime
+{
+    x:                                  $X-Drums-2-2-Knob2;
+    y:                                  $Y-Drums;
+}
+
+// Bend
+KickEditor Bar#KickBend
+{
+    x:                                  $X-Drums-2-2-Knob2;
+    y:                                  $Y-Drums;
+}
+
+
+// Color
+KickEditor Bar#SubKickColor
+{
+    x:                                  $X-Drums-2-2-Knob3;
+    y:                                  $Y-Drums;
+}
+
+// Amount
+KickEditor Bar#SubKickAttAmount[Single=true]
+{
+    x:                                  $X-Drums-2-2-Knob4;
+    y:                                  $Y-Drums;
+}
+
+KickEditor Bar#SubKickAttAmount[Single=false]
+{
+    x:                                  432; //$X-Drums-2-2-Knob4;
+    y:                                  $Y-Drums;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// TRONIC MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+KickEditor[Mode=Tronic] Bar#KickMode 
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_tronic_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_tronic_dyemask.png");
+}
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+KickEditor#m_pEditor[Mode=Tronic] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-2-4;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+KickEditor#m_pEditor[Mode=Tronic] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_distortion.png");
+    x:                                  $X-Drums-SubheadlineB-2-4;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+KickEditor#m_pEditor[Mode=Tronic] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-2-4;
+    y:                                  $Y-Drums-Separator;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+// Bend
+KickEditor[Mode=Tronic] Bar#KickBend
+{
+    x:                                  $X-Drums-2-4-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Impact
+KickEditor[Mode=Tronic] Bar#KickImpact
+{
+    x:                                  $X-Drums-2-4-Knob2;
+    y:                                  $Y-Drums;
+} 
+
+// Gain
+KickEditor Bar#ClubKickGain
+{
+    x:                                  $X-Drums-2-4-Knob3;
+    y:                                  $Y-Drums;
+} 
+
+// Tone
+KickEditor Bar#ClubKickTone
+{
+    x:                                  $X-Drums-2-4-Knob4;
+    y:                                  $Y-Drums;
+}
+
+// Bias
+KickEditor Bar#ClubKickBias
+{
+    x:                                  $X-Drums-2-4-Knob5;
+    y:                                  $Y-Drums;
+}
+
+// Mix
+KickEditor Bar#ClubKickAmount
+{
+    x:                                  $X-Drums-2-4-Knob6;
+    y:                                  $Y-Drums;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// DUSTY MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+KickEditor[Mode=Dusty] Bar#KickMode 
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_dusty_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_dusty_dyemask.png");
+}
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+KickEditor#m_pEditor[Mode=Dusty] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-1-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+KickEditor#m_pEditor[Mode=Dusty] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_character.png");
+    x:                                  $X-Drums-SubheadlineB-1-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+KickEditor#m_pEditor[Mode=Dusty] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-1-2;
+    y:                                  $Y-Drums-Separator;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+// Impact
+KickEditor[Mode=Dusty] Bar#KickImpact
+{
+    x:                                  $X-Drums-1-2-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Filter
+KickEditor Bar#DustyKickFilter
+{
+    x:                                  $X-Drums-1-2-Knob2;
+    y:                                  $Y-Drums;
+}
+
+// Noise
+KickEditor Bar#DustyKickNoise
+{
+    x:                                  $X-Drums-1-2-Knob3;
+    y:                                  $Y-Drums;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// MAPLE MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+KickEditor[Mode=Maple] Bar#KickMode 
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_maple_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_maple_dyemask.png");
+}
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+
+KickEditor#m_pEditor[Mode=Maple] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-2-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+KickEditor#m_pEditor[Mode=Maple] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_room.png");
+    x:                                  $X-Drums-SubheadlineB-2-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Mode Switch
+KickEditor Bar#SupportKickRoomCharacter
+{
+    x:                                  $DrumMidMode-X;
+    y:                                  $DrumMidMode-Y;
+    height:                             40;
+    width:                              88;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+KickEditor#m_pEditor[Mode=Maple] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-2-2;
+    y:                                  $Y-Drums-Separator;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+// Skin Tune
+KickEditor Bar#SupportKickSkinTune
+{
+    x:                                  $X-Drums-2-2-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Impact
+KickEditor[Mode=Maple] Bar#KickImpact
+{
+    x:                                  $X-Drums-2-2-Knob2;
+    y:                                  $Y-Drums;
+}
+
+
+// Size
+KickEditor Bar#SupportKickRoomSize
+{
+    x:                                  $X-Drums-2-2-Knob3;
+    y:                                  $Y-Drums;
+}
+
+// Amount
+KickEditor Bar#SupportKickRoomAmount
+{
+    x:                                  $X-Drums-2-2-Knob4;
+    y:                                  $Y-Drums;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// PUSH MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+KickEditor[Mode=Push] Bar#KickMode 
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_push_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_push_dyemask.png");
+}
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+KickEditor#m_pEditor[Mode=Push] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-0-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+// Punch
+KickEditor[Mode=Push] Bar#KickPunch
+{
+    x:                                  $X-Drums-0-2-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Impact
+KickEditor[Mode=Push] Bar#KickImpact
+{
+    x:                                  $X-Drums-0-2-Knob2;
+    y:                                  $Y-Drums;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// BOLD MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+KickEditor[Mode=Bold] Bar#KickMode 
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_bold_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_bold_dyemask.png");
+}
+
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+KickEditor#m_pEditor[Mode=Bold] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-0-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+// Punch
+KickEditor[Mode=Bold] Bar#KickPunch
+{
+    x:                                  $X-Drums-0-2-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Impact
+KickEditor[Mode=Bold] Bar#KickImpact
+{
+    x:                                  $X-Drums-0-2-Knob2;
+    y:                                  $Y-Drums;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// RASPER MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+KickEditor[Mode=Rasper] Bar#KickMode 
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_rasper_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_rasper_dyemask.png");
+}
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+KickEditor#m_pEditor[Mode=Rasper] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-2-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+KickEditor#m_pEditor[Mode=Rasper] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_crispness.png");
+    x:                                  $X-Drums-SubheadlineB-2-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Mode Switch
+KickEditor Bar#JungleKickCrispnessMode
+{
+    x:                                  $DrumMidMode-X;
+    y:                                  $DrumMidMode-Y;
+    height:                             40;
+    width:                              88;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+KickEditor#m_pEditor[Mode=Rasper] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-2-2;
+    y:                                  $Y-Drums-Separator;
+}
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+// Punch
+KickEditor[Mode=Rasper] Bar#KickPunch
+{
+    x:                                  $X-Drums-2-2-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Decay
+KickEditor[Mode=Rasper] Bar#KickImpact
+{
+    x:                                  $X-Drums-2-2-Knob2;
+    y:                                  $Y-Drums;
+}
+
+// Decay
+KickEditor Bar#JungleKickCrispnessDecay
+{
+    x:                                  $X-Drums-2-2-Knob3;
+    y:                                  $Y-Drums;
+}
+
+// Amount
+KickEditor Bar#JungleKickCrispnessAmount
+{
+    x:                                  $X-Drums-2-2-Knob4;
+    y:                                  $Y-Drums;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// SNAPPY MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+KickEditor[Mode=Snappy] Bar#KickMode 
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_snappy_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_snappy_dyemask.png");
+}
+
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+KickEditor#m_pEditor[Mode=Snappy] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-2-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+KickEditor#m_pEditor[Mode=Snappy] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_punch.png");
+    x:                                  $X-Drums-SubheadlineB-2-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Mode Switch
+KickEditor Bar#MedioKickPunchMode
+{
+    x:                                  $DrumMidMode-X;
+    y:                                  $DrumMidMode-Y;
+    height:                             40;
+    width:                              88;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+KickEditor#m_pEditor[Mode=Snappy] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-2-2;
+    y:                                  $Y-Drums-Separator;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+// Snap
+KickEditor Bar#MedioKickSnap
+{
+    x:                                  $X-Drums-2-2-Knob1;
+    y:                                  $Y-Drums;
+}
+
+KickEditor Bar#KickImpact
+{
+    x:                                  $X-Drums-2-2-Knob2;
+    y:                                  $Y-Drums;
+}
+
+// Decay
+KickEditor Bar#MedioKickPunchDecay
+{
+    x:                                  $X-Drums-2-2-Knob3;
+    y:                                  $Y-Drums;
+}
+
+// Amount
+KickEditor Bar#MedioKickPunchAmount
+{
+    x:                                  $X-Drums-2-2-Knob4;
+    y:                                  $Y-Drums;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// GRIT MODE
+//--------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+KickEditor[Mode=Grit] Bar#KickMode 
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_grit_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_grit_dyemask.png");
+}
+
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+KickEditor#m_pEditor[Mode=Grit] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-3-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+KickEditor#m_pEditor[Mode=Grit] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_aero.png");
+    x:                                  $X-Drums-SubheadlineB-3-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Mode Switch
+KickEditor Bar#MedioKickPunchMode
+{
+    x:                                  $DrumMidMode-X;
+    y:                                  $DrumMidMode-Y;
+    height:                             40;
+    width:                              88;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+KickEditor#m_pEditor[Mode=Grit] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-3-2;
+    y:                                  $Y-Drums-Separator;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// Bend
+KickEditor[Mode=Grit] Bar#KickBend
+{
+	x:			 						$X-Drums-3-2-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Impact
+KickEditor[Mode=Grit] Bar#KickImpact
+{
+	x:			 						$X-Drums-3-2-Knob2;
+    y:                                  $Y-Drums;
+}
+
+// Gate
+KickEditor[Mode=Grit] Bar#GritKickGate
+{
+    x:                                  $X-Drums-3-2-Knob3;
+    y:                                  $Y-Drums;
+}
+
+// Grind
+KickEditor Bar#GritKickAeroGrind
+{
+	x:			 						$X-Drums-3-2-Knob4;
+    y:                                  $Y-Drums;
+}
+
+// Amount
+KickEditor Bar#GritKickAeroAmount
+{
+	x:			 						$X-Drums-3-2-Knob5;
+    y:                                  $Y-Drums;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

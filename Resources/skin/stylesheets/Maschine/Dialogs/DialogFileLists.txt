@@ -1,0 +1,346 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// DIALOG FILE LISTS
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// MAIN BACKGROUND
+//----------------------------------------------------------------------------------------------------------------------
+
+TableWidget.OptionsTableWidget,
+DialogAudioExport Stack#m_layers Bar#m_master,
+DialogAudioExport Stack#m_layers Vector<Checkbox>#m_groups,
+DialogAudioExport Stack#m_layers Tree#m_soundOutput Vector<Bar>#m_pVector,
+DialogMPCImport Vector<Button>#m_pPadVector
+{
+    image:                              url("Maschine/Dialogs/SharedDialogTexture/DIALOG_BG_FileList.png");
+    picture-includes-margin:            true;
+    fixed-top:                          10;
+    fixed-bottom:                       10;
+    fixed-left:                         10;
+    fixed-right:                        10;
+    
+    margin-left:                        2;
+    margin-right:                       1;
+    margin-top:                         2;
+    margin-bottom:                      2;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// LIST COLUMN HEADER
+//----------------------------------------------------------------------------------------------------------------------
+
+// BACKGROUND
+//----------------------------------------------------------------------------------------------------------------------
+TableWidget.OptionsTableWidget::Bar#m_pHeader
+{
+    background-color:                   $colorDialogLightGrey;
+    image:                              url("Maschine/Dialogs/SharedDialogTexture/DIALOG_BG_FileListHeader.png");
+    picture-includes-margin:            true;
+    fixed-left:                         5;
+    fixed-right:                        5;
+
+    outer-margin-right:                 1;
+}
+
+
+
+// CORNER SPACER:
+TableWidget.OptionsTableWidget::Bar#m_pHeader Label#m_pCornerSpacer
+{
+    width:                              16;
+}
+
+
+
+// BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// COLUMN RESIZING BUTTON
+Button.ColumnSizeGrip
+{
+    image:                              url("Maschine/Dialogs/SharedDialogControls/DIALOG_BTN_FileListResizer.png");
+}
+
+
+// COLUMN TITLE BUTTON
+Button.ListHeader
+{
+    image:                              no;
+    foreground-color:                   $colorWhite80;
+    horizontal-alignment:               left;
+
+    margin-left:                        9;
+    min-width:                          10;
+}
+
+
+
+Button.ListHeader:over
+{
+    foreground-color:                   $colorWhite90;
+}
+
+
+Button.ListHeader:over:down
+{
+    foreground-color:                   $colorWhite;
+}
+
+
+// // COLUMN TITLE BUTTON MIN WIDTH
+// Button.ListHeader
+// {
+//     min-width:                          64;
+// }
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// LIST ITEMS
+//----------------------------------------------------------------------------------------------------------------------
+
+// MAIN CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+TableWidget.OptionsTableWidget Vector<Bar>#m_pRows::Bar#widgets,
+DialogAudioExport Stack#m_layers Vector<Bar>#m_pVector::Bar#widgets,
+DialogAudioExport Stack#m_layers Vector<Checkbox>#m_groups::Bar#widgets,
+DialogMPCImport Vector<Button>#m_pPadVector::Bar#widgets
+{
+    spacing:                            1;
+    background-color:                   $colorDialogBrowseListDarkBG;
+
+}
+
+
+
+// LIST ITEM CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+TableWidget.OptionsTableWidget Vector<Bar>#m_pRows::Bar#widgets::Bar,
+DialogAudioExport Stack#m_layers Vector<Bar>#m_pVector::Bar#widgets::Bar,
+DialogAudioExport Stack#m_layers Vector<Checkbox>#m_groups::Bar#widgets::Checkbox,
+DialogAudioExport Stack#m_layers Bar#m_master::Checkbox
+{
+    background-color:                   $colorDialogBrowseListItemBG;
+}
+
+
+
+
+
+
+
+// LIST ITEM BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// TEXT BUTTONS
+Bar.OptionsListItem Button#pColumn,
+Bar.OptionsListItem TextEdit#pEdit,
+Bar.OptionsListItem Label#pLabel
+{
+    image:                                  no;
+    background-color:                       no;
+    foreground-color:                       $colorWhite75;
+    horizontal-alignment:                   left;
+
+    margin-right:                           5;
+    margin-top:                             1;
+}
+
+
+// PREFERENCES LISTITEM BUTTON ALIGNMENT
+Bar.OptionsListItem Button#pColumn
+{
+    margin-left:                            4;
+}
+
+Bar.OptionsListItem TextEdit#pEdit,
+Bar.OptionsListItem Label#pLabel
+{
+    margin-left:                            9;
+    outer-margin-right:                     1;
+}
+
+
+Bar#pPathBar Bar.OptionsListItem Button#pColumn
+{
+    outer-margin-right:                     1;
+}
+
+
+
+// MPC IMPORT LISTITEM BUTTON ALIGNMENT & COLOR
+DialogMPCImport Vector<Button>#m_pPadVector::Bar#widgets::Button
+{
+    margin-left:                            5;
+    margin-right:                           5;
+    background-color:                       $colorDialogBrowseListItemBG;
+    image:                                  no;
+    foreground-color:                       $colorWhite75;
+    horizontal-alignment:                   left;
+}
+
+
+
+
+Bar.OptionsListItem Button#pColumn:selected,
+Bar.OptionsListItem TextEdit#pEdit:selected
+{
+    background-color:                       $colorWhite75;
+    foreground-color:                       $colorBlack80;                         
+}
+
+// SPECIAL DISABLED STATE FOR USER LIB NI CONTENT
+DialogPreferences Bar#m_pTabUserContentPaths TextEdit#pEdit[ReadOnly=true]:!selected
+{
+    foreground-color:                   $colorWhite35;
+}
+
+DialogPreferences Bar#m_pTabUserContentPaths TextEdit#pEdit[ReadOnly=true]:selected
+{
+    foreground-color:                   $colorBlack50;
+}
+
+// FOLDER BUTTON
+Bar.OptionsListItem Button#pButton
+{
+    image:                              url("Maschine/Dialogs/SharedDialogControls/DIALOG_BTN_FileListFolder.png");
+    animations:                         2;
+    animation-index:                    0;
+}
+
+Bar.OptionsListItem Button#pButton:selected
+{
+    animation-index:                    1;
+}
+
+Bar.OptionsListItem Button#pButton[Hidden=true]:!selected
+{
+    image:                              no;
+    width:                              23;	
+}
+
+Bar.OptionsListItem Button#pButton[Hidden=true]:selected
+{
+    image:                              no;
+    width:                              23;	
+    background-color:                   $colorWhite75;
+}
+
+
+// CHECKBOX (STANDALONE)
+Bar.OptionsListItem Button#pBox
+{
+    image:                              url("Maschine/Dialogs/SharedDialogControls/DIALOG_BTN_FileListCheck.png");
+    animations:                         4;
+    animation-index:                    0;
+    background-color:                   no;
+}
+
+
+
+
+Bar.OptionsListItem Button#pBox[checkstate=unchecked]          { animation-index: 0; }
+Bar.OptionsListItem Button#pBox[checkstate=checked]            { animation-index: 1; }
+Bar.OptionsListItem Button#pBox[checkstate=unchecked]:selected { animation-index: 2; }
+Bar.OptionsListItem Button#pBox[checkstate=checked]:selected   { animation-index: 3; }
+
+
+
+// DELETE LIST ITEM
+Bar.OptionsListItem Bar#pBar Button#pBox
+{
+    image:                              url("Maschine/Dialogs/SharedDialogControls/DIALOG_BTN_FileListDelete.png");
+    animations:                         7;
+    foreground-color:                   no;
+    animation-index:                    0;
+}
+
+
+Bar.OptionsListItem Bar#pBar Button#pBox:!selected
+{
+    animation-index:                    0;
+}
+
+
+Bar.OptionsListItem Bar#pBar Button#pBox:selected
+{
+    animation-index:                    1;
+}
+
+
+
+// Bar.OptionsListItem Bar#pBar Button#pBox[checkstate=unchecked]          { animation-index: 0; }
+// Bar.OptionsListItem Bar#pBar Button#pBox[checkstate=checked]            { animation-index: 1; }
+// Bar.OptionsListItem Bar#pBar Button#pBox[checkstate=unchecked]:selected { animation-index: 2; }
+// Bar.OptionsListItem Bar#pBar Button#pBox[checkstate=checked]:selected   { animation-index: 3; }
+
+
+
+
+// CHECKBOX AS LIST ITEM
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// TEXT BUTTON
+DialogAudioExport Stack#m_layers Checkbox Button#m_pText
+{
+    image:                              no;
+    background-color:                   no;
+    foreground-color:                   $colorWhite75;
+    horizontal-alignment:               left;
+
+    margin-right:                       5;
+    margin-top:                         1;
+    margin-left:                        5;
+}
+
+DialogAudioExport Stack#m_layers Checkbox Button#m_pText:!enabled
+{
+    foreground-color:                   $colorWhite20;
+}
+
+
+// CHECKBOX
+DialogAudioExport Stack#m_layers Checkbox Button#m_pBox
+{
+    image:                              url("Maschine/Dialogs/SharedDialogControls/DIALOG_Checkbox_ListItemExport.png");
+    animations:                         7;
+    foreground-color:                   no;
+}
+
+
+
+
+
+
+
+// EXPAND LIST
+//----------------------------------------------------------------------------------------------------------------------
+
+Button.TreeExpander
+{
+    image:                              url("Maschine/Dialogs/SharedDialogControls/DIALOG_BTN_ListExpand.png");
+    animations:                         2;
+}
+
+
+Button.TreeExpander:selected
+{
+    animation-index:                    1;
+}
+
+
+// SPACER FOR EXPANDED LISTITEMS
+Button.TreeSpacer
+{
+    width:                               10;
+    image:                               no;
+    background-color:                    no;
+}

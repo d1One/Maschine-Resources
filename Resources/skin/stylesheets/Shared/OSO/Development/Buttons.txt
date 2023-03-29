@@ -1,0 +1,60 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// BUTTONS
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// STANDARD BUTTON
+//----------------------------------------------------------------------------------------------------------------------
+
+Button
+{
+    image:                              url("Shared/Global/Button_18.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+    animation-index:                    0;
+    fixed-left:                         4;
+    fixed-right:                        4;
+    fixed-top:                          4;
+    fixed-bottom:                       4;
+    foreground-color:                   $colorWhite70;
+    background-color:                   no;
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    horizontal-alignment:               center;
+    vertical-alignment:                 center;
+    min-width:                          64;
+    min-height:                         18;
+}
+
+Button:selected
+{
+    animation-index:                    1;
+    foreground-color:                   $colorBlack;
+}
+
+Button:!selected:down
+{
+    animation-index:                    2;
+}
+
+Button:selected:down
+{
+    animation-index:                    3;
+    foreground-color:                   $colorWhite;
+}
+
+Button:over
+{
+    animation-index:                    4;
+}
+
+Button:over:selected
+{
+    animation-index:                    5;
+}
+
+Button:!enabled
+{
+    animation-index:                    6;
+    foreground-color:                   $colorWhite25;
+}

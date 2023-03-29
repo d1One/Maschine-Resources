@@ -1,0 +1,134 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// PHASER
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+PhaserEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png"); 
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-474;   
+}
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+PhaserEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_phaser.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+// SUBHEADLINE
+//--------------------------------------------------------------------------------------------------------
+
+PhaserEditor Bar#m_pSubHeadline1
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_subheadline_mod.png");
+    x:                                  144;
+    y:                                  $Y-FX-SubHeadline;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// MODE SELECTOR SWITCH
+//--------------------------------------------------------------------------------------------------------
+
+// SWITCH MOD SOURCE
+PhaserEditor Bar#ModSource
+{
+    x:                                  257;
+    y:                                  16;
+}
+
+//--------------------------------------------------------------------------------------------------------
+// CONTROLS
+//--------------------------------------------------------------------------------------------------------
+
+// TOP ROW
+//--------------------------------------------------------------------------------------------------------
+
+// CENTER (rename to Frenquency?)
+PhaserEditor Bar#FreqCenter
+{
+    x:                                  61;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// AMOUNT (MOD)
+PhaserEditor Bar#ModAmount
+{
+    x:                                  230;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// MIX
+PhaserEditor Bar#Mix
+{
+    x:                                  371;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+// BOTTOM ROW
+//--------------------------------------------------------------------------------------------------------
+
+// FEEDBACK
+PhaserEditor Bar#FeedbackAmount
+{
+    x:                                  24;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+// SWITCH 8POLE
+PhaserEditor Bar#8PoleEnabled
+{
+    x:                                  95;
+    y:                                  132;
+}
+
+
+// MOD SECTION
+
+// SPEED
+PhaserEditor Bar#ModSpeedLFO,
+// SHAPE
+PhaserEditor Bar#ModEnvShapeAmount
+{
+    x:                                  193;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+// STEREO
+PhaserEditor Bar#Stereo
+{
+    x:                                  267;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+PhaserEditor#m_pEditor Bar#m_pParamSeparator
+
+{
+    x:                                  171;
+    y:                                  0;
+}
+
+
+PhaserEditor#m_pEditor Bar#m_pSeparator1
+{
+    x:                                  342;
+    y:                                  0;
+}
+
+
+

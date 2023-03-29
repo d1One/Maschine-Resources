@@ -1,0 +1,108 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// FX METRICS
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//--------------------------------------------------------------------------------------------------------
+// MODULE SIZES
+//--------------------------------------------------------------------------------------------------------
+ 
+@define $X-FX-Module-158            158;
+@define $X-FX-Module-236            236;
+@define $X-FX-Module-316            316;
+@define $X-FX-Module-396            396;
+@define $X-FX-Module-474            474;
+@define $X-FX-Module-554            554;
+@define $X-FX-Module-633            633;
+
+//--------------------------------------------------------------------------------------------------------
+// HEADLINE POSITIONS
+//--------------------------------------------------------------------------------------------------------
+
+@define $X-FX-Headline				20;
+@define $Y-FX-Headline				11;
+
+@define $Y-FX-SubHeadline			19;
+
+//--------------------------------------------------------------------------------------------------------
+// KNOB POSITIONS
+//--------------------------------------------------------------------------------------------------------
+
+@define $Y-FX-BigKnob-Top			49;
+@define $Y-FX-BigKnob-Middle		73;
+@define $Y-FX-SmallKnob-Middle		80;
+@define $Y-FX-SmallKnob-Bottom		132;
+
+// 4 controls layout (Cabinet Emulation)
+@define $X-FX-4-Control1			42;
+@define $X-FX-4-Control2			141;
+@define $X-FX-4-Control3			240;
+@define $X-FX-4-Control4			368;
+
+// 3 controls layout narrow panel (Maximizer)
+@define $X-FX-3-Small-Control1		31;
+@define $X-FX-3-Small-Control2		121;
+@define $X-FX-3-Small-Control3		211;
+
+// 3 controls layout Large panel (Saturator)
+@define $X-FX-3-Large-Control1		57;
+@define $X-FX-3-Large-Control2		162;
+@define $X-FX-3-Large-Control3		267;
+
+// 5 controls layout (Gate)
+@define $X-FX-5-Control1			30;
+@define $X-FX-5-Control2			102;
+@define $X-FX-5-Control3			178;
+@define $X-FX-5-Control4			254;
+@define $X-FX-5-Control5			368;
+
+// 2:3 layout
+@define $X-FX-2-3-BigKnob1			78;
+@define $X-FX-2-3-BigKnob2			164;
+@define $X-FX-2-3-SmallKnob1		36;
+@define $X-FX-2-3-SmallKnob2		121;
+@define $X-FX-2-3-SmallKnob3		206;
+
+// 3:1 layout
+@define $X-FX-3-1-BigKnob1			31;
+@define $X-FX-3-1-BigKnob2			121;
+@define $X-FX-3-1-BigKnob3			211;
+@define $X-FX-3-1-SmallKnob1		121;
+
+// 3:2 layout
+@define $X-FX-3-2-BigKnob1			31;
+@define $X-FX-3-2-BigKnob2			121;
+@define $X-FX-3-2-BigKnob3			211;
+@define $X-FX-3-2-SmallKnob1		86;
+@define $X-FX-3-2-SmallKnob2		156;
+
+// 2:5 layout
+@define $X-FX-2-5-BigKnob1			89;
+@define $X-FX-2-5-BigKnob2			236;
+@define $X-FX-2-5-SmallKnob1		28;
+@define $X-FX-2-5-SmallKnob2		89;
+@define $X-FX-2-5-SmallKnob3		174;
+@define $X-FX-2-5-SmallKnob4		235;
+@define $X-FX-2-5-SmallKnob5		298;
+
+
+//--------------------------------------------------------------------------------------------------------
+// FADERS, METERS ... POSITIONS
+//--------------------------------------------------------------------------------------------------------
+
+// Fader
+@define $Y-FX-Fader                   41;
+@define $Y-FX-Fader-Label             172;
+
+//GR Meter
+@define $Y-FX-GRMeter                 50;
+
+// Meter
+@define $Y-FX-Meter					  42;
+
+//--------------------------------------------------------------------------------------------------------
+// SWITCHES POSITIONS
+//--------------------------------------------------------------------------------------------------------
+
+// BOOL SWITCH
+@define $Y-FX-Switch-Bottom         132;

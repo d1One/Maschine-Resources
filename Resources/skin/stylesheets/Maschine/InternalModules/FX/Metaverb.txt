@@ -1,0 +1,71 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// METAVERB
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+MetaverbEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png"); 
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-316;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+MetaverbEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_metaverb.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// POTIS
+//--------------------------------------------------------------------------------------------------------
+
+// TOP ROW
+//-----------------------------------------------------------------------------------------------------------
+
+// SIZE
+MetaverbEditor Bar#Size
+{
+    x:                                  $X-FX-2-3-BigKnob1;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// MIX
+MetaverbEditor Bar#Mix
+{
+    x:                                  $X-FX-2-3-BigKnob2;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+// BOTTOM
+//-----------------------------------------------------------------------------------------------------------
+
+// LOW
+MetaverbEditor Bar#Low
+{
+    x:                                  $X-FX-2-3-SmallKnob1;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// HIGH
+MetaverbEditor Bar#High
+{
+    x:                                  $X-FX-2-3-SmallKnob2;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// PAN
+MetaverbEditor Bar#Pan
+{
+    x:                                  $X-FX-2-3-SmallKnob3;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+

@@ -1,0 +1,574 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// GROUP PANEL
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Bar#m_pGroupPanel
+{
+    background-color:                   $colorBlack;
+    spacing:                            1;
+}
+
+// Vertical Line / Handle for Scaling GROUP PANEL
+Bar#m_pGroupPanel Splitter#pSplitter
+{
+    background-color:                   rgb(30,30,30);
+    width:                              1;
+}
+
+Bar#m_pGroupPanel Bar#pColumns
+{
+    background-color:                   $colorDarkBackgroundGrey;
+}
+
+// Splitter Between Sound Tabs and Modulation
+Bar#m_pGroupPanel Bar#m_pColumnsManager Splitter#m_pSplitterSoundModulators
+{
+    background-color:                           rgba(0,0,0,0);
+    height:                                     7;
+    outer-margin-top:                           -7;
+    outer-margin-bottom:                        0;
+    z-index:                                    1;
+}
+
+// TOP SHADOW OVERLAY
+Bar#m_pGroupPanel SongTimeline Label#m_pShadowOverlay
+{
+    image:                      no;
+}
+
+
+
+//======================================================================================================================
+//Sound Manager Header
+//======================================================================================================================
+
+//----------------------------------------------------------------------------------------------------------------------
+// SOUND MANGER HEADER BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pGroupPanel Bar#m_pColumnsManager Bar#pTitleManagers::Button,
+Bar#m_pGroupPanel Bar#m_pColumnsManager Bar#pTitleBottom::Button
+{
+    foreground-color:                   no;
+}
+
+
+
+// BANK MANAGER
+Bar#m_pGroupPanel Bar#m_pColumnsManager Bar#pTitleManagers Button#m_pPopupButton
+{
+    image:                              url("Maschine/Arranger/ARR_BTN_PopUp.png");
+    animations:                         7;
+    background-color-palette:           no;
+    background-color:                   no;
+
+    outer-margin-top:                   8;
+    outer-margin-right:                 8;
+    outer-margin-bottom:                5;
+}
+
+
+
+// BOTTOM BUTTON ROW
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#m_pGroupPanel Bar#m_pColumnsManager Bar#pTitleBottom
+{
+    height:                             18;
+    margin-top:                         0;
+    margin-left:                        4;
+    margin-bottom:                      4;
+    spacing:                            4;
+}
+
+
+
+// BUTTON PREHEAR
+Bar#m_pGroupPanel Bar#m_pColumnsManager Bar#pTitleManagers Button#m_pPrehear
+{
+    image:                              url("Maschine/GroupPanel/GP_BTN_Prehear.png");
+    animations:                         7;
+    outer-margin-left:                  2;
+    outer-margin-bottom:                1;
+
+}
+
+
+
+// BUTTON PAD MODE
+Bar#m_pGroupPanel Bar#m_pColumnsManager Bar#pTitleManagers Button#m_pListPadMode
+{
+    image:                              url("Maschine/GroupPanel/GP_BTN_PadMode.png");
+    animations:                         7;
+}
+
+
+
+Bar#m_pGroupPanel Bar#m_pColumnsManager Bar#pTitleManagers Button#m_pListPadMode:selected
+{
+    background-color:                   no;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// PAD MATRIX
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+Bar#m_pSoundManager Bar#m_pPadView
+{
+    background-color:                   $StandardBackgroundGrey;
+    spacing:                            3;
+}
+
+
+// MATRIX WIDGET
+//----------------------------------------------------------------------------------------------------------------------
+
+MatrixWidget.PadView
+{
+    background-color:                   no;
+    margin:                             1;
+    spacing:                            2;
+}
+
+
+// PIANOROLL INVISIBLE
+MatrixWidget.PadView[PianorollVisible=false]
+{
+    outer-margin-left:                  27;
+}
+
+
+// PIANOROLL VISIBLE
+MatrixWidget.PadView[PianorollVisible=true]
+{
+    outer-margin-left:                  18;
+}
+
+
+
+
+// PAD BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// BASIC STYLING
+Button.PadItem
+{
+    animation-index:                    0;
+
+    foreground-color:                   no;
+    background-color:                   no;
+    background-color-palette:           9;
+
+    outer-margin:                       no;
+}
+
+
+
+// IMAGES
+PadViewItem#pMatrixItem_0 Button#m_pButton   {image: url("Maschine/GroupPanel/GP_BTN_MTRX_Pad_01.png"); animations: 18;}
+PadViewItem#pMatrixItem_1 Button#m_pButton   {image: url("Maschine/GroupPanel/GP_BTN_MTRX_Pad_02.png"); animations: 18;}
+PadViewItem#pMatrixItem_2 Button#m_pButton   {image: url("Maschine/GroupPanel/GP_BTN_MTRX_Pad_03.png"); animations: 18;}
+PadViewItem#pMatrixItem_3 Button#m_pButton   {image: url("Maschine/GroupPanel/GP_BTN_MTRX_Pad_04.png"); animations: 18;}
+PadViewItem#pMatrixItem_4 Button#m_pButton   {image: url("Maschine/GroupPanel/GP_BTN_MTRX_Pad_05.png"); animations: 18;}
+PadViewItem#pMatrixItem_5 Button#m_pButton   {image: url("Maschine/GroupPanel/GP_BTN_MTRX_Pad_06.png"); animations: 18;}
+PadViewItem#pMatrixItem_6 Button#m_pButton   {image: url("Maschine/GroupPanel/GP_BTN_MTRX_Pad_07.png"); animations: 18;}
+PadViewItem#pMatrixItem_7 Button#m_pButton   {image: url("Maschine/GroupPanel/GP_BTN_MTRX_Pad_08.png"); animations: 18;}
+PadViewItem#pMatrixItem_8 Button#m_pButton   {image: url("Maschine/GroupPanel/GP_BTN_MTRX_Pad_09.png"); animations: 18;}
+PadViewItem#pMatrixItem_9 Button#m_pButton   {image: url("Maschine/GroupPanel/GP_BTN_MTRX_Pad_10.png"); animations: 18;}
+PadViewItem#pMatrixItem_10 Button#m_pButton  {image: url("Maschine/GroupPanel/GP_BTN_MTRX_Pad_11.png"); animations: 18;}
+PadViewItem#pMatrixItem_11 Button#m_pButton  {image: url("Maschine/GroupPanel/GP_BTN_MTRX_Pad_12.png"); animations: 18;}
+PadViewItem#pMatrixItem_12 Button#m_pButton  {image: url("Maschine/GroupPanel/GP_BTN_MTRX_Pad_13.png"); animations: 18;}
+PadViewItem#pMatrixItem_13 Button#m_pButton  {image: url("Maschine/GroupPanel/GP_BTN_MTRX_Pad_14.png"); animations: 18;}
+PadViewItem#pMatrixItem_14 Button#m_pButton  {image: url("Maschine/GroupPanel/GP_BTN_MTRX_Pad_15.png"); animations: 18;}
+PadViewItem#pMatrixItem_15 Button#m_pButton  {image: url("Maschine/GroupPanel/GP_BTN_MTRX_Pad_16.png"); animations: 18;}
+
+
+
+
+
+// STATES
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// FOCUS
+Button.PadItem[HasFocus=true]:selected
+{
+    background-color-palette:           1;
+    animation-index:                    2;
+}
+
+// SELECTED
+Button.PadItem:selected
+{
+    background-color-palette:           9;
+    animation-index:                    1;
+}
+
+// MUTE
+Button.PadItem[mute=true]
+{
+    background-color-palette:           4;
+    animation-index:                    6;
+}
+
+// MUTE FOCUS
+Button.PadItem[mute=true][HasFocus=true]:selected
+{
+    background-color-palette:           4;
+    animation-index:                    8;
+}
+
+// MUTE SELECTED
+Button.PadItem[mute=true]:selected
+{
+    background-color-palette:           4;
+    animation-index:                    7;
+}
+
+// EMPTY
+Button.PadItem[empty=true]
+{
+    background-color-palette:           no;
+    animation-index:                    12;
+}
+
+
+// EMPTY SELECTED
+Button.PadItem[empty=true]:selected
+{
+    background-color-palette:           no;
+    animation-index:                    13;
+}
+
+
+// EMPTY FOCUS
+Button.PadItem[empty=true][HasFocus=true]:selected
+{
+    background-color-palette:           no;
+    animation-index:                    14;
+}
+
+
+
+// EMPTY MUTE
+Button.PadItem[empty=true][mute=true]
+{
+    background-color-palette:           no;
+    animation-index:                    15;
+}
+
+
+
+// EMPTY MUTE SELECTED
+Button.PadItem[empty=true][mute=true]:selected
+{
+    background-color-palette:           no;
+    animation-index:                    16;
+}
+
+
+
+// EMPTY MUTE FOCUS
+Button.PadItem[empty=true][mute=true]:selected
+{
+    background-color-palette:           no;
+    animation-index:                    17;
+}
+
+
+
+// Button.PadItem[HasMissingSamples=true]
+// {
+    // foreground-color:       $colorRed;
+// }
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// KEY ADJUSTMENT AREA
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+
+// OUTER CONTAINER
+Bar#m_pSoundManager Bar#m_pPadView Bar#m_pLowerAreaBar[PianorollVisible=true]
+{
+    outer-margin-left:                  8;
+}
+
+
+
+Bar#m_pSoundManager Bar#m_pPadView Bar#m_pLowerAreaBar[PianorollVisible=false]
+{
+    outer-margin-left:                  17;
+    outer-margin-top:                    8;
+}
+
+
+// ROW
+Bar#m_pSoundManager Bar#m_pPadView Bar#m_pLowerAreaBar Bar
+{
+    spacing:                            3;
+    height:                             16;
+}
+
+
+
+// Labels
+Bar#m_pSoundManager Bar#m_pPadView Bar#m_pLowerAreaBar Label
+{
+    width:                              40;
+    foreground-color:                   $colorWhite50;
+
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+}
+
+// Buttons
+Bar#m_pSoundManager Bar#m_pPadView Bar#m_pLowerAreaBar Bar#pChokeRow Button#m_pChokeGroup,
+Bar#m_pSoundManager Bar#m_pPadView Bar#m_pLowerAreaBar Bar#pChokeRow Button#m_pChokeMode,
+Bar#m_pSoundManager Bar#m_pPadView Bar#m_pLowerAreaBar Bar#pLinkRow Button#m_pLinkGroup,
+Bar#m_pSoundManager Bar#m_pPadView Bar#m_pLowerAreaBar Bar#pLinkRow Button#m_pLinkMode
+{
+    image:                              no;
+    foreground-color:                   $colorWhite80;
+
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    horizontal-alignment:               left;
+
+    width:                              45;
+}
+
+Bar#m_pSoundManager Bar#m_pPadView Bar#m_pLowerAreaBar Button#m_pLinkMode,
+Bar#m_pSoundManager Bar#m_pPadView Bar#m_pLowerAreaBar Button#m_pChokeMode
+{
+    width:                              64;
+}
+
+
+Bar#m_pSoundManager Bar#m_pPadView Bar#m_pLowerAreaBar DraggerableValueEdit
+{
+    horizontal-alignment:               center;
+    width:                              40;
+}
+
+Bar#m_pSoundManager Bar#m_pPadView Bar#m_pLowerAreaBar Dragger
+{
+    image:                              no;
+    foreground-color:                   $colorWhite80;
+
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+
+    horizontal-alignment:               left;
+    width:                              40;
+
+    margin-left:                        0;
+    margin-right:                       0;
+}
+
+// Popups
+
+Bar#m_pLowerAreaBar PopupMenu Button
+{
+    foreground-color:                   $colorBlack;
+}
+
+
+
+
+//**********************************************************************************************************************
+// MODULATION PANEL
+//**********************************************************************************************************************/
+
+
+// Modulation Container
+Bar#m_pModBarScaleBar
+{
+    background-color:                   rgb(79,79,79);
+    picture-includes-margin:            true;
+    outer-margin-top:                   1;
+    margin-left:                        3;
+}
+
+
+// Left Element in Modulation, Contains Vel/MIDI, Modulations toggle and parameter list
+Bar#m_pModBarScaleBar Bar#m_pMidiAutomationManager Vector<Bar>#m_pMidiAutomationVector::Bar#widgets,
+Bar#m_pModBarScaleBar Bar#m_pModulatorManager Vector<Bar>#m_pModulatorVector::Bar#widgets
+{
+    margin-top:                         4;
+    spacing:                            1;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// PARAMETER LIST
+//----------------------------------------------------------------------------------------------------------------------
+
+// LIST ITEM CONTAINER
+Bar#m_pModBarScaleBar Bar#m_pMidiAutomationManager Vector<Bar>#m_pMidiAutomationVector::Bar#widgets::Bar,
+Bar#m_pModBarScaleBar Bar#m_pModulatorManager Vector<Bar>#m_pModulatorVector::Bar#widgets::Bar
+{
+    background-color:                   no;
+    height:                             18;
+}
+
+Bar#m_pModBarScaleBar Bar#m_pMidiAutomationManager Vector<Bar>#m_pMidiAutomationVector::Bar#widgets::Bar Bar,
+Bar#m_pModBarScaleBar Bar#m_pModulatorManager Vector<Bar>#m_pModulatorVector::Bar#widgets::Bar Bar
+{
+    background-color:                   no;
+    height:                             18;
+}
+
+// PARAMETER LIST ITEM BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// NAME
+Bar#m_pModBarScaleBar Vector Button#m_pName
+{
+    foreground-color:                   $colorWhite60;
+    vertical-alignment:                 center;
+    height:                             18;
+    margin-left:                        7;
+    margin-top:                         1;
+}
+
+Bar#m_pModBarScaleBar Vector Button#m_pName:selected
+{
+    foreground-color:                   $colorWhite;
+    background-color:                   $colorWhite20;
+}
+
+
+
+Bar#m_pModBarScaleBar Vector Button#m_pName[HasOver=true]
+{
+    background-color:                   no;
+    foreground-color:                   $colorWhite90;
+}
+
+
+
+// DELETE
+Bar#m_pModBarScaleBar Vector Button#m_pDeleter[HasOver=true]
+{
+    image:                              url("Maschine/GroupPanel/GP_BTN_ModListDelete.png");
+    animations:                         7;
+    foreground-color:                   no;
+    background-color:                   no;
+}
+
+
+
+Bar#m_pModBarScaleBar Vector Button#m_pDeleter[HasOver=true]:selected
+{
+    background-color:                   $colorWhite20;
+}
+
+
+
+Bar#m_pModBarScaleBar Vector Button#m_pDeleter[HasOver=false]
+{
+    image:                              url("Maschine/GroupPanel/GP_BTN_ModListDelete.png");
+    animations:                         7;
+    foreground-color:                   no;
+    background-color:                   no;
+    animation-index:                    6;
+}
+
+
+Bar#m_pModBarScaleBar Vector Button#m_pDeleter[HasOver=false]:selected
+{
+
+    background-color:                   $colorWhite20;
+}
+
+
+// ADD BUTTON
+Bar#m_pModBarScaleBar Vector Button#pAddButton
+{
+    image:                              url("Maschine/SharedButtons/SHARED_BTN_Plus.png");
+    animations:                         7;
+    foreground-color:                   no;
+    fixed-left:                         15;
+    fixed-right:                        2;
+}
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Scrollbar
+//----------------------------------------------------------------------------------------------------------------------
+
+// TO DO: maybe integrate in to "MainViewVertical" or own style
+
+Bar#m_pModBarScaleBar Vector<Bar>#m_pMidiAutomationVector::Scrollbar,
+Bar#m_pModBarScaleBar Vector<Bar>#m_pModulatorVector::Scrollbar
+{
+    background-color:                   no;
+    margin-left:                        6;
+    margin-top:                         4;
+    margin-bottom:                      4;
+    outer-margin-left:                  no;
+}
+
+Bar#m_pModBarScaleBar Vector<Bar>#m_pMidiAutomationVector::Scrollbar Slider,
+Bar#m_pModBarScaleBar Vector<Bar>#m_pModulatorVector::Scrollbar Slider
+{
+    image:                              no;
+    background-color:                   no;
+    margin:                             no;
+}
+
+Bar#m_pModBarScaleBar Vector<Bar>#m_pMidiAutomationVector::Scrollbar Grip,
+Bar#m_pModBarScaleBar Vector<Bar>#m_pModulatorVector::Scrollbar Grip
+{
+    image:                              url("Maschine/GroupPanel/GP_HNDL_ScrollbarGrip.png");
+    fixed-top:                          4;
+    fixed-bottom:                       4;
+    margin:                             no;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// MODULATION VALUE AREA
+//----------------------------------------------------------------------------------------------------------------------
+
+
+Bar#m_pModBarScaleBar Bar#pScaleBarContainer
+{
+
+    margin-left:                        7;
+    margin-right:                       4;
+    margin-top:                         2;
+    margin-bottom:                      2;
+
+
+}
+
+Bar#m_pModBarScaleBar ModulationScaleBar#pScaleBar
+{
+    width:                              50;
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    foreground-color:                   rgba(255,255,255,80);
+
+    horizontal-alignment:               right;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,65 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// MAXIMIZER
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+MaximizerEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png"); 
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-316;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+MaximizerEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_maximizer.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// CONTROLS
+//--------------------------------------------------------------------------------------------------------
+
+
+// TOP ROW
+//--------------------------------------------------------------------------------------------------------
+
+// CURVE
+MaximizerEditor Bar#Curve
+{
+    x:                                  $X-FX-3-Small-Control1;
+    y:                                  $Y-FX-SmallKnob-Middle;
+}
+
+// CURVE NAME LABEL POSITION CORRECTION
+MaximizerEditor Bar#Curve Stack#m_pNameStack
+{
+    outer-margin-top:                   6;    
+}
+
+// AMOUNT
+MaximizerEditor Bar#Amount
+{
+    x:                                  $X-FX-3-Small-Control2;
+    y:                                  $Y-FX-BigKnob-Middle;
+}
+
+// TURBO SWITCH
+MaximizerEditor Bar#Turbo
+{
+    x:                                  $X-FX-3-Small-Control3;
+    y:                                  $Y-FX-SmallKnob-Middle;
+}
+
+// TURBO SWITCH LABEL POSITION CORRECTION
+MaximizerEditor Bar#Turbo Stack#m_pNameStack
+{
+    outer-margin-top:                   6;
+}

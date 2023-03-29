@@ -1,0 +1,454 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SAMPLING PAGES
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@define $samplingBackgroundColor    rgb(16,16,16);
+
+Bar#ZoneBarLeft
+{
+    background-color:               $colorGrey;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// INFO BAR
+//----------------------------------------------------------------------------------------------------------------------
+
+// Special Case of the Edit Stretch Settings Page
+Bar#SamplingPageStudioScreenRight Bar.ParamBar Bar.GroupNames
+{
+    height:                         26;
+    background-color:               no;
+}
+
+// InfoBar
+Bar#SamplingPageStudioScreenRight::Bar#LabelBar
+{
+    image:                          no;
+    margin-top:                     1;
+    outer-margin-top:               1;
+
+    width:                          480;
+    height:                         24;
+
+    background-color:               $infoBarColor;
+}
+
+
+Bar#SamplingPageStudioScreenLeft Stack#SamplingStackLeft,
+Bar#SamplingPageStudioScreenLeft Stack#SamplingStackRight
+{
+    background-color:               $colorStandardBGColor;
+
+    height:                         144;
+    width:                          480;
+    outer-margin-top:               0;
+}
+
+
+//Background left screen
+Bar#SamplingPageStudioScreenLeft Bar.StudioDisplay
+{
+    image:                          no;
+    background-color:               no;
+    height:                         144;
+    width:                          480;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// RECORD PAGE
+//----------------------------------------------------------------------------------------------------------------------
+
+// Left Page
+Bar#SamplingPageStudioScreenLeft Bar#StudioDisplayBar
+{
+    height:                         144;
+    outer-margin-top:               1;
+}
+
+
+Bar#SamplingPageStudioScreenRight Bar#StudioDisplayBar
+{
+    width:                          480;
+    background-color:               $colorStandardBGColor;
+    outer-margin-left:              0;
+    outer-margin-top:               1;
+}
+
+//
+// LEFT PAGE : Master Level Meter
+//
+
+// Container
+MasterLevelMeter
+{
+    width:                          480;
+    height:                         58;
+
+    outer-margin-top:               15;
+    outer-margin-left:              0;
+
+    margin-left:                    2;
+}
+
+// Channel (common)
+MasterLevelMeter Bar
+{
+    background-color:               no;
+    image:                          url("Maschine/HW/Studio/SamplingPages/sp_bg_channel.png");
+    margin-left:                    5;
+}
+
+// Left Channel
+MasterLevelMeter Bar#pChannelLeft
+{
+    outer-margin-top:               15;
+}
+
+// Right Channel
+MasterLevelMeter Bar#pChannelRight
+{
+    outer-margin-top:               8;
+}
+
+// Meter
+MasterLevelMeter LevelMeter.Channel
+{
+    image:                          url("Maschine/HW/Studio/SamplingPages/sp_overlay_level.png");
+
+    animations:                     2;
+    animation-index:                0;
+}
+
+MasterLevelMeter LevelMeter.Volume  // 1 pixel line between channels ???? was ist das
+{
+    foreground-color:               $colorWhite;
+    margin-left:                    2;
+    margin-right:                   5;
+    height:                         1;
+}
+
+// Clip indicators
+MasterLevelMeter Label
+{
+    background-color:               no;
+
+    width:                          6;
+    height:                         6;
+
+    outer-margin-top:               2;
+    outer-margin-left:              2;
+}
+
+MasterLevelMeter Label:selected
+{
+    background-color:               $colorRed;
+}
+
+
+// Threshold Container
+MasterLevelMeter::Slider#m_pVolumeSlider
+{
+    background-color:               no;
+
+    width:                          467;
+    height:                         58;
+
+    margin-right:                   5;
+    margin-top:                     6;
+    margin-left:                    1;
+    thumb-outer-margin:             1;
+}
+
+
+// Threshold Grip
+MasterLevelMeter::Slider#m_pVolumeSlider::Grip
+{
+    image:                          url("Maschine/HW/Studio/SamplingPages/sp_grip.png");
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// TAKE LIST
+//----------------------------------------------------------------------------------------------------------------------
+
+// TAKE LIST CONTAINER
+HWRecordingHistory Bar#widgets
+{
+    height:                         63;
+
+    margin-top:                     13;
+    margin-left:                    8;
+
+    spacing:                        8;
+}
+
+
+// RECORDING ITEM BACKGROUND
+RecordingItem
+{
+    image:                          url("Maschine/HW/Studio/SamplingPages/sp_frame_recordingItem.png");
+    animations:                     4;
+
+    picture-includes-margin:        true;
+
+    margin:                         2;
+}
+
+RecordingItem[HasMissingSamples=false][isFocused=false]
+{
+    animation-index:                    0;
+}
+
+RecordingItem[HasMissingSamples=false][isFocused=true]
+{
+    animation-index:                    1;
+}
+
+RecordingItem[HasMissingSamples=true][isFocused=false]
+{
+    animation-index:                    2;
+}
+
+RecordingItem[HasMissingSamples=true][isFocused=true]
+{
+    animation-index:                    3;
+    background-color-palette:           1;
+}
+
+
+
+// WAVEFORM PREVIEW
+WaveDisplayWidget
+{
+    background-color:               $colorStandardBGColor;
+    waveform-color:                 rgb(89,89,89);
+
+    channel-separator-color:        no;
+    decibel-line-color:             rgb(56,56,56);
+    play-cursor-color:              rgba(255,255,255,198);
+    waveform-color-palette:         1;
+}
+
+RecordingItem[isFocused=false] WaveDisplayWidget
+{
+    waveform-color-palette:         no;
+}
+
+RecordingItem[isFocused=true]
+{
+    animation-index:                1; // White frame
+}
+
+
+
+// ZoneEditor
+//----------------------------------------------------------------------------------------------------------------------
+
+// Zone Editor Container
+Bar#m_pGridAndKeyboardBar
+{
+    background-color:               $colorBlack;
+    spacing:                        1;
+}
+
+
+ZoneWidget
+{
+    zone-background-color-palette:  						2;
+    zone-background-alpha:          						50;
+    zone-border-color:              						rgba(255, 255,255,90);
+
+    zone-selection-background-color-palette:    2;
+    zone-selection-background-alpha:            90;
+    zone-selection-border-color:                rgba(255,255,255,255);
+
+    zone-focus-background-color-palette:        2;
+    zone-focus-background-alpha:                150;
+    zone-focus-border-color:                    rgba(255,255,255,255);
+
+    zone-text-padding:                          5;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+ZoneEditorGridWidget
+{
+    zone-grid-lines-color:                      rgb(38,38,38);
+    zone-grid-octave-lines-color:               $colorBlack;
+    zone-grid-selection-fill-color:             rgba(112, 112, 112, 64);
+    zone-grid-selection-border-color:           rgba(200, 200, 200, 255);
+
+    zone-grid-background-whitekey-color:        rgb(53,53,53);
+    zone-grid-background-blackkey-color:        rgb(47,47,47);
+
+    zone-label-color:                           rgb(255, 255, 255);
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+ZoneEditorKeyboard
+{
+    zone-keyboard-lines:                        rgb(28,28,28);
+    zone-keyboard-whitekeys-color:              rgb(134,134,134);
+    zone-keyboard-blackkeys-color:              rgb(28,28,28);
+
+    zone-keyboard-rootkey-color-palette:        1;
+    zone-keyboard-rootkey-alpha:                255;
+
+    zone-keyboard-focused-rootkey-color-palette:2;
+    zone-keyboard-focused-rootkey-alpha:        255;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Wave Display
+//----------------------------------------------------------------------------------------------------------------------
+
+MarkerWaveDisplay
+{
+    // Background Colors
+    background-color:                           $colorStandardBGColor;
+    playrange-background-color:                 $colorStandardBGColor;
+    selection-background-color:                 rgb(16,16,16);
+
+    // Waveform Colors
+    waveform-color:                             rgb(34,34,34); // Waveform out of playrange
+    playrange-waveform-color-palette:           2;
+    selection-waveform-color-palette:           2;
+
+    channel-separator-color:                    no;
+    decibel-line-color:                         rgb(56,56,56);
+    play-cursor-color:                          rgba(255,255,255,198);
+    selection-line-color:                       rgb(100, 100, 100);  // what is that ?
+
+    // Playrange Marker
+    marker-width:                               3;
+    marker-color:                               rgb(255,255,255);
+    marker-contrast-color:                      $colorStandardBGColor;
+    marker-text-color:                          no;
+    start-marker-image:                         url("Maschine/SamplingPages/start_marker.png");
+    end-marker-image:                           url("Maschine/SamplingPages/end_marker.png");
+    start-marker-image-offset:                  1;
+    end-marker-image-offset:                    -14;
+
+    shade-color:                                rgb(255,0,0);
+
+    // Loop
+    marker-loop-color:                          $colorWhite;
+    loop-marker-image:                          url("Shared/InternalModules/SharedControls/sampler_loop_frame.png");
+    loop-marker-image-fixed-left:               24;
+    loop-marker-image-fixed-right:              5;
+    loop-marker-image-fixed-top:                24;
+    loop-marker-image-fixed-bottom:             24;
+
+    // Selection
+    // stuff below is useless, selection skinning is done with selection-background-color and selection-waveform-color
+    selection-marker-image:                     url("Maschine/SamplingPages/sampling_pg_selection_overlay.png");
+    selection-marker-image-fixed-left:          1;
+    selection-marker-image-fixed-right:         1;
+    selection-marker-image-fixed-top:           1;
+    selection-marker-image-fixed-bottom:        1;
+
+
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// SlicingWaveDisplay
+//----------------------------------------------------------------------------------------------------------------------
+
+SlicingWaveDisplay
+{
+    // Background Colors
+    background-color:                           $colorStandardBGColor;    // waveform segment not included in a slice
+    active-slice-background-color:              $colorStandardBGColor;
+    focus-slice-background-color:    	        	rgb(41,41,41);              // when you hover a slice
+
+    // Waveform Colors
+    waveform-color:                             rgb(89,89,89);    // waveform segments not included in a slice
+    active-slice-waveform-color-palette:        2;                // standard slice waveform color
+    focus-slice-waveform-color-palette:	        2;                // hover slice waveform color
+
+
+    channel-separator-color:                    rgba(40,100,224,0);
+    decibel-line-color:                         rgb(30,30,30);
+    play-cursor-color:                          $colorWhite;
+
+
+    slice-marker-grab-area:                     4;
+    slice-marker-color:                         $colorWhite20;
+    slice-marker-changed-color:                 $colorWhite60;
+
+    focus-slice-start-marker-color:             $colorWhite;
+    focus-slice-end-marker-color:               $colorWhite;
+
+    focus-slice-start-marker-changed-color:     $colorWhite;
+    focus-slice-end-marker-changed-color:       $colorWhite;
+
+    focus-slice-start-marker-image:             url("Maschine/SamplingPages/start_marker.png");
+    focus-slice-end-marker-image:               url("Maschine/SamplingPages/end_marker.png");
+
+    cursor-erase-slice:                         url("Maschine/Cursor/CURSOR_Erase.png");
+    cursor-merge-slices:                        url("Maschine/Cursor/CURSOR_SliceMerge.png");
+
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Overview Frame
+//----------------------------------------------------------------------------------------------------------------------
+
+// Highlight Frame
+MarkerWaveDisplay Label#m_pOverviewHighlight
+{
+    image:                          url("Shared/HW/Studio/Standard/std_frame_overviewHighlight.png");
+    fixed-top:                      4;
+    fixed-bottom:                   4;
+    fixed-left:                     4;
+    fixed-right:                    4;
+
+    margin-bottom:                  0;
+}
+
+
+// Mask Left / Right
+MarkerWaveDisplay Label#m_pOverviewMaskLeft
+{
+    image:                          no;
+    animations:                     2;
+    animation-index:                0;
+
+    fixed-top:                      4;
+    fixed-bottom:                   4;
+    fixed-left:                     4;
+    fixed-right:                    4;
+    min-width:                      0;
+}
+
+
+MarkerWaveDisplay Label#m_pOverviewMaskRight
+{
+    image:                          no;
+    animations:                     2;
+    animation-index:                1;
+
+    fixed-top:                      4;
+    fixed-bottom:                   4;
+    fixed-left:                     4;
+    fixed-right:                    4;
+    min-width:                      0;
+}

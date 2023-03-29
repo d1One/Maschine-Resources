@@ -1,0 +1,367 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Label
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+Label, // move to the end as default?
+MultilineTextEditContentArea
+{
+    foreground-color:               $colorWhite;
+    font-name:                      $fontNormalName;
+    font-size:                      $fontSize;
+    horizontal-alignment:           center;
+    // width:                       62;  -- kills setFlex()
+}
+
+
+Label:!enabled,
+MultilineTextEditContentArea:!enabled
+{
+    foreground-color:               $colorGrey;
+}
+
+//TODO: remove Scrollbar from Code.
+MultilineTextEdit Scrollbar
+{
+	   width:                         1;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.BusyLabel
+{
+    font-name:                      $fontPragmatica;
+    foreground-color:               $colorWhite;
+    background-color:               $StandardBackgroundGrey;
+    font-size:                      26;
+    margin-left:                    8;
+    margin-right:                   8;
+    width:                          $halfWidth;
+    height:                         $defaultHeight;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.InfoLabelBig
+{
+    font-name:                      $fontStandard;
+    font-size:                      8;
+    margin-left:                    8;
+    margin-right:                   8;
+    width:                          127;
+    height:                         11;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.InfoLabelMedium
+{
+    font-name:                      $fontStandard;
+    font-size:                      8;
+    margin-left:                    8;
+    margin-right:                   8;
+    width:                          63;
+    height:                         11;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.SampleEditLabel
+{
+    font-name:                      $fontStandard;
+    font-size:                      8;
+    horizontal-alignment:           left;
+    margin-right:                   8;
+    margin-left:                    8;
+    width:                          127;
+    height:                         11;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.DoubleGrid
+{
+    width:                          124;
+    horizontal-alignment:           left;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.HalfPage
+{
+    width:                          255;
+    horizontal-alignment:           left;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.VectorItem
+{
+    font-name:                      $fontStandard;
+    font-size:                      8;
+    margin:                         1;
+    margin-left:                    8;
+    margin-right:                   8;
+    width:                          255;
+    height:                         9;
+
+    horizontal-alignment:           left;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.VectorItem:selected
+{
+    foreground-color:               $colorWhite;
+    background-color:               $colorBlack;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.LineX
+{
+    image:                          url("Shared/HW/MA2HW_Line.png");
+    animations:                     1;
+    animation-index:                0;
+
+    width:                          255;
+    height:                         1;
+    margin:                         0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.LineY
+{
+    image:                          url("Shared/HW/MA2HW_LineVertical.png");
+    animations:                     1;
+    animation-index:                0;
+
+    width:                          1;
+    height:                         18;
+    margin:                         0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.BlackLine
+{
+    background-color:               $colorBlack;
+    width:                          255;
+    height:                         1;
+    margin:                         0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.Spacer3px
+{
+    background-color:               $colorWhite;
+    width:                          255;
+    height:                         3;
+    margin:                         0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.Spacer6px
+{
+    background-color:               $colorWhite;
+    width:                          255;
+    height:                         6;
+    margin:                         0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.Spacer9px
+{
+    background-color:               $colorWhite;
+    width:                          255;
+    height:                         9;
+    margin:                         0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.StyleTitle
+{
+    background-color:               $colorTitleBackground;
+    foreground-color:               $colorTitleForeground;
+    horizontal-alignment:           left;
+    margin:                         2;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.StyleTitle#m_pTitle
+{
+    background-color:               $colorTitleBackground;
+    foreground-color:               $colorWhite;
+    horizontal-alignment:           left;
+    margin:                         2;
+
+    width:                          255;
+    height:                         12;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+
+Label.ListItem
+{
+    height:                         21;
+
+    foreground-color:               $colorWhite;
+    font-name:                      $fontPragmatica;
+    font-size:                      14;
+
+    horizontal-alignment:           right;
+
+    margin-left:                    9;
+    margin-right:                   5;
+
+    width:                          231;
+
+    image:                          url("Shared/HW/Studio/Standard/std_bg_listItem.png");
+    picture-includes-margin:        true;
+    fixed-left:                     4;
+    fixed-right:                    4;
+    animations:                     2;
+    animation-index:                0;
+}
+
+ResultListItemWidget Label#m_pTextLabel
+{
+    height:                         21;
+
+    foreground-color:               $colorWhite;
+    font-name:                      $fontPragmatica;
+    font-size:                      14;
+
+    horizontal-alignment:           right;
+
+    margin-left:                    9;
+    margin-right:                   5;
+}
+
+ResultListItemWidget Label#m_pTextLabel:selected,
+Label.ListItem:selected
+{
+    animation-index:                1;
+    foreground-color:               $colorBlack;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Demo Full Sreen Labels
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.DemoFullScreen
+{
+    width:                          $defaultWidth;
+    height:                         $defaultHeight;
+    margin-left:                    0;
+    margin-right:                   0;
+    margin-top:                     0;
+    margin-bottom:                  0;
+
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// PAD PAGES / DISPLAY BAR
+//----------------------------------------------------------------------------------------------------------------------
+
+MultilineTextEdit.PadLabel
+{
+    horizontal-alignment:           left;
+    vertical-alignment:             top;
+}
+
+// regular
+Label.GroupNameShort:!selected,
+MultilineTextEditContentArea.GroupNameLong:!selected,
+Label.GridSoundID:!selected,
+MultilineTextEditContentArea.PadLabel:!selected
+{
+    foreground-color-palette:       1;
+}
+
+// selected
+Label.GroupNameShort:selected,
+MultilineTextEditContentArea.GroupNameLong:selected,
+Label.GridSoundID:selected,
+MultilineTextEditContentArea.PadLabel:selected
+{
+    foreground-color-palette:       1;
+}
+
+// focused
+Bar.GroupBar Label.GroupNameShort[isFocused=true]:enabled,
+Bar.GroupBar MultilineTextEditContentArea.GroupNameLong[isFocused=true]:enabled,
+Bar.GridPad Label.GridSoundID[isFocused=true]:enabled,
+Bar.GridPad MultilineTextEditContentArea.PadLabel[isFocused=true]:enabled
+{
+    foreground-color-palette:       no;
+    foreground-color:               $colorBlack;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// FILE PAGE - Recents List
+//----------------------------------------------------------------------------------------------------------------------
+
+// Recents file list
+Bar#FilePageMK3ScreenRight Vector<Label>#ResultList
+{
+  width:                            240;
+  height:                           233;
+	outer-margin-left:                0;
+	margin-top:                       3;
+	margin-bottom:                    12;
+	margin-left:                      1;
+	spacing:                          0;
+	outer-margin-top:                 5;
+}
+
+Bar#FilePageMK3ScreenRight Vector<Label>#ResultList Bar#widgets
+{
+    width:                          231;
+    height:                         213;
+    spacing:                        0;
+    margin-right:                   0;
+    margin-bottom:                  0;
+}
+
+Label.RecentFileListItem
+{
+    horizontal-alignment:           right;
+    font-name:                      $fontPragmatica;
+    font-size:                      14;
+
+    image:                          url("Shared/HW/Studio/Standard/std_bg_listItem.png");
+    picture-includes-margin:        true;
+    animations:                     2;
+    animation-index:                0;
+
+    height:                         21;
+
+    fixed-left:                     4;
+    fixed-right:                    4;
+
+    margin-left:                    4;
+    margin-right:                   5;
+    outer-margin-top:               0;
+    outer-margin-bottom:            5;
+}
+
+Label.RecentFileListItem[HasFocus=true],
+Label.RecentFileListItem:selected
+{
+    animation-index:                1;
+    foreground-color:               $colorBlack;
+}

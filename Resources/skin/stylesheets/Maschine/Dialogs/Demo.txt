@@ -1,0 +1,130 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Demo Dialog
+//----------------------------------------------------------------------------------------------------------------------
+
+DialogDemo
+{
+    width:                              520;
+    height:                             350;
+}
+
+DialogDemo[mode=startup] Bar#pMainBar
+{
+    image:                              url("Maschine/Dialogs/Demo/BackgroundStartup.png");
+}
+
+DialogDemo[mode=timeout] Bar#pMainBar
+{
+    image:                              url("Maschine/Dialogs/Demo/BackgroundTimeout.png");
+}
+
+DialogDemo Bar#pHeadBar
+{
+    outer-margin-left:                  13;
+    outer-margin-right:                 13;
+    min-width:                          494;
+    min-height:                         50;
+    spacing:                            1;
+}
+
+DialogDemo Label#pHeadLogo
+{
+    min-width:                          164;
+    foreground-color:                   rgba(209, 209, 210, 255);
+}
+
+DialogDemo Label#pHeadText
+{
+    font-name:                          url("Shared/stan0755j.ttf");
+    font-size:                          12;
+
+    margin-left:                        14;
+    margin-bottom:                      1;
+    min-width:                          329;
+    foreground-color:                   $colorWhite70;
+}
+
+DialogDemo Bar#pBodyBar
+{
+    outer-margin:                       1;
+    min-width:                          494;
+    min-height:                         200;
+    spacing:                            1;
+    margin-left:                        12;
+    margin-right:                       12;
+}
+
+DialogDemo Bar#pBodyBar::Bar
+{
+    horizontal-alignment:               center;
+    outer-margin:                       1;
+    min-width:                          164;
+    min-height:                         200;
+}
+
+DialogDemo Bar#pBodyBar Label
+{
+    foreground-color:                   rgba(240, 240, 240, 255);
+    background-color:                   no;
+    max-width:                          154;
+}
+
+DialogDemo Bar#pBodyBar Label#pText
+{
+    horizontal-alignment:               left;
+    vertical-alignment:                 top;
+    outer-margin:                       3;
+    outer-margin-top:                   55;
+    min-height:                         80;
+}
+
+DialogDemo Bar#pFootBar
+{
+    outer-margin:                       1;
+    background-color:                   no;
+    min-width:                          20;
+    min-height:                         20;
+}
+
+DialogDemo Button
+{
+    animation-index:                    0;
+    outer-margin-left:                  5;
+}
+
+DialogDemo Button:over
+{
+    animation-index:2;
+}
+
+DialogDemo Button:down
+{
+    animation-index:                    1;
+}
+
+DialogDemo Button#m_pDemo
+{
+    image:                              url("Maschine/Dialogs/Demo/ButtonRun.png");
+    animations:                         3;
+}
+
+DialogDemo Button#m_pExit
+{
+    image:                              url("Maschine/Dialogs/Demo/ButtonExit.png");
+    animations:                         3;
+}
+
+DialogDemo Button#m_pBuy
+{
+    image:                              url("Maschine/Dialogs/Demo/ButtonBuy.png");
+    animations:                         3;
+}
+
+DialogDemo Button#m_nativeAccess
+{
+    image:                              url("Maschine/Dialogs/Demo/ButtonActivate.png");
+    animations:                         3;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------

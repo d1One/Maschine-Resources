@@ -1,0 +1,33 @@
+//----------------------------------------------------------------------------------------------------------------------
+// ON SCRENN OVERLAY STYLESHEET IMPORTS
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// IMPORTANT
+
+// The order of entries in this list is the order of how the stylesheets will be loaded,
+// Definitions have to be on top of the list!
+
+
+
+// DEFINITIONS
+@import url("Shared/OSO/Definitions/Animations.txt");
+@import url("Maschine/OSO/Definitions/Colors.txt");
+@import url("Shared/OSO/Definitions/Fonts.txt");
+
+
+
+// DEVELOPMENT RESOURCES
+@import url("Shared/OSO/Development/Buttons.txt");
+@import url("Shared/OSO/Development/Dev_DesignWidget.txt");
+@import url("Shared/OSO/Development/Dev_Labels.txt");
+@import url("Shared/OSO/Development/Dev_Vectors.txt");
+
+
+
+// ONSCREEN OVERLAY PANELS
+@import url("Shared/OSO/Panels/OSO_TopLevelLayout.txt");
+@import url("Maschine/OSO/Panels/OSO_Header.txt");
+@import url("Maschine/OSO/Panels/OSO_Browser.txt");
+@import url("Shared/OSO/Panels/OSO_ResultList.txt");
+@import url("Shared/OSO/Panels/OSO_InstanceSelector.txt");

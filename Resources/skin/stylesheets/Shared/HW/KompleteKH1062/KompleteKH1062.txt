@@ -1,0 +1,10 @@
+@import url("Shared/HW/MaschineStudio/Colors.txt");
+
+@import url("Shared/HW/KompleteKH1062/Standard.txt");
+
+@import url("Shared/HW/KompleteKH1062/ConfirmActionOverlayPage.txt");
+@import url("Shared/HW/KompleteKH1062/ParameterPage.txt");
+@import url("Shared/HW/KompleteKH1062/PluginPage.txt");
+@import url("Shared/HW/KompleteKH1062/TwoLineMessagePage.txt");
+
+@import url("Shared/BaseMikroA.txt");

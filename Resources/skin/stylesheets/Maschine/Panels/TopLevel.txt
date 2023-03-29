@@ -1,0 +1,245 @@
+//----------------------------------------------------------------------------------------------------------------------
+// MACRO LAYOUT
+//----------------------------------------------------------------------------------------------------------------------
+
+// This file contains window rules for the differnt view sizes, as well as size behaviour for the different
+// Panels in Maschine
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Main window size definitions
+//----------------------------------------------------------------------------------------------------------------------
+
+// ! IMPORTANT: Height has to be reduced about 41px, when the remaining two lines of the Developer Panel are not
+//              included in the Maschine build!
+
+// *** ALSO talk to development if you're updating those values.***
+
+Stack#root
+{
+    min-height:                         631;
+
+    window-small-width:                 1129;
+
+    window-small-width-browser:         1194;
+    window-small-height:                631;
+
+    window-medium-width:                1210;
+    window-medium-height:               758;
+
+    window-large-width:                 1500;
+    window-large-height:                930;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Main
+//----------------------------------------------------------------------------------------------------------------------
+
+Stack#root::Bar#pMain
+{
+    background-color:                   $colorRootBackground;
+    spacing:                            0;
+    margin:                             3;
+}
+
+
+// width & horizontal scalability of Columns Manager, set to a FIXED width
+Bar#m_pColumnsManager
+{
+    width:                              163;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// SONGPANEL
+//----------------------------------------------------------------------------------------------------------------------
+
+@define $metricSongPanelHeight          280;
+@define $metricSongPanelMinHeight       206;
+
+Bar#m_pSongPanel
+{
+    min-height:                         147;    // smallest height, the SongPanel can have
+    max-height:                         600;
+
+    // Sets the height of the Song Panel on view size switching
+    small-height:                       167;
+    medium-height:                      255;
+    large-height:                       343;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// PARAMETER AREA
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pStandardView Bar#m_pLowerArea Bar#m_pChainPanel Bar#pColumnEditors
+{
+    min-width:                          675;    // Enough space for 8 controls
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//  Group Panel & Pattern Editor
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pGroupPanel
+{
+    min-height:                         290;
+}
+
+
+// Keeps Modulation Lane and Modulation Manager scaling in sync
+
+
+// Sound List
+Bar#m_pGroupPanel Bar#m_pSoundManager
+{
+    min-height:                         168;
+}
+
+
+
+
+
+// Pattern Editor, Height Includes Timeline
+Bar#m_pGroupPanel Bar#m_pUpper
+{
+    min-height:                         186;
+}
+
+
+
+
+
+// Left Panel, from upper edge of Modulation Lane to upper edge of Group Panel
+Bar#m_pGroupPanel Bar#pLeftUpper
+{
+    min-height:                         201;
+}
+
+
+
+
+// Sets minimal height for Modulation Lane and Modulation Manager
+Bar#m_pGroupPanel Bar#m_pModBarScaleBar,
+Bar#m_pGroupPanel Bar#m_pLower,
+Bar#m_pGroupPanel Bar#m_pLeftLower,
+ClipEditorSW Bar#m_modulationBody
+// they are neighbours
+{
+    min-height:                         61;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Body
+//----------------------------------------------------------------------------------------------------------------------
+
+Stack#root::Bar#pMain::Bar#pBody
+{
+    background-color:       $colorRootBackground;
+    spacing:                0;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Foot (dev only)
+//----------------------------------------------------------------------------------------------------------------------
+
+Stack#root::Bar#pMain::Bar#m_pFoot
+{
+    background-color:       $colorGroup;
+    outer-margin-top:       $spacingGroup;
+    spacing:                6;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// History
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pHistory
+{
+    background-color:       $colorGroup;
+    min-width:              204; // Fit 3 buttons
+}
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// ZoneManager
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pZoneManager
+{
+    background-color:       $colorGroup;
+    width:                  128;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Notification Area
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_notificationArea
+{
+    show-duration-frames:     80;
+    slidein-duration-frames:  5;
+    slideout-duration-frames: 20;
+}
+
+Bar#m_notificationArea Label#m_text
+{
+    background-color:       rgb(30,30,30);
+    foreground-color:       $colorWhite60;
+    font-size:              14;
+    font-name:              $fontPragmatica;
+    margin-left:            20;
+    margin-top:             -5;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Work
+//----------------------------------------------------------------------------------------------------------------------
+
+Stack#m_pWork::Bar#m_pStandardView
+{
+    background-color:       $colorRootBackground;
+    spacing:                0;
+    min-width:              256;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Stack#m_pWork Bar#pMain
+{
+    spacing:                $spacingGroup;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Lower area
+//----------------------------------------------------------------------------------------------------------------------
+
+// this is set to FLEX from code
+Bar#m_pStandardView Bar#m_pLowerArea
+{
+    spacing:                2;
+}
+
+//----------------------------------------------------------------------------------------------------------------------

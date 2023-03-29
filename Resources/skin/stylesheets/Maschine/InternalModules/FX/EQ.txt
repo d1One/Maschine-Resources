@@ -1,0 +1,173 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// EQ
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+EQEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png");
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-633;
+}
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+EQEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_eq.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+// SUBHEADLINES
+//--------------------------------------------------------------------------------------------------------
+
+EQEditor Bar#m_pSubHeadline1
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_subheadline_low.png");
+    x:                                  91;
+    y:                                  $Y-FX-SubHeadline;
+}
+
+EQEditor Bar#m_pSubHeadline2
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_subheadline_lowmid.png");
+    x:                                  222;
+    y:                                  $Y-FX-SubHeadline;
+}
+
+EQEditor Bar#m_pSubHeadline3
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_subheadline_highmid.png");
+    x:                                  381;
+    y:                                  $Y-FX-SubHeadline;
+}
+
+EQEditor Bar#m_pSubHeadline4
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_subheadline_high.png");
+    x:                                  511;
+    y:                                  $Y-FX-SubHeadline;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// POTIS
+//--------------------------------------------------------------------------------------------------------
+
+
+// TOP ROW
+//--------------------------------------------------------------------------------------------------------
+
+// LOW GAIN
+EQEditor Bar#LowGain
+{
+    x:                                  114;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// LOW-MID GAIN
+EQEditor Bar#Mid1Gain
+{
+    x:                                  245;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// HIGH-MID GAIN
+EQEditor Bar#Mid2Gain
+{
+    x:                                  404;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// HIGH GAIN
+EQEditor Bar#HighGain
+{
+    x:                                  534;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+// BOTTOM ROW
+//--------------------------------------------------------------------------------------------------------
+
+// VOLUME
+EQEditor Bar#OutputGain
+{
+    x:                                  18;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// LOW FREQ
+EQEditor Bar#LowFreq
+{
+    x:                                  114;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// LOW-MID FREQ
+EQEditor Bar#Mid1Freq
+{
+    x:                                  210;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// LOW-MID WIDTH
+EQEditor Bar#Mid1Width
+{
+    x:                                  280;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// HIGH-MID FREQ
+EQEditor Bar#Mid2Freq
+{
+    x:                                  369;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// HIGH-MID WIDTH
+EQEditor Bar#Mid2Width
+{
+    x:                                  439;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// HIGH FREQ
+EQEditor Bar#HighFreq
+{
+    x:                                  534;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+// Separators
+//----------------------------------------------------------------------------------------------------------------------
+
+EQEditor#m_pEditor Bar#m_pParamSeparator
+{
+    x:                                  89;
+    y:                                  0;
+}
+
+EQEditor#m_pEditor Bar#m_pSeparator1
+{
+    x:                                  192;
+    y:                                  0;
+}
+
+EQEditor#m_pEditor Bar#m_pSeparator2
+{
+    x:                                  351;
+    y:                                  0;
+}
+
+EQEditor#m_pEditor Bar#m_pSeparator3
+{
+    x:                                  510;
+    y:                                  0;
+}
+
+

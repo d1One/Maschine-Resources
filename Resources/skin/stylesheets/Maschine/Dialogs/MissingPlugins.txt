@@ -1,0 +1,66 @@
+DialogMissingPlugins
+{
+    width:                              394;
+    height:                             300;
+}
+
+DialogMissingPlugins Label.MissingPluginsCaption
+{
+    outer-margin-top: 15;
+    outer-margin-left: 20;
+    outer-margin-right: 20;
+    outer-margin-bottom: 2;
+}
+
+
+DialogMissingPlugins Vector<Label>#list
+{
+    height: 162;
+    outer-margin-left: 20;
+    outer-margin-right: 20;
+}
+
+DialogMissingPlugins Bar#foot Button#close
+{
+    outer-margin-left: 219;
+}
+
+DialogMissingPlugins Bar#foot Button#moreInfo
+{
+    outer-margin-left:                  2;
+    image:                              url("Maschine/Dialogs/Preferences/PREF_BTN_Link.png");
+    width:                              52;
+    outer-margin-left:                  21;
+    outer-margin-top:                   4;
+    fixed-left:                         0;
+    fixed-right:                        4;
+    margin-left:                        0;
+    margin-right:                       0;
+}
+
+DialogMissingPlugins Vector<Label>#list
+{
+    image:                              url("Maschine/Dialogs/SharedDialogTexture/DIALOG_BG_FileList.png");
+    picture-includes-margin:            true;
+    fixed-top:                          10;
+    fixed-bottom:                       10;
+    fixed-left:                         10;
+    fixed-right:                        10;
+    
+    margin-left:                        2;
+    margin-right:                       1;
+    margin-top:                         2;
+    margin-bottom:                      2;
+}
+
+DialogMissingPlugins Label.ListItem
+{
+    image:                              no;
+    background-color:                   no;
+    foreground-color:                   $colorWhite75;
+    horizontal-alignment:               left;
+
+    margin-right:                       5;
+    margin-top:                         1;
+    margin-left:                        5;
+}

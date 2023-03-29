@@ -1,0 +1,199 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SATURATOR
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//SaturatorEditor[Mode=Tube]
+//SaturatorEditor[Mode=Tape]
+//SaturatorEditor[Mode=Classic]
+
+
+SaturatorEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png"); 
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-396;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+SaturatorEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_saturator.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// CONTROLS
+//--------------------------------------------------------------------------------------------------------
+
+// MODE SELECTOR SWITCH
+SaturatorEditor Bar#Mode
+{
+    x:                                  290;
+    y:                                  16;
+    width:                              $widthIntFXMode;
+    height:                             $heightIntFXMode;
+}
+
+SaturatorEditor Bar#Mode Button#m_pEnumValue
+{
+    width:                              47;
+}
+
+SaturatorEditor Bar#Mode Button#m_pEnumInc
+{
+    x:                                  60;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// CLASSIC MODE
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CONTROLS
+//-----------------------------------------------------------------------------------------------------------------------
+
+// INPUT (Label needs Change, "Amount" right now) 
+SaturatorEditor Bar#Compress
+{
+    x:                                  $X-FX-3-Large-Control1;
+    y:                                  $Y-FX-BigKnob-Middle;
+}
+
+// CONTOUR
+SaturatorEditor Bar#Contour 
+{
+    x:                                  $X-FX-3-Large-Control2;
+    y:                                  $Y-FX-SmallKnob-Middle;
+}
+
+// CONTOUR LABEL CORRECTION
+SaturatorEditor Bar#Contour Stack#m_pNameStack
+{
+    height:                             24;
+    margin-top:                         6;
+}
+
+
+// DRIVE (Label needs Change, "Amount" right now) 
+SaturatorEditor Bar#Drive
+{
+    x:                                  $X-FX-3-Large-Control3;
+    y:                                  $Y-FX-BigKnob-Middle;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// TAPE MODE
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CONTROLS
+//-----------------------------------------------------------------------------------------------------------------------
+
+// INPUT GAIN
+SaturatorEditor Bar#TapeGain
+{
+    x:                                  $X-FX-3-Large-Control1;
+    y:                                  $Y-FX-BigKnob-Middle;
+}
+
+// TONE
+SaturatorEditor Bar#TapeTone
+{
+    x:                                  $X-FX-3-Large-Control2;
+    y:                                  $Y-FX-SmallKnob-Middle;
+}
+
+SaturatorEditor Bar#TapeTone Bar#m_pShadowOverlay
+{
+    outer-margin-top:                   -6;  // Doesn't Work!
+}
+
+// WARMTH
+SaturatorEditor Bar#TapeWarmth
+{
+    x:                                  $X-FX-3-Large-Control3;
+    y:                                  $Y-FX-BigKnob-Middle;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// TUBE MODE
+//-----------------------------------------------------------------------------------------------------------------------
+
+// ROW 1
+//-----------------------------------------------------------------------------------------------------------------------
+
+// DRIVE
+SaturatorEditor Bar#TubeDrive
+{
+    x:                                  $X-FX-2-5-BigKnob1;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// GAIN
+SaturatorEditor Bar#TubeGain
+{
+    x:                                  $X-FX-2-5-BigKnob2;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+// ROW 2
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CHARGE
+SaturatorEditor Bar#TubeCharge
+{
+    x:                                  $X-FX-2-5-SmallKnob1;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// OVERLOAD SWITCH
+SaturatorEditor Bar#TubeBassOverload
+{
+    x:                                  $X-FX-2-5-SmallKnob2;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// BASS
+SaturatorEditor Bar#TubeEQLow
+{
+    x:                                  $X-FX-2-5-SmallKnob3;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// EQ SWITCH
+SaturatorEditor Bar#TubeEQBypass
+{
+    x:                                  $X-FX-2-5-SmallKnob4;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// TREBLE
+SaturatorEditor Bar#TubeEQHigh
+{
+    x:                                  $X-FX-2-5-SmallKnob5;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// Dotted Line
+//----------------------------------------------------------------------------------------------------------------------
+
+SaturatorEditor#m_pEditor Bar#m_pDottedLines
+
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_dotline_saturator.png");
+    x:                                  88;
+    y:                                  152;
+}
+
+
+
+

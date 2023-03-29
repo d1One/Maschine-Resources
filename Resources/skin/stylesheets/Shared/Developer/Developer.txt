@@ -1,0 +1,816 @@
+//----------------------------------------------------------------------------------------------------------------------
+// DEVELOPER PANEL
+//----------------------------------------------------------------------------------------------------------------------
+
+// DEFINITIONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// COLORS
+@define $colorDevBlack                  rgb(0,0,0);
+
+@define $colorDevBackground             rgb(40,40,40);
+@define $colorDevHeaderBackground       rgb(65,65,65);
+
+@define $colorCustomLightGrey           rgb(85,85,85);
+
+@define $colorDevInfoText               $colorWhite80;
+@define $colorDevWarnText               rgb(255,144,0);
+@define $colorDevDebugText              rgb(40,210,210);
+
+@define $colorDevListItemOver           $colorWhite10;
+@define $colorLoggerFont                $colorWhite90;
+
+// FONTS
+@define $fontLogger                     url("Shared/Mono0755.ttf");
+@define $fontSizeLogger                 8;
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// MAIN CONTAINER
+
+Bar#m_pDeveloperHolder,
+Bar#m_pDeveloper
+{
+    background-color:                   $colorDevBlack;
+    min-height:             200;
+}
+
+
+// MAIN BODY
+Bar#m_pDeveloper Stack#m_pStack
+{
+    background-color:                   no;
+}
+
+Bar#m_pDeveloper Bar#DesignWidget
+{
+    margin:                             0;
+}
+
+// DETATCHED WINDOWS
+Bar#DevToolsWindowRoot,
+Bar#DesignWidget
+{
+    margin:                             1;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// DEV PANEL HEADER
+
+// CONTAINER
+Bar#m_pDeveloper Bar#m_pHeader,
+Bar#DesignWidget Bar#tabs
+{
+    background-color:                   $colorDevHeaderBackground;
+    height:                             28;
+    outer-margin-bottom:                1;
+    spacing:                            10;
+    margin-left:                        10;
+    margin-top:                         3;
+}
+
+// NAVIGATION BUTTONS
+Bar#m_pDeveloper Bar#m_pHeader Button,
+Bar#DesignWidget Bar#tabs Button
+{
+    image:                              no;
+    font-name:                          $fontPragmatica;
+    font-size:                          12;
+    min-width:                          72;
+    foreground-color:                   $colorWhite70;
+    height:                             20;
+}
+
+Bar#m_pDeveloper Bar#m_pHeader Button:selected,
+Bar#DesignWidget Bar#tabs Button:selected
+{
+    background-color:                   $colorWhite70;
+    foreground-color:                   $colorDevBackground;
+}
+
+Bar#m_pDeveloper Bar#m_pHeader Button:over,
+Bar#DesignWidget Bar#tabs Button:over
+{
+    background-color:                   $colorWhite10;
+    foreground-color:                   $colorWhite80;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// GENERIC ELEMENTS
+//----------------------------------------------------------------------------------------------------------------------
+
+// BACKGROUNDS
+Bar#m_pDeveloper Bar#widgets,
+Bar#DesignWidget Bar,
+History#m_pHistory Bar#pHead,
+History#m_pHistory Bar#pTitle,
+History#m_pHistory Bar#widgets
+{
+    background-color:                   $colorDevBackground;
+}
+
+// HEADERS
+History#m_pHistory Bar#pHead,
+History#m_pHistory Bar#pTitle
+{
+    outer-margin-bottom:                1;
+}
+
+// SIDEBARS
+Bar#DesignWidget Bar#top,
+Bar#m_pDeveloper Stack Bar#m_pToolbar
+{
+    outer-margin-right:                 1;
+    min-width:                          92;
+    min-height:                         30;
+    spacing:                            5;
+    margin-left:                        10;
+    margin-right:                       10;
+    margin-top:                         3;
+    margin-bottom:                      5;
+}
+
+Bar#m_pDeveloper Stack Bar#m_pToolbar,
+Bar#DesignWidget Bar#top
+{
+    background-color:                   $colorDevBackground;
+}
+
+
+
+
+// FOOTERS
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#m_pDeveloper Bar#pFoot
+{
+    height:                             28;
+    outer-margin-top:                   1;
+    background-color:                   $colorDevBackground;
+    margin-top:                         3;
+    margin-left:                        10;
+    spacing:                            5;
+}
+
+// FOOTER TEXT EDIT
+Bar#m_pDeveloper Bar#pFoot TextEdit
+{
+    background-color:                   $colorDevBackground;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// FOLDABLE LISTS
+
+Bar#DesignWidget Bar#widgets Bar#generic_Bar_0,
+History#m_pHistory Bar#widgets Bar#generic_Bar_0,
+Bar#m_pDeveloper ObjectTree# Bar#generic_Bar_0
+{
+    outer-margin-top:                   5;
+}
+
+// STRUCTURE TREE LIST BUTTONS
+Bar#DesignWidget Button#collapser,
+Bar#m_pDeveloper ObjectTree# Button#m_expander,
+History#m_pHistory Bar#widgets Button#m_expander
+{
+    image:                              no;
+    horizontal-alignment:               right;
+    min-width:                          18;
+    margin-right:                       5;
+}
+
+Bar#DesignWidget Button,
+Bar#m_pDeveloper ObjectTree# Label#m_text,
+History#m_pHistory Bar#widgets Button#m_text
+{
+    horizontal-alignment:               left;
+    margin-left:                        5;
+}
+
+History#m_pHistory Bar#widgets Button#m_text[TransactionMode=skip]
+{
+    foreground-color:                   $colorLightBackgroundGrey;
+}
+
+History#m_pHistory Bar#widgets Button#m_text[TransactionMode=skip_marker]
+{
+    foreground-color:                   $colorDarkRed;
+}
+
+History#m_pHistory Bar#widgets Button#m_text[TransactionMode=marker]
+{
+    foreground-color:                   $colorRed;
+}
+
+Bar#DesignWidget Bar#middle Button,
+Bar#DesignWidget Bar#lower Button,
+Bar#m_pDeveloper ObjectTree# Label#m_text,
+Bar#m_pDeveloper ObjectTree# Button#m_expander,
+History#m_pHistory Bar#widgets Button#m_expander,
+History#m_pHistory Bar#widgets Button#m_text
+{
+    font-name:                          $fontLogger;
+    font-size:                          $fontSizeLogger;
+    image:                              no;
+    background-color:                   no;
+    foreground-color:                   $colorLoggerFont;
+}
+
+Bar#DesignWidget Bar#middle Button#collapser:over,
+Bar#DesignWidget Bar#middle Button#text:over,
+Bar#m_pDeveloper ObjectTree# Label#m_text:over,
+Bar#m_pDeveloper ObjectTree# Button#m_expander:over,
+History#m_pHistory Bar#widgets Button#m_expander:over,
+History#m_pHistory Bar#widgets Button#m_text:over
+{
+    background-color:                   $colorDevListItemOver;
+}
+
+Bar#DesignWidget Bar#middle Button#text:selected,
+Bar#DesignWidget Bar#middle Button#text:selected:down,
+Bar#DesignWidget Bar#middle Button#text:selected:over,
+Bar#m_pDeveloper ObjectTree# Label#m_text:selected,
+Bar#m_pDeveloper ObjectTree# Label#m_text:selected:down,
+Bar#m_pDeveloper ObjectTree# Label#m_text:selected:over,
+History#m_pHistory Bar#widgets Button#m_text:selected,
+History#m_pHistory Bar#widgets Button#m_text:selected:down,
+History#m_pHistory Bar#widgets Button#m_text:selected:over
+{
+    background-color:                   $colorWhite80;
+    foreground-color:                   $colorDevBackground;
+}
+
+Bar#DesignWidget Bar#middle Button#text[isActive=false]:selected
+{
+    background-color:                   $colorWhite50;
+    foreground-color:                   $colorWhite50;
+}
+
+Bar#DesignWidget Bar#middle Button#text[isActive=false]
+{
+    foreground-color:                   $colorWhite20;
+}
+
+Bar#DesignWidget *#selector_result Bar Button
+{
+    background-border-color:      $colorDevHeaderBackground;
+    margin:                       0;
+    margin-left:                       5;
+}
+
+
+Bar#DesignWidget MultilineTextEditContentArea
+{
+    font-name:                          $fontLogger;
+    font-size:                          $fontSizeLogger;
+    image:                              no;
+    background-color:                   no;
+    foreground-color:                   $colorLoggerFont;
+    margin: 8;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// LOGGER LIST ITEMS
+
+Button.ListItemLogger
+{
+    image:                              no;
+    font-name:                          $fontLogger;
+    font-size:                          $fontSizeLogger;
+
+    background-color:                   no;
+    foreground-color:                   $colorLoggerFont;
+    horizontal-alignment:               left;
+    margin-left:                        10;
+}
+
+Button.ListItemLogger:over
+{
+    image:                              no;
+    background-border-color:            no;
+    background-color:                   $colorDevListItemOver;
+}
+Button.ListItemLogger:down
+{
+    image:                              no;
+    background-border-color:            no;
+}
+Button.ListItemLogger[verbosity=FATAL]
+{
+    background-color:                   rgb(192,63,192);
+    foreground-color:                   $colorWhite;
+}
+Button.ListItemLogger[verbosity=ERROR]
+{
+    background-color:                   rgb(165,61,61);
+    foreground-color:                   $colorWhite;
+}
+Button.ListItemLogger[verbosity=WARN]
+{
+    background-color:                   no;
+    foreground-color:                   $colorDevWarnText;
+}
+
+Button.ListItemLogger[verbosity=INFO] //Make blue brighter
+{
+    foreground-color:                   $colorDevInfoText;
+}
+
+Button.ListItemLogger[verbosity=DEBUG]
+{
+    foreground-color:                   $colorDevDebugText;
+}
+Button.ListItemLogger[verbosity=TRACE]
+{
+    background-color:                   no;
+    foreground-color:                   $colorDevInfoText;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// GENERIC BUTTONS
+
+// BUTTON IMAGE
+Bar#m_pDeveloper Bar#pFoot Button,
+Bar#DesignWidget Bar#top Button,
+Bar#m_pDeveloper Stack Bar#m_pToolbar Button,
+Bar#m_pDeveloper Bar#pFoot ButtonMenu,
+Bar#DesignWidget Bar#top ButtonMenu,
+Bar#m_pDeveloper Stack Bar#m_pToolbar ButtonMenu
+{
+    image:                      url("Shared/Developer/Dev_BTN.png");
+    picture-includes-margin:    true;
+    animations:                 7;
+    fixed-left:                 4;
+    fixed-right:                4;
+    fixed-bottom:               4;
+    fixed-top:                  4;
+    margin-top:                 0;
+    margin-left:                6;
+    margin-right:               6;
+    height:                     22;
+}
+
+
+// STANDARD WIDTH BUTTON
+Bar#m_pDeveloper Bar#pFoot Button,
+Bar#DesignWidget Bar#top Button,
+Bar#m_pDeveloper Stack Bar#m_pToolbar Button
+{
+    min-width:                      72;
+}
+
+// WIDE BUTTON
+Bar#m_pDeveloper Bar#pFoot::Button#m_pPathButton
+{
+    width:                      216;
+}
+
+// Coverage
+Bar#m_pDeveloper Bar#pFoot::Button#m_pCoverageStartStop
+{
+    width:                      130;
+}
+
+Bar#m_pDeveloper Bar#pFoot::Button#pCoverageGenerate
+{
+    width:                      110;
+}
+
+Bar#m_pDeveloper Bar#pFoot::Button#pCoveragePurge
+{
+    width:                      130;
+}
+
+
+// DRAGGER
+Bar#m_pDeveloper Stack Bar#m_pToolbar Dragger
+{
+    width:                      109;
+    image:                      url("Shared/Developer/Dev_BTN.png");
+    picture-includes-margin:    true;
+    animations:                 7;
+    fixed-left:                 4;
+    fixed-right:                4;
+    fixed-bottom:               4;
+    fixed-top:                  4;
+    margin-top:                 0;
+    margin-left:                6;
+    margin-right:               6;
+    height:                     22;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// LOGGER
+//----------------------------------------------------------------------------------------------------------------------
+
+// BACKGROUND
+Bar.Logger
+{
+    background-color:           $colorDevBackground;
+}
+
+Vector.Logger
+{
+    outer-margin-top:           1;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// DESIGN WIDGET
+
+Bar#DesignWidget
+{
+    background-color:           $colorDevBlack;
+}
+
+// SIDEBAR/HEADER
+Bar#DesignWidget Bar#top
+{
+    outer-margin-bottom:        1;
+}
+
+// STYLE STRUCTURE CONTAINER
+Bar#DesignWidget::ScrollableWidget::Bar#widgets
+{
+    margin-left:                15;
+}
+
+Bar#DesignWidget Bar#lower Button[isActive=false]
+{
+    foreground-color:           $colorWhite20;
+}
+
+Bar#DesignWidget DesignWidgetSettings
+{
+    margin:                     8;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// FEATURES
+//----------------------------------------------------------------------------------------------------------------------
+
+FeatureBar Button
+{
+    background-color:                   $colorWhite20;
+    image:                              url("Shared/Dialogs/SharedDialogControls/DIALOG_Checkbox.png");
+    picture-includes-margin:            true;
+    animations:                         8;
+    animation-index:                    0;
+
+    width:                              19;
+    height:                             19;
+}
+
+FeatureBar Button:selected
+{
+    animation-index:            1;
+}
+
+FeatureBar Label[IsOn=true]
+{
+    background-color: $colorGreen;
+    foreground-color: $colorBlack;
+}
+
+FeatureBar Label[IsOn=false]
+{
+    background-color: $colorRed;
+    foreground-color: $colorBlack;
+}
+
+FeatureBar Label#m_name
+{
+    width: 200;
+}
+
+FeatureBar Label#m_description
+{
+    margin-left: 3;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// PROCESSING WIDGET
+
+// SIGNAL GRAPH MAIN CONTAINER
+Bar#m_pDeveloper Scrollable<SignalGraphWidget>
+{
+    background-color:           $colorDevBackground;
+}
+
+Bar#m_pDeveloper SignalGraphWidget
+{
+    background-color:       					$colorBlack;
+    foreground-color:       					$colorWidgetText;
+    margin:                 					2;
+    min-width:              					$defaultWidth;
+    font-name:              					$fontClearName;
+    font-size:              					$fontClearSize;
+    horizontal-alignment:   					center;
+    distance-x: 40;
+    distance-y: 60;
+}
+
+// INFO LABELS
+Bar#m_pDeveloper ProcessingInfoWidget
+{
+    background-color:           $colorDevBackground;
+}
+
+Bar#m_pDeveloper ProcessingInfoWidget Label
+{
+    foreground-color:           $colorWhite60;
+}
+
+Bar#m_pDeveloper ProcessingInfoWidget#pProcessingInfo Label#pName
+{
+    width:                      80;
+}
+
+Bar#m_pDeveloper ProcessingInfoWidget#pProcessingInfo Label#pReadout
+{
+    width:                      120;
+}
+
+// SIGNAL GRAPH PROCESSOR WIDGETS
+Bar#m_pDeveloper ProcessorWidget
+{
+    background-color:           $colorCustomLightGrey;
+    outer-margin-top:           1;
+    outer-margin-bottom:        1;
+}
+
+// PROCESSOR WIDGET HEADLINE LABELS
+Bar#m_pDeveloper ProcessorWidget Label#NameLabel
+{
+    foreground-color:           $colorWhite80;
+}
+
+// PROCESSOR WIDGET NAME LABELS
+Bar#m_pDeveloper ProcessorWidget ProcessingInfoWidget
+{
+    background-color:           $colorCustomLightGrey;
+}
+
+Bar#m_pDeveloper ProcessorWidget ProcessingInfoWidget
+{
+    width: 155;
+}
+
+Bar#m_pDeveloper ProcessorWidget ProcessingInfoWidget Label#pName
+{
+    width:                      35;
+}
+
+Bar#m_pDeveloper ProcessorWidget ProcessingInfoWidget Label
+{
+    foreground-color:           $colorWhite60;
+}
+
+// PROCESSOR WIDGET PINS
+Bar#m_pDeveloper ProcessorWidget Bar#pPinsBar
+{
+    min-width: 0;
+}
+
+Bar#m_pDeveloper ProcessorWidget Bar#pTypedPinsBar
+{
+    min-width: 0;
+}
+
+Bar#m_pDeveloper ProcessorWidget Bar#pTypedPinsBar[IsEvent=true]
+{
+    background-color: rgb(128, 128, 255);
+}
+
+Bar#m_pDeveloper ProcessorWidget Bar#pTypedPinsBar[IsEvent=false]
+{
+    background-color: rgb(128, 255, 128);
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// HARDWARE WIDGET
+
+Bar#m_pDeveloper Bar#pBody
+{
+    background-color:           $colorDevBackground;
+}
+
+Bar#m_pDeveloper HardwareDisplayWidget
+{
+    outer-margin-top:           20;
+    outer-margin-bottom:        20;
+    outer-margin-right:         20;
+    outer-margin-left:          20;
+}
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// HISTORY WIDGET
+
+History#m_pHistory
+{
+    min-width:                  300;
+}
+
+
+
+
+
+// Indicator rectangle
+
+Button#show-frame
+{
+    image:                      no;
+    background-border-color:    rgba(200, 100, 50, 255);
+    background-color:           rgba(250, 250, 250, 32);
+    min-width:                  0;
+    min-height:                 0;
+}
+
+
+
+Bar#DesignWidget Bar#top Label#logo
+{
+    foreground-color:           no;
+}
+
+
+
+
+//-----------------------------------------------------------------------------
+//VECTORS
+
+Bar#m_pDeveloper Vector#pStiffVector,
+Vector#pSmoothVector
+{
+    width:                      400;
+}
+
+//-----------------------------------------------------------------------------
+//CURVE
+
+Bar#m_pDeveloper CurveDisplayWidget#Scrollee
+{
+    height:                     200;
+    width:                      2000;
+}
+
+//-----------------------------------------------------------------------------
+//FLOW
+
+Bar#m_pDeveloper Label#FlowItem
+{
+    image:                      url("Shared/Developer/LocatorBackground.png");
+    horizontal-alignment:       center;
+
+    margin-left:                10;
+    margin-right:               10;
+
+    fixed-left:             	5;
+    fixed-right:            	5;
+
+    picture-includes-margin:	true;
+
+    foreground-color:           rgb(128,128,128);
+}
+
+Bar#m_pDeveloper Label#FlowItem:over
+{
+    foreground-color:           $colorWhite;
+}
+
+
+
+//-----------------------------------------------------------------------------
+//PICTURE FILTER
+
+Bar#m_pDeveloper Label#pColorMaskBG
+{
+    image:                      url("Shared/Developer/bg.png");
+}
+
+Bar#m_pDeveloper Label#m_pColorMask
+{
+    image:                      url("Shared/Developer/colormasktest.png");
+}
+
+Bar#m_pDeveloper Label#pColorMaskBGCopy
+{
+    image:                      url("Shared/Developer/bg.png");
+}
+
+//-----------------------------------------------------------------------------
+//RANGE
+
+Bar#m_pDeveloper Range
+{
+	dragger-margin:             25;
+	width:                      300;
+}
+
+Bar#m_pDeveloper Range Label#pTop,
+Bar#m_pDeveloper Range Label#pBottom
+{
+	height:                     36;
+}
+
+Bar#m_pDeveloper Range Label#pSeparator
+{
+	height:                     2;
+	width: 298;
+	background-color:           $colorBlack;
+}
+
+Bar#m_pDeveloper Range XYDragger#m_pDraggerTop
+{
+    image:                      url("Shared/Global/DownTriangleIcon.png");
+}
+
+Bar#m_pDeveloper Range XYDragger#m_pDraggerBottom
+{
+    image:                      url("Shared/Global/UpTriangleIcon.png");
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// SCROLLBARS
+
+Bar#m_pDeveloper Scrollbar,
+Bar#DesignWidget Scrollbar
+{
+    background-color:           $colorDevBackground;
+    image:                      no;
+}
+
+Bar#m_pDeveloper Scrollbar Button#dec,
+Bar#DesignWidget Scrollbar Button#dec,
+Bar#m_pDeveloper Scrollbar Button#inc,
+Bar#DesignWidget Scrollbar Button#inc
+{
+    image:           no;
+    min-width:       0;
+    width:           0;
+    min-height:      0;
+    height:          0;
+}
+
+
+// VERTICAL GRIP
+Bar#DesignWidget tree<Bar> Scrollbar Slider Grip,
+Bar#m_pDeveloper Scrollable<SignalGraphWidget> Scrollbar#m_pScrollV Slider Grip,
+Bar#m_pDeveloper Vector<Button> Scrollbar Slider Grip,
+Bar#m_pDeveloper tree<Bar> Scrollbar Slider Grip,
+Bar#m_pDeveloper Vector<FeatureBar> Scrollbar Slider Grip
+{
+    background-color:           no;
+    image:                      url("Shared/Developer/Dev_Scrollbar_Vertical_Slider.png");
+    picture-includes-margin:    true;
+    fixed-top:                  4;
+    fixed-bottom:               4;
+}
+
+// HORIZONTAL GRIP
+Bar#DesignWidget Scrollbar Slider Grip,
+Bar#m_pDeveloper Scrollable<SignalGraphWidget> Scrollbar#m_pScrollH Slider Grip
+{
+    background-color:           no;
+    image:                      url("Shared/Developer/Dev_Scrollbar_Horizontal_Slider.png");
+    picture-includes-margin:    true;
+    fixed-left:                 4;
+    fixed-right:                4;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// POPUP MENUS (Special sizes for design readout)
+
+/* I mention all the Popup types here, bacause i cannot see, which one is used, remove later! */
+
+// WIDTH SETTING
+Bar#m_pDeveloper PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button,
+Bar#m_pDeveloper PopupMenu#popup Vector<Button>::Bar#widgets::Button,
+Bar#m_pDeveloper PopupMenu#pPopup Vector<Button>::Bar#widgets::Button,
+Bar#DesignWidget PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button, // EXTRA WIDTH SETTING FOR DETATCHED DESIGN WINDOW
+Bar#DesignWidget PopupMenu#popup Vector<Button>::Bar#widgets::Button,
+Bar#DesignWidget PopupMenu#pPopup Vector<Button>::Bar#widgets::Button
+{
+    min-width:                          80;
+    max-width:                          1200;
+}

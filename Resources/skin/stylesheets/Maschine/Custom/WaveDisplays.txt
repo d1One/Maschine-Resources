@@ -1,0 +1,155 @@
+//----------------------------------------------------------------------------------------------------------------------
+// WaveDisplayWidget
+//----------------------------------------------------------------------------------------------------------------------
+
+// For Recording Tab
+WaveDisplayWidget
+{
+    background-color:                   rgb(40,40,40);
+    waveform-color:                     rgb(27,122,224);
+
+    channel-separator-color:            rgb(40,100,224);
+    decibel-line-color:                 rgb(255,0,0);
+    play-cursor-color:                  rgba(255,255,255,198);
+
+    //palette
+    waveform-color-palette:             1;
+}
+
+// Audio Pattern Editor
+Bar#m_pWaveEditor
+{
+    margin-bottom: 1;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// MarkerWaveDisplay
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pLowerArea Stack#m_pColumnEditors Bar#m_pSamplingPanel MarkerWaveDisplay
+{
+    // Background Colors
+    background-color:                   $StandardBackgroundGrey;
+    playrange-background-color:         $StandardBackgroundGrey;
+    selection-background-color:         rgb(71,71,71);
+
+    // Waveform Colors
+    waveform-color:                     $colorWaveOutOfRange; // Waveform out of playrange
+    playrange-waveform-color-palette:   2;
+    selection-waveform-color-palette:   3;
+
+    channel-separator-color:            no;
+    decibel-line-color:                 rgb(30,30,30);
+    play-cursor-color:                  rgba(255,255,255,198);
+    selection-line-color:               rgb(100, 100, 100);
+
+    // Playrange Marker
+    marker-width:                       3;
+    marker-color:                       rgb(255,255,255);
+    marker-contrast-color:              $StandardBackgroundGrey;
+    marker-text-color:                  no;
+    start-marker-image:                 url("Maschine/SamplingPages/start_marker.png");
+    end-marker-image:                   url("Maschine/SamplingPages/end_marker.png");
+
+    shade-color:                        rgb(255,0,0);
+
+
+    // Loop
+    marker-loop-color:                  $colorWhite;
+    loop-marker-image:                  url("Shared/InternalModules/SharedControls/sampler_loop_frame.png");
+    loop-marker-image-fixed-left:       24;
+    loop-marker-image-fixed-right:      5;
+    loop-marker-image-fixed-top:        24;
+    loop-marker-image-fixed-bottom:     24;
+
+
+    // Selection
+    selection-marker-image:             url("Maschine/SamplingPages/sampling_pg_selection_overlay.png");
+    selection-marker-image-fixed-left:  1;
+    selection-marker-image-fixed-right: 1;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// SLICING WAVE DISPLAY
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pLowerArea Stack#m_pColumnEditors Bar#m_pSamplingPanel SlicingWaveDisplay
+{
+    // Background Colors
+    background-color:                           $StandardBackgroundGrey;    // waveform segment not included in a slice
+    active-slice-background-color:              $StandardBackgroundGrey;
+    focus-slice-background-color:    	        rgb(71,71,71);              // when you hover a slice
+
+    // Waveform Colors
+    waveform-color:                             $colorWaveOutOfRange;    // waveform segments not included in a slice
+    active-slice-waveform-color-palette:        2;                // standard slice waveform color
+    focus-slice-waveform-color-palette:	        3;                // hover slice waveform color
+
+
+    channel-separator-color:                    rgba(40,100,224,0);
+    decibel-line-color:                         rgb(30,30,30);
+    play-cursor-color:                          $colorWhite;
+
+
+    slice-marker-grab-area:                     4;
+    slice-marker-color:                         $colorWhite60;
+    slice-marker-changed-color:                 $colorWhite60;
+
+    focus-slice-start-marker-color:                   $colorWhite;
+    focus-slice-start-marker-changed-color:           $colorWhite;
+    focus-slice-start-marker-contrast-color:          $StandardBackgroundGrey;
+    focus-slice-start-marker-contrast-color-hover:    $colorWhite40;
+
+    focus-slice-end-marker-color:                     $colorWhite;
+    focus-slice-end-marker-changed-color:             $colorWhite;
+    focus-slice-end-marker-contrast-color:            $StandardBackgroundGrey;
+    focus-slice-end-marker-contrast-color-hover:      $colorWhite40;
+
+    focus-slice-marker-width:                   3;
+
+    focus-slice-start-marker-image:             url("Maschine/SamplingPages/start_marker.png");
+    focus-slice-end-marker-image:               url("Maschine/SamplingPages/end_marker.png");
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Recording Wave Display
+//----------------------------------------------------------------------------------------------------------------------
+
+WaveDisplayWidget#m_pWaveDisplay
+{
+    // Background Colors
+    background-color:                   $StandardBackgroundGrey;
+
+
+    channel-separator-color:            no;
+    decibel-line-color:                 rgb(30,30,30);
+    play-cursor-color:                  rgba(255,255,255,198);
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// RECORDING TAB PREVIEW WAVEFORM
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pWaveHistoryAndCommandBars RecordingItem::WaveDisplayWidget#m_pWaveDisplay
+{
+    background-color:                   rgb(32,32,32);
+}
+
+
+Bar#m_pWaveHistoryAndCommandBars RecordingItem::WaveDisplayWidget#m_pWaveDisplay[isFocused=false]
+{
+    waveform-color:                      $colorWaveOutOfRange;
+    waveform-color-palette:              no;
+}
+
+
+Bar#m_pWaveHistoryAndCommandBars RecordingItem::WaveDisplayWidget#m_pWaveDisplay[isFocused=true]
+{
+    waveform-color-palette:               2;
+}

@@ -1,0 +1,113 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// LEGACY REVERB
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+ReverbEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png"); 
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-396;   
+}
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+ReverbEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_reverb_legacy.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// MODE SELECTOR SWITCH
+//--------------------------------------------------------------------------------------------------------
+
+// MODE SELECTOR SWITCH
+ReverbEditor Bar#Room
+{
+    x:                                  290;
+    y:                                  16;
+}
+
+//--------------------------------------------------------------------------------------------------------
+// CONTROLS
+//--------------------------------------------------------------------------------------------------------
+
+// TOP ROW
+//--------------------------------------------------------------------------------------------------------
+
+// SIZE
+ReverbEditor Bar#Size
+{
+    x:                                  77;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// FREEZE SWITCH
+ReverbEditor Bar#Freeze
+{
+    x:                                  161;
+    y:                                  53;
+}
+
+// FREEZE SWITCH BOOL BUTTON CORRECTION
+ReverbEditor Bar#Freeze Bar#m_pBoolBar Button
+{
+    outer-margin-top:                   3;
+}
+
+// FREEZE SWITCH BOOL LABEL CORRECTION
+ReverbEditor Bar#Freeze Stack#m_pNameStack
+{
+    outer-margin-top:                   9;
+}
+
+// MIX
+ReverbEditor Bar#Mix
+{
+    x:                                  246;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+// BOTTOM ROW
+//--------------------------------------------------------------------------------------------------------
+
+// PAN
+ReverbEditor Bar#Pan
+{
+    x:                                  34;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// STEREO
+ReverbEditor Bar#Stereo
+{
+    x:                                  119;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// LOW
+ReverbEditor Bar#Low
+{
+    x:                                  204;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// HIGH
+ReverbEditor Bar#High
+{
+    x:                                  289;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+
+
+

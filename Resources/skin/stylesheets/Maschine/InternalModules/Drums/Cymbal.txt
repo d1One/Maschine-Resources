@@ -1,0 +1,218 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// CYMBAL
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+CymbalEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_logo_cymbal.png");
+    x:                                  $X-Drums-Logo;
+    y:                                  $Y-Drums-Logo;
+}
+
+//--------------------------------------------------------------------------------------------------------
+// DISPLAY DRUM MODELS
+//--------------------------------------------------------------------------------------------------------
+
+CymbalEditor Bar#m_pInstrumentForeground
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_model_cymbal_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_model_cymbal_dye.png");
+    dye-color-palette:                  1;
+    x:                                  217;
+    y:                                  90;
+}
+
+
+//---------------------------------------------------------------------------------------------------------
+// CRASH
+//---------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+CymbalEditor[Mode=Crash] Bar#CymbalMode 
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_crash_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_crash_dyemask.png");
+}
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+CymbalEditor#m_pEditor[Mode=Crash] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-2-3;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+CymbalEditor#m_pEditor[Mode=Crash] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_color.png");
+    x:                                  $X-Drums-SubheadlineB-2-3;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+CymbalEditor#m_pEditor[Mode=Crash] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-Separator-2-3;
+    y:                                  $Y-Drums-Separator;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// Impact
+CymbalEditor[Mode=Crash] Bar#CymbalImpact
+{
+    x:                                  $X-Drums-2-3-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Width
+CymbalEditor[Mode=Crash] Bar#CymbalWidth
+{
+    x:                                  $X-Drums-2-3-Knob2;
+    y:                                  $Y-Drums;
+}
+
+// Density
+CymbalEditor[Mode=Crash] Bar#CrashDensity
+{
+    x:                                  $X-Drums-2-3-Knob3;
+    y:                                  $Y-Drums;
+}
+
+// Tone
+CymbalEditor[Mode=Crash] Bar#CrashTone
+{
+    x:                                  $X-Drums-2-3-Knob4;
+    y:                                  $Y-Drums;
+}
+
+// Mode
+CymbalEditor[Mode=Crash] Bar#CrashMode
+{
+    x:                                  $X-Drums-2-3-Knob5;
+    y:                                  $Y-Drums;
+}
+
+
+//---------------------------------------------------------------------------------------------------------
+// RIDE
+//---------------------------------------------------------------------------------------------------------
+
+// Mode Name
+//----------------------------------------------------------------------------------------------------------------------
+
+CymbalEditor[Mode=Ride] Bar#CymbalMode 
+
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_modename_ride_stroke.png");
+    dye-mask:                           url("Maschine/InternalModules/Drums/intmod_drums_modename_ride_dyemask.png");
+}
+
+// Lower Header
+//----------------------------------------------------------------------------------------------------------------------
+
+// Subheadline A
+CymbalEditor#m_pEditor[Mode=Ride] Bar#m_pParamHeader1
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_main.png");
+    x:                                  $X-Drums-SubheadlineA-2-2-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline B
+CymbalEditor#m_pEditor[Mode=Ride] Bar#m_pParamHeader2
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_strike.png");
+    x:                                  $X-Drums-SubheadlineB-2-2-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+// Subheadline C
+CymbalEditor#m_pEditor[Mode=Ride] Bar#m_pParamHeaderLine
+{
+    image:                              url("Maschine/InternalModules/Drums/intmod_drums_headline_color.png");
+    x:                                  $X-Drums-SubheadlineC-2-2-2;
+    y:                                  $Y-Drums-Subheadline;
+}
+
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+CymbalEditor#m_pEditor[Mode=Ride] Bar#m_pParamSeparator
+
+{
+    x:                                  $X-Drums-SeparatorA-2-2-2;
+    y:                                  $Y-Drums-Separator;
+}
+
+CymbalEditor#m_pEditor[Mode=Ride] Bar#m_pParamSeparator2
+
+{
+    x:                                  $X-Drums-SeparatorB-2-2-2;
+    y:                                  $Y-Drums-Separator;
+}
+
+
+// Knobs
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// Impact
+CymbalEditor[Mode=Ride] Bar#CymbalImpact
+{
+    x:                                  $X-Drums-2-2-2-Knob1;
+    y:                                  $Y-Drums;
+}
+
+// Width
+CymbalEditor[Mode=Ride] Bar#CymbalWidth
+{
+    x:                                  $X-Drums-2-2-2-Knob2;
+    y:                                  $Y-Drums;
+}
+
+// Edge
+CymbalEditor[Mode=Ride] Bar#RideEdge
+{
+    x:                                  $X-Drums-2-2-2-Knob3;
+    y:                                  $Y-Drums;
+}
+
+// Bell
+CymbalEditor[Mode=Ride] Bar#RideBell
+{
+    x:                                  $X-Drums-2-2-2-Knob4;
+    y:                                  $Y-Drums;
+}
+
+// Character
+CymbalEditor[Mode=Ride] Bar#RideCharacter
+{
+    x:                                  $X-Drums-2-2-2-Knob5;
+    y:                                  $Y-Drums;
+}
+
+// Tail
+CymbalEditor[Mode=Ride] Bar#RideTail
+{
+    x:                                  $X-Drums-2-2-2-Knob6;
+    y:                                  $Y-Drums;
+}

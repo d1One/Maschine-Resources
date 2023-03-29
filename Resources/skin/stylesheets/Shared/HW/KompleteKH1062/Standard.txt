@@ -1,0 +1,86 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Metrics
+//----------------------------------------------------------------------------------------------------------------------
+
+@define $defaultWidth               128;
+@define $defaultHeight              32;
+@define $halfHeight                 16;
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Fonts
+//----------------------------------------------------------------------------------------------------------------------
+
+@define $fontDefault                url("Shared/MikroAseries-Medium.ttf");
+@define $fontDefaultBold            url("Shared/MikroAseries-Bold.ttf");
+
+@define $fontSize                   14;
+
+//----------------------------------------------------------------------------------------------------------------------
+// Animation Types
+//----------------------------------------------------------------------------------------------------------------------
+
+
+@define $animtype-none              0;
+@define $animtype-linear            1;
+@define $animtype-smoothin          2;
+@define $animtype-smoothout         3;
+@define $animtype-smoothinout       4;
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Rootz
+//----------------------------------------------------------------------------------------------------------------------
+Label#m_pOverlayRoot,
+Stack#m_pPageStack,
+Label#m_pSharedRoot,
+Bar.ScreenKH1062
+{
+    width:                          $defaultWidth;
+    height:                         $defaultHeight;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+Vector
+{
+    //Time it takes to reach destination focus(cursor keys, hardware etc)
+    focus-delay:                    3;
+
+    // Animation Easing: see Definitions/Animations.txt
+    focus-anim:                     $animtype-none;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+Bar.ScreenKH1062 Bar,
+Bar.ScreenKH1062 Label,
+Bar.ScreenKH1062 Scrollbar,
+Bar.ScreenKH1062 Vector
+{
+    font-name:                      $fontDefault;
+    font-size:                      $fontSize;
+    background-color:               #000000;
+    foreground-color:               #ffffff;
+    outer-margin-left:              0;
+    outer-margin-right:             0;
+    outer-margin-top:               0;
+    outer-margin-bottom:            0;
+    margin-left:                    0;
+    margin-right:                   0;
+    margin-top:                     0;
+    margin-bottom:                  0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Icons
+//----------------------------------------------------------------------------------------------------------------------
+@define $icon-project               url("Shared/HW/KH1062/Icon_Project.png");
+@define $icon-group                 url("Shared/HW/KH1062/Icon_Group.png");
+@define $icon-sound                 url("Shared/HW/KH1062/Icon_Sound.png");
+@define $icon-instrument            url("Shared/HW/KH1062/Icon_Instrument.png");
+@define $icon-instrument-bypassed   url("Shared/HW/KH1062/Icon_Instrument_Bypassed.png");
+@define $icon-effect                url("Shared/HW/KH1062/Icon_Effect.png");
+@define $icon-effect-bypassed       url("Shared/HW/KH1062/Icon_Effect_Bypassed.png");
+@define $icon-loop                  url("Shared/HW/KH1062/Icon_Loop.png");
+@define $icon-sample                url("Shared/HW/KH1062/Icon_Sample.png");
+@define $icon-missing               url("Shared/HW/KH1062/Icon_Missing.png");
+@define $icon-pressencoder          url("Shared/HW/KH1062/Icon_PressEncoder.png");

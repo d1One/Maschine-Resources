@@ -1,0 +1,2114 @@
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ARRANGER PAGE
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Sizes
+@define $PatternEditorWidthL        480; //was 478
+@define $PatternEditorHeightL       117;
+@define $PatternEditorWidthR        453;
+@define $PatternEditorHeightR       230;
+
+@define $SongSceneEditorWidthL      480; //was 478
+
+// Colored Mask Animation Indices
+@define $def                        80;
+@define $left                       81;
+@define $right                      82;
+@define $left-right                 83;
+
+@define $ghost-def                  84;
+@define $ghostleft                  85;
+@define $ghost-right                86;
+@define $ghost-left-right           87;
+
+@define $new-def                    9;
+@define $new-ghost-def              10;
+@define $new-mute-def               11;
+
+
+
+
+//----------------------------------------------------------------------------------------
+// PATTERN BUTTONS
+//----------------------------------------------------------------------------------------
+
+
+// HeadButton
+Button.HeadPattern[IdeaSpace=true][Muted=false]
+{
+    image:                          url("Shared/HW/Studio/Standard/std_button_patternButton.png");
+    animations:                     3;
+
+    background-color-palette:       4;
+    foreground-color:               $colorBlack90;
+
+    margin:                         0;
+    outer-margin-left:              0;
+}
+
+Button.HeadPattern[IdeaSpace=true][Muted=true]
+{
+    image:                          url("Shared/HW/Studio/Standard/std_button_patternButton.png");
+    animations:                     3;
+    animation-index:                0;
+
+    background-color-palette:       no;
+    background-color:               rgb(54,54,54);
+    foreground-color:               $colorBlack70;
+
+    margin:                         0;
+    outer-margin-left:              0;
+}
+
+Button.HeadPattern[IdeaSpace=false]
+{
+    image:                          url("Shared/HW/Studio/Standard/std_button_patternButton.png");
+    animations:                     3;
+    animation-index:                1;
+
+    background-color-palette:       4;
+    background-color:               no;
+    foreground-color:               $colorBlack70;
+
+    margin:                         0;
+    outer-margin-left:              0;
+}
+
+Button.HeadPattern[IdeaSpace=true]:selected
+{
+    background-color-palette:       1;
+    foreground-color:               $colorWhite;
+
+    animation-index:                2;
+}
+
+
+
+//----------------------------------------------------------------------------------------
+// INFOBAR
+//----------------------------------------------------------------------------------------
+
+
+Label.PatternInfoBar
+{
+    foreground-color:               $colorBlack;
+    foreground-color-palette:       1;
+
+    font-name:                      $fontPragmatica;
+    font-size:                      14;
+
+    image:                          no;
+    margin-left:                    20;
+
+    background-color:               $infoBarColor;
+
+    height:                         24;
+
+    horizontal-alignment:           left;
+    margin-left:                    0;
+    outer-margin-left:              0;
+    outer-margin-bottom:            1;
+}
+
+
+
+// PLAYHEAD
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.Marker
+{
+    background-color:               $colorWhite;
+    width:                          1;
+    min-height:                     0;
+}
+
+
+
+//----------------------------------------------------------------------------------------
+// COMMON WIDGETS
+//----------------------------------------------------------------------------------------
+
+// DisplayBar Container
+Bar#ArrangerPageClipsStudioScreenLeft Bar.StudioDisplay,
+Bar#ArrangerPageSectionsStudioScreenLeft Bar.StudioDisplay,
+Bar#LoopPageStudioScreenLeft Bar.StudioDisplay,
+Bar#LoopPageMK3ScreenLeft Bar.StudioDisplay
+{
+    margin-top:                     0;
+    background-color:               $colorStandardBGColor;
+    outer-margin-top:               1;
+}
+
+// Specific case of the Sampling Slice screen
+SlicingWaveEditor Label#m_pOverviewHighlight
+{
+    margin-bottom:                  0;
+}
+
+Bar#ArrangerPageClipsStudioScreenRight Bar.StudioDisplay Bar#m_pBody,
+Bar#ArrangerPageSectionsStudioScreenRight Bar.StudioDisplay Bar#m_pBody
+{
+    background-color:               $colorStandardBGColor;
+}
+
+// Specific case of the PianoRoll Pattern Arranger Screen
+Bar.PatternEditorLeft Label#m_pOverviewHighlight,
+Bar.ArrangerLeft Label#m_pOverviewHighlight
+{
+    margin-bottom:                  0;
+}
+
+// Overview Highlight area
+Label#m_pOverviewHighlight
+{
+    image:                          url("Shared/HW/Studio/Standard/std_frame_overviewHighlight.png");
+
+    fixed-left:                     4;
+    fixed-right:                    4;
+    fixed-top:                      4;
+    fixed-bottom:                   4;
+
+    min-width:                      0;
+    min-height:                     0;
+    max-width:                      0;
+    max-height:                     0;
+
+    margin-bottom:                  1; //not quite sure why this needs to be there but it needs to be there
+}
+
+// Mask areas (around the Highlight area)
+Label#m_pOverviewMaskTop,
+Label#m_pOverviewMaskBottom,
+Label#m_pOverviewMaskLeft,
+Label#m_pOverviewMaskRight
+{
+    background-color:               no;
+}
+
+
+// ARRANGER TIMELINE
+//----------------------------------------------------------------------------------------------------------------------
+
+// TIMLINE RIGHT SCREEN
+Bar.ArrangerRight Bar#m_pTimelineHolder,
+Bar.ArrangerRight Bar#m_pTimelineHolder SongTimeline
+{
+    width:                          $PatternEditorWidthR;
+    height:                         18;
+    margin-left:                    -1;
+}
+
+
+// TIMLINE LEFT SCREEN
+Bar.ArrangerLeft Bar#m_pTimelineHolder,
+Bar.ArrangerLeft Bar#m_pTimelineHolder SongTimeline
+{
+    width:                          480;
+}
+
+Bar.ArrangerLeft Bar#m_pTimelineHolder
+{
+    height:                         14;
+}
+
+Bar.ArrangerLeft Bar#m_pTimelineHolder SongTimeline
+{
+    height:                         14;
+}
+
+
+// GENERIC STYLING
+SongTimeline
+{
+    background-color:               $colorTimeLine;
+    border-color:                   rgb(0,0,0);       // horizontal borders on top and bottom of the Timeline bar.
+    scene-end-line-color:           no;
+    bg-out-overlay-color:           no;
+
+    font-resid:                     $fontRaldoId;
+    font-size:                      $fontRaldoSize;
+
+    vertical-alignment:             center;
+
+    left-text-offset:               5;
+    top-text-offset:                -5;
+
+    // BAR GRID DEFAULT
+    bar-line-color:                 rgb(132,132,132);
+    bar-number-color:               rgb(132,132,132);
+    beat-line-color:                rgb(132,132,132);
+    beat-number-color:              rgb(132,132,132);
+}
+
+
+
+// LOOP OFF
+SongTimeline[LoopActive=false]
+{
+    // BAR GRID LOOP
+    loop-fill-color:                $colorWhite7;
+    bar-line-loop-color:            rgb(132,132,132);
+    bar-number-loop-color:          rgb(132,132,132);
+    beat-line-loop-color:           rgb(132,132,132);
+    beat-number-loop-color:         rgb(132,132,132);
+}
+
+
+// LOOP ON
+SongTimeline[LoopActive=true]
+{
+    loop-fill-color:                $colorWhite40;
+    bar-line-loop-color:            $colorBlack85;
+    bar-number-loop-color:          $colorBlack85;
+    beat-line-loop-color:           $colorBlack85;
+    beat-number-loop-color:         $colorBlack85;
+}
+
+
+// SHADOW OVERLAY DEACTIVATED
+SongTimeline Label#m_pShadowOverlay
+{
+    background-color:               no;
+    foreground-color:               no;
+    image:                          no;
+}
+
+
+// SCENE HEADERS
+//----------------------------------------------------------------------------------------------------------------------
+
+// LEFT SCREEN SCENE COLOR LINE
+SceneColorLine
+{
+    height:                         2;
+    margin-top:                     1;
+    color-palette:                  4;
+    focus-color-palette:            1;
+}
+
+
+// SCENE HEADER RIGHT SCREEN
+Bar.ArrangerRight ArrangerHeader
+{
+    width:                          $PatternEditorWidthR;
+    height:                         22;
+
+    font-name:                      $fontPragmatica;
+    font-size:                      13;
+    clip-text-left-margin:          7;
+    clip-text-right-margin:         2;
+    clip-text-top-margin:           0;
+
+    grip-color:                     $colorBlack; // Sets black divider line between the scenes
+
+    clip-text-truncation-indicator-margin:        1;
+    clip-truncation-indicator-width:              12;
+
+    // SCENE RAIL BG COLOR
+    background-color:               $colorMSTDarkBG;
+    border-color:                   $colorMSTDarkBG;
+
+
+    clip-border-color:              $infoBarColor;
+    clip-background-color:          $infoBarColor;
+
+    focused-clip-background-color:  rgb(60,60,60);
+    focused-clip-border-color:      rgb(60,60,60);
+
+
+
+    noScene-foreground-color:                     no;
+    noScene-foreground-color-focused:             no;
+    color-palette:                                1;
+
+    bar-line-color:                               rgb(255,0,0);
+    beat-line-color:                              rgb(255,48,48);
+    grip-color:                                   $colorBlack;
+
+    focus-line-size:                              3;
+
+    loop-left-color:                              no;
+    loop-right-color:                             no;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// ARRANGER GRID
+//----------------------------------------------------------------------------------------------------------------------
+
+// ARRANGER CONTAINERS
+//----------------------------------------------------------------------------------------------------------------------
+
+// LEFT
+Bar.GroupVectorArrangerLeft Bar#widgets
+{
+    width:                          480;
+    height:                         128;
+    background-color:               rgb(26,26,26);
+    allow-negative-spacing:         yes;
+    spacing:                        -2;
+}
+
+// RIGHT
+Bar.GroupVectorArrangerRight Vector Bar#widgets
+{
+    width:                          $PatternEditorWidthR;
+    height:                         192;
+    background-color:               rgb(26,26,26);
+    allow-negative-spacing:         yes;
+    spacing:                        -2;
+    margin-left:                    -1;
+}
+
+
+// ARRANGER TRACK
+//----------------------------------------------------------------------------------------------------------------------
+
+Stack#m_pPageStack ArrangerTrack
+{
+    background-color: rgb(26,26,26);
+    border-color: rgb(16,16,16);  // color of the spaces between pattern rows
+
+    focused-group-highlight-color: $colorWhite3;
+
+    clip-right-offset: 1;              // fixes 2px horizontal gap between clips       // TO DO: Find out, if this is still valid in the new arranger code.
+}
+
+// LEFT
+Bar.ArrangerLeft[one-bank-zoom=false] ArrangerTrack.ArrangerLeft
+{
+    height:                         10;
+}
+
+Bar.ArrangerLeft[one-bank-zoom=true] ArrangerTrack.ArrangerLeft
+{
+    height:                         18;
+}
+
+
+// RIGHT
+ArrangerTrack.ArrangerRight
+{
+    width:                          $PatternEditorWidthR;
+    height:                         26;
+}
+
+
+// GRID LANES
+//----------------------------------------------------------------------------------------------------------------------
+
+// SHARED
+ArrangerTrack::GridLane
+{
+    bar-color: rgb(17,17,17);  // color of the vertical spaces between each bar
+    beat-color: rgb(17,17,17);  // color of the vertical spaces between each beat, visible at a closer zoom ratio
+    x: 0; y: 1;
+}
+
+// LEFT
+Bar.ArrangerLeft[one-bank-zoom=true] ArrangerTrack.ArrangerLeft::GridLane
+{
+    height: 18;
+}
+
+Bar.ArrangerLeft[one-bank-zoom=false] ArrangerTrack.ArrangerLeft::GridLane
+{
+    height: 10;
+}
+
+// RIGHT
+ArrangerTrack.ArrangerRight::GridLane
+{
+    height: 25;
+}
+
+
+
+// PATTERN & CLIP LANES
+//----------------------------------------------------------------------------------------------------------------------
+
+ArrangerTrack::PatternLane,
+ArrangerTrack::ClipLane
+{
+    x: 0; y: 0;
+}
+
+ArrangerTrack.ArrangerRight::PatternLane,
+ArrangerTrack.ArrangerRight::ClipLane
+{
+    height: 26;
+}
+
+Bar.ArrangerLeft[one-bank-zoom=true] ArrangerTrack.ArrangerLeft::PatternLane,
+Bar.ArrangerLeft[one-bank-zoom=true] ArrangerTrack.ArrangerLeft::ClipLane
+{
+    height: 18;
+}
+
+Bar.ArrangerLeft[one-bank-zoom=false] ArrangerTrack.ArrangerLeft::PatternLane,
+Bar.ArrangerLeft[one-bank-zoom=false] ArrangerTrack.ArrangerLeft::ClipLane
+{
+    height: 10;
+}
+
+
+
+// Pattern Song Mode
+// -----------------------
+
+ArrangerTrack::PatternLane::Pattern
+{
+    dye-mask: url("Maschine/HW/Studio/ArrangerPages/ARR_Pattern_Mask_Rect.png");
+    dye-mask-animations: 5;
+
+    dye-color-palette: 1;
+
+    image: url("Maschine/HW/Studio/ArrangerPages/ARR_Pattern_Overlay_Rect.png");
+    animations: 16;
+
+    font-name: $fontPragmatica;
+    font-size: 11;
+    foreground-color: $colorBlack80;
+    foreground-color-palette: no;
+
+    fixed-left: 3;
+    fixed-right: 3;
+    fixed-top: 3;
+    fixed-bottom: 4;
+
+    picture-includes-margin: true;
+    margin-left: 7;
+    margin-right: 7;
+}
+
+Bar.ArrangerLeft ArrangerTrack::PatternLane::Pattern
+{
+    foreground-color: no;
+}
+
+// Default
+ArrangerTrack::PatternLane::Pattern
+{
+    dye-mask-animation-index: 0;
+    animation-index: 0;
+}
+
+ArrangerTrack::PatternLane::Pattern[Iteration=first]
+{
+    dye-mask-animation-index: 1;
+    animation-index: 1;
+}
+
+ArrangerTrack::PatternLane::Pattern[Iteration=middle]
+{
+    dye-mask-animation-index: 2;
+    animation-index: 2;
+}
+
+ArrangerTrack::PatternLane::Pattern[Iteration=last]
+{
+    dye-mask-animation-index: 3;
+    animation-index: 3;
+}
+
+// Focus
+ArrangerTrack[HasFocus=true]::PatternLane::Pattern[HasFocus=true]
+{
+    dye-mask-animation-index: 0;
+    animation-index: 4;
+}
+
+ArrangerTrack[HasFocus=true]::PatternLane::Pattern[Iteration=first][HasFocus=true]
+{
+    dye-mask-animation-index: 1;
+    animation-index: 5;
+}
+
+ArrangerTrack[HasFocus=true]::PatternLane::Pattern[Iteration=middle][HasFocus=true]
+{
+    dye-mask-animation-index: 2;
+    animation-index: 6;
+}
+
+ArrangerTrack[HasFocus=true]::PatternLane::Pattern[Iteration=last][HasFocus=true]
+{
+    dye-mask-animation-index: 3;
+    animation-index: 7;
+}
+
+// Muted
+ArrangerTrack[Muted=true]::PatternLane::Pattern
+{
+    dye-mask-animation-index: 4;
+    animation-index: 8;
+}
+
+ArrangerTrack[Muted=true]::PatternLane::Pattern[Iteration=first]
+{
+    dye-mask-animation-index: 4;
+    animation-index: 9;
+}
+
+ArrangerTrack[Muted=true]::PatternLane::Pattern[Iteration=middle]
+{
+    dye-mask-animation-index: 4;
+    animation-index: 10;
+}
+
+ArrangerTrack[Muted=true]::PatternLane::Pattern[Iteration=last]
+{
+    dye-mask-animation-index: 4;
+    animation-index: 11;
+}
+
+
+// Muted Focus
+ArrangerTrack[Muted=true][HasFocus=true]::PatternLane::Pattern[HasFocus=true]
+{
+    dye-mask-animation-index: 4;
+    animation-index: 12;
+}
+
+ArrangerTrack[Muted=true][HasFocus=true]::PatternLane::Pattern[Iteration=first][HasFocus=true]
+{
+    dye-mask-animation-index: 4;
+    animation-index: 13;
+}
+
+ArrangerTrack[Muted=true][HasFocus=true]::PatternLane::Pattern[Iteration=middle][HasFocus=true]
+{
+    dye-mask-animation-index: 4;
+    animation-index: 14;
+}
+
+ArrangerTrack[Muted=true][HasFocus=true]::PatternLane::Pattern[Iteration=last][HasFocus=true]
+{
+    dye-mask-animation-index: 4;
+    animation-index: 15;
+}
+
+
+
+// CLIPS
+//----------------------------------------------------------------------------------------------------------------------
+
+ArrangerTrack::ClipLane::Clip
+{
+    dye-mask: url("Maschine/HW/Studio/ArrangerPages/ARR_Clip_Mask_3px.png");
+    dye-mask-animations: 2;
+
+    dye-color-palette: 1;
+
+    image: url("Maschine/HW/Studio/ArrangerPages/ARR_Clip_Overlay_3px.png");
+    animations: 4;
+
+    font-name: $fontPragmatica;
+    font-size: 11;
+    foreground-color: $colorBlack80;
+    foreground-color-palette: no;
+
+    fixed-left: 5;
+    fixed-right: 5;
+    fixed-top: 5;
+    fixed-bottom: 5;
+
+    picture-includes-margin: true;
+    margin-left: 7;
+    margin-right: 7;
+
+    dye-mask-animation-index: 0;
+    animation-index: 0;
+}
+
+Bar.ArrangerLeft ArrangerTrack::ClipLane::Clip
+{
+    foreground-color: no;
+}
+
+ArrangerTrack[HasFocus=true]::ClipLane::Clip[HasFocus=true]
+{
+    animation-index: 1;
+}
+
+ArrangerTrack[Muted=true]::ClipLane::Clip
+{
+    animation-index: 2;
+}
+
+ArrangerTrack[HasFocus=true][Muted=true]::ClipLane::Clip[HasFocus=true]
+{
+    animation-index: 3;
+    dye-mask-animation-index: 1;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// SCENE BACKGROUNDS AND SCENE HEADERS
+//----------------------------------------------------------------------------------------------------------------------
+
+// GENERAL DEFINITIONS
+SceneBGWidget
+{
+    // Animation Indices (build your own property out of these:
+    // animidx-focusedG-focusedS-header-truncated-recording-noScene(-mask)
+    // ! OBEY THE ORDER !
+
+    // DEFAULT
+
+    // Default
+    animidx-default:                    0;
+
+    // Default Group Focus Row
+    animidx-focusedG:                   1;
+
+
+    // FOCUSED
+
+    // Default Focused
+    animidx-focusedS:                   4;
+
+    // Default Group Focus
+    animidx-focusedG-focusedS:          5;
+
+
+
+    // DEFAULT COLORED MASKS
+
+    // Default
+    animidx-default-mask:               8;
+
+    // Default Focused Row
+    animidx-focusedG-mask:              9;
+
+
+
+    // FOCUS COLORED MASKS
+
+    // Default Focus
+    animidx-focusedS-mask:              12;
+
+    // Default Focused Row
+    animidx-focusedG-focusedS-mask:     13;
+
+
+
+    // SCENE HEADERS
+
+    // Masks
+    animidx-header-mask:                                16;
+    animidx-focusedS-header-mask:                       16;
+    animidx-header-referenced-mask:                     16;
+    animidx-focusedS-header-referenced-mask:            16;
+    animidx-header-truncated-mask:                      17;
+    animidx-focusedS-header-truncated-mask:             17;
+    animidx-header-referenced-truncated-mask:           17;
+    animidx-focusedS-header-referenced-truncated-mask:  17;
+
+    // Overlays
+    animidx-header:                                     18;
+    animidx-focusedS-header:                            19;
+
+    animidx-header-truncated:                           20;
+    animidx-focusedS-header-truncated:                  21;
+
+    animidx-focusedS-header-referenced:                 22;
+    animidx-focusedS-header-referenced-truncated:       23;
+
+    animidx-header-referenced:                          24;
+    animidx-header-referenced-truncated:                25;
+
+    animidx-header-recording:                           26;
+    animidx-header-truncated-recording:                 27;
+
+    animidx-header-noScene:                             28;
+    animidx-focusedS-header-noScene:                    29;
+}
+
+
+
+// LEFT SCREEN - SCENE BACKGROUNDS
+//----------------------------------------------------------------------------------------------------------------------
+
+// SONG MODE
+Bar.ArrangerLeft SceneBGWidget
+{
+    image:                          url("Maschine/HW/Studio/ArrangerPages/ARR_BGL_Scene.png");
+    animations:                     26;
+    fixed-left:                     2;
+    fixed-right:                    5;
+    fixed-top:                      2;
+    fixed-bottom:                   2;
+
+    scene-bg-color-palette:         2;
+}
+
+
+
+// RIGHT SCREEN - SCENE BACKGROUNDS AND SCENE HEADERS
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.ArrangerRight SceneBGWidget
+{
+    image:                          url("Maschine/HW/Studio/ArrangerPages/ARR_BGR_Scene.png");
+    animations:                     30;
+    fixed-left:                     2;
+    fixed-right:                    9;
+    fixed-top:                      9;
+    fixed-bottom:                   3;
+
+    scene-bg-color-palette:         2;
+}
+
+
+
+//----------------------------------------------------------------------------------------
+// SPECIFIC STUFF
+//----------------------------------------------------------------------------------------
+
+// SCENE ARRANGER - LEFT SCREEN
+
+// Container (timeline+arranger)
+Bar.ArrangerLeft Bar#m_pBody
+{
+    height:                         144;
+}
+
+// Arranger Container
+Bar.GroupVectorArrangerLeft
+{
+    height:                         128;
+}
+
+
+
+
+// SCENE ARRANGER - RIGHT SCREEN
+
+// SOUND LIST RIGHT SCREEN
+Bar#ArrangerPageSectionsStudioScreenRight Vector<Label>,
+Bar#LoopPageStudioScreenRight Vector<Label>,
+Bar#LoopPageMK3ScreenRight Vector<Label>
+{
+    background-color:               $colorBlack;
+    width:                          26;
+    height:                         232;
+
+    margin-top:                     41;
+    margin-bottom:                  0;
+    outer-margin-right:             1;
+}
+
+Bar#ArrangerPageClipsStudioScreenRight Vector<Label>
+{
+    background-color:               rgb(16,16,16);
+    width:                          20;
+    height:                         231;
+
+    margin-top:                     39;
+    margin:                         0;
+    outer-margin-top:               2;
+}
+
+Bar#ArrangerPageClipsStudioScreenRight Vector<Label>#SoundList Bar#widgets
+{
+    background-color:               no;
+
+    width:                          20;
+    height:                         192;
+
+    margin:                         0;
+    spacing:                        1;
+}
+
+Bar#ArrangerPageSectionsStudioScreenRight Vector<Label> Bar#widgets,
+Bar#LoopPageStudioScreenRight Vector<Label> Bar#widgets,
+Bar#LoopPageMK3ScreenRight Vector<Label> Bar#widgets
+{
+    width:                          26;
+    height:                         192;
+    margin-bottom:                  1;
+    spacing:                        1;
+    margin-right:                   0;
+    background-color:               $colorBlack;
+}
+
+// Item
+Label.GroupListItem
+{
+    width:                          26;
+    height:                         23;
+
+    background-color:               $colorBlack;
+    foreground-color-palette:       1;
+
+
+    font-name:                      $fontPragmatica;
+    font-size:                      10;
+    horizontal-alignment:           center;
+    vertical-alignment:             center;
+    margin-top:                     1;
+}
+
+Label.GroupListItem:selected
+{
+    background-color-palette:       2;
+    foreground-color-palette:       no;
+    foreground-color:               $colorBlack;
+}
+
+// INFO BAR :ScenesHolder
+Bar.ArrangerRight Bar#m_pScenesHolder
+{
+    width:                          $PatternEditorWidthR;
+    background-color-palette:       no;
+    background-color: rgb(26,26,26);
+    margin-left:                    -1;
+}
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+// CLIP EDITOR
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+ClipEditorHeader
+{
+    height: 23;
+    background-color: rgb(26,26,26);
+    border-color: $colorBlack
+}
+
+ClipEditorHeader GridLane
+{
+    bar-color:  rgb(8,8,8);
+    beat-color: rgb(8,8,8);
+    snap-color: rgb(21,21,21);
+}
+
+
+// Pattern Lane
+
+ClipEditorHeader::PatternLane::Pattern
+{
+    dye-mask: url("Maschine/PatternEditor/PE_Pattern_Mask.png");
+
+    dye-color-palette: 1;
+
+    image: url("Maschine/PatternEditor/PE_Pattern_Overlay.png");
+
+    font-name: $fontPragmatica;
+    font-size: 11;
+    foreground-color: $colorBlack75;
+    foreground-color-palette: no;
+
+    fixed-left: 2;
+    fixed-right: 2;
+    fixed-top: 2;
+    fixed-bottom:2 ;
+
+    picture-includes-margin: true;
+    margin-left: 7;
+    margin-right: 7;
+}
+
+// Clip Lane
+
+ClipEditorHeader::ClipLane::Clip
+{
+    dye-mask: url("Maschine/PatternEditor/PE_Clip_Mask_3px.png");
+    dye-mask-animations: 2;
+
+    dye-color-palette: 1;
+
+    image: url("Maschine/PatternEditor/PE_Clip_Overlay_3px.png");
+    animations: 4;
+
+    font-name: $fontPragmatica;
+    font-size: 11;
+    foreground-color: $colorBlack75;
+    foreground-color-palette: no;
+
+    fixed-left: 5;
+    fixed-right: 5;
+    fixed-top: 5;
+    fixed-bottom: 5;
+
+    picture-includes-margin: true;
+    margin-left: 8;
+    margin-right: 8;
+
+    dye-mask-animation-index: 0;
+    animation-index: 0;
+}
+
+ClipEditorHeader::ClipLane::Clip[HasFocus=true]
+{
+    animation-index: 1;
+}
+
+FocusClipBackgroundHighlight
+{
+    background-color: rgba(255,255,255,24)
+}
+
+// TIMELINE
+ClipEditorHW SongTimeline
+{
+    height:                         18;
+
+    timein-color:                   rgb(255,255,255); // sets font-color
+    font-resid:                     $fontRaldoId;
+    font-size:                      $fontRaldoSize;
+
+    loop-fill-color:                $colorWhite10;
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+// CLIP EDITOR - DRUM GRID LANE AND PIANO LANE
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+ClipEditorHWPianoLane,
+ClipEditorHWDrumGridLane
+{
+    bg-grid-color:                      rgb(26,26,26);          // background color
+}
+
+ClipEditorHWPianoLane::GridLane,
+ClipEditorHWDrumGridLane::GridLane
+{
+    snap-color:                     rgb(21,21,21);
+    beat-color:                     rgb(16,16,16);
+    bar-color:                      rgb(16,16,16);
+}
+
+ClipEditorHWDrumGridLane[AudioModule=false] NotesLane,
+ClipEditorHWPianoLane[AudioModule=false] NotesLane
+{
+    note-color-palette:                 1;
+    note-muted-color:                   rgb(128,128,128);
+
+    note-disabled-color-palette:        25;
+    note-disabled-muted-color:          rgb(64,64,64);
+
+    note-inner-selected-border-color:   $colorBlack;
+
+    note-outer-border-color:            rgb(30,30,30);
+    note-outer-selected-border-color:   $colorWhite;
+
+    note-fill-min-velocity-alpha:       68;                 // values go from 0-255
+    note-fill-max-velocity-alpha:       216;
+
+    note-border-min-velocity-alpha:     0;                 // values go from 0-255
+    note-border-max-velocity-alpha:     0;
+
+    note-selected-overlay-color:        $colorWhite15;
+
+    drum-note-margin-top:              0;
+    drum-note-margin-bottom:           0;
+}
+
+ClipEditorHWDrumGridLane[AudioModule=true] NotesLane,
+ClipEditorHWPianoLane[AudioModule=true] NotesLane
+{
+    note-color-palette:                 1;
+    note-muted-color:                   rgb(128,128,128);
+
+    note-disabled-color-palette:        24;
+    note-disabled-muted-color:          rgb(64,64,64);
+
+    note-inner-border-color:            $colorWhite;
+    note-inner-selected-border-color:   $colorBlack;
+
+    note-outer-border-color:            rgb(30,30,30);
+    note-outer-selected-border-color:   $colorWhite;
+
+    note-fill-min-velocity-alpha:       68;                 // values go from 0-255
+    note-fill-max-velocity-alpha:       216;
+
+    note-border-min-velocity-alpha:     0;                 // values go from 0-255
+    note-border-max-velocity-alpha:     0;
+
+    note-selected-overlay-color:        no;
+
+    drum-note-margin-top:              0;
+    drum-note-margin-bottom:           0;
+}
+
+ClipEditorHWDrumGridLane
+{
+    color-drumgrid-border:          rgb(17,17,17);          // horizontal external border color
+    color-drumgrid-border-light:    rgb(26,26,26);          // horizontal internal border color
+    color-separator:                $colorBlack;            // horizontal separator every 4 sound
+
+    color-snap-out:                 rgb(21,21,21);          // vertical separator every "snap"
+    color-snap-in:                  rgb(21,21,21);
+    color-beat-out:                 rgb(16,16,16);          // vertical separator every beat
+    color-beat-in:                  rgb(16,16,16);
+    color-bar-out:                  $colorBlack;            // vertical separator every bar
+    color-bar-in:                   $colorBlack;
+
+    bg-out-overlay-color:           rgba(40,40,40,138);     // right grey overlay
+    bg-selection-color:             rgba(0,0,192,128);      // selected area color
+
+    focus-sound-highlight-color:    $colorWhite3;        // selected sound background color
+
+    color-playmarker:               $colorWhite;
+
+    foreground-color:               $colorWidgetText;
+
+    margin:                         0;
+    font-resid:                     $fontRaldoId;
+    font-size:                      $fontRaldoSize;
+    horizontal-alignment:           right;
+
+    draw-play-marker:               true;
+    height:                           12;
+}
+
+// DOUBLE SIZE WHEN ZOOMED
+ClipEditorHWDrumGridLane[zoom-y=true]
+{
+   height:                           24;
+}
+
+ClipEditorHWDrumGridLane[zoom-y=false] NotesLane
+{
+   height:                           12;
+}
+
+ClipEditorHWDrumGridLane[zoom-y=true] NotesLane
+{
+   height:                           24
+}
+
+// DOUBLE SIZE MIDI NOTES POSITIONING FOR MIDI TRACKS
+ClipEditorHWDrumGridLane[AudioModule=false][zoom-y=true] NotesLane,
+ClipEditorHWDrumGridLane[AudioModule=false] NotesLane
+{
+   drum-note-margin-top:              5;
+   drum-note-margin-bottom:           6;
+}
+
+ClipEditorHWPianoLane
+{
+    color-whitekey:                     rgb(33,33,33);
+    color-blackkey:                     rgb(26,26,26);
+}
+
+
+ClipEditorHWPianoLane NotesLane
+{
+    min-height:                      8;
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+// CLIP EDITOR - DRUMGRID LANE WAVEDISPLAY
+//-----------------------------------------------------------------------------------------------------------------------------------
+@define $colordWaveDefaultMutedDG       rgb(90,90,90);
+@define $colordWaveMutedActiveDG        rgb(102,102,102);
+@define $colordWaveMutedGateDG          rgb(118,118,118);
+@define $colordWaveMutedLoopedDG    	rgb(79,79,79);
+
+@define $paletteWaveActiveDG            17; // Basic 16 colors with 20% rgb(50,50,50) to desaturate
+@define $paletteWaveActiveGateDG        1;  // Basic 16 colors
+@define $paletteWaveActiveLoopDG        24; // Basic 16 colors with 75% rgb(50,50,50) to desaturate
+@define $paletteWaveActiveClipsDG       1;  // Basic 16 colors
+@define $paletteWaveActiveLoopClipsDG   19;
+
+// GENERIC
+ClipEditorHWDrumGridLane ClipAudioLane
+{
+    background-color:                   no;
+    background-disabled-color:          no;
+    decibel-line-color:                 no;
+    waveform-color-palette:             no;
+    waveform-disabled-color-palette:    no;
+    active-waveform-color-palette:      $paletteWaveActiveClipsDG;
+    active-waveform-loop-color-palette: $paletteWaveActiveLoopClipsDG;
+    active-waveform-disabled-color-palette: 21;
+    active-waveform-loop-disabled-color-palette: 6;
+    height:                             10;
+    margin-top:                         1;
+}
+
+ClipEditorHWDrumGridLane[zoom-y=true] ClipAudioLane
+{
+    height:                             18;
+    margin-top:                         3;
+}
+
+// GATED
+ClipEditorHWDrumGridLane ClipAudioLane[Loop=false][Muted=false]
+{
+    active-background-color-palette:    no;
+    active-background-color:            no;
+    active-waveform-color-palette:      $paletteWaveActiveGateDG;
+    active-waveform-loop-color-palette: $paletteWaveActiveGateDG;
+    active-waveform-disabled-color-palette: 17;
+    active-waveform-loop-disabled-color-palette: 6;
+    waveform-color:                     $colordWaveMutedActiveDG;
+    waveform-disabled-color:            $colordWaveMutedActiveDG;
+}
+
+// GATED MUTED
+ClipEditorHWDrumGridLane ClipAudioLane[Loop=false][Muted=true]
+{
+    active-background-color:            no;
+    active-waveform-color-palette:      no;
+    active-waveform-loop-color-palette: no;
+    active-waveform-disabled-color-palette: no;
+    active-waveform-loop-disabled-color-palette: no;
+    active-waveform-color:              $colordWaveMutedGateDG;
+    active-waveform-loop-color:         $colordWaveMutedGateDG;
+    active-waveform-disabled-color:     $colordWaveMutedGateDG;
+    active-waveform-loop-disabled-color: $colordWaveMutedGateDG;
+    waveform-color:                     $colordWaveMutedActiveDG;
+    waveform-disabled-color:            $colordWaveMutedActiveDG;
+}
+
+// LOOP ON
+ClipEditorHWDrumGridLane ClipAudioLane[Loop=true][Muted=false]
+{
+    active-background-color:            $colorNone;
+    active-background-disabled-color:   $colorNone;
+}
+
+// LOOP ON MUTED
+ClipEditorHWDrumGridLane ClipAudioLane[Loop=true][Muted=true]
+{
+    active-waveform-color-palette:      no;
+    active-waveform-loop-color-palette: no;
+    active-waveform-disabled-color-palette: no;
+    active-waveform-loop-disabled-color-palette: no;
+    active-waveform-color:              $colordWaveMutedActiveDG;
+    active-waveform-loop-color:         $colordWaveMutedLoopedDG;
+    active-waveform-disabled-color:     $colordWaveMutedActiveDG;
+    active-waveform-loop-disabled-color: $colordWaveMutedLoopedDG;
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+// CLIP EDITOR - PIANO LANE WAVEDISPLAY
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+@define $colordWaveMutedActivePR        $colorWhite20;
+@define $colordWaveMutedLoopedPR        $colorWhite10;
+
+@define $paletteWaveActivePR            7;
+@define $paletteWaveActiveLoopPR        6;
+
+// GENERIC
+ClipEditorHWPianoLane ClipAudioLane
+{
+    background-color:                   no;
+    decibel-line-color:                 no;
+    waveform-color:                     $colordWaveMutedActivePR;
+    waveform-color-palette:             no;
+}
+
+// GATED
+ClipEditorHWPianoLane ClipAudioLane[Loop=false][Muted=false]
+{
+    active-waveform-color-palette:      $paletteWaveActivePR;
+    active-waveform-loop-color-palette: $paletteWaveActivePR;
+    active-background-color-palette:    6;
+}
+
+// GATED MUTED
+ClipEditorHWPianoLane ClipAudioLane[Loop=false][Muted=true]
+{
+    active-waveform-color:              $colorWhite25;
+    active-waveform-loop-color:         $colorWhite25;
+    active-background-color:            $colorWhite10;
+}
+
+// LOOP ON
+ClipEditorHWPianoLane ClipAudioLane[Loop=true][Muted=false]
+{
+    active-waveform-color-palette:      $paletteWaveActivePR;
+    active-waveform-loop-color-palette: $paletteWaveActiveLoopPR;
+    active-background-color:            no;
+    active-background-color-palette:    no;
+}
+
+// LOOP ON MUTED
+ClipEditorHWPianoLane ClipAudioLane[Loop=true][Muted=true]
+{
+    active-waveform-color:              $colordWaveMutedActivePR;
+    active-waveform-loop-color:         $colordWaveMutedLoopedPR;
+    active-waveform-color-palette:      no;
+    active-background-color:            no;
+    active-background-color-palette:    no;
+}
+
+// LOOP OFF MUTED
+ClipEditorHWPianoLane ClipAudioLane[Loop=true][Muted=true]
+{
+    active-waveform-color:              $colorNone;
+    active-waveform-loop-color:         $colorNone;
+    active-waveform-color-palette:      no;
+    active-background-color:            no;
+    active-background-color-palette:    no;
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+// PATTERN EDITOR - LEFT LEFT
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+// TIMELINE
+PatternEditorTimeline
+{
+    height:                         16;
+    background-color:               $colorTimeLine;
+    border-color:                   rgb(0,0,0);       // horizontal borders on top and bottom of the Timeline bar.
+    barin-color:                    rgb(132,132,132);    // color of the timelinemarker exactly on the first beat of a bar.
+    beatin-color:                   rgb(132,132,132);    // color of the timelinemarker on all beats of a bar, but the first one is overwritten by barin-color
+    scene-end-line-color:           no;
+
+    timein-color:                   rgb(255,255,255); // sets font-color
+    font-resid:                     $fontRaldoId;
+    font-size:                      $fontRaldoSize;
+
+    vertical-alignment:             center;
+    outer-margin-top:               0;
+
+    left-text-offset:               5;
+    top-text-offset:                -2;
+
+    loop-fill-color:                $colorWhite10;
+}
+
+
+// GRID
+PatternEditorGrid
+{
+    bg-grid-color:                  rgb(26,26,26);          // background color
+    color-drumgrid-border:          rgb(17,17,17);          // horizontal external border color
+    color-drumgrid-border-light:    rgb(26,26,26);          // horizontal internal border color
+    color-separator:                $colorBlack;            // horizontal separator every 4 sound
+
+    color-snap-out:                 rgb(21,21,21);          // vertical separator every "snap"
+    color-snap-in:                  rgb(21,21,21);
+    color-beat-out:                 rgb(16,16,16);          // vertical separator every beat
+    color-beat-in:                  rgb(16,16,16);
+    color-bar-out:                  $colorBlack;            // vertical separator every bar
+    color-bar-in:                   $colorBlack;
+
+    bg-out-overlay-color:           rgba(40,40,40,138);     // right grey overlay
+    bg-selection-color:             rgba(0,0,192,128);      // selected area color
+
+    focus-sound-highlight-color:    $colorWhite3;          // selected sound row background color
+
+    color-playmarker:               $colorWhite;
+
+    foreground-color:               $colorWidgetText;
+    margin:                         0;
+    width:                          480;
+    font-resid:                     $fontRaldoId;
+    font-size:                      $fontRaldoSize;
+    horizontal-alignment:           right;
+
+    draw-play-marker:               true;
+
+    min-height:                     24;
+}
+
+
+// LEVEL OF DETAIL: VERTICAL ZOOM VARIES ROUGHLY BETWEEN 14 and 66 %
+Bar#PatternEditor
+{
+    zoom-def-1:                 30; //0..30
+    zoom-def-2:                 40; //30..40
+    zoom-def-3:                 60; //40..60
+}
+
+Bar#PatternEditor[zoom-def=level1] PatternEditorGrid#m_pPianorollWidget,
+Bar#PatternEditor[zoom-def=level2] PatternEditorGrid#m_pPianorollWidget
+{
+    draw-grid-lines:            false;
+}
+
+Bar#PatternEditor[zoom-def=level3] PatternEditorGrid#m_pPianorollWidget,
+Bar#PatternEditor[zoom-def=level4] PatternEditorGrid#m_pPianorollWidget
+{
+    draw-grid-lines:            true;
+}
+
+Bar#PatternEditor[zoom-def=level4] NotesLane
+{
+    note-draw-outer-border:          true;
+    note-draw-inner-border:          true;
+}
+
+Bar#PatternEditor[zoom-def=level3] NotesLane
+{
+    note-draw-outer-border:          true;
+    note-draw-inner-border:          false;
+}
+
+Bar#PatternEditor[zoom-def=level2] NotesLane
+{
+    note-draw-outer-border:          true;
+    note-draw-inner-border:          false;
+}
+
+Bar#PatternEditor[zoom-def=level1] NotesLane
+{
+    note-draw-outer-border:          true;
+    note-draw-inner-border:          false;
+}
+
+
+
+// DRUM GRID WAVEDISPALY
+//----------------------------------------------------------------------------------------------------------------------
+
+@define $colordWaveDefaultMuted         rgb(79,79,79);
+@define $colorWaveDefaultMutedActive    rgb(115,115,115);
+@define $colordWaveMutedActive          rgb(77,77,77);
+@define $colordWaveMutedLooped      	rgb(50,50,50);
+
+@define $paletteWaveActive              1; // Basic 16 colors with 20% rgb(50,50,50)
+@define $paletteWaveActiveLoop          19;
+
+// SIZES
+
+// SIZE CORRECTION FOR LEFT SCREEN NAVI OVERVIEW AND NOTE REPEAT PAGE
+Bar.PatternEditorLeft Vector<PatternEditorGrid> PatternEditorGrid WaveDisplayWidget,
+Bar#RepeatPageStudio Vector<PatternEditorGrid>#m_pDrumgridVector WaveDisplayWidget
+{
+    height:                             8;
+}
+
+Bar#RepeatPageStudio Vector<PatternEditorGrid>#m_pDrumgridVector WaveDisplayWidget
+{
+    margin-top:                         0;
+}
+
+// SIZE CORRECTION FOR RIGHT SCREEN
+Bar.PatternEditorRight Vector<PatternEditorGrid> PatternEditorGrid WaveDisplayWidget
+{
+    height:                             10;
+    margin-top:                         1;
+}
+
+// DOUBLE SIZE FOR RIGHT SCREEN & EVENTS SCREEN
+Bar.PatternEditorRight Vector<PatternEditorGrid> PatternEditorGrid[zoom-y=true] WaveDisplayWidget,
+PatternEditorGrid#m_pHWFocusGrid WaveDisplayWidget
+{
+    margin-top:                         3;
+    height:                             18;
+    margin-top:                         1;
+}
+
+Bar#StepPageStudio Bar#StepPageStudioScreenRight Bar#m_pUpper PatternEditorGrid[AudioModule=true][StepPageAudioLoop=false] WaveDisplayWidget,
+Bar#StepPageMK3 Bar#StepPageMK3ScreenRight Bar#m_pUpper PatternEditorGrid[AudioModule=true][StepPageAudioLoop=false] WaveDisplayWidget
+{
+    margin-top:                         0;
+    height:                             24;
+}
+
+// COLORING
+
+// GENERIC
+PatternEditorGrid WaveDisplayWidget
+{
+    min-height:                         8;
+    background-color:                   no;
+    decibel-line-color:                 no;
+    waveform-color:                     $colordWaveDefaultMuted;
+    waveform-color-palette:             no;
+    active-waveform-color-palette:      $paletteWaveActive;
+    active-waveform-loop-color-palette: $paletteWaveActiveLoop;
+}
+
+// GATED
+PatternEditorGrid WaveDisplayWidget[Loop=false][Muted=false]
+{
+    active-background-color-palette:    no;
+    active-background-color:            no;
+    active-waveform-color-palette:      $paletteWaveActive;
+    active-waveform-loop-color-palette: $paletteWaveActive;
+    waveform-color:                     $colordWaveMutedActive;
+}
+
+// GATED MUTED
+PatternEditorGrid WaveDisplayWidget[Loop=false][Muted=true]
+{
+    active-background-color:            no;
+    active-waveform-color-palette:      no;
+    active-waveform-loop-color-palette: no;
+    active-waveform-color:              $colorWaveDefaultMutedActive;
+    active-waveform-loop-color:         $colorWaveDefaultMutedActive;
+    waveform-color:                     $colordWaveMutedActive;
+}
+
+// LOOP
+PatternEditorGrid WaveDisplayWidget[Loop=true]
+{
+    active-background-color:            $colorNone;
+}
+
+// LOOP ON
+PatternEditorGrid WaveDisplayWidget[Loop=true][Muted=false]
+{
+    active-waveform-color-palette:      $paletteWaveActive;
+    active-waveform-loop-color-palette: $paletteWaveActiveLoop;
+}
+
+// LOOP ON MUTED
+PatternEditorGrid WaveDisplayWidget[Loop=true][Muted=true]
+{
+    active-waveform-color-palette:      no;
+    active-waveform-loop-color-palette: no;
+    active-waveform-color:              $colordWaveMutedActive;
+    active-waveform-loop-color:         $colordWaveMutedLooped;
+}
+
+
+
+// PIANOROLL WAVEDISPALY
+//----------------------------------------------------------------------------------------------------------------------
+
+// GENERIC
+PatternEditorGrid#m_pPianorollWidget WaveDisplayWidget
+{
+    background-color:                   no;
+    decibel-line-color:                 no;
+    waveform-color:                     $colordWaveMutedActivePR;
+    waveform-color-palette:             no;
+}
+
+// GATED
+PatternEditorGrid#m_pPianorollWidget WaveDisplayWidget[Loop=false][Muted=false]
+{
+    active-waveform-color-palette:      $paletteWaveActivePR;
+    active-waveform-loop-color-palette: $paletteWaveActivePR;
+    active-background-color-palette:    6;
+}
+
+// GATED MUTED
+PatternEditorGrid#m_pPianorollWidget WaveDisplayWidget[Loop=false][Muted=true]
+{
+    active-waveform-color:              $colorWhite25;
+    active-waveform-loop-color:         $colorWhite25;
+    active-background-color:            $colorWhite10;
+}
+
+// LOOP ON
+PatternEditorGrid#m_pPianorollWidget WaveDisplayWidget[Loop=true][Muted=false]
+{
+    active-waveform-color-palette:      $paletteWaveActivePR;
+    active-waveform-loop-color-palette: $paletteWaveActiveLoopPR;
+    active-background-color:            no;
+    active-background-color-palette:    no;
+}
+
+// LOOP ON MUTED
+PatternEditorGrid#m_pPianorollWidget WaveDisplayWidget[Loop=true][Muted=true]
+{
+    active-waveform-color:              $colordWaveMutedActivePR;
+    active-waveform-loop-color:         $colordWaveMutedLoopedPR;
+    active-waveform-color-palette:      no;
+    active-background-color:            no;
+    active-background-color-palette:    no;
+}
+
+// LOOP OFF MUTED
+PatternEditorGrid#m_pPianorollWidget WaveDisplayWidget[Loop=true][Muted=true]
+{
+    active-waveform-color:              $colorNone;
+    active-waveform-loop-color:         $colorNone;
+    active-waveform-color-palette:      no;
+    active-background-color:            no;
+    active-background-color-palette:    no;
+}
+
+// MIDI NOTES
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+// SIZES
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+// FOR PIANOROLL
+PatternEditorPianoroll#m_pPianoroll PatternEditorGrid#m_pPianorollWidget::NotesLane
+{
+    min-height:                      8;
+}
+
+// LEFT NAVIGATION SCREEN AND NOTE REPEAT DRUMGRID
+Bar.PatternEditorLeft Vector<PatternEditorGrid> PatternEditorGrid NotesLane,
+Bar#RepeatPageStudioScreenRight Vector<PatternEditorGrid>#m_pDrumgridVector::Bar#widgets::PatternEditorGrid NotesLane
+{
+    height:                          8;
+    drum-note-margin-top:            0;
+    drum-note-margin-bottom:         0;
+}
+
+// RIGHT SCREEN DEFAULT SIZE
+Bar.PatternEditorRight PatternEditorGrid[AudioModule=false][zoom-y=false] NotesLane,
+Bar.PatternEditorRight PatternEditorGrid[AudioModule=true][zoom-y=false] NotesLane
+{
+   height:                           12;
+   drum-note-margin-top:             0;
+   drum-note-margin-bottom:          0;
+}
+
+ // DOUBLE SIZE FOR RIGHT SCREEN
+ Bar.PatternEditorRight PatternEditorGrid[AudioModule=false][zoom-y=true] NotesLane,
+ Bar.PatternEditorRight PatternEditorGrid[AudioModule=true][zoom-y=true] NotesLane,
+ Bar#StepPageStudio Bar#StepPageStudioScreenRight Bar#m_pUpper PatternEditorGrid[StepPageAudioLoop=false] NotesLane,
+ Bar#StepPageMK3 Bar#StepPageMK3ScreenRight Bar#m_pUpper PatternEditorGrid[StepPageAudioLoop=false] NotesLane
+{
+    height:                           24;
+}
+
+// DEAFULT SIZE
+PatternEditorGrid[AudioModule=false] NotesLane
+{
+   drum-note-margin-top:              0;
+   drum-note-margin-bottom:           0;
+}
+
+// DOUBLE SIZE MIDI NOTES POSITIONING FOR MIDI TRACKS
+Bar.PatternEditorRight PatternEditorGrid[AudioModule=false][zoom-y=true] NotesLane,
+Bar#StepPageStudioScreenRight PatternEditorGrid[AudioModule=false] NotesLane
+{
+   drum-note-margin-top:              5;
+   drum-note-margin-bottom:           6;
+}
+
+
+// COLOR STYLING
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+// MIDI NOTES FOR MIDI DRUM-GRID AND PIANOROLL
+PatternEditorGrid[AudioModule=false] NotesLane,
+PatternEditorGrid#m_pPianorollWidget NotesLane
+{
+    note-color-palette:                1;
+
+    note-inner-border-color:           $colorWhite;
+    note-inner-selected-border-color:  $colorBlack;
+
+    note-outer-border-color:           $colorBlack40;
+    note-outer-selected-border-color:  $colorWhite;
+
+    note-fill-min-velocity-alpha:      68;                 // values go from 0-255
+    note-fill-max-velocity-alpha:      216;
+
+    note-border-min-velocity-alpha:    12;                 // values go from 0-255
+    note-border-max-velocity-alpha:    38;
+
+    note-selected-overlay-color:       $colorWhite10;
+}
+
+// MIDI NOTE FOR AUDIO MODULE LANE IN DRUMGRID
+PatternEditorGrid[AudioModule=true] NotesLane
+{
+    note-color-palette:                1;
+
+    drum-note-margin-top:              0;
+    drum-note-margin-bottom:           0;
+
+    note-inner-border-color:           $colorWhite;
+    note-inner-selected-border-color:  $colorBlack;
+
+    note-outer-border-color:           rgb(13,13,13);
+    note-outer-selected-border-color:  $colorWhite;
+
+    note-fill-min-velocity-alpha:      52;                 // values go from 0-255
+    note-fill-max-velocity-alpha:      52;
+
+    note-border-min-velocity-alpha:    0;                 // values go from 0-255
+    note-border-max-velocity-alpha:    0;
+
+    note-selected-overlay-color:       no;
+}
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+// AUDIO EVENTS LANE
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+// COLORS
+PatternEditorGrid AudioEventsLane
+{
+    event-selection-border-color:      $colorWhite;
+}
+
+// SIZE SETTINGS
+//----------------------------------------------------------------------------------------------------------------------
+
+// DEAFULT SIZE
+PatternEditorGrid AudioEventsLane
+{
+   event-margin-top:                0;
+   event-margin-bottom:             0;
+}
+
+// RIGHT SCREEN DEFAULT SIZE
+Bar.PatternEditorRight PatternEditorGrid AudioEventsLane
+{
+   height:                          12;
+   event-margin-top:                0;
+   event-margin-bottom:             0;
+}
+
+// LEFT NAVIGATION SCREEN AND NOTE REPEAT DRUMGRID
+Bar.PatternEditorLeft Vector<PatternEditorGrid> PatternEditorGrid AudioEventsLane,
+Bar#RepeatPageStudioScreenRight Vector<PatternEditorGrid>#m_pDrumgridVector::Bar#widgets::PatternEditorGrid AudioEventsLane
+{
+    height:                         8;
+    event-margin-top:               0;
+    event-margin-bottom:            0;
+}
+
+// DOUBLE SIZE FOR RIGHT SCREEN
+Bar.PatternEditorRight PatternEditorGrid[zoom-y=true] AudioEventsLane,
+Bar#StepPageStudio Bar#StepPageStudioScreenRight Bar#m_pUpper PatternEditorGrid AudioEventsLane,
+Bar#StepPageMK3 Bar#StepPageMK3ScreenRight Bar#m_pUpper PatternEditorGrid AudioEventsLane
+{
+   height:                          24;
+}
+
+// FULL HEIGHT IN PIANOROLL
+
+// RIGHT SCREEN
+PatternEditorPianoroll#m_pPianoroll PatternEditorGrid#m_pPianorollWidget::AudioEventsLane,
+Bar#StepPageMK3 Bar#StepPageMK3ScreenRight Bar#m_pUpper PatternEditorGrid#m_pPianorollWidget AudioEventsLane,
+Bar#StepPageStudio Bar#StepPageStudioScreenRight Bar#m_pUpper PatternEditorGrid#m_pPianorollWidget AudioEventsLane
+{
+    height:                         192;
+}
+
+// LEFT SCREEN
+Bar#StepPageMK3 Bar#StepPageMK3ScreenLeft Bar#m_pUpper PatternEditorGrid#m_pPianorollWidget AudioEventsLane,
+Bar#StepPageStudio Bar#StepPageStudioScreenLeft Bar#m_pUpper PatternEditorGrid#m_pPianorollWidget AudioEventsLane,
+Bar#PatternPageStudioPattern Bar#PatternPageStudioPatternScreenLeft Bar#m_pUpper PatternEditorGrid#m_pPianorollWidget AudioEventsLane,
+Bar#EventsPageStudio Bar#EventsPageStudioScreenLeft Bar#m_pUpper PatternEditorGrid#m_pPianorollWidget AudioEventsLane
+{
+    height:                         128;
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+// Container
+Bar#EventsPageStudioScreenLeft Bar#StudioDisplayBar,
+Bar#StepPageStudioScreenLeft Bar#StudioDisplayBar,
+Bar#RepeatPageStudioScreenLeft Bar#StudioDisplayBar,
+Bar#StepPageMK3ScreenLeft Bar#StudioDisplayBar
+{
+    background-color:               no;
+
+    height:                         144;
+    outer-margin-top:               1;
+    margin-bottom:                  0;
+}
+
+Bar.PatternEditorLeft
+{
+    width:                          $PatternEditorWidthL;
+    height:                         144;
+    outer-margin-top:               0;
+}
+
+// Timeline Container
+Bar.PatternEditorLeft Bar#m_pHeader,
+Bar.PatternEditorRight Bar#m_pHeader,
+Bar.NoteRepeatRight Bar#m_pHeader
+{
+    height:                         16;
+    background-color:               $colorBlack;
+}
+
+// Editor container
+Bar.PatternEditorLeft Bar#m_pEditorStackHolder,
+Bar.NoteRepeatRight Bar#m_pEditorStackHolder
+{
+    height:                         128;
+}
+Bar.PatternEditorRight Bar#m_pEditorStackHolder
+{
+    height:                         192;
+}
+
+// Sub-container
+Bar.PatternEditorLeft Stack,
+Bar.PatternEditorLeft Stack Vector
+{
+    width:                          $PatternEditorWidthL;
+    height:                         128;
+}
+
+// piano roll
+Bar#m_pPatternEditorOV Stack#m_pEditorStack PatternEditorGrid#m_pPianorollWidget
+{
+    width:                          $PatternEditorWidthL;
+    height:                         $PatternEditorHeightL;
+}
+
+// regular arranger
+Bar.PatternEditorLeft Vector<PatternEditorGrid> PatternEditorGrid
+{
+    width:                          $PatternEditorWidthL;
+    height:                         8;
+}
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+// PATERN EDITOR - RIGHT SCREEN
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+// SOUND LIST
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+//STACK
+Bar#EventsPageStudioScreenRight Bar#StudioDisplayBar,
+Bar#PatternPageScreenRight Bar#StudioDisplayBar
+{
+    height:                         208;
+    background-color:               rgb(19,19,19);
+}
+
+// CONTAINERS
+Bar#EventsPageStudioScreenRight Vector<Label>,
+Bar#PatternPageScreenRight Vector<Label>
+{
+    background-color:               rgb(16,16,16);
+    width:                          20;
+    height:                         207;
+
+    margin:                         0;
+    outer-margin-top:               0;
+    margin-top:                     16;
+}
+
+Bar#StepPageStudioScreenRight Vector<Label>,
+Bar#StepPageMK3ScreenRight Vector<Label>
+{
+    background-color:               rgb(16,16,16);
+    width:                          20;
+    height:                         211;
+
+    margin:                         0;
+    outer-margin-top:               0;
+    margin-top:                     16;
+}
+
+
+
+
+Bar#EventsPageStudioScreenRight Vector<Label>#SoundList Bar#widgets,
+Bar#StepPageStudioScreenRight Vector<Label>#SoundList Bar#widgets,
+Bar#StepPageMK3ScreenRight Vector<Label>#SoundList Bar#widgets,
+Bar#PatternPageScreenRight Vector<Label>#SoundList Bar#widgets
+{
+    background-color:               no;
+
+    width:                          20;
+    height:                         192;
+
+    margin:                         0;
+    spacing:                        1;
+}
+
+
+
+// SOUND LABELS
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+Label.SoundListItem
+{
+    width:                          20;
+
+    background-color:               rgb(16,16,16);
+    foreground-color-palette:       1;
+
+    font-name:                      $fontPragmatica;
+    font-size:                      10;
+    horizontal-alignment:           center;
+}
+
+// DEFAULT SIZE
+Label.SoundListItem
+{
+    height:                         11;
+}
+
+// DOUBLE SIZE
+Label.SoundListItem[zoom-y=true]
+{
+    height:                         23;
+    margin-top:                     1;
+}
+
+
+Label.SoundListItem:selected,
+Label.SoundListItemSmall:selected
+{
+    background-color-palette:       2;
+    foreground-color-palette:       no;
+    foreground-color:               $colorBlack;
+}
+
+
+
+// SMALL SOUNLIST FOR NOTE REPEAT
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+Bar#RepeatPageStudioScreenRight Vector<Label>
+{
+    background-color:               rgb(16,16,16);
+    width:                          19;
+    height:                         144;
+
+    outer-margin-right:             0;
+    margin:                         0;
+    margin-top:                     15;
+    outer-margin-bottom:            0;
+}
+
+
+
+Bar#RepeatPageStudioScreenRight Vector<Label>#SoundList Bar#widgets
+{
+    background-color:               no;
+
+    width:                          19;
+    height:                         128;
+
+    margin:                         0;
+    spacing:                        0;
+}
+
+// SOUND LABEL SMALL FOR NOTE REPEAT SCREEN
+Label.SoundListItemSmall
+{
+    width:                          19;
+    height:                         8;
+    background-color:               rgb(16,16,16);
+    foreground-color-palette:       1;
+
+    font-name:                      $fontPragmatica;
+    font-size:                      8;
+    horizontal-alignment:           center;
+}
+
+
+
+
+// PATTERN ARRANGER
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+Bar#RepeatPageStudioScreenRight Bar#StudioDisplayBar
+{
+    background-color:               $colorBlack;
+    margin-bottom:                  1;
+}
+
+
+// SPECIAL ALIGNMENT WITHOUT BOTTOM MARGIN
+Bar#RepeatPageStudioScreenRight Bar#StudioDisplayBar,
+Bar#StepPageStudioScreenRight Bar#StudioDisplayBar
+{
+    background-color:               rgb(19,19,19);
+    margin-bottom:                  0;
+}
+
+
+
+Bar#RepeatPageStudioScreenRight Bar#m_pPatternEditor,
+Bar#StepPageStudioScreenRight Bar#m_pPatternEditor,
+Bar#EventsPageStudioScreenRight Bar#m_pPatternEditor
+{
+    width:                          $PatternEditorWidthR;
+    height:                         $PatternEditorHeightR;
+
+    min-bars:                       16;
+    canvas-size-correction:         1.0;
+}
+
+Bar#RepeatPageStudioScreenRight Bar#m_pPatternEditor Bar#m_pUpper,
+Bar#StepPageStudioScreenRight Bar#m_pPatternEditor Bar#m_pUpper,
+Bar#EventsPageStudioScreenRight Bar#m_pPatternEditor Bar#m_pUpper
+{
+    width:                          $PatternEditorWidthR;
+    spacing:                        1;
+}
+
+
+
+
+
+
+// Editor
+Bar.PatternEditorRight Stack#m_pEditorStack,
+Bar.PatternEditorRight Bar#m_pEditorStackHolder,
+Bar.PatternEditorRight Stack#m_pEditorStack Vector
+{
+    backgound-color:                no;
+}
+
+
+
+// SOUND LANE SIZES
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+// DEFAULT SIZE
+Bar.PatternEditorRight Vector<PatternEditorGrid>#m_pDrumgridVector PatternEditorGrid
+{
+    width:                          460;
+    height:                         12;
+}
+
+// DOUBLE SIZE
+Bar.PatternEditorRight Vector<PatternEditorGrid>#m_pDrumgridVector PatternEditorGrid[zoom-y=true],
+Bar#StepPageStudio Bar#StepPageStudioScreenRight PatternEditorGrid#m_pHWFocusGrid
+{
+    width:                          460;
+    height:                         24;
+}
+
+Bar#StepPageStudio Bar#StepPageStudioScreenRight Bar#m_pUpper PatternEditorGrid[AudioModule=true][StepPageAudioLoop=false],
+Bar#StepPageMK3 Bar#StepPageMK3ScreenRight Bar#m_pUpper PatternEditorGrid[AudioModule=true][StepPageAudioLoop=false]
+{
+    height:                         24;
+}
+
+Bar#RepeatPageStudioScreenRight Vector<PatternEditorGrid>#m_pDrumgridVector PatternEditorGrid
+{
+    width:                          460;
+    height:                         8;
+}
+
+
+
+// vertical keyboard
+PianorollKeyboardWidget
+{
+    outer-margin-top:               18;
+    width:                          20;
+}
+
+Bar#PatternPage PianorollKeyboardWidget
+{
+    outer-margin-top:               16;
+    width:                          20;
+}
+
+// piano roll
+Bar#EventsPageStudioScreenRight PatternEditorPianoroll#m_pPianoroll,
+Bar#EventsPageStudioScreenRight PatternEditorPianoroll#m_pPianoroll PatternEditorGrid#m_pPianorollWidget,
+Bar#StepPageStudioScreenRight PatternEditorPianoroll#m_pPianoroll,
+Bar#StepPageStudioScreenRight PatternEditorPianoroll#m_pPianoroll PatternEditorGrid#m_pPianorollWidget,
+Bar#RepeatPageStudioScreenRight PatternEditorPianoroll#m_pPianoroll,
+Bar#RepeatPageStudioScreenRight PatternEditorPianoroll#m_pPianoroll PatternEditorGrid#m_pPianorollWidget
+{
+    width:                          460;
+}
+
+
+
+
+
+// PATTERN EDITOR EVENTS MODE
+
+// RIGHT SCREEN
+Bar#StepPageMK3ScreenRight Bar.PatternEditorRight,
+Bar#StepPageStudioScreenRight Bar.PatternEditorRight,
+Bar#ArrangerPageEventsStudioScreenRight Bar.PatternEditorRight,
+Bar#ArrangerPageEventsMK3ScreenRight Bar.PatternEditorRight
+{
+    background-color:               $colorMSTDarkBG;
+}
+
+
+// Vertical Scale on the Left
+Bar#StepPageStudioScreenRight Bar.StudioDisplay Vector<Label>#SoundList Bar#widgets,
+Bar#StepPageMK3ScreenRight Bar.StudioDisplay Vector<Label>#SoundList Bar#widgets
+{
+    image:                          url("Maschine/HW/Studio/ArrangerPages/arr_events_scale.png");
+    margin-top:                     0;
+}
+
+// NO IMAGE WHEN IN AUDIO LOOP STEP MODE
+Bar#StepPageStudioScreenRight Bar.StudioDisplay Vector<Label>#SoundList[VelocityScaleVisible=false] Bar#widgets,
+Bar#ArrangerPageEventsStudioScreenRight Bar.StudioDisplay Vector<Label>#SoundList[VelocityScaleVisible=false] Bar#widgets,
+Bar#StepPageMK3ScreenRight Bar.StudioDisplay Vector<Label>#SoundList[VelocityScaleVisible=false] Bar#widgets,
+Bar#ArrangerPageEventsMK3ScreenRight Bar.StudioDisplay Vector<Label>#SoundList[VelocityScaleVisible=false] Bar#widgets
+{
+    image:                          no;
+    margin-top:                     0;
+}
+
+
+Bar#StepPageStudioScreenRight Bar.StudioDisplay Label.SoundListItem,
+Bar#StepPageMK3ScreenRight Bar.StudioDisplay Label.SoundListItem
+{
+    width:                          19;
+    height:                         23;
+
+    margin-left:                    0;
+
+    font-name:                      $fontPragmatica;
+    font-size:                      10;
+    horizontal-alignment:           center;
+    vertical-alignment:             center;
+}
+
+
+Bar#StepPageStudioScreenRight Bar.StudioDisplay Label#generic_Label_0
+{
+    outer-margin-top:               0;
+    height:                         23;
+    font-size:                      10;
+    font-name:                      $fontPragmatica;
+    margin-left:                    1;
+    margin-top:                     1;
+}
+
+
+// specific things for Events
+
+Bar#EventsPageStudioScreenRight Bar#m_pPatternEditor Bar#m_pUpper[mod-layout=true]
+{
+    width:                          $PatternEditorWidthR;
+    height:                         50;
+    spacing:                        1;
+}
+
+Bar#EventsPageStudioScreenRight Splitter#m_pSplitterModulation
+{
+    height:                         0;
+}
+
+Label#m_pPatternStartDraggerLabel, Label#m_pPatternEndDraggerLabel
+{
+    background-color:               no;
+    foreground-color:               no;
+}
+
+
+
+//------------------------------------------------------------------------------
+
+// Speciic things for the Scene/Pattern Page (scene arranger screen is duplicated)
+Bar#ScenePageStudioScreenLeft Bar.StudioDisplay,
+Bar#SectionsPageStudioScreenLeft Bar.StudioDisplay,
+Bar#PatternPageStudioPatternScreenLeft Bar.StudioDisplay,
+Bar#ClipPageStudioScreenLeft Bar.StudioDisplay
+{
+    outer-margin-top:               1;
+}
+
+Bar#ScenePageStudioScreenLeft Bar.StudioDisplay,
+Bar#PatternPageStudioPatternScreenLeft Bar.StudioDisplay[Ideas=true]
+{
+    background-color:               $colorStandardBGColor;
+}

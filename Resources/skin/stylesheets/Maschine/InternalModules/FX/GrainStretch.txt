@@ -1,0 +1,117 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// GRAIN STRETCH
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+GrainStretchEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png"); 
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-396;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+GrainStretchEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_grainstretch.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// POTIS
+//--------------------------------------------------------------------------------------------------------
+
+
+// TOP ROW
+//--------------------------------------------------------------------------------------------------------
+
+// STRETCH
+GrainStretchEditor Bar#Stretch
+{
+    x:                                  50;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+
+// STRETCH BUTTON
+GrainStretchEditor Bar#Enabled
+{
+    x:                                  151;
+    y:                                  56;
+}
+
+// STRETCH NAME LABEL POSITION CORRECTION
+GrainStretchEditor Bar#Enabled Stack#m_pNameStack
+{
+    outer-margin-top:                   6;
+}
+
+
+
+// PITCH
+GrainStretchEditor Bar#Pitch
+{
+    x:                                  254;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+
+// BOTTOM ROW
+//--------------------------------------------------------------------------------------------------------
+
+// LOOP SWITCH (Enum)
+GrainStretchEditor Bar#Loop
+{
+    x:                                  50;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// MIX
+GrainStretchEditor Bar#Mix
+{
+    x:                                  152;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+// SIZE
+GrainStretchEditor Bar#Size
+{
+    x:                                  254;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+// LINK BUTTON
+GrainStretchEditor Bar#Link
+{
+    x:                                  309;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+// Dotted Line
+//----------------------------------------------------------------------------------------------------------------------
+
+GrainStretchEditor#m_pEditor Bar#m_pDottedLines
+
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_dotline_grainstretch.png");
+    x:                                  315;
+    y:                                  76;
+}
+
+
+

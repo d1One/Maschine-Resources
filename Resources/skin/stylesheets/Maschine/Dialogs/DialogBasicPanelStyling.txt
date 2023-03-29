@@ -1,0 +1,511 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// DIALOG BASIC PANEL STYLING
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// DIALOG LAYOUTS AND PASSIVE TEXT ELEMENTS
+
+
+// DIMENSIONS
+//----------------------------------------------------------------------------------------------------------------------
+
+// SMALL MESSAGE BOXES
+DialogCollateAudio,
+DialogDeleteItemFromLibrary
+{
+// For some reason width has to be an even number or the window's root widget's Picture object will be 1px too small.
+// at least under Windows.
+    width:                          360;
+    height:                         166;
+}
+
+// WIDE LOCATE DIALOGS
+DialogLocate,
+DialogFileNotFound,
+DialogUpdateTags,
+DialogFolderNotFound,
+DialogProductNotFound
+{
+    width:                          464;
+    height:                         166;
+}
+
+// BIG DIALOGS
+DialogMPCImport
+{
+    width:                          394;
+    height:                         450;
+}
+
+
+DialogAudioExport
+{
+    width:                          560;
+    height:                         480;
+}
+
+// SUPER DUPER LONG ONES
+Bar#Progress
+{
+    width:                          520;
+    height:                         166;
+}
+
+
+
+
+// MAIN BACKGROUND
+//----------------------------------------------------------------------------------------------------------------------
+DialogCollateAudio Bar#pMain,
+DialogAudioExport Bar#pMain,
+DialogMPCImport Bar#pMain,
+DialogLocate Bar#pMain,
+Bar#Progress Bar#Root,
+DialogFileNotFound Bar#pRoot,
+DialogUpdateTags Bar#pRoot,
+DialogMessageList Bar#root,
+DialogFolderNotFound Bar#pRoot,
+DialogProductNotFound Bar#pRoot,
+DialogDeleteItemFromLibrary Bar#pRoot,
+DialogSavePreset Bar#pMain,
+DialogNonMigratedPlugins Bar#pMain,
+DialogUpgradedPlugins Bar#pMain,
+DialogNewFirmware Bar#pMain,
+DialogMissingPlugins Bar#pMain,
+DialogMIDIChange Bar#pMain,
+DialogGeneratePreviews Bar#pMain,
+DialogPreviewLibrary Bar#pMain
+{
+    background-color:               $colorBlack;
+    margin-left:                    2;
+    margin-right:                   2;
+    margin-top:                     2;
+    margin-bottom:                  2;
+}
+
+
+
+// HEADER
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+DialogCollateAudio Bar#pMain Bar#pHead,
+DialogAudioExport Bar#pMain Bar#pHead,
+DialogMPCImport Bar#pMain Bar#pHead,
+DialogLocate Bar#pMain Bar#pHead,
+Bar#Progress Label#title,
+DialogFileNotFound Bar#pRoot Bar#pHead,
+DialogUpdateTags Bar#pRoot Bar#pHead,
+DialogMessageList Bar#root Bar#head,
+DialogFolderNotFound Bar#pRoot Bar#pHead,
+DialogProductNotFound Bar#pRoot Bar#pHead,
+DialogDeleteItemFromLibrary Bar#pRoot Bar#pHead,
+DialogSavePreset Bar#pMain Bar#pHead,
+DialogNonMigratedPlugins Bar#pMain Bar#pHead,
+DialogUpgradedPlugins Bar#pMain Bar#pHead,
+DialogNewFirmware Bar#pMain Bar#pHead,
+DialogMissingPlugins Bar#pMain Bar#pHead,
+DialogMIDIChange Bar#pMain Bar#pHead,
+DialogGeneratePreviews Bar#pMain Bar#pHead,
+DialogPreviewLibrary Bar#pMain Bar#pHead
+{
+    height:                         34;
+
+    image:                          url("Shared/Dialogs/SharedDialogTexture/Shared_ContrLine_White5.png");
+    picture-includes-margin:        true;
+
+    fixed-left:                     3;
+    fixed-right:                    3;
+    fixed-top:                      3;
+    fixed-bottom:                   3;
+
+    background-color:               $colorDialogLightGrey;
+
+    outer-margin-bottom:            2;
+}
+
+// SPACER
+DialogPreferences Bar#pHead Label#m_pSpacer,
+DialogCollateAudio Bar#pMain Bar#pHead Label#m_pSpacer,
+DialogAudioExport Bar#pMain Bar#pHead Label#m_pSpacer,
+DialogMPCImport Bar#pMain Bar#pHead Label#m_pSpacer,
+DialogLocate Bar#pMain Bar#pHead Label#m_pSpacer,
+DialogDeleteItemFromLibrary Bar#pRoot Bar#pHead Label#m_pSpacer,
+DialogSavePreset Bar#pMain Bar#pHead Label#m_pSpacer,
+DialogNonMigratedPlugins Bar#pMain Bar#pHead Label#m_pSpacer,
+DialogUpgradedPlugins Bar#pMain Bar#pHead Label#m_pSpacer,
+DialogNewFirmware Bar#pMain Bar#pHead Label#m_pSpacer,
+DialogMissingPlugins Bar#pMain Bar#pHead Label#m_pSpacer,
+DialogMIDIChange Bar#pMain Bar#pHead Label#m_pSpacer,
+DialogGeneratePreviews Bar#pMain Bar#pHead Label#m_pSpacer,
+DialogPreviewLibrary Bar#pMain Bar#pHead Label#m_pSpacer
+{
+    width:                          1;
+    background-color:               no;
+}
+
+// TITLE
+DialogPreferences Bar#pHead Label#m_pTitle,
+DialogCollateAudio Bar#pMain Bar#pHead Label#m_pTitle,
+DialogAudioExport Bar#pMain Bar#pHead Label#m_pTitle,
+DialogMPCImport Bar#pMain Bar#pHead Label#m_pTitle,
+DialogLocate Bar#pMain Bar#pHead Label#m_pTitle,
+Bar#Progress Label#title,
+DialogFileNotFound Bar#pRoot Bar#pHead Label#pTitle,
+DialogUpdateTags Bar#pRoot Bar#pHead Label#pTitle,
+DialogMessageList Bar#root Bar#head Label#titleLabel,
+DialogFolderNotFound Bar#pRoot Bar#pHead Label#pTitle,
+DialogProductNotFound Bar#pRoot Bar#pHead Label#pTitle,
+DialogDeleteItemFromLibrary Bar#pRoot Bar#pHead Label#pTitle,
+DialogSavePreset Bar#pMain Bar#pHead Label#m_pTitle,
+DialogNonMigratedPlugins Bar#pMain Bar#pHead Label#m_pTitle,
+DialogUpgradedPlugins Bar#pMain Bar#pHead Label#m_pTitle,
+DialogNewFirmware Bar#pMain Bar#pHead Label#m_pTitle,
+DialogMissingPlugins Bar#pMain Bar#pHead Label#m_pTitle,
+DialogMIDIChange Bar#pMain Bar#pHead Label#m_pTitle,
+DialogGeneratePreviews Bar#pMain Bar#pHead Label#m_pTitle,
+DialogPreviewLibrary Bar#pMain Bar#pHead Label#m_pTitle
+{
+    font-name:                      $fontPragmatica;
+    font-size:                      18;
+    foreground-color:               $colorWhite75;
+    horizontal-alignment:           center;
+    background-color:               no;
+}
+
+
+
+// BODY
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+DialogCollateAudio Bar#pMain Bar#body,
+DialogAudioExport Bar#pMain Bar#body,
+DialogMPCImport Bar#pMain Bar#pBody,
+DialogLocate Bar#pMain Bar#pBody,
+Bar#Progress Bar#Body,
+DialogFolderNotFound Bar#pRoot Bar#pBody,
+DialogFileNotFound Bar#pRoot Bar#pBody,
+DialogUpdateTags Bar#pRoot Bar#pBody,
+DialogMessageList Bar#root Bar#body,
+DialogProductNotFound Bar#pRoot Bar#pBody,
+DialogDeleteItemFromLibrary Bar#pRoot Bar#pBody,
+DialogSavePreset Bar#pMain Bar#pBody,
+DialogNonMigratedPlugins Bar#pMain Bar#body,
+DialogUpgradedPlugins Bar#pMain Bar#body,
+DialogNewFirmware Bar#pMain Bar#body,
+DialogMissingPlugins Bar#pMain Bar#body,
+DialogMIDIChange Bar#pMain Bar#body,
+DialogGeneratePreviews Bar#pMain Bar#body,
+DialogPreviewLibrary Bar#pMain Bar#pBody,
+DialogAudioExport Bar#body
+{
+    image:                          url("Shared/Dialogs/SharedDialogTexture/DIALOG_ContrLineBody.png");
+    picture-includes-margin:        true;
+
+    fixed-left:                     3;
+    fixed-right:                    3;
+    fixed-top:                      3;
+    fixed-bottom:                   3;
+
+    background-color:               $colorDialogLightGrey;
+}
+
+
+DialogCollateAudio Bar#pMain Bar#body,
+DialogMPCImport Bar#pMain Bar#pBody,
+DialogLocate Bar#pMain Bar#pBody,
+Bar#Progress Bar#Body,
+DialogFolderNotFound Bar#pRoot Bar#pBody,
+DialogFileNotFound Bar#pRoot Bar#pBody,
+DialogUpdateTags Bar#pRoot Bar#pBody,
+DialogMessageList Bar#root Bar#body,
+DialogProductNotFound Bar#pRoot Bar#pBody,
+DialogDeleteItemFromLibrary Bar#pRoot Bar#pBody,
+DialogSavePreset Bar#pMain Bar#pBody,
+DialogMIDIChange Bar#pMain Bar#body,
+DialogGeneratePreviews Bar#pMain Bar#body,
+DialogPreviewLibrary Bar#pMain Bar#pBody,
+DialogAudioExport Bar#destination
+{
+    margin-left:                    20;
+    margin-right:                   20;
+}
+
+DialogAudioExport Bar#left
+{
+    margin-left:                    20;
+    margin-right:                   10;
+}
+
+DialogAudioExport Bar#right
+{
+    margin-left:                    10;
+    margin-right:                   20;
+}
+
+
+// DB3 DIALOG TEXT ALINGMENT IN BODY
+DialogLocate Bar#pMain Bar#pBody,
+DialogFolderNotFound Bar#pRoot Bar#pBody,
+DialogFileNotFound Bar#pRoot Bar#pBody,
+DialogProductNotFound Bar#pRoot Bar#pBody,
+DialogDeleteItemFromLibrary Bar#pRoot Bar#pBody
+{
+    margin-top:                     25;
+    spacing:                        6;
+}
+
+DialogUpdateTags Bar#pRoot Bar#pBody
+{
+    margin-top:                     16;
+    spacing:                        6;
+}
+
+// DB3 DIALOG MESSAGE BOX
+DialogMessageList Bar#root Bar#body
+{
+    margin-top:                     15;
+    spacing:                        6;
+}
+
+
+
+// FOOTER
+//----------------------------------------------------------------------------------------------------------------------
+
+DialogCollateAudio Bar#pMain Bar#footer,
+DialogAudioExport Bar#pMain Bar#pFoot,
+DialogMPCImport Bar#pMain Bar#pFoot,
+DialogLocate Bar#pMain Bar#pFoot,
+Bar#Progress Bar#Footer,
+DialogFolderNotFound Bar#pRoot Bar#pFoot,
+DialogFileNotFound Bar#pRoot Bar#pFoot,
+DialogUpdateTags Bar#pRoot Bar#pFoot,
+DialogMessageList Bar#root Bar#foot,
+DialogProductNotFound Bar#pRoot Bar#pFoot,
+DialogDeleteItemFromLibrary Bar#pRoot Bar#pFoot,
+DialogSavePreset Bar#pMain Bar#pFooter,
+DialogNonMigratedPlugins Bar#pMain Bar#foot,
+DialogUpgradedPlugins Bar#pMain Bar#foot,
+DialogNewFirmware Bar#pMain Bar#foot,
+DialogMissingPlugins Bar#pMain Bar#foot,
+DialogMIDIChange Bar#pMain Bar#foot,
+DialogGeneratePreviews Bar#pMain Bar#footer,
+DialogPreviewLibrary Bar#pMain Bar#pFoot
+{
+    image:                          url("Shared/Dialogs/SharedDialogTexture/DIALOG_ContrLineFooter.png");
+    picture-includes-margin:        true;
+
+    fixed-left:                     3;
+    fixed-right:                    3;
+    fixed-top:                      3;
+    fixed-bottom:                   3;
+
+    background-color:               $colorDialogLightGrey;
+
+    spacing:                        1;
+}
+
+
+
+// BIG DIALOG FOOTER ALIGNMENT
+DialogAudioExport Bar#pMain Bar#pFoot,
+DialogMPCImport Bar#pMain Bar#pFoot,
+DialogNonMigratedPlugins Bar#pMain Bar#foot,
+DialogUpgradedPlugins Bar#pMain Bar#foot,
+DialogNewFirmware Bar#pMain Bar#foot,
+DialogMissingPlugins Bar#pMain Bar#foot,
+DialogMIDIChange Bar#pMain Bar#foot,
+DialogPreviewLibrary Bar#pMain Bar#pFoot
+{
+    height:                         43;
+    margin-top:                     8;
+    margin-left:                    20;
+    margin-right:                   20;
+
+    outer-margin-top:               2;
+}
+
+
+
+
+// SMALL DIALOG FOOTER ALIGNMENT
+DialogCollateAudio Bar#pMain Bar#footer,
+DialogLocate Bar#pMain Bar#pFoot,
+Bar#Progress Bar#Footer,
+DialogSavePreset Bar#pFooter,
+DialogGeneratePreviews Bar#footer,
+DialogPreviewLibrary Bar#pMain Bar#pFoot,
+// DB3 DIALOG
+DialogFolderNotFound Bar#pRoot Bar#pFoot,
+DialogFileNotFound Bar#pRoot Bar#pFoot,
+DialogUpdateTags Bar#pRoot Bar#pFoot,
+DialogMessageList Bar#root Bar#foot,
+DialogProductNotFound Bar#pRoot Bar#pFoot,
+DialogDeleteItemFromLibrary Bar#pRoot Bar#pFoot
+{
+    height:                         43;
+    margin-top:                     9;
+    margin-left:                    8;
+    margin-right:                   8;
+}
+
+
+
+// PROGRESS BAR
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#Progress ProgressBar#progress
+{
+    image:                          url("Maschine/Dialogs/SharedDialogTexture/DIALOG_BG_ProgressBar.png");
+    picture-includes-margin:        true;
+
+    fixed-left:                     3;
+    fixed-right:                    3;
+
+    margin-left:                    4;
+    margin-right:                   4;
+    margin-top:                     4;
+    margin-bottom:                  4;
+}
+
+Bar#Progress ProgressBar#progress Label#indicator
+{
+    height:                         10;
+    background-color:               $colorWhite75;
+}
+
+
+
+
+
+// MESSAGE TEXT
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#Progress Bar#Body Label#text,
+DialogLocate Label#pText,
+DialogLocate Label#pText2Left,
+DialogFolderNotFound Bar#pRoot Bar#pBody Label#m_pTextFirstLine,
+DialogProductNotFound Bar#pRoot Bar#pBody Label#m_pTextFirstLine,
+DialogUpdateTags Bar#pRoot Bar#pBody MultilineLabel#pText,
+DialogMessageList Bar#root Bar#body Label#text,
+DialogFolderNotFound Bar#pRoot Bar#pBody Label#m_pTextItemName,
+DialogFileNotFound Bar#pRoot Bar#pBody Label,
+DialogProductNotFound Bar#pRoot Bar#pBody Label#m_pTextItemName,
+DialogNewFirmware#Root Bar#body Label#caption,
+DialogNewFirmware#Root Bar#body Label#caption2,
+DialogNewFirmware#Root Checkbox#notAgain Button#m_pText,
+DialogDeleteItemFromLibrary Bar#pRoot Label#pText,
+DialogPreviewLibrary Label#pText
+{
+    font-name:                      $fontPragmatica;
+    font-size:                      13;
+    foreground-color:               $colorWhite75;
+    background-color:               no;
+}
+
+
+
+
+
+DialogLocate Label#pText,
+DialogLocate Label#pText2Left,
+DialogFolderNotFound Bar#pRoot Bar#pBody Label#m_pTextFirstLine,
+DialogProductNotFound Bar#pRoot Bar#pBody Label#m_pTextFirstLine,
+DialogMessageList Bar#root Bar#body Label#text,
+DialogFolderNotFound Bar#pRoot Bar#pBody Label#m_pTextItemName,
+DialogFileNotFound Bar#pRoot Bar#pBody Label#m_pTextItemName,
+DialogProductNotFound Bar#pRoot Bar#pBody Label#m_pTextItemName
+{
+    height:                         18;
+}
+
+DialogUpdateTags Bar#pRoot Bar#pBody MultilineLabel#pText
+{
+    height:                         45;
+}
+
+DialogDeleteItemFromLibrary Bar#pRoot Label#pText
+{
+    vertical-alignment:             top;
+    height:                         54;
+}
+
+
+// LOCATE DIALOG ALIAS LABEL, SET TO ZERO
+DialogLocate Label#pText2Right
+{
+    foreground-color:               no;
+    width:                          1;
+}
+
+
+
+
+// DB3 DIALOG TEXT FIRST LINE
+DialogLocate Label#pText,
+DialogFolderNotFound Bar#pRoot Bar#pBody Label#m_pTextFirstLine,
+DialogFileNotFound Bar#pRoot Bar#pBody Label#m_pTextFirstLine,
+DialogProductNotFound Bar#pRoot Bar#pBody Label#m_pTextFirstLine,
+DialogDeleteItemFromLibrary Bar#pRoot Label#pText
+{
+    horizontal-alignment:           center;
+}
+
+// DB3 DIALOG TEXT SECOND LINE
+DialogLocate Label#pText2Left,
+DialogFolderNotFound Bar#pRoot Bar#pBody Label#m_pTextItemName,
+DialogFileNotFound Bar#pRoot Bar#pBody Label#m_pTextItemName,
+DialogProductNotFound Bar#pRoot Bar#pBody Label#m_pTextItemName
+{
+    horizontal-alignment:           center;
+}
+
+// DB3 DIALOG USER FX PRESET TAG UPDATE
+DialogUpdateTags Bar#pRoot Bar#pBody Button#pLink
+{
+    image:                          url("Maschine/Dialogs/Preferences/PREF_BTN_Link.png");
+    width:                          58;
+    fixed-left:                     4;
+    fixed-right:                    4;
+}
+
+// DB3 DIALOG MESSAGE LIST
+DialogMessageList
+{
+    width:                          464;
+    height:                         250;
+}
+
+DialogMessageList Vector<Label>#listWidget
+{
+    image:                          url("Maschine/Dialogs/SharedDialogTexture/DIALOG_BG_FileList.png");
+    picture-includes-margin:        true;
+    fixed-top:                      10;
+    fixed-bottom:                   10;
+    fixed-left:                     10;
+    fixed-right:                    10;
+
+    margin-left:                    2;
+    margin-right:                   1;
+    margin-top:                     2;
+    margin-bottom:                  2;
+
+    outer-margin-top:               5;
+    outer-margin-left:              20;
+    outer-margin-right:             20;
+}
+
+DialogMessageList Label.ListItem
+{
+    image:                          no;
+    background-color:               no;
+    foreground-color:               $colorWhite75;
+    horizontal-alignment:           left;
+
+    margin-right:                   5;
+    margin-top:                     1;
+    margin-left:                    5;
+}

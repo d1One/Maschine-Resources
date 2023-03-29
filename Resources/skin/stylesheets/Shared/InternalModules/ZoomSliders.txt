@@ -1,0 +1,111 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ZOOMSLIDERS
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// WAVE DISPLAY SCROLLBAR
+SamplerEditor Bar#pWaveDisplayBar Bar#m_pFoot
+{
+    height:                             15;
+    margin-top:                         0;
+}
+
+// ALIGNMENT IN CONTAINER
+WaveEditorWidget.InternalModule ZoomSlider
+{
+    background-color:                   no;
+    margin-left:                        5;
+    margin-right:                       5;
+    outer-margin-top:                   0;
+}
+
+WaveEditorWidget.InternalModule ZoomSlider
+{
+    height:                             15;
+    margin-top:                         1;
+}
+
+
+
+// HORIZONTAL
+//----------------------------------------------------------------------------------------------------------------------
+
+// SCROLLBAR CENTER GRIP
+WaveEditorWidget.InternalModule ZoomSlider ZoomGrip#ZoomGrip
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_Zoomslider_Grip.png");
+    animations:                         2;
+    animation-index:                    0;
+    picture-includes-margin:            true;
+    fixed-left:                         8;
+    fixed-right:                        8;
+
+    min-width:                          30;
+}
+
+
+
+WaveEditorWidget.InternalModule ZoomGrip[HasMinimumSize=true]
+{
+    animation-index:                    1;
+}
+
+
+
+// SCROLLBAR ZOOMHANDLE LEFT
+WaveEditorWidget.InternalModule ZoomHandle#ZoomGrip-LeftHandle
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_Zoomslider_HandleLeft.png");
+    background-color:                   no;
+}
+
+
+
+// SCROLLBAR ZOOMHANDLE RIGHT
+WaveEditorWidget.InternalModule ZoomHandle#ZoomGrip-RightHandle
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_Zoomslider_HandleRight.png");
+    background-color:                   no;
+}
+
+
+
+// VERTICAL
+//----------------------------------------------------------------------------------------------------------------------
+
+// SCROLLBAR CENTER GRIP
+SamplerEditor Stack#m_pStack ZoomSlider#m_pVerticalScrollbar ZoomGrip
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_Zoomslider_Vert_Grip.png");
+    animations:                         2;
+    animation-index:                    0;
+    picture-includes-margin:            true;
+    fixed-top:                          8;
+    fixed-bottom:                       8;
+
+    min-height:                         30;
+}
+
+
+
+SamplerEditor Stack#m_pStack ZoomSlider#m_pVerticalScrollbar ZoomGrip[HasMinimumSize=true]
+{
+    animation-index:                    1;
+}
+
+
+
+// SCROLLBAR ZOOMHANDLE TOP
+SamplerEditor Stack#m_pStack ZoomSlider#m_pVerticalScrollbar ZoomHandle#ZoomGrip-LeftHandle
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_Zoomslider_Vert_HandleTop.png");
+    background-color:                   no;
+}
+
+
+
+// SCROLLBAR ZOOMHANDLE BOTTOM
+SamplerEditor Stack#m_pStack ZoomSlider#m_pVerticalScrollbar ZoomHandle#ZoomGrip-RightHandle
+{
+    image:                              url("Shared/InternalModules/SharedControls/intmod_Zoomslider_Vert_HandleBottom.png");
+    background-color:                   no;
+}

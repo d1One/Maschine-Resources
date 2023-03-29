@@ -1,0 +1,65 @@
+//----------------------------------------------------------------------------------------------------------------------
+// AUTO COMPLETION TEXT EDIT
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// ListItem
+//----------------------------------------------------------------------------------------------------------------------
+
+AutocompletionTextEdit.ListItem
+{
+    font-resid:             					$fontRaldoId;
+    font-size:              					$fontRaldoSize;
+    min-width:              					$metricGrid;
+    background-color:       					$colorListItem;
+    foreground-color:       					$colorListItemText;
+    background-border-color:					no;
+    selection-background-color:					$colorWidget;
+    selection-foreground-color:					$colorListItemText; // cursor
+    margin-left:            					3;
+    margin:                 					1;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+AutocompletionTextEdit.ListItem:selected
+{
+    foreground-color:       					$colorListItemTextSelected;
+    background-color:       					$colorListItemSelected;
+    selection-foreground-color:					$colorListItemTextSelected; // cursor
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+AutocompletionTextEdit.ListItem:over
+{
+    background-color:							$colorListItemOver;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// TextEditMono
+//----------------------------------------------------------------------------------------------------------------------
+
+AutocompletionTextEdit.TextEditMono
+{
+    font-name:              					$fontMonoName;
+    font-size:              					$fontMonoSize;
+    min-width:              					$defaultWidth;
+    background-color:       					$colorListItem;
+    foreground-color:       					$colorListItemText;
+    background-border-color:					$colorWidget;
+    selection-background-color:					$colorWidget;
+    selection-foreground-color:					$colorListItemText; // cursor
+    margin:										2;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------

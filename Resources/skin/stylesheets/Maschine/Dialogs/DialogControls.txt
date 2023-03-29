@@ -1,0 +1,963 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// DIALOG CONTROLS
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// LABELS
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+// CATEGORY HEADLINE
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.StyleTitle,
+DialogCollateAudio Bar#pMain Bar#body Label#m_labelFolder
+{
+    background-color:           no;
+    image:                      url("Maschine/Dialogs/Preferences/PREF_LBL_CategoryHeadline.png");
+    picture-includes-margin:    true;
+    fixed-left:                 4;
+    fixed-right:                4;
+
+    font-name:                  $fontPragmatica;
+    font-size:                  13;
+    foreground-color:           $colorWhite;
+
+    margin-bottom:              4;
+}
+
+
+
+
+// SETTING ITEM NAME LABEL
+//----------------------------------------------------------------------------------------------------------------------
+
+// SPECIAL CONTROLLER SELECTION LABEL
+DialogPreferences Bar#DialogPreferencesHardware::Bar#pBar::Label#pLabel
+{
+    font-name:                  $fontPragmatica;
+    font-size:                  13;
+    foreground-color:           $colorWhite;
+}
+
+
+
+// GENERIC
+DialogPreferences Label#pLabel,
+DialogPreferences MultilineLabel#pInfo,
+DialogPreferences Bar#pFileSelectionBar Label#pTitle,
+DialogAudioExport Bar#pBar Label,
+DialogMIDIChange Bar#pBar Label
+{
+    foreground-color:           $colorWhite50;
+    margin-top:                 1;
+}
+
+Bar#DialogPreferencesFeatures MultilineLabel,
+DialogMIDIChange MultilineLabel
+{
+    horizontal-alignment:       left;
+    font-name:                  $fontPragmatica;
+    foreground-color:           $colorWhite50;
+    outer-margin-top:           0;
+    line-spacing:               2;
+}
+
+Bar#DialogPreferencesFeatures MultilineLabel
+{
+    font-size:                  11;
+}
+
+DialogMIDIChange MultilineLabel
+{
+    font-size:                  12;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// GRADIENT 3D BUTTONS (MAINLY IN FOOTERS)
+//----------------------------------------------------------------------------------------------------------------------
+
+DialogPreferences Bar#pFoot Button#pOk,
+MultiTab#m_pTabLibrary::Bar#m_pHeader Button,
+Bar#DialogPreferencesPlugins::MultiTab#m_pTabs::Bar#m_pHeader Button,
+Bar#DialogPreferencesAudio::MultiTab#m_pRoutingTabs::Bar#m_pHeader Button,
+Bar#DialogPreferencesMidi::MultiTab#m_pMidiTabs::Bar#m_pHeader Button,
+Bar#DialogPreferencesPlugins MultiTab#m_pTabs::Bar#m_pHeader Button,
+Bar.OptionsTableFooter Button#pButton,
+Bar.OptionsTableFooter Button#m_pAdd,
+Bar.OptionsTableFooter Button#m_pRemove,
+Bar.OptionsTableFooter Button#m_pRescan,
+Button.DialogFooter,
+Bar#Progress Bar#Footer Button,
+DialogSavePreset Bar#pFooter Button,
+DialogGeneratePreviews Bar#footer Button,
+// DB3 DIALOG FOOTER BUTTONS
+DialogFileNotFound Bar#pFoot Button,
+DialogUpdateTags Bar#pFoot Button,
+DialogMessageList Bar#foot Button,
+DialogFolderNotFound Bar#pFoot Button,
+DialogProductNotFound Bar#pFoot Button,
+DialogDeleteItemFromLibrary Bar#pRoot Bar#pFoot Button,
+DialogNonMigratedPlugins Bar#foot Button#close,
+DialogUpgradedPlugins Bar#foot Button#close,
+DialogNewFirmware Bar#foot Button#close,
+DialogMissingPlugins Bar#foot Button#close
+{
+    min-width:                  77;
+    image:                      url("Maschine/Dialogs/SharedDialogControls/DIALOG_BTN_Generic.png");
+    picture-includes-margin:    true;
+    animations:                 7;
+
+    fixed-left:                 4;
+    fixed-right:                4;
+
+    foreground-color:           $colorWhite80;
+
+    margin-bottom:              1;
+    margin-left:                5;
+    margin-right:               5;
+}
+
+
+Bar#DialogPreferencesAudio Button#m_pASIOConfig
+{
+    image:                      url("Maschine/Dialogs/SharedDialogControls/DIALOG_BTN_Generic.png");
+    picture-includes-margin:    true;
+    animations:                 7;
+
+    fixed-left:                 4;
+    fixed-right:                4;
+
+    foreground-color:           $colorWhite80;
+
+    margin-bottom:              1;
+    margin-left:                5;
+    margin-right:               5;
+
+    width:                      176;
+}
+
+
+
+DialogLocate[Type=LIBRARY] Button#IgnoreAll,
+DialogLocate[Type=USER_PATH] Button#IgnoreAll,
+DialogLocate[Type=SAMPLE_FILE] Button#IgnoreAll,
+DialogFileNotFound Button#pIgnoreAllButton,
+DialogFolderNotFound Button#pIgnoreAllButton,
+DialogProductNotFound Button#pIgnoreAllButton
+{
+    width:                              89;
+}
+
+
+
+
+
+DialogPreferences Bar#pFoot Button#pOk:over,
+MultiTab#m_pTabLibrary::Bar#m_pHeader Button:over,
+Bar#DialogPreferencesPlugins::MultiTab#m_pTabs::Bar#m_pHeader Button:over,
+Bar#DialogPreferencesAudio::MultiTab#m_pRoutingTabs::Bar#m_pHeader Button:over,
+Bar#DialogPreferencesMidi::MultiTab#m_pMidiTabs::Bar#m_pHeader Button:over,
+Bar#DialogPreferencesPlugins MultiTab#m_pTabs::Bar#m_pHeader Button:over,
+Bar.OptionsTableFooter Button#pButton:over,
+Bar.OptionsTableFooter Button#m_pAdd:over,
+Bar.OptionsTableFooter Button#m_pRemove:over,
+Bar.OptionsTableFooter Button#m_pRescan:over,
+Button.DialogFooter:over,
+Bar#Progress Bar#Footer Button:over,
+DialogSavePreset Bar#pFooter Button:over,
+DialogGeneratePreviews Bar#footer Button:over,
+// DB3 DIALOG FOOTER BUTTONS
+DialogFileNotFound Bar#pFoot Button:over,
+DialogUpdateTags Bar#pFoot Button:over,
+DialogMessageList Bar#foot Button:over,
+DialogFolderNotFound Bar#pFoot Button:over,
+DialogProductNotFound Bar#pFoot Button:over,
+DialogDeleteItemFromLibrary Bar#pRoot Bar#pFoot Button:over
+{
+    foreground-color:                   $colorWhite90;
+}
+
+
+DialogPreferences Bar#pFoot Button#pOk:over:down,
+MultiTab#m_pTabLibrary::Bar#m_pHeader Button:over:down,
+Bar#DialogPreferencesPlugins::MultiTab#m_pTabs::Bar#m_pHeader Button:over:down,
+Bar#DialogPreferencesAudio::MultiTab#m_pRoutingTabs::Bar#m_pHeader Button:over:down,
+Bar#DialogPreferencesMidi::MultiTab#m_pMidiTabs::Bar#m_pHeader Button:over:down,
+Bar#DialogPreferencesPlugins MultiTab#m_pTabs::Bar#m_pHeader Button:over:down,
+Bar.OptionsTableFooter Button#pButton:over:down,
+Bar.OptionsTableFooter Button#m_pAdd:over:down,
+Bar.OptionsTableFooter Button#m_pRemove:over:down,
+Bar.OptionsTableFooter Button#m_pRescan:over:down,
+Button.DialogFooter:over:down,
+Bar#Progress Bar#Footer Button:over:down,
+DialogSavePreset Bar#pFooter Button:over:down,
+DialogGeneratePreviews Bar#footer Button:over:down,
+// DB3 DIALOG FOOTER BUTTONS
+DialogFileNotFound Bar#pFoot Button:over:down,
+DialogUpdateTags Bar#pFoot Button:over:down,
+DialogMessageList Bar#foot Button:over:down,
+DialogFolderNotFound Bar#pFoot Button:over:down,
+DialogProductNotFound Bar#pFoot Button:over:down,
+DialogDeleteItemFromLibrary Bar#pRoot Bar#pFoot Button:over:down
+{
+    foreground-color:                   $colorWhite90;
+}
+
+
+DialogPreferences Bar#pFoot Button#pOk:selected,
+MultiTab#m_pTabLibrary::Bar#m_pHeader Button:selected,
+Bar#DialogPreferencesPlugins::MultiTab#m_pTabs::Bar#m_pHeader Button:selected,
+Bar#DialogPreferencesAudio::MultiTab#m_pRoutingTabs::Bar#m_pHeader Button:selected,
+Bar#DialogPreferencesMidi::MultiTab#m_pMidiTabs::Bar#m_pHeader Button:selected,
+Bar#DialogPreferencesPlugins MultiTab#m_pTabs::Bar#m_pHeader Button:selected,
+Bar.OptionsTableFooter Button#pButton:selected,
+Bar.OptionsTableFooter Button#m_pAdd:selected,
+Bar.OptionsTableFooter Button#m_pRemove:selected,
+Bar.OptionsTableFooter Button#m_pRescan:selected,
+Button.DialogFooter:selected,
+Bar#Progress Bar#Footer Button:selected,
+DialogSavePreset Bar#pFooter Button:selected,
+DialogGeneratePreviews Bar#footer Button:over:down,
+// DB3 DIALOG FOOTER BUTTONS
+DialogFileNotFound Bar#pFoot Button:selected,
+DialogUpdateTags Bar#pFoot Button:selected,
+DialogMessageList Bar#foot Button:selected,
+DialogFolderNotFound Bar#pFoot Button:selected,
+DialogProductNotFound Bar#pFoot Button:selected,
+DialogDeleteItemFromLibrary Bar#pRoot Bar#pFoot Button:selected
+{
+    foreground-color:                   $colorBlack90;
+}
+
+
+DialogPreferences Bar#pFoot Button#pOk:selected:over,
+DialogPreferences Bar#pFoot Button#pOk:selected:over:down,
+MultiTab#m_pTabLibrary::Bar#m_pHeader Button:selected:over,
+MultiTab#m_pTabLibrary::Bar#m_pHeader Button:selected:over:down,
+Bar#DialogPreferencesPlugins::MultiTab#m_pTabs::Bar#m_pHeader Button:selected:over,
+Bar#DialogPreferencesAudio::MultiTab#m_pRoutingTabs::Bar#m_pHeader Button:selected:over,
+Bar#DialogPreferencesMidi::MultiTab#m_pMidiTabs::Bar#m_pHeader Button:selected:over,
+Bar#DialogPreferencesPlugins::MultiTab#m_pTabs::Bar#m_pHeader Button:selected:over:down,
+Bar#DialogPreferencesAudio::MultiTab#m_pRoutingTabs::Bar#m_pHeader Button:selected:over:down,
+Bar#DialogPreferencesMidi::MultiTab#m_pMidiTabs::Bar#m_pHeader Button:selected:over:down,
+Bar#DialogPreferencesPlugins MultiTab#m_pTabs::Bar#m_pHeader Button:selected:over,
+Bar#DialogPreferencesPlugins MultiTab#m_pTabs::Bar#m_pHeader Button:selected:over:down,
+Bar.OptionsTableFooter Button#pButton:selected:over,
+Bar.OptionsTableFooter Button#pButton:selected:over:down,
+Bar.OptionsTableFooter Button#m_pAdd:selected:over,
+Bar.OptionsTableFooter Button#m_pAdd:selected:over:down,
+Bar.OptionsTableFooter Button#m_pRemove:selected:over,
+Bar.OptionsTableFooter Button#m_pRemove:selected:over:down,
+Bar.OptionsTableFooter Button#m_pRescan:selected:over,
+Bar.OptionsTableFooter Button#m_pRescan:selected:over:down,
+Button.DialogFooter:selected:over,
+Button.DialogFooter:selected:over:down,
+Bar#Progress Bar#Footer Button:selected:over,
+Bar#Progress Bar#Footer Button:selected:over:down,
+DialogSavePreset Bar#pFooter Button:selected:over,
+DialogSavePreset Bar#pFooter Button:selected:over:down,
+DialogGeneratePreviews Bar#footer Button:selected:over,
+DialogGeneratePreviews Bar#footer Button:selected:over:down,
+// DB3 DIALOG FOOTER BUTTONS
+DialogFileNotFound Bar#pFoot Button:selected:over,
+DialogFileNotFound Bar#pFoot Button:selected:over:down,
+DialogUpdateTags Bar#pFoot Button:selected:over,
+DialogUpdateTags Bar#pFoot Button:selected:over:down,
+DialogMessageList Bar#foot Button:selected:over,
+DialogMessageList Bar#foot Button:selected:over:down,
+DialogFolderNotFound Bar#pFoot Button:selected:over,
+DialogFolderNotFound Bar#pFoot Button:selected:over:down,
+DialogProductNotFound Bar#pFoot Button:selected:over,
+DialogProductNotFound Bar#pFoot Button:selected:over:down,
+DialogDeleteItemFromLibrary Bar#pRoot Bar#pFoot Button:selected:over,
+DialogDeleteItemFromLibrary Bar#pRoot Bar#pFoot Button:selected:over:down
+{
+    foreground-color:                   $colorBlack;
+}
+
+
+
+DialogPreferences Bar#pFoot Button#pOk:!enabled,
+MultiTab#m_pTabLibrary::Bar#m_pHeader Button:!enabled,
+Bar#DialogPreferencesPlugins::MultiTab#m_pTabs::Bar#m_pHeader Button:!enabled,
+Bar#DialogPreferencesAudio::MultiTab#m_pRoutingTabs::Bar#m_pHeader Button:!enabled,
+Bar#DialogPreferencesMidi::MultiTab#m_pMidiTabs::Bar#m_pHeader Button:!enabled,
+Bar#DialogPreferencesPlugins MultiTab#m_pTabs::Bar#m_pHeader Button:!enabled,
+Bar.OptionsTableFooter Button#pButton:!enabled,
+Bar.OptionsTableFooter Button#m_pAdd:!enabled,
+Bar.OptionsTableFooter Button#m_pRemove:!enabled,
+Bar.OptionsTableFooter Button#m_pRescan:!enabled,
+Button.DialogFooter:!enabled,
+Bar#Progress Bar#Footer Button:!enabled,
+DialogSavePreset Bar#pFooter Button:!enabled,
+DialogGeneratePreviews Bar#footer Button:!enabled,
+// DB3 DIALOG FOOTER BUTTONS
+DialogFileNotFound Bar#pFoot Button:!enabled,
+DialogUpdateTags Bar#pFoot Button:!enabled,
+DialogMessageList Bar#foot Button:!enabled,
+DialogFolderNotFound Bar#pFoot Button:!enabled,
+DialogProductNotFound Bar#pFoot Button:!enabled,
+DialogDeleteItemFromLibrary Bar#pRoot Bar#pFoot Button:!enabled
+{
+    foreground-color:                   $colorWhite10;
+}
+
+
+Bar.OptionsTableFooter Button#m_pRemove:!enabled:over,
+Bar.OptionsTableFooter Button#m_pRescan:!enabled:over
+{
+    animation-index:                    6;
+
+    foreground-color:                   $colorWhite10;
+}
+
+Bar#DialogPreferencesHardware Bar#m_audioSection
+{
+    spacing: 9;
+}
+
+Bar.OptionsTableFooter Animation#m_pScanIndicator
+{
+    image:                              url("Shared/HW/Components/Library_Progress_active.png");
+    animations:                         32;
+    timer:                              4;
+    foreground-color:                   no;
+    outer-margin-left:                  7;
+    outer-margin-right:                 7;
+    outer-margin-top:                   3;
+}
+
+
+// FILE PATH
+//----------------------------------------------------------------------------------------------------------------------
+
+// PATH
+DialogPreferences Button.DialogFilePath
+{
+    width:                              160;
+}
+
+Button.DialogFilePath
+{
+    image:                              url("Maschine/Dialogs/SharedDialogControls/DIALOG_BTN_Path.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+
+    fixed-left:                         18;
+    fixed-right:                        3;
+
+    horizontal-alignment:               left;
+
+    foreground-color:                   $colorWhite75;
+
+    margin-left:                        18;
+    margin-right:                       4;
+    margin-top:                         1;
+}
+
+
+Button.DialogFilePath:over
+{
+    foreground-color:                   $colorWhite85;
+}
+
+
+Button.DialogFilePath:over:down
+{
+    foreground-color:                   $colorWhite50;
+}
+
+
+
+// DELETE PATH
+Button.DialogFilePathDelete
+{
+   image:                              url("Maschine/Dialogs/SharedDialogControls/DIALOG_BTN_PathDelete.png");
+   picture-includes-margin:            true;
+   animations:                         7;
+
+   foreground-color:                   no;
+}
+
+
+
+// FILEPATH WITHOUT DELETER
+DialogCollateAudio Button#m_buttonBrowserPath,
+DialogAudioExport Button#pFileName
+{
+    image:                              url("Maschine/Dialogs/SharedDialogControls/DIALOG_BTN_PathAlone.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+
+    horizontal-alignment:               left;
+
+    fixed-left:                         18;
+    fixed-right:                        3;
+
+    foreground-color:                   $colorWhite75;
+
+    margin-left:                        20;
+    margin-right:                       5;
+    margin-top:                         1;
+}
+
+DialogCollateAudio Button#m_buttonBrowserPath:over
+{
+    foreground-color:                   $colorWhite85;
+}
+
+
+DialogCollateAudio Button#m_buttonBrowserPath:over:down
+{
+    foreground-color:                   $colorWhite50;
+}
+
+
+
+
+// WIDE FILEPATH BUTTON
+DialogAudioExport Button#pFileName,
+DialogAudioExport TextEdit
+{
+    width:                              262;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// CHECKBOXES
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Checkbox.DialogCheckbox
+{
+    height:                             18;
+}
+
+
+
+// TEXT LABEL
+Button.DialogCheckboxText
+{
+    image:                              no;
+    foreground-color:                   $colorWhite50;
+    horizontal-alignment:               left;
+    margin-top:                         1;
+}
+
+
+
+// CHECKBOX BUTTON
+Button.DialogCheckboxBox,
+DialogAudioExport Bar#pBar Button#pButton
+{
+    background-color:                   no;
+    image:                              url("Shared/Dialogs/SharedDialogControls/DIALOG_Checkbox.png");
+    picture-includes-margin:            true;
+    animations:                         8;
+    animation-index:                    0;
+
+    width:                              19;
+    height:                             19;
+}
+
+
+Button.DialogCheckboxBox[checkstate=unchecked]:down,
+DialogAudioExport Bar#pBar Button#pButton:!selected:down
+{
+    animation-index:                    2;
+}
+
+Button.DialogCheckboxBox[checkstate=unchecked]:over,
+DialogAudioExport Bar#pBar Button#pButton:!selected:over
+{
+    animation-index:                    4;
+}
+
+Button.DialogCheckboxBox[checkstate=checked],
+DialogAudioExport Bar#pBar Button#pButton:selected
+{
+    animation-index:                    1;
+}
+
+
+Button.DialogCheckboxBox[checkstate=checked]:over,
+DialogAudioExport Bar#pBar Button#pButton:selected:over
+{
+    animation-index:                    5;
+}
+
+Button.DialogCheckboxBox[checkstate=checked]:over:down,
+DialogAudioExport Bar#pBar Button#pButton:selected:over:down
+{
+    animation-index:                    3;
+}
+
+
+Button.DialogCheckboxBox[checkstate=checked]:!enabled,
+DialogAudioExport Bar#pBar Button#pButton:selected:!enabled
+{
+    animation-index:                    7;
+}
+
+
+Button.DialogCheckboxBox[checkstate=unchecked]:!enabled,
+DialogAudioExport Bar#pBar Button#pButton:!selected:!enabled
+{
+    animation-index:                    6;
+}
+
+
+
+
+// LEFT BOX SPECIAL ALIGNEMNT
+//----------------------------------------------------------------------------------------------------------------------
+
+DialogMPCImport Checkbox#m_pImportAllBanks Button#m_pText,
+DialogMPCImport Checkbox#m_pImportOneBank Button#m_pText
+{
+    outer-margin-left:                   5;
+}
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// SLIDER
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// BACKGROUND
+Slider.Preferences
+{
+    image:                              url("Maschine/Dialogs/SharedDialogControls/DIALOG_Slider_BG.png");
+    animations:                         2;
+    animation-index:                    0;
+    picture-includes-margin:            true;
+    fixed-left:                         4;
+    fixed-right:                        4;
+    width:                              176;
+    height:                             18;
+    margin-left:                        4;
+    margin-right:                       4;
+}
+
+Slider.Preferences:!enabled
+{
+    animation-index:                    1;
+}
+
+
+
+// GRIP
+Slider.Preferences Grip
+{
+    image:                              url("Maschine/Dialogs/SharedDialogControls/DIALOG_Slider_Grip.png");
+    animations:                         2;
+    animation-index:                    0;
+}
+
+
+Slider.Preferences Grip:!enabled
+{
+    animation-index:                    1;
+}
+
+
+// INDEX
+Slider.Preferences Label#BG
+{
+    background-color:                   $colorWhite75;
+    height:                             6;
+    min-width:                          0;
+    outer-margin-right:                 1;
+    outer-margin-bottom:                6;
+    outer-margin-top:                   6;
+}
+
+Slider.Preferences Label#BG:!enabled
+{
+    background-color:                   $colorWhite20;
+}
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// POPUP MENU BUTTON
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// GENERIC BUTTON MENU
+//----------------------------------------------------------------------------------------------------------------------
+DialogPreferences ButtonMenu,
+DialogMPCImport Bar#pOneBankBar ButtonMenu,
+DialogAudioExport Bar#pBar Button#pButtonMenu,
+DialogMIDIChange ButtonMenu
+{
+    image:                              url("Maschine/Dialogs/SharedDialogControls/DIALOG_BTN_Popup.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+    fixed-left:                         4;
+    fixed-right:                        13;
+
+    foreground-color:                   $colorWhite75;
+    horizontal-alignment:               left;
+
+    margin-left:                        6;
+    margin-right:                       18;
+    margin-top:                         1;
+}
+
+
+
+DialogPreferences ButtonMenu:selected,
+DialogAudioExport Bar#columns Bar#pBar ButtonMenu:selected,
+DialogAudioExport Bar#columns Bar#pBar Button#pButtonMenu:selected,
+DialogMPCImport Bar#pOneBankBar ButtonMenu:selected,
+DialogMIDIChange ButtonMenu:selected
+{
+    foreground-color:                   $colorWhite;
+}
+
+
+
+
+
+
+
+
+// COLOR PREFERENCES BUTTONS MENU
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#DialogPreferencesColors ButtonMenu
+{
+    image:                                      url("Maschine/Dialogs/Preferences/PREF_BTN_ColorPicker.png");
+    animations:                                 7;
+    picture-includes-margin:                    true;
+    fixed-left:                                 16;
+    fixed-right:                                14;
+
+    margin-left:                                18;
+    margin-right:                               18;
+    width:                                      132;
+
+    foreground-color:                           $colorWhite75;
+    background-color-palette:                   1;
+    background-color:                           no;
+    horizontal-alignment:                       left;
+}
+
+
+Bar#DialogPreferencesColors ButtonMenu[color=color1]  { background-color: $color1; }
+Bar#DialogPreferencesColors ButtonMenu[color=color2]  { background-color: $color2; }
+Bar#DialogPreferencesColors ButtonMenu[color=color3]  { background-color: $color3; }
+Bar#DialogPreferencesColors ButtonMenu[color=color4]  { background-color: $color4; }
+Bar#DialogPreferencesColors ButtonMenu[color=color5]  { background-color: $color5; }
+Bar#DialogPreferencesColors ButtonMenu[color=color6]  { background-color: $color6; }
+Bar#DialogPreferencesColors ButtonMenu[color=color7]  { background-color: $color7; }
+Bar#DialogPreferencesColors ButtonMenu[color=color8]  { background-color: $color8; }
+Bar#DialogPreferencesColors ButtonMenu[color=color9]  { background-color: $color9; }
+Bar#DialogPreferencesColors ButtonMenu[color=color10] { background-color: $color10; }
+Bar#DialogPreferencesColors ButtonMenu[color=color11] { background-color: $color11; }
+Bar#DialogPreferencesColors ButtonMenu[color=color12] { background-color: $color12; }
+Bar#DialogPreferencesColors ButtonMenu[color=color13] { background-color: $color13; }
+Bar#DialogPreferencesColors ButtonMenu[color=color14] { background-color: $color14; }
+Bar#DialogPreferencesColors ButtonMenu[color=color15] { background-color: $color15; }
+Bar#DialogPreferencesColors ButtonMenu[color=color16] { background-color: $color16; }
+
+Bar#DialogPreferencesColors ButtonMenu[color=white]
+{
+    background-color: rgb(255,255,255);
+}
+
+
+
+Bar#DialogPreferencesColors ButtonMenu[color=group]
+{
+    image:                                        url("Maschine/Dialogs/Preferences/PREF_BTN_ColorPickerGroup.png");
+    animations:                                   7;
+    picture-includes-margin:                      true;
+    fixed-left:                                   16;
+    fixed-right:                                  14;
+}
+
+
+
+Bar#DialogPreferencesColors ButtonMenu[color=auto]
+{
+    image:                                        url("Maschine/Dialogs/Preferences/PREF_BTN_ColorPickerAuto.png");
+    animations:                                   7;
+    picture-includes-margin:                      true;
+    fixed-left:                                   16;
+    fixed-right:                                  14;
+}
+
+
+
+// SIZES
+
+// NARROW
+ButtonMenu.Narrow
+{
+    width:                              44;
+}
+
+// DEFAULT
+DialogPreferences Bar#PreferencesKompleteKontrolS Bar#pBar ButtonMenu,
+DialogAudioExport Bar#right Button#pButtonMenu,
+DialogMPCImport Bar#pOneBankBar ButtonMenu
+// ButtonMenu.Narrow
+{
+    width:                              89;
+}
+
+// MEDIUM
+DialogPreferences Bar#DialogPreferencesHardware Bar#pBar ButtonMenu#m_pBrowseMode,
+DialogAudioExport Bar#left Button#pButtonMenu,
+DialogAudioExport Bar#left ButtonMenu
+{
+    width:                              132;
+}
+
+// WIDE
+DialogPreferences Bar#DialogPreferencesGeneral Bar#pBar ButtonMenu,
+DialogPreferences Bar#DialogPreferencesAudio Bar#pBar ButtonMenu,
+DialogPreferences Bar#DialogPreferencesMidi Bar#pBar ButtonMenu,
+DialogPreferences Bar#DialogPreferencesDefault Bar#pBar ButtonMenu,
+DialogPreferences Bar#DialogPreferencesHardware Bar#pBar ButtonMenu,
+ButtonMenu.Wide
+{
+    width:                              176;
+}
+
+// STATES
+DialogPreferences ButtonMenu:over,
+DialogMPCImport Bar#pOneBankBar ButtonMenu:over,
+Bar#DialogPreferencesColors ButtonMenu:over,
+ButtonMenu.Narrow:over,
+ButtonMenu.Wide:over
+{
+    foreground-color:                   $colorWhite85;
+}
+
+DialogPreferences ButtonMenu:selected,
+DialogMPCImport Bar#pOneBankBar ButtonMenu:selected,
+Bar#DialogPreferencesColors ButtonMenu:selected,
+ButtonMenu.Narrow:selected,
+ButtonMenu.Wide:selected
+{
+    foreground-color:                   $colorWhite;
+}
+
+DialogPreferences ButtonMenu:!selected:over:down,
+DialogPreferences ButtonMenu:selected:over,
+DialogMPCImport Bar#pOneBankBar ButtonMenu:!selected:over:down,
+DialogMPCImport Bar#pOneBankBar ButtonMenu:selected:over,
+Bar#DialogPreferencesColors ButtonMenu:!selected:over:down,
+Bar#DialogPreferencesColors ButtonMenu:selected:over,
+ButtonMenu.Narrow:!selected:over:down,
+ButtonMenu.Narrow:selected:over,
+ButtonMenu.Wide:!selected:over:down,
+ButtonMenu.Wide:selected:over
+{
+    animation-index:                    2;
+    foreground-color:                   $colorWhite;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// DRAGGER
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// GENERIC DRAGGER
+//----------------------------------------------------------------------------------------------------------------------
+
+DialogPreferences Dragger
+{
+    image:                              url("Maschine/Dialogs/SharedDialogControls/DIALOG_Dragger_BG.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+    animation-index:                    0;
+
+    foreground-color:                   $colorWhite75;
+    horizontal-alignment:               left;
+
+    margin-bottom:                      3;
+    margin-top:                         3;
+    margin-right:                       18;
+    margin-left:                        7;
+}
+
+DialogPreferences Dragger:over
+{
+    animation-index:                    4;
+    foreground-color:                   $colorWhite85;
+}
+
+DialogPreferences Dragger:down
+{
+    animation-index:                    1;
+    foreground-color:                   $colorWhite;
+}
+
+DialogPreferences Dragger:selected:down
+{
+    animation-index:                    1;
+    foreground-color:                   $colorWhite;
+}
+
+
+DialogPreferences Dragger:!enabled
+{
+    animation-index:                    6;
+    foreground-color:                   $colorWhite25;
+}
+
+
+
+// TRIPLE PATTERN LENGTH DRAGGER ( PREFERENCES --> DEFAULT TAB)
+//----------------------------------------------------------------------------------------------------------------------
+
+// GENERIC
+DialogPreferences Bar#DialogPreferencesDefault Dragger#pDragger1,
+DialogPreferences Bar#DialogPreferencesDefault Dragger#pDragger2,
+DialogPreferences Bar#DialogPreferencesDefault Dragger#pDragger3
+{
+    margin-left:                        0;
+    margin-top:                         2;
+    margin-bottom:                      0;
+}
+
+
+// LEFT DRAGGER IMAGE
+DialogPreferences Bar#DialogPreferencesDefault Dragger#pDragger1
+{
+    image:                              url("Maschine/Dialogs/SharedDialogControls/DIALOG_Dragger_BG_TripleLeft.png");
+    picture-includes-margin:            true;
+    horizontal-alignment:               right;
+    margin-right:                       8;
+}
+
+
+// MIDDLE DRAGGER IMAGE
+DialogPreferences Bar#DialogPreferencesDefault Dragger#pDragger2
+{
+    image:                              url("Maschine/Dialogs/SharedDialogControls/DIALOG_Dragger_BG_TripleMiddle.png");
+    picture-includes-margin:            true;
+    horizontal-alignment:               center;
+    margin-right:                       0;
+}
+
+
+// RIGHT DRAGGER IMAGE
+DialogPreferences Bar#DialogPreferencesDefault Dragger#pDragger3
+{
+    image:                              url("Maschine/Dialogs/SharedDialogControls/DIALOG_Dragger_BG_TripleRight.png");
+    picture-includes-margin:            true;
+    horizontal-alignment:               center;
+    margin-right:                       0;
+}
+
+
+// COLON
+DialogPreferences Bar#DialogPreferencesDefault Label#pColonLabel
+{
+    image:                              url("Maschine/Dialogs/SharedDialogControls/DIALOG_Dragger_BG_TripleColon.png");
+    picture-includes-margin:            true;
+    foreground-color:                   no;
+}
+
+
+
+// PLAIN TEXT DISPLAY LABEL
+//----------------------------------------------------------------------------------------------------------------------
+
+//BACKGROUND
+Bar#DialogPreferencesAudio Label#m_pDeviceStatus
+{
+    image:                      url("Maschine/Dialogs/SharedDialogControls/DIALOG_LBL_TextBG.png");
+    picture-includes-margin:    true;
+    fixed-left:                 5;
+    fixed-right:                5;
+    foreground-color:           $colorWhite75;
+    width:                      176;
+    margin-left:                6;
+    margin-right:               6;
+    margin-top:                 1;
+}
+
+Bar#DialogPreferencesAudio Label#m_pBufferSizeValue,
+Bar#DialogPreferencesMidi Label#m_sendOffsetLabel,
+Bar#DialogPreferencesMidi Label#m_receiveOffsetLabel
+{
+    image:                      url("Maschine/Dialogs/SharedDialogControls/DIALOG_LBL_TextBG.png");
+    picture-includes-margin:    true;
+    fixed-left:                 5;
+    fixed-right:                5;
+    foreground-color:           $colorWhite75;
+    width:                      58;
+    horizontal-alignment:       center;
+    margin-left:                6;
+    margin-right:               6;
+    margin-top:                 1;
+}
+
+Bar#DialogPreferencesAudio Label#m_pInputLatency,
+Bar#DialogPreferencesAudio Label#m_pOutputLatency,
+Bar#DialogPreferencesAudio Label#m_pProcessingLatency,
+Bar#DialogPreferencesAudio Label#m_pTotalLatency
+{
+    width:                      56;
+    margin-top:                 1;
+    foreground-color:           $colorWhite50;
+
+}
+
+
+
+// TEXT EDIT
+//----------------------------------------------------------------------------------------------------------------------
+
+DialogSavePreset TextEdit,
+DialogGeneratePreviews TextEdit
+{
+    image:                      url("Maschine/Dialogs/SharedDialogControls/DIALOG_LBL_TextEditBG.png");
+    picture-includes-margin:    true;
+    fixed-left:                 5;
+    fixed-right:                5;
+
+    font-name:                  $fontPragmatica;
+    font-size:                  11;
+
+    background-color:           no;
+    foreground-color:           $colorWhite75;
+
+    selection-background-color: $colorWhite20;
+    selection-foreground-color: $colorWhite;
+
+    margin-left:                7;
+    margin-right:               4;
+    margin-top:                 5;
+    margin-bottom:              4;
+}

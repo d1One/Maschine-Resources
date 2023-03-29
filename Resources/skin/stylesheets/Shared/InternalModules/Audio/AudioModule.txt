@@ -1,0 +1,260 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// AUDIO MODULE
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// MAIN CONTAINER
+AudioModuleEditor
+{
+    image:                      url("Shared/InternalModules/PanelElements/Intmod_BG_350.png");
+    fixed-left:                 30;
+    fixed-right:                30;
+    width:                      870;
+}
+
+// HEADLINE
+AudioModuleEditor Label#Title
+{
+    image:                      url("Shared/InternalModules/Audio/Intmod_Audio_Headline.png");
+    foreground-color:           no;
+    x:                          21;
+    y:                          12;
+}
+
+AudioModuleEditor Bar#container
+{
+    width:                      870;
+    height:                     315;
+    y:                          35;
+}
+
+// WAVE EDITOR POSITION
+AudioModuleEditor WaveEditorWidget.InternalModule
+{
+    outer-margin-left:          20;
+    outer-margin-top:           9;
+}
+
+// AUDIO PARAMETERS
+//------------------------------------------------------------------------------------------------------------------------
+
+// MAIN CONTAINER
+AudioModuleEditor Bar#toolBar
+{
+    width:                      830;
+    height:                     44;
+    outer-margin-left:          20;
+    margin-left:                12;
+}
+
+AudioModuleEditor Bar#toolBar:!enabled
+{
+    image:                      url("Shared/InternalModules/Audio/Intmod_Audio_BG_ToolbarEmpty.png");
+    picture-includes-margin:    true;
+    fixed-left:                 10;
+    fixed-right:                10;
+}
+
+AudioModuleEditor Bar#toolBar:enabled
+{
+    image:                      url("Shared/InternalModules/Audio/Intmod_Audio_BG_Toolbar.png");
+    picture-includes-margin:    true;
+}
+
+AudioModuleEditor Bar#toolBar[ParameterMode=FixedGate]:enabled
+
+{
+    image:                      url("Shared/InternalModules/Audio/Intmod_Audio_BG_Toolbar_FixedGate.png");
+    picture-includes-margin:    true;
+}
+
+
+// SETS ALL PARAMETER LABELS TO NOT DRAW THE TEXT
+AudioModuleEditor Bar#toolBar Label
+{
+    height:                     19;
+    foreground-color:           no;
+    height:                     1;
+}
+
+AudioModuleEditor Bar#toolBar DraggerableValueEdit
+{
+    min-width:                  40;
+}
+
+// DASH DUMMY LABEL FOR DISABLED PARAMETERS
+AudioModuleEditor Bar#toolBar Label#m_fadeDash,
+AudioModuleEditor Bar#toolBar Label#m_tuneDash,
+AudioModuleEditor Bar#toolBar Label#m_pitchbendDash,
+AudioModuleEditor Bar#toolBar Label#m_tempoDash,
+AudioModuleEditor Bar#toolBar Label#m_beatsDash
+{
+    foreground-color:           rgba(255,255,255,100);
+    margin-bottom:              4;
+    margin-left:                1;
+}
+
+// PARAMETER GROUP CONTAINERS
+//------------------------------------------------------------------------------------------------------------------------
+
+// SIZES
+
+// MODE
+AudioModuleEditor *#PlaybackMode
+{
+    width:                      66;
+}
+
+// FADE
+AudioModuleEditor *#Fade
+{
+    width:                      56;
+}
+
+// TUNE
+AudioModuleEditor *#Tune
+{
+    width:                      40;
+}
+
+// PITCHBEND
+AudioModuleEditor *#Pitchbend
+{
+    width:                      40;
+}
+
+// ENGINE
+
+// MODE
+AudioModuleEditor *#EngineMode
+{
+    width:                      59;
+}
+
+// SOURCE
+
+// TEMPO
+AudioModuleEditor *#Tempo
+{
+    width:                      44;
+}
+
+// LENGTH
+AudioModuleEditor *#Beats
+{
+    width:                      44;
+}
+
+
+
+// GATE MODE POSITIONS
+//------------------------------------------------------------------------------------------------------------------------
+
+// PLAYBACK
+
+// MODE
+AudioModuleEditor *#PlaybackMode
+{
+    x:                          69;
+    y:                          19;
+}
+
+// FADE
+AudioModuleEditor *#Fade
+{
+    x:                          123;
+    y:                          19;
+}
+
+// TUNE
+AudioModuleEditor *#Tune
+{
+    x:                          187;
+    y:                          19;
+}
+
+// PITCHBEND
+AudioModuleEditor *#Pitchbend
+{
+    x:                          241;
+    y:                          19;
+}
+
+
+
+// ENGINE
+
+// MODE
+AudioModuleEditor *#EngineMode
+{
+    x:                          373;
+    y:                          19;
+}
+
+// SOURCE
+
+// TEMPO
+AudioModuleEditor *#Tempo
+{
+    x:                          516;
+    y:                          19;
+}
+
+// LENGTH
+AudioModuleEditor *#Beats
+{
+    x:                          574;
+    y:                          19;
+}
+
+
+
+// FIXED GATE MODE POSITIONS
+//------------------------------------------------------------------------------------------------------------------------
+
+// FADE
+AudioModuleEditor Bar#toolBar[ParameterMode=FixedGate] *#Fade
+{
+    x:                          71;
+    y:                          19;
+}
+
+// TUNE
+AudioModuleEditor Bar#toolBar[ParameterMode=FixedGate] *#Tune
+{
+    x:                          135;
+    y:                          19;
+}
+
+// PITCHBEND
+AudioModuleEditor Bar#toolBar[ParameterMode=FixedGate] *#Pitchbend
+{
+    x:                          189;
+    y:                          19;
+}
+
+
+
+// ENGINE
+
+// MODE
+AudioModuleEditor Bar#toolBar[ParameterMode=FixedGate] *#EngineMode
+{
+    x:                          319;
+    y:                          19;
+}
+
+// SOURCE
+
+// TEMPO
+AudioModuleEditor Bar#toolBar[ParameterMode=FixedGate] *#Tempo
+{
+    x:                          464;
+    y:                          19;
+}
+
+// LENGTH
+AudioModuleEditor Bar#toolBar[ParameterMode=FixedGate] *#Beats
+{
+    x:                          522;
+    y:                          19;
+}

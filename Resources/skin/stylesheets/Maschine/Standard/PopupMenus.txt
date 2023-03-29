@@ -1,0 +1,595 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// POPUP MENUS
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// PopUp Menu element IDs have to be all mentioned here, so the menus don't use styling properties from actual framework styling.
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// COLOR PICKER
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// MAIN BACKGROUND
+//----------------------------------------------------------------------------------------------------------------------
+
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button.ColorPicker,
+PopupMenu#popup Vector<Button>::Bar#widgets::Button.ColorPicker
+{
+    image:                              url("Maschine/Popups/POPUP_BG_ColorPicker.png");
+    picture-includes-margin:            true;
+    fixed-left:                         4;
+    fixed-right:                        4;
+    fixed-top:                          4;
+    fixed-bottom:                       4;
+
+    width:                              152;
+    height:                             148;
+
+    margin-left:                        0;
+    margin-right:                       0;
+    margin-top:                         0;
+    margin-bottom:                      0;
+
+    outer-margin-left:                  3;
+    outer-margin-right:                 3;
+}
+
+
+// COLOR PICKER TILE CONTAINER
+ColorPicker
+{
+    width:                              152;
+    height:                             148;
+
+    margin-left:                        4;
+    margin-top:                         4;
+}
+
+
+
+
+
+// COLOR TILE BUTTON
+//----------------------------------------------------------------------------------------------------------------------
+
+ColorPicker Button
+{
+    image:                              url("Maschine/Popups/POPUP_BTN_ColorPickerTile.png");
+    animations:                         3;
+    animation-index:                    0;
+
+    background-color-palette:           1;
+}
+
+
+ColorPicker Button[color=color1]  { background-color: $color1; }
+ColorPicker Button[color=color2]  { background-color: $color2; }
+ColorPicker Button[color=color3]  { background-color: $color3; }
+ColorPicker Button[color=color4]  { background-color: $color4; }
+ColorPicker Button[color=color5]  { background-color: $color5; }
+ColorPicker Button[color=color6]  { background-color: $color6; }
+ColorPicker Button[color=color7]  { background-color: $color7; }
+ColorPicker Button[color=color8]  { background-color: $color8; }
+ColorPicker Button[color=color9]  { background-color: $color9; }
+ColorPicker Button[color=color10] { background-color: $color10; }
+ColorPicker Button[color=color11] { background-color: $color11; }
+ColorPicker Button[color=color12] { background-color: $color12; }
+ColorPicker Button[color=color13] { background-color: $color13; }
+ColorPicker Button[color=color14] { background-color: $color14; }
+ColorPicker Button[color=color15] { background-color: $color15; }
+ColorPicker Button[color=color16] { background-color: $color16; }
+
+
+ColorPicker Button:over
+{
+    animation-index:                    1;
+}
+
+
+ColorPicker Button:selected,
+ColorPicker Button:selected:over
+{
+    animation-index:                    2;
+}
+
+
+
+
+// MODE BUTTONS
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// DEFAULT
+PopupMenu#pContextMenu::PopupMenu#popup::Vector<Button>#menuitemlist::Bar.ColorPickerHolder::Button#generic_Button_1
+{
+    image:                              url("Maschine/Popups/POPUP_BTN_ColorPickerDefault.png");
+    picture-includes-margin:            true;
+    animations:                         3;
+    animation-index:                    0;
+    fixed-left:                         24;
+    fixed-right:                        4;
+
+    foreground-color:                   $colorWhite75;
+
+    margin-left:                        29;
+    margin-bottom:                      2;
+
+    outer-margin-left:                  3;
+    outer-margin-right:                 3;
+}
+
+
+// AUTO
+Bar#DialogPreferencesColors Vector<Button>#menuitemlist Button.ItemAutoColor
+{
+    width:                              152;
+
+    image:                              url("Maschine/Popups/POPUP_BTN_ColorPickerAuto.png");
+    picture-includes-margin:            true;
+    animations:                         3;
+    animation-index:                    0;
+    fixed-left:                         24;
+    fixed-right:                        4;
+
+    foreground-color:                   $colorWhite75;
+
+    margin-left:                        29;
+    margin-bottom:                      2;
+    margin-right:                       0;
+
+    outer-margin-left:                  3;
+    outer-margin-right:                 3;
+}
+
+
+// GROUP
+Bar#DialogPreferencesColors Vector<Button>#menuitemlist Button.ItemUseGroupColor
+{
+    width:                              152;
+
+    image:                              url("Maschine/Popups/POPUP_BTN_ColorPickerGroup.png");
+    picture-includes-margin:            true;
+    animations:                         3;
+    animation-index:                    0;
+    fixed-left:                         24;
+    fixed-right:                        4;
+
+    foreground-color:                   $colorWhite75;
+
+    margin-left:                        29;
+    margin-bottom:                      2;
+    margin-right:                       0;
+
+    outer-margin-left:                  3;
+    outer-margin-right:                 3;
+}
+
+
+
+// WHITE
+Bar#DialogPreferencesColors Vector<Button>#menuitemlist Button.ItemWhiteColor
+{
+    image:                              url("Maschine/Popups/POPUP_BTN_ColorPickerWhite.png");
+    picture-includes-margin:            true;
+    animations:                         3;
+    animation-index:                    0;
+    fixed-left:                         24;
+    fixed-right:                        4;
+
+    foreground-color:                   $colorWhite75;
+
+    margin-left:                        29;
+    margin-bottom:                      2;
+    margin-right:                       0;
+
+    outer-margin-left:                  3;
+    outer-margin-right:                 3;
+}
+
+
+
+
+
+PopupMenu#pContextMenu::PopupMenu#popup::Vector<Button>#menuitemlist::Bar.ColorPickerHolder::Button#generic_Button_1:over,
+Bar#DialogPreferencesColors Vector<Button>#menuitemlist Button.ItemAutoColor:over,
+Bar#DialogPreferencesColors Vector<Button>#menuitemlist Button.ItemUseGroupColor:over,
+Bar#DialogPreferencesColors Vector<Button>#menuitemlist Button.ItemWhiteColor:over
+{
+    animation-index:                    1;
+}
+
+
+
+PopupMenu#pContextMenu::PopupMenu#popup::Vector<Button>#menuitemlist::Bar.ColorPickerHolder::Button#generic_Button_1:selected,
+PopupMenu#pContextMenu::PopupMenu#popup::Vector<Button>#menuitemlist::Bar.ColorPickerHolder::Button#generic_Button_1:selected:over,
+Bar#DialogPreferencesColors Vector<Button>#menuitemlist Button.ItemAutoColor:selected,
+Bar#DialogPreferencesColors Vector<Button>#menuitemlist Button.ItemAutoColor:selected:over,
+Bar#DialogPreferencesColors Vector<Button>#menuitemlist Button.ItemUseGroupColor:selected,
+Bar#DialogPreferencesColors Vector<Button>#menuitemlist Button.ItemUseGroupColor:selected:over,
+Bar#DialogPreferencesColors Vector<Button>#menuitemlist Button.ItemWhiteColor:selected,
+Bar#DialogPreferencesColors Vector<Button>#menuitemlist Button.ItemWhiteColor:selected:over
+{
+    animation-index:                    2;
+}
+
+
+
+
+
+
+
+
+
+// MAIN MENU BACKGROUND
+//----------------------------------------------------------------------------------------------------------------------
+
+// NARROW MENU WIDTH
+DialogMIDIChange Bar#body ButtonMenu.Narrow PopupMenu
+{
+    min-width:                          10;
+}
+
+DialogMIDIChange Bar#body ButtonMenu.Narrow PopupMenu#popup Vector<Button>::Bar#widgets::Button
+{
+    width:                              44;
+    horizontal-alignment:               right;
+    margin-right:                       12;
+    margin-left:                        0;
+}
+
+// DEFAULT
+PopupMenu#pContextMenu,
+PopupMenu#popup,
+PopupMenu#pPopup,
+AutocompletionPopup
+{
+    image:                              url("Maschine/Popups/POPUP_BG.png");
+    picture-includes-margin:            true;
+
+    fixed-bottom:                       18;
+    fixed-left:                         13;
+    fixed-right:                        14;
+    fixed-top:                          10;
+
+    margin-left:                        8;
+    margin-right:                       9;
+    margin-top:                         4;
+    margin-bottom:                      12;
+
+    submenu-delay:                      2;
+    max-width:                          500;
+    min-width:                          128;
+}
+
+PopupMenu#pContextMenu,
+PopupMenu#popup,
+PopupMenu#pPopup
+{
+    menu-offset-x:                      7;
+    menu-offset-y:                      -4;
+}
+
+
+
+// MENU VECTOR
+//----------------------------------------------------------------------------------------------------------------------
+
+PopupMenu#pContextMenu Vector,
+PopupMenu#popup Vector,
+PopupMenu#pPopup Vector
+{
+    background-color:                   no;
+    image:                              no;
+}
+
+
+
+// MENU LIST CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets,
+PopupMenu#popup Vector<Button>::Bar#widgets,
+PopupMenu#pPopup Vector<Button>::Bar#widgets,
+AutocompletionPopup Vector<Button>#menuitemlist Bar#widgets
+{
+    image:                              no;
+    background-color:                   no;
+    outer-margin-top:                   3;
+    outer-margin-bottom:                3;
+}
+
+
+
+
+// MENU LISTITEM (BUTTONS)
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// GENERIC STYLING
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button, // override default
+PopupMenu#popup Vector<Button>::Bar#widgets::Button,
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button
+{
+    image:                              url("Maschine/Popups/POPUP_MenuItem.png");
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    background-color:                   no;
+    foreground-color:                   $colorBlack;
+    horizontal-alignment:               left;
+    picture-includes-margin:            true;
+    animations:                         11;
+    fixed-right:                        11;
+    fixed-left:                         25;
+
+    margin-left:                        19;
+    margin-right:                       20;
+    margin-top:                         2;
+    height:                             19;
+    max-width:                          320;
+    min-width:                          128;
+}
+
+
+
+// GENERIC STYLING
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false],
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false],
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false]
+{
+    animation-index:                    0;
+}
+
+
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false],
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false],
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false]
+{
+    animation-index:                    0;
+}
+
+
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false]:over,
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false]:down,
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false]:over,
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false]:down,
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false]:over,
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false]:down
+{
+    animation-index:                    1;
+}
+
+
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true],
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true],
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true]
+{
+    animation-index:                    6;
+}
+
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true]:over,
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true]:down,
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true]:over,
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true]:down,
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true]:over,
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true]:down
+{
+    animation-index:                    8;
+}
+
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true]:!enabled,
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true]:!enabled,
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true]:!enabled,
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true][isModified=true],
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true][isModified=true],
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true][isModified=true]
+{
+    animation-index:                    7;
+}
+
+
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true][isModified=true]:over,
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true][isModified=true]:down,
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true][isModified=true]:over,
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true][isModified=true]:down,
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true][isModified=true]:over,
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true][isModified=true]:down
+{
+    animation-index:                    9;
+}
+
+
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true]:!enabled:over,
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true]:!enabled:down,
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true]:!enabled:over,
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true]:!enabled:down,
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true]:!enabled:over,
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false][isChecked=true]:!enabled:down
+{
+    animation-index:                    10;
+}
+
+
+
+
+// HEADLINE
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isHeadline=true][isSeparator=false][isSubMenu=false]:!enabled,
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isHeadline=true][isSeparator=false][isSubMenu=false]:!enabled,
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isHeadline=true][isSeparator=false][isSubMenu=false]:!enabled
+{
+    foreground-color:                   $colorBlack60;
+    margin-left:                        6;
+    margin-bottom:                      5;
+    animation-index:                    10;
+}
+
+
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false]:!enabled,
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false]:!enabled,
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false]:!enabled
+{
+    foreground-color:                   rgba(0, 0, 0, 85);
+    animation-index:                    0;
+}
+
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false]:!enabled:over,
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false]:!enabled:over,
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=false]:!enabled:over
+{
+    animation-index:                    1;
+}
+
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=true],
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=true],
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=true]
+{
+    animation-index:                    2;
+}
+
+
+
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=true]:over,
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=true]:down,
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=true]:selected,
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=true]:over,
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=true]:down,
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=true]:selected,
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=true]:over,
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=true]:down,
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=true]:selected
+{
+    animation-index:                    4;
+}
+
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=true]:!enabled,
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=true]:!enabled,
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=false][isSubMenu=true]:!enabled
+{
+    foreground-color:                   rgba(0, 0, 0, 85);
+    animation-index:                    3;
+}
+
+
+
+
+
+
+// AUTOCOMPLETION MENU BUTTONS (USED IN BROWSER TAG EDITOR)
+//----------------------------------------------------------------------------------------------------------------------
+
+AutocompletionPopup Vector
+{
+    max-height:                         255;
+}
+
+
+
+AutocompletionPopup Vector Bar#widgets::Button
+{
+    image:                              url("Maschine/Popups/POPUP_TagEditMenuItem.png");
+    font-name:                          $fontPragmatica;
+    font-size:                          11;
+    background-color:                   no;
+    foreground-color:                   $colorBlack;
+    horizontal-alignment:               left;
+    picture-includes-margin:            true;
+    animations:                         2;
+    fixed-right:                        5;
+    fixed-left:                         5;
+
+    margin-left:                        6;
+    margin-right:                       6;
+    margin-top:                         2;
+    height:                             19;
+}
+
+
+
+
+
+AutocompletionPopup Vector Bar#widgets::Button
+{
+    animation-index:                    0;
+}
+
+
+AutocompletionPopup Vector Bar#widgets::Button:over
+{
+    animation-index:                    1;
+}
+
+
+
+
+
+
+
+
+// MENU LIST SEPARATOR
+//----------------------------------------------------------------------------------------------------------------------
+
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=true],
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=true],
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=true]
+{
+    image:                  url("Maschine/Popups/POPUP_Separator.png");
+    fixed-left:             1;
+    fixed-right:            1;
+    picture-includes-margin:true;
+    foreground-color:       no;
+    background-color:       no;
+    outer-margin-top:       1;
+    outer-margin-bottom:    1;
+}
+
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button[isSeparator=true]:over,
+PopupMenu#popup Vector<Button>::Bar#widgets::Button[isSeparator=true]:over,
+PopupMenu#pPopup Vector<Button>::Bar#widgets::Button[isSeparator=true]:over
+{
+    background-color:       no;
+    foreground-color:       no;
+}
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// BankManager Menu
+//----------------------------------------------------------------------------------------------------------------------
+
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button.BankManager
+{
+    background-color:       rgba(0, 0, 0, 15);
+    width:                  $bankmanager-width;
+    height:                 $bankmanager-height;
+    margin-left:            0;
+    margin-right:           0;
+    margin-top:             0;
+    margin-bottom:          0;
+}
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Enum Parameter Menus
+//----------------------------------------------------------------------------------------------------------------------
+
+PopupMenu#pContextMenu Vector<Button>::Bar#widgets::Button.EnumParameter
+{
+    max-width:              200;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Design Widget Popup
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#DesignWidget PopupMenu
+{
+    width:                              no;
+}

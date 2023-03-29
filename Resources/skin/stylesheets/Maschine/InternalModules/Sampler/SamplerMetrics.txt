@@ -1,0 +1,14 @@
+//--------------------------------------------------------------------------------------------------------
+// KNOB POSITIONS
+//--------------------------------------------------------------------------------------------------------
+
+// Controls Positions
+@define $Y-Sampler-Subheadline			231; 
+@define $Y-Sampler-SmallKnob-Top        268;
+@define $Y-Sampler-SmallKnob-Bottom     338;
+
+// Display Footer Values
+@define $Y-Sampler-ZoneFooterValue		19;
+
+// Separators Positions
+@define $Y-Sampler-Separator			231;

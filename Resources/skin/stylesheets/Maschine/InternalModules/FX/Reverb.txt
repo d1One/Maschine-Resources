@@ -1,0 +1,181 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// REVERB
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+PlateReverbEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png"); 
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-554;
+}
+
+
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+PlateReverbEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_reverb.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+
+
+//--------------------------------------------------------------------------------------------------------
+// MODE SELECTOR SWITCH
+//--------------------------------------------------------------------------------------------------------
+
+PlateReverbEditor Bar#Mode
+{
+    x:                                  449;
+    y:                                  16;
+}
+
+
+
+//--------------------------------------------------------------------------------------------------------
+// PLATE MODE
+//--------------------------------------------------------------------------------------------------------
+
+// DECAY
+PlateReverbEditor Bar#Decay
+{
+    x:                                  38;
+    y:                                  $Y-FX-BigKnob-Middle
+}
+
+// LOW SHELF
+PlateReverbEditor Bar#LowShelf
+{
+    x:                                  130;
+    y:                                  $Y-FX-BigKnob-Middle
+}
+
+// HIGH DAMP
+PlateReverbEditor Bar#HighDamp
+{
+    x:                                  222;
+    y:                                  $Y-FX-BigKnob-Middle
+}
+
+// PRE DELAY
+PlateReverbEditor Bar#PreDelay
+{
+    x:                                  314;
+    y:                                  $Y-FX-BigKnob-Middle;
+}
+
+
+// SEPARATOR
+PlateReverbEditor Bar#m_pParamSeparator[Mode=Plate]
+{
+    x:                                  414;
+}
+
+// MIX
+PlateReverbEditor Bar#Mix[Mode=Plate]
+{
+    x:                                  442;
+    y:                                  $Y-FX-BigKnob-Middle
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// ROOM/HALL MODE
+//--------------------------------------------------------------------------------------------------------
+
+// TOP ROW
+//--------------------------------------------------------------------------------------------------------
+
+// REVERB TIME
+PlateReverbEditor Bar#RoomRevTime,
+PlateReverbEditor Bar#HallRevTime
+{
+    x:                                  37;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// ROOM SIZE
+PlateReverbEditor Bar#RoomSize,
+PlateReverbEditor Bar#HallSize
+{
+    x:                                  140;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// PRE DELAY
+PlateReverbEditor Bar#RoomPreDelay,
+PlateReverbEditor Bar#HallPreDelay
+{
+    x:                                  243;
+    y:                                  $Y-FX-BigKnob-Top;    
+}
+
+// MIX
+PlateReverbEditor Bar#Mix
+{
+    x:                                  406;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// SEPARATOR
+PlateReverbEditor Bar#m_pParamSeparator
+{
+    x:                                  342;
+}
+
+
+
+// BOTTOM ROW
+//--------------------------------------------------------------------------------------------------------
+
+// DAMPING
+Bar#RoomDamp,
+Bar#HallDamp
+{
+    x:                                  37;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// MODULATION
+Bar#RoomMod,
+Bar#HallMod
+{
+    x:                                  140;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// DIFFUSION/SOFTNESS
+Bar#RoomDiff,
+Bar#HallDiff
+{
+    x:                                  243;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// LOW SHELF
+Bar#RoomLowShelf,
+Bar#HallLowShelf
+{
+    x:                                  361;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+// HIGH DAMP
+Bar#RoomHighCut,
+Bar#HallHighCut
+{
+    x:                                  451;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+
+
+
+

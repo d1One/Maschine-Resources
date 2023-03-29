@@ -1,0 +1,29 @@
+//----------------------------------------------------------------------------------------------------------------------
+// GENERATE PREVIEWS
+//----------------------------------------------------------------------------------------------------------------------
+
+
+DialogGeneratePreviews
+{
+    width: 360;
+    height: 166;
+}
+
+
+// TEXT EDIT ALINGMENT
+DialogGeneratePreviews Bar#body
+{
+    margin-top:                 8;
+}
+
+
+// DESCRIPTION LABEL
+DialogGeneratePreviews Bar#body Label
+{
+    margin-top:                 1;
+    margin-left:                7;
+    outer-margin-bottom:        9;
+    width:                      180;
+    horizontal-alignment:       left;
+    foreground-color:           $colorWhite75;
+}

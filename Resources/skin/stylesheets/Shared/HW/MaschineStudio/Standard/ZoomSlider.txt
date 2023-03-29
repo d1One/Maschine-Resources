@@ -1,0 +1,38 @@
+//----------------------------------------------------------------------------------------------------------------------
+// ZoomSliderWidget
+//----------------------------------------------------------------------------------------------------------------------
+
+ZoomSlider
+{
+    background-color:           rgba(80, 80, 80, 150);
+    foreground-border-color:    rgba(0, 0, 0, 128);
+
+    margin: 1;
+}
+
+ZoomGrip
+{
+    background-color:           rgba(25, 25, 25, 150);
+    foreground-border-color:    rgb(0, 0, 0);
+
+    min-width:  3;
+    min-height: 3;
+}
+
+ZoomHandle
+{
+    background-color:   rgba(255, 0, 0, 75);
+
+    min-width:  1;
+    min-height: 1;
+}
+
+ZoomHandle.Handle-Horizontal
+{
+    max-width: 6;
+}
+
+ZoomHandle.Handle-Vertical
+{
+    max-height: 6;
+}

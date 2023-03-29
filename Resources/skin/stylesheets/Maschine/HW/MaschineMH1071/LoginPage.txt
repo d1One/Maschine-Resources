@@ -1,0 +1,125 @@
+Bar#LoginPageScreenLeft Bar#LeftImage[first-boot=true]
+{
+    image:                      url("Maschine/HW/MH1071/Welcome/OOB_Login.png")
+}
+
+Bar#LoginPageScreenLeft Bar#LeftImage[first-boot=false]
+{
+    image:                      url("Maschine/HW/MH1071/NativeID_QR_L.png")
+}
+
+
+Bar#LoginPageScreenRight Label#LoadingLabel
+{
+
+    height:                     31;
+
+    font-name:                  $fontPragmatica;
+    font-size:                  18;
+    foreground-color:           $colorWhite20;
+
+    horizontal-alignment:       center;
+    vertical-alignment:         center;
+
+    outer-margin-top:           94;
+}
+
+
+Bar#LoginPageScreenRight Bar#RightIcons
+{
+    width:                      480;
+    height:                     132;
+
+    outer-margin-top:           21;
+}
+
+
+Bar#LoginPageScreenRight Bar#RightIcons Bar#QRCodeIcon
+{
+    width:                      128;
+    height:                     132;
+
+    outer-margin-left:          73;
+}
+
+
+Bar#LoginPageScreenRight Bar#RightIcons Bar#ArrowIcon
+{
+    width:                      116;
+    height:                     116;
+
+    image:                      url("Maschine/HW/MH1071/NativeID_Arrow.png");
+
+    outer-margin-top:           48;
+    outer-margin-left:          23;
+}
+
+
+Bar#LoginPageScreenRight Bar#RightIcons Bar#FrameIcon
+{
+    width:                      128;
+    height:                     132;
+
+    horizontal-alignment:       center;
+    vertical-alignment:         center;
+
+    image:                      url("Maschine/HW/MH1071/NativeID_HashFrame.png");
+    
+    outer-margin-left:          13;
+}
+
+Bar#LoginPageScreenRight Bar#RightIcons Label#Auth0Code
+{
+
+    width:                      116;
+    height:                     116;
+
+    font-name:                  $fontPragmatica;
+    font-size:                  14;
+    foreground-color:           $colorWhite;
+
+    outer-margin-top:           16;
+    outer-margin-left:          -116;
+}
+
+
+Bar#LoginPageScreenRight Bar#RightLabels
+{
+    width:                      480;
+    height:                     14;
+
+    outer-margin-top:           16;
+}
+
+
+Bar#LoginPageScreenRight Bar#RightLabels Label#Auth0URL
+{
+    width:                      168;
+    height:                     14;
+
+    font-name:                  $fontPragmatica;
+    font-size:                  11;
+    foreground-color:           $colorWhite60;
+
+    horizontal-alignment:       center;
+    vertical-alignment:         center;
+
+    outer-margin-left:          59;
+}
+
+
+Bar#LoginPageScreenRight Bar#RightLabels Label#CodeInput
+{
+    width:                      152;
+    height:                     14;
+
+    font-name:                  $fontPragmatica;
+    font-size:                  11;
+    foreground-color:           $colorWhite60;
+
+    horizontal-alignment:       center;
+    vertical-alignment:         center;
+
+    outer-margin-left:          54;
+}
+

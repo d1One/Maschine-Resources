@@ -1,0 +1,82 @@
+Stack.PluginPageTopStack
+{
+    width:                      $defaultWidth;
+    height:                     $defaultHeight;
+}
+
+Bar.PluginPageFullScreenBar Label.TopText
+{
+    width:                      $defaultWidth;
+    height:                     $halfHeight;
+    font-name:                  $fontDefaultBold;
+    font-size:                  $fontSize;
+}
+
+Bar.PluginPageFullScreenBar Label.TwoLineMessageLabelStyle
+{
+    width:                      $defaultWidth;
+    height:                     $halfHeight;
+    font-name:                  $fontDefaultBold;
+    font-size:                  $fontSize;
+    horizontal-alignment:       center;
+}
+
+Stack.PluginPageBottomStack
+{
+    width:                      $defaultWidth;
+    height:                     $halfHeight;
+}
+
+Bar.PluginPageHalfScreenBar
+{
+    width:                      $defaultWidth;
+    height:                     $halfHeight;
+}
+
+Stack.PluginPageBottomStack Label#moduleType
+{
+    outer-margin-top:           2;
+    outer-margin-left:          1;
+    outer-margin-right:         1;
+
+    width:                      12;
+    height:                     12;
+
+    font-name:                  $fontDefaultBold;
+    font-size:                  $fontSize;
+}
+
+Stack.PluginPageBottomStack Label.Instrument#moduleType
+{
+    image:                      $icon-instrument
+}
+
+Stack.PluginPageBottomStack Label.Effect#moduleType
+{
+    image:                      $icon-effect
+}
+
+Stack.PluginPageBottomStack Label.EffectBypassed#moduleType
+{
+    image:                      $icon-effect-bypassed
+}
+
+Stack.PluginPageBottomStack Label.Missing#moduleType
+{
+    image:                      $icon-missing
+}
+
+Stack.PluginPageBottomStack Label#pluginName
+{
+    outer-margin-top:           1;
+    outer-margin-left:          4;
+    width:                      102;
+    height:                     $halfHeight;
+}
+
+Stack.PluginPageBottomStack Label#emptySlotLabel
+{
+    outer-margin-top:           1;
+    width:                      $defaultWidth;
+    height:                     $halfHeight;
+}

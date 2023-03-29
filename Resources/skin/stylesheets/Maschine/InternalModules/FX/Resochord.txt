@@ -1,0 +1,186 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// RESOCHORD
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ResochordEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png"); 
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-474;   
+}
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+ResochordEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_resochord.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// MODE SELECTOR SWITCH
+//--------------------------------------------------------------------------------------------------------
+
+// MODE SELECTOR SWITCH
+ResochordEditor Bar#Mode
+{
+    x:                                  369;
+    y:                                  16;
+}
+
+//--------------------------------------------------------------------------------------------------------
+// CONTROLS
+//--------------------------------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------------------------------------
+// STRING MODE
+//-----------------------------------------------------------------------------------------------------------------------
+
+// TOP ROW
+//-----------------------------------------------------------------------------------------------------------------------
+ResochordEditor Bar#Spread
+{
+    x:                                  85;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+
+// TUNE
+ResochordEditor Bar#Transpose[Mode=String]
+{
+    x:                                  203;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+
+// MIX
+ResochordEditor Bar#Mix[Mode=String]
+{
+    x:                                  321;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+
+// BOTTOM ROW
+//-----------------------------------------------------------------------------------------------------------------------
+
+// BRIGHTNESS
+ResochordEditor Bar#Brightness[Mode=String]
+{
+    x:                                  85;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+// FEEDBACK
+ResochordEditor Bar#Feedback[Mode=String]
+{
+    x:                                  203;
+
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+// DECAY
+ResochordEditor Bar#Decay[Mode=String]
+// ResochordEditor Bar#Decay
+{
+    x:                                  321;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// CHORD MODE
+//-----------------------------------------------------------------------------------------------------------------------
+
+// TOP ROW
+//-----------------------------------------------------------------------------------------------------------------------
+
+// STYLE SWITCH (Enum)
+ResochordEditor Bar#Style
+{
+    x:                                  47;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// CHORD SWITCH (Enum)
+ResochordEditor Bar#Chord
+{
+    x:                                  151;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// TUNE
+ResochordEditor Bar#Transpose[Mode=Chord]
+{
+    x:                                  255;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+// MIX
+ResochordEditor Bar#Mix[Mode=Chord]
+{
+    x:                                  359;
+    y:                                  $Y-FX-BigKnob-Top;
+}
+
+
+// BOTTOM ROW
+//-----------------------------------------------------------------------------------------------------------------------
+
+// BRIGHTNESS
+ResochordEditor Bar#Brightness[Mode=Chord]
+{
+    x:                                  99;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+// FEEDBACK
+ResochordEditor Bar#Feedback[Mode=Chord]
+{
+    x:                                  203;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+// DECAY
+ResochordEditor Bar#Decay[Mode=Chord]
+{
+    x:                                  307;
+    y:                                  $Y-FX-SmallKnob-Bottom;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

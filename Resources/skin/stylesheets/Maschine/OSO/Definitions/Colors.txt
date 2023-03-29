@@ -1,0 +1,64 @@
+//----------------------------------------------------------------------------------------------------------------------
+// COLOR DEFINITIONS
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+// BLACK AND WHITE
+
+@define $colorBlack                     rgb (0,0,0);     // basic colors
+@define $colorBlack10                   rgba(0,0,0,26);
+@define $colorBlack20                   rgba(0,0,0,51);
+@define $colorBlack25                   rgba(0,0,0,64);
+@define $colorBlack40                   rgba(0,0,0,102);
+@define $colorBlack43                   rgba(0,0,0,110);
+@define $colorBlack45                   rgba(0,0,0,115);
+@define $colorBlack47                   rgba(0,0,0,120);
+@define $colorBlack50                   rgba(0,0,0,127);
+@define $colorBlack60                   rgba(0,0,0,153);
+@define $colorBlack65                   rgba(0,0,0,166);
+@define $colorBlack70                   rgba(0,0,0,175);
+@define $colorBlack75                   rgba(0,0,0,191);
+@define $colorBlack80                   rgba(0,0,0,204);
+@define $colorBlack85                   rgba(0,0,0,216);
+@define $colorBlack90                   rgba(0,0,0,230);
+
+@define $colorWhite                     rgb (255,255,255);
+@define $colorWhite5                    rgba(255,255,255,13);
+@define $colorWhite10                   rgba(255,255,255,25);
+@define $colorWhite15                   rgba(255,255,255,39);
+@define $colorWhite20                   rgba(255,255,255,51);
+@define $colorWhite25                   rgba(255,255,255,64);
+@define $colorWhite30                   rgba(255,255,255,76);
+@define $colorWhite35                   rgba(255,255,255,89);
+@define $colorWhite40                   rgba(255,255,255,102);
+@define $colorWhite45                   rgba(255,255,255,115);
+@define $colorWhite50                   rgba(255,255,255,128);
+@define $colorWhite55                   rgba(255,255,255,140);
+@define $colorWhite60                   rgba(255,255,255,153);
+@define $colorWhite65                   rgba(255,255,255,166);
+@define $colorWhite70                   rgba(255,255,255,178);
+@define $colorWhite75                   rgba(255,255,255,191);
+@define $colorWhite80                   rgba(255,255,255,204);
+@define $colorWhite85                   rgba(255,255,255,217);
+@define $colorWhite90                   rgba(255,255,255,229);
+
+
+
+// OSO COLORS
+//----------------------------------------------------------------------------------------------------------------------
+
+// BASIC COLORS
+@define $color-OSO-Standard-BG-Grey          		rgb(54,54,54);
+@define $color-OSO-Focus-BG-Grey          			rgb(85,85,85);
+
+
+// SPECIAL COLORS
+
+@define $color-OSO-BRWS-Divider          			rgb(10,10,10);
+@define $color-OSO-Unfocused-BG                     rgb(48,48,48);
+@define $color-OSO-Unfocused-LI-Divider             rgb(30,30,30);
+@define $color-OSO-Focused-LI-Divider               rgb(44,44,44);
+
+
+

@@ -1,0 +1,10 @@
+Bar#MH1071LoadingPageScreenLeft Bar#StudioDisplayBar
+{
+    image: url("Maschine/HW/MH1071/maschine.png");
+}
+
+Bar#MH1071LoadingPageScreenRight Bar#StudioDisplayBar
+{
+    image: url("Maschine/HW/MH1071/Updating_Recovery_R.png");
+}
+

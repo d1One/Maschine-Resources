@@ -1,0 +1,184 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// DRAG AND DROP
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// DRAGGING FROM BROSWER
+//----------------------------------------------------------------------------------------------------------------------
+
+// OUTER CONTAINER
+Bar.DragAndDrop,
+Bar.DragAndDrop[type=SoundNames]
+{
+    background-color:							no;
+    image:										url("Maschine/DragAndDrop/DRAG_FromBrowser.png");
+    picture-includes-margin:					true;
+    fixed-left:									8;
+    fixed-right:								8;
+    fixed-top:                                  7;
+    fixed-bottom:                               10;
+
+    margin-left:                                3;
+    margin-right:                               5;
+    margin-top:                                 3;
+    margin-bottom:                              5;
+}
+
+
+
+// INNER CONTAINER (1 ROW)
+Bar.DragAndDropInner
+{
+    image:                                      no;
+}
+
+
+
+// LABEL (ITEM NAME)
+Bar.DragAndDropInner Label#pDragLabel
+{
+    foreground-color:							$colorBlack;
+    image:                                      no;
+    background-color:							no;
+    horizontal-alignment:						center;
+}
+
+
+
+
+
+// DRAGGING FROM PATTERN EDITOR
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar.DragAndDrop[type=AudioFromPattern]
+{
+    image:                                      url("Maschine/DragAndDrop/DRAG_Audio.png");
+    picture-includes-margin:                    true;
+    fixed-left:                                 26;
+    fixed-right:                                8;
+    margin-left:                                26;
+    margin-right:                               0;
+}
+
+
+Bar.DragAndDrop[type=MIDIFromPattern]
+{
+    image:                                      url("Maschine/DragAndDrop/DRAG_MIDI.png");
+    picture-includes-margin:                    true;
+    fixed-left:                                 26;
+    fixed-right:                                8;
+    margin-left:                                26;
+    margin-right:                               0;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// BANK MANAGER
+//----------------------------------------------------------------------------------------------------------------------
+
+// PAD SLOTS DRAG AND DROP
+//----------------------------------------------------------------------------------------------------------------------
+
+// OVER PAD
+MatrixWidget.BankManagerBank::Label#dragOnItemsLabel
+{
+    image:                                      url("Maschine/DragAndDrop/DRAG_BankManagerPad.png");
+    foreground-color:                           no;
+    background-color:                           no;
+    margin:                                     0;
+    height:                                     19;
+    width:                                      19;
+}
+
+
+
+// BETWEEN PAD
+MatrixWidget.BankManagerBank::Label#dragBetweenItemsLabel
+{
+    image:                                      no;
+    foreground-color:                           no;
+    background-color:                           $colorWhite;
+    margin:                                     0;
+    height:                                     19;
+    width:                                      2;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// LISTITEM DRAG UND DROP
+//----------------------------------------------------------------------------------------------------------------------
+
+
+Bar#m_pSoundManager Label#dragOnItemsLabel,
+Bar#m_pGroupManager Label#dragOnItemsLabel,
+Bar#m_pSlotManager Label#dragOnItemsLabel,
+Bar#pZoneManager Label#dragOnItemsLabel,
+Bar#m_patternArea Label#dragOnItemsLabel,
+Label.BankManager#dragOnItemsLabel,
+Bar#m_groupArea Label#dragOnItemsLabel
+{
+    background-color:                           $colorWhite10;
+}
+
+
+Bar#m_pSoundManager Label#dragBetweenItemsLabel,
+Bar#m_pGroupManager Label#dragBetweenItemsLabel,
+Bar#m_pSlotManager Label#dragBetweenItemsLabel,
+Bar#pZoneManager Label#dragBetweenItemsLabel,
+Bar#m_patternArea Label#dragBetweenItemsLabel,
+Label.BankManager#dragBetweenItemsLabel
+{
+    background-color:                           $colorWhite;
+    height:                                     2;
+}
+
+Bar#m_sceneArea Label#dragBetweenItemsLabel
+{
+    background-color:                           $colorWhite;
+    width:                                      2;
+    height:                                     27;
+}
+
+Bar#m_groupArea Label#dragBetweenItemsLabel
+{
+    background-color:                           $colorWhite;
+    width:                                      2;
+    height:                                     45;
+}
+
+
+// SPECIAL MIXER PLUGIN LIST HEIGHT
+Bar#m_pMixerPanel Bar#m_pSlotListManager Label#dragOnItemsLabel
+{
+    height:                                     13;
+}
+
+// SPECIAL IDEA SPACE PATTERN CELL HEIGHT
+Bar#m_patternArea Label#dragOnItemsLabel
+{
+    height:                                     21;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// PADVIEW DRAG UND DROP
+//----------------------------------------------------------------------------------------------------------------------
+
+// BETWEEN
+MatrixWidget#m_pPads::Label#dragBetweenItemsLabel
+{
+    width:                                      2;
+    height:                                     25;
+    background-color:                           $colorWhite;
+}
+
+MatrixWidget#m_pPads::Label#dragOnItemsLabel
+{
+    background-color:                           $colorWhite20;
+}

@@ -1,0 +1,37 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Default
+//----------------------------------------------------------------------------------------------------------------------
+
+// Default
+
+Switcher
+{
+    background-color:       $colorWidget;
+    foreground-color:       $colorWidgetText;
+    font-resid:             $fontRaldoId;
+    font-size:              $fontRaldoSize;
+    horizontal-alignment:   left;
+    margin:                 2;
+    min-width:              $defaultWidth;
+}
+
+Switcher:over
+{
+    background-color:       $colorWidgetOver;
+}
+
+Switcher:down
+{
+    background-color:       $colorWidgetDown;
+}
+
+Switcher[state=on],
+Switcher[state=on]:over
+{
+    animation:              1;
+    background-color:       $colorWidgetSelected;
+    foreground-color:       $colorWidgetTextSelected;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------

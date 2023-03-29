@@ -1,0 +1,35 @@
+Bar#WarningPluginUpdatePageScreenLeft Bar#SuccessIcon
+{
+    image: url("Maschine/HW/Shared/Success.png");
+    outer-margin-top: 72;
+    outer-margin-left: 204;
+    outer-margin-bottom: 16;
+}
+
+Bar#WarningPluginUpdatePageScreenLeft MultilineLabel#LeftScreenText,
+Bar#WarningPluginUpdatePageScreenRight MultilineLabel#RightScreenText
+{
+    foreground-color: $colorWhite;
+
+    vertical-alignment: top;
+    horizontal-alignment: center;
+}
+
+Bar#WarningPluginUpdatePageScreenLeft MultilineLabel#LeftScreenText
+{
+    font-name: $fontPragmatica;
+    font-size: 21;
+
+    outer-margin-left: 88;
+    outer-margin-right: 88;
+    outer-margin-top: 8;
+}
+
+
+Bar#WarningPluginUpdatePageScreenRight MultilineLabel#RightScreenText
+{
+    font-name: $fontPragmatica;
+    font-size: 21;
+
+    outer-margin-top: 105;
+}

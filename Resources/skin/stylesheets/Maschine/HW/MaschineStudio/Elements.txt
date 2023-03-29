@@ -1,0 +1,157 @@
+
+//======================================================================================================================
+// PIANOROLL
+//======================================================================================================================
+
+// Pianoroll Grid
+PatternEditorGrid#m_pPianorollWidget
+{
+    min-height:                         100;
+    color-whitekey:                     rgb(42,42,42);
+    color-blackkey:                     rgb(26,26,26);
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Modulation Editor
+//----------------------------------------------------------------------------------------------------------------------
+
+// Container Around Modulation Editor
+
+Bar#m_pGroupPanel Bar#pColumns Bar#m_pLower
+{
+    background-color:                   no;
+    background-border-color:            no;
+    margin:                             0;
+    spacing:                            0;
+
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// MODULATION EDITOR
+//----------------------------------------------------------------------------------------------------------------------
+
+ModulationEditor
+{
+    background-color:                   $colorMSTDarkBG;
+
+    margin:                             0;
+    min-width:                          $defaultWidth;
+    font-resid:                         $fontRaldoId;
+    font-size:                          $fontRaldoSize;
+
+    pattern-end-line-color:             $colorWhite;
+
+    event-color-palette:                1;
+    event-selected-color:               $colorWhite;
+
+    snap-in-color:                      $colorGridline;
+    snap-out-color:                     $colorGridline;
+
+    beat-in-color:                      rgb(16,16,16);
+    beat-out-color:                     rgb(16,16,16);          // beat line outside
+
+    bar-in-color:                       $colorBlack;          // bar line inside pattern
+    bar-out-color:                      $colorBlack;          // bar line outside pattern
+
+    border-color:                       $colorGridline;
+
+    minor-lines-color:                  $colorGridline;         // horizontal gridlines
+    minor-lines-color-light:            $colorMSTDarkBG;        // contrasting lines from main GUI, not needed here
+    major-lines-color:                  $colorGridline;         // moduilation mini/max line
+    major-lines-color-light:            $colorMSTDarkBG;        // contrasting lines from main GUI, not needed here
+
+    selection-color:                    $colorWhite30;
+    selection-frame-color:              $colorWhite;
+
+
+    // CURSOR DRAG AUTOMATION PARAMETER
+    cursor-mouse-drag-vertical-picture-hotspot-x:   7;
+    cursor-mouse-drag-vertical-picture-hotspot-y:   7;
+    cursor-mouse-drag-vertical-picture:             url("Maschine/Cursor/CURSOR_ResizeAutomationEvent.png");
+
+
+    // MODULATION / Velocity VALUE LABEL
+    tooltip-text-color:                 $colorBlack80;
+    tooltip-bg-color:                   $colorWhite80;
+    tooltip-border-color:               no;
+
+
+
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+ModulationEditor[color=color1]  { event-in-color: $color1;  event-out-color: $color1;  }
+ModulationEditor[color=color2]  { event-in-color: $color2;  event-out-color: $color2;  }
+ModulationEditor[color=color3]  { event-in-color: $color3;  event-out-color: $color3;  }
+ModulationEditor[color=color4]  { event-in-color: $color4;  event-out-color: $color4;  }
+ModulationEditor[color=color5]  { event-in-color: $color5;  event-out-color: $color5;  }
+ModulationEditor[color=color6]  { event-in-color: $color6;  event-out-color: $color6;  }
+ModulationEditor[color=color7]  { event-in-color: $color7;  event-out-color: $color7;  }
+ModulationEditor[color=color8]  { event-in-color: $color8;  event-out-color: $color8;  }
+ModulationEditor[color=color9]  { event-in-color: $color9;  event-out-color: $color9;  }
+ModulationEditor[color=color10] { event-in-color: $color10; event-out-color: $color10; }
+ModulationEditor[color=color11] { event-in-color: $color11; event-out-color: $color11; }
+ModulationEditor[color=color12] { event-in-color: $color12; event-out-color: $color12; }
+ModulationEditor[color=color13] { event-in-color: $color13; event-out-color: $color13; }
+ModulationEditor[color=color14] { event-in-color: $color14; event-out-color: $color14; }
+ModulationEditor[color=color15] { event-in-color: $color15; event-out-color: $color15; }
+ModulationEditor[color=color16] { event-in-color: $color16; event-out-color: $color16; }
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+ModulationScaleBar
+{
+    foreground-color:                   rgb(0,255,0);
+    min-width:                          58;
+    font-resid:                         $fontRaldoId;
+    font-size:                          $fontRaldoSize;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+PianorollWidget
+{
+    background-color:                   $colorBlack;
+    foreground-color:                   $colorWidgetText;
+    margin:                             2;
+    min-width:                          $defaultWidth;
+    font-resid:                         $fontRaldoId;
+    font-size:                          $fontRaldoSize;
+    horizontal-alignment:               right;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#StudioDisplayBar::PianorollKeyboardWidget
+{
+    lines-color:                        rgb(28,28,28);
+    whitekeys-color:                    rgb(143,143,143);
+    blackkeys-color:                    rgb(28,28,28);
+    base-key-color-palette:             1;
+    play-key-color-palette:             1;
+    octave-label-bg-color:              no;
+    octave-label-text-color:            $colorBlack;
+}
+
+Bar#StepPageStudio Bar#StudioDisplayBar::PianorollKeyboardWidget,
+Bar#StepPageMK3 Bar#StudioDisplayBar::PianorollKeyboardWidget,
+Bar#RepeatPageStudio Bar#StudioDisplayBar::PianorollKeyboardWidget,
+Bar#EventsPageStudio Bar#StudioDisplayBar::PianorollKeyboardWidget
+{
+    outer-margin-top:                   16;
+}
+
+Bar#ArrangerPageClipsStudio Bar#StudioDisplayBar::PianorollKeyboardWidget,
+Bar#ArrangerPageClipsMK3 Bar#StudioDisplayBar::PianorollKeyboardWidget
+{
+    outer-margin-top:                   41;
+}

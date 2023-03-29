@@ -1,0 +1,486 @@
+//----------------------------------------------------------------------------------------------------------------------
+// ON SCREEN OVERLAY INSTANCE SELCTOR
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// MAIN CONTAINER
+Bar#OnScreenOverlay Bar#m_pInstancesWidget
+{
+    background-color:           $color-OSO-Standard-BG-Grey;
+}
+
+
+
+Bar#OnScreenOverlay Bar#m_pInstancesWidget Bar#Scrollee,
+Bar#OnScreenOverlay Bar#m_pInstancesWidget Label#m_pView,
+Bar#OnScreenOverlay Bar#m_pInstancesWidget Bar#m_pHostBarContainer
+{
+    width:                      1020;
+}
+
+
+
+
+// INSTANCES SCOLLING BEHAVIOR
+Bar#OnScreenOverlay Bar#m_pInstancesWidget Bar#Scrollee
+{
+    focus-delay:                0;
+}
+
+
+
+// INSTANCES CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#OnScreenOverlay Bar#m_pInstancesWidget Scrollable<Bar>#m_pScrollableContent
+{
+    height:                     712;
+    focus-delay:                0;
+}
+
+
+
+Bar#OnScreenOverlay Bar#m_pInstancesWidget Bar#InstanceInfoHostBar Bar#HostElementContainer
+{
+    width:                      1020;
+
+    margin-left:                25;
+    vertical-spacing:           59;     // SPACING OF THE INSTANCE CONTAINERS!
+    horizontal-spacing:         38;
+}
+
+
+
+// MIDI MODE CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#OnScreenOverlay Bar#m_pInstancesWidget Bar#m_pMidiModeContainer
+{
+    width:                      1020;
+    height:                     236;
+}
+
+
+
+// HOST NAME / MIDI MODE HEADLINE
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.HostNameText,
+Label.MidiModeHeadline
+{
+    font-name:                  $fontPragmatica;
+    font-size:                  17;
+    foreground-color:           $colorWhite85;
+    height:                     38;
+
+    margin-top:                 6;
+    margin-left:                30;
+
+    outer-margin-bottom:        2;
+}
+
+
+// SEPARATOR LINE BELOW HOST INSTANCE GROUP
+//----------------------------------------------------------------------------------------------------------------------
+
+Label.InstanceSelectorSeparator
+{
+    width:                      1020;
+
+    image:                      url("Shared/OSO/InstanceSelector/OSO_Instance_LBL_Separator.png");
+    picture-includes-margin:    false;
+    fixed-left:                 10;
+    fixed-right:                10;
+
+    outer-margin-top:           17;
+}
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// INSTANCE ITEM
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+
+// MIDI MODE CONTAINER SPECIAL ALIGNMENT
+Bar#OnScreenOverlay Bar#m_pInstancesWidget Bar#MidiModeBar
+{
+    outer-margin-left:          25;
+}
+
+
+
+// PRODUCT ICON BACKGROUND
+//----------------------------------------------------------------------------------------------------------------------
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget,
+Bar#OnScreenOverlay Bar#MidiModeBar
+{
+    image:                      url("Shared/OSO/InstanceSelector/OSO_Instance_ProductItem_BG_UnderlineBottom.png");
+    picture-includes-margin:    true;
+    animations:                 4;
+
+    fixed-left:                 10;
+    fixed-right:                10;
+    fixed-top:                  10;
+    fixed-bottom:               65;
+
+    width:                      214;
+    height:                     179;
+}
+
+
+// DEFAULT STATE
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=false][IsHighlighted=false][IsEmpty=false],
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=false][IsHighlighted=false][IsEmpty=true],
+Bar#OnScreenOverlay Bar#MidiModeBar[IsHighlighted=false]
+{
+    animation-index:            0;
+}
+
+
+// FOCUS STATE
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=true][IsHighlighted=false][IsEmpty=false],
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=true][IsHighlighted=false][IsEmpty=true],
+Bar#OnScreenOverlay Bar#MidiModeBar[InstanceFocus=true][IsHighlighted=false]
+{
+    animation-index:            1;
+}
+
+
+// CURSOR STATE
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=false][IsHighlighted=true][IsEmpty=false],
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=false][IsHighlighted=true][IsEmpty=true],
+Bar#OnScreenOverlay Bar#MidiModeBar[IsHighlighted=true]
+{
+    animation-index:            2;
+}
+
+
+// FOCUS + CURSOR
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=true][IsHighlighted=true][IsEmpty=false],
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=true][IsHighlighted=true][IsEmpty=true],
+Bar#OnScreenOverlay Bar#MidiModeBar[InstanceFocus=true][IsHighlighted=true]
+{
+    animation-index:            3;
+}
+
+
+
+// PRODUCT / MIDI ICON IMAGE CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+Bar#OnScreenOverlay Bar#m_pInstancesWidget ProductIconWidget#ProductIcon,
+Bar#OnScreenOverlay Bar#pMidiIconFrame
+{
+    width:                      194;
+    height:                     113;
+
+    outer-margin-top:           10;
+    outer-margin-left:          10;
+}
+
+
+
+// PRODUCT ICON IMAGE OUTLINE
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[IsEmpty=false][IsNIMissing=false] Bar#ProductIconBorder,
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[IsEmpty=false][Is3PMissing=false] Bar#ProductIconBorder
+{
+    //background-color:           $colorBlack;
+    margin:                     1;
+}
+
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[IsEmpty=true] Bar#ProductIconBorder,
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[IsEmpty=false][IsNIMissing=true] Bar#ProductIconBorder,
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[IsEmpty=false][Is3PMissing=true] Bar#ProductIconBorder
+{
+    background-color:           no;
+}
+
+
+
+// PRODUCT IMAGE WIDGET
+Bar#OnScreenOverlay Bar#m_pInstancesWidget ProductIconWidget#ProductIcon Bar#ProductIcon
+{
+    max-width:                  192;
+    max-height:                 111;
+}
+
+
+
+
+// MIDI ICON
+//----------------------------------------------------------------------------------------------------------------------
+Bar#OnScreenOverlay Bar#MidiModeBar Label#pMidiIcon
+{
+    image:                      url("Shared/OSO/InstanceSelector/OSO_Instance_LBL_MIDI.png");
+    animations:                 4;
+
+    outer-margin-left:          61;
+    outer-margin-top:           20;
+}
+
+
+// DEFAULT
+Bar#OnScreenOverlay Bar#MidiModeBar[InstanceFocus=false][IsHighlighted=false] Label#pMidiIcon
+{
+    animation-index:            0;
+}
+
+
+// SELECTED
+Bar#OnScreenOverlay Bar#MidiModeBar[InstanceFocus=true][IsHighlighted=false] Label#pMidiIcon
+{
+    animation-index:            1;
+}
+
+
+// CURSORED
+Bar#OnScreenOverlay Bar#MidiModeBar[InstanceFocus=false][IsHighlighted=true] Label#pMidiIcon
+{
+    animation-index:            2;
+}
+
+
+// SELECTED & CURSORED
+Bar#OnScreenOverlay Bar#MidiModeBar[InstanceFocus=true][IsHighlighted=true] Label#pMidiIcon
+{
+    animation-index:            3;
+}
+
+
+
+// MASCHINE INSTANCE
+//----------------------------------------------------------------------------------------------------------------------
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[IsEmpty=true][Type=Maschine] Bar#ProductIcon,
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[IsEmpty=false][Type=Maschine] Bar#ProductIcon
+{
+    image:                      url("Shared/OSO/InstanceSelector/OSO_Instance_LBL_Maschine.png");
+}
+
+
+
+// KOMPLETE LOGO, EMPTY INSTANCE
+//----------------------------------------------------------------------------------------------------------------------
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[IsEmpty=true][Type=Komplete] Bar#ProductIcon
+{
+    image:                      url("Shared/OSO/InstanceSelector/OSO_Instance_LBL_Komplete.png");
+    animations:                 4;
+}
+
+
+
+// DEFAULT
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[IsEmpty=true][InstanceFocus=false][IsHighlighted=false] Bar#ProductIcon
+{
+    animation-index:            0;
+}
+
+
+// CURSORED
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[IsEmpty=true][InstanceFocus=false][IsHighlighted=true] Bar#ProductIcon
+{
+    animation-index:            0;
+}
+
+
+// SELECTED
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[IsEmpty=true][InstanceFocus=true][IsHighlighted=false] Bar#ProductIcon
+{
+    animation-index:            1;
+}
+
+
+// SELECTED & CURSORED
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[IsEmpty=true][InstanceFocus=true][IsHighlighted=true] Bar#ProductIcon
+{
+    animation-index:            3;
+}
+
+
+
+
+// FALLBACK LOGO
+//----------------------------------------------------------------------------------------------------------------------
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[IsNIMissing=true] Bar#ProductIcon
+{
+    image:                      url("Shared/OSO/InstanceSelector/OSO_Instance_LBL_Missing.png");
+    animations:                 4;
+}
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[Is3PMissing=true] Bar#ProductIcon
+{
+    image:                      url("Shared/OSO/InstanceSelector/OSO_Instance_LBL_Instrument.png");
+    animations:                 4;
+}
+
+// DEFAULT
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[IsNIMissing=true][InstanceFocus=false][IsHighlighted=false] Bar#ProductIcon,
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[Is3PMissing=true][InstanceFocus=false][IsHighlighted=false] Bar#ProductIcon
+{
+    animation-index:            0;
+}
+
+
+// CURSORED
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[IsNIMissing=true][InstanceFocus=false][IsHighlighted=true] Bar#ProductIcon,
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[Is3PMissing=true][InstanceFocus=false][IsHighlighted=true] Bar#ProductIcon
+{
+    animation-index:            0;
+}
+
+
+// SELECTED
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[IsNIMissing=true][InstanceFocus=true][IsHighlighted=false] Bar#ProductIcon,
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[Is3PMissing=true][InstanceFocus=true][IsHighlighted=false] Bar#ProductIcon
+{
+    animation-index:            1;
+}
+
+
+// SELECTED & CURSORED
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[IsNIMissing=true][InstanceFocus=true][IsHighlighted=true] Bar#ProductIcon,
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[Is3PMissing=true][InstanceFocus=true][IsHighlighted=true] Bar#ProductIcon
+{
+    animation-index:            3;
+}
+
+
+
+
+
+
+
+
+
+
+// INSTRUMENT & PRESET NAME LABELS
+//----------------------------------------------------------------------------------------------------------------------
+
+// SHARED
+Label.ProductNameText,
+Label.ProductInfoText,
+Bar#OnScreenOverlay Bar#m_pInstancesWidget Label#pMidiName    // MIDI MODE SUBTITLE LABEL
+{
+    width:                      204;
+
+    font-name:                  $fontPragmatica;
+    font-size:                  16;
+
+    horizontal-alignment:       left;
+
+    outer-margin-left:          5;
+    outer-margin-right:         5;
+}
+
+
+
+// INSTRUMENT NAME & MIDI LABEL
+
+// DEFAULT
+Label.ProductNameText,
+Bar#OnScreenOverlay Bar#m_pInstancesWidget Label#pMidiName    // MIDI MODE SUBTITLE LABEL
+{
+    foreground-color:           $colorWhite60;
+    outer-margin-top:           14;
+}
+
+
+// CURSORED
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=false][IsHighlighted=true][IsEmpty=false] Label.ProductNameText,
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=false][IsHighlighted=true][IsEmpty=true] Label.ProductNameText,
+Bar#OnScreenOverlay Bar#MidiModeBar[IsHighlighted=true] Label#pMidiName
+{
+    foreground-color:           $colorWhite85;
+}
+
+
+// SELECTED
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=true][IsHighlighted=false][IsEmpty=false] Label.ProductNameText,
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=true][IsHighlighted=false][IsEmpty=true] Label.ProductNameText,
+Bar#OnScreenOverlay Bar#MidiModeBar[InstanceFocus=true][IsHighlighted=false] Label#pMidiName
+{
+    foreground-color:           $colorWhite90;
+}
+
+
+
+// SELECTED & CURSORED
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=true][IsHighlighted=true][IsEmpty=false] Label.ProductNameText,
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=true][IsHighlighted=true][IsEmpty=true] Label.ProductNameText,
+Bar#OnScreenOverlay Bar#MidiModeBar[InstanceFocus=true][IsHighlighted=true] Label#pMidiName
+{
+    foreground-color:           $colorWhite;
+}
+
+
+
+// PRESET NAME
+
+// DEFAULT
+Label.ProductInfoText
+{
+    foreground-color:           $colorWhite30;
+    outer-margin-top:           1;
+}
+
+
+
+// CURSORED
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=false][IsHighlighted=true][IsEmpty=false] Label.ProductInfoText,
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=false][IsHighlighted=true][IsEmpty=true] Label.ProductInfoText
+{
+    foreground-color:           $colorWhite55;
+}
+
+
+// SELECTED
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=true][IsHighlighted=false][IsEmpty=false] Label.ProductInfoText,
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=true][IsHighlighted=false][IsEmpty=true] Label.ProductInfoText
+{
+    foreground-color:           $colorWhite60;
+}
+
+
+// SELECTED & CURSORED
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=true][IsHighlighted=true][IsEmpty=false] Label.ProductInfoText,
+Bar#OnScreenOverlay InstanceInfoWidget#InfoWidget[InstanceFocus=true][IsHighlighted=true][IsEmpty=true] Label.ProductInfoText
+{
+    foreground-color:           $colorWhite70;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// SCROLLBAR
+//----------------------------------------------------------------------------------------------------------------------
+
+// BACKGROUND
+Bar#OnScreenOverlay Bar#m_pInstancesWidget Scrollbar
+{
+    width:                      19;
+    outer-margin-left:          -19;
+}
+
+
+// SLIDER
+Bar#OnScreenOverlay Bar#m_pInstancesWidget Scrollbar Slider
+{
+    margin-top:                 5;
+    margin-bottom:              5;
+}
+
+
+// GRIP
+Bar#OnScreenOverlay Bar#m_pInstancesWidget Scrollbar Grip
+{
+    image:                      url("Shared/OSO/InstanceSelector/OSO_Instance_Scroll_Grip.png");
+    fixed-top:                  5;
+    fixed-bottom:               5;
+    animations:                 2;
+}

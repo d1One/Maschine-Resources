@@ -1,0 +1,99 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// GATE
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+GateEditor
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_bg_main.png"); 
+    fixed-left:                         22;
+    fixed-right:                        22;
+    width:                              $X-FX-Module-474;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// HEADER
+//--------------------------------------------------------------------------------------------------------
+
+GateEditor Bar#m_pModuleName
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_headline_gate.png");
+    x:                                  $X-FX-Headline;
+    y:                                  $Y-FX-Headline;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+// CONTROLS
+//--------------------------------------------------------------------------------------------------------
+
+// THRESHOLD
+// Parent
+GateEditor Bar#ThresholdLevelMeterBar
+{
+    x:                                  40;
+    y:                                  $Y-FX-Meter;
+}
+
+// Slider
+GateEditor Bar#ThresholdSlider
+{
+    x:                                  40;
+    y:                                  $Y-FX-Meter;
+}
+
+// Mask
+GateEditor Bar#ThresholdLevelMeterBar Label.InternalFXLevelMeterMask
+{
+    image:                              url("Maschine/InternalModules/FX/intmod_fx_mask_gate_threshold.png");
+    x:                                  0;
+    y:                                  0;
+} 
+
+
+// ATTACK
+GateEditor Bar#Attack
+{
+    x:                                  $X-FX-5-Control2;
+    y:                                  $Y-FX-SmallKnob-Middle;
+}
+
+// HOLD
+GateEditor Bar#Hold
+{
+    x:                                  $X-FX-5-Control3;
+    y:                                  $Y-FX-SmallKnob-Middle;
+}
+
+// RELEASE
+GateEditor Bar#Release
+{
+    x:                                  $X-FX-5-Control4;
+    y:                                  $Y-FX-SmallKnob-Middle;
+}
+
+// LABEL POSITIONS:
+GateEditor Bar#Attack Stack#m_pNameStack,
+GateEditor Bar#Hold Stack#m_pNameStack,
+GateEditor Bar#Release Stack#m_pNameStack
+{
+    outer-margin-top:                   6;
+}
+
+// MIX
+GateEditor Bar#Mix
+{
+    x:                                  $X-FX-5-Control5;
+    y:                                  $Y-FX-BigKnob-Middle;
+}
+
+// Separator
+//----------------------------------------------------------------------------------------------------------------------
+
+GateEditor#m_pEditor Bar#m_pParamSeparator
+
+{
+    x:                                  335;
+    y:                                  0;
+}
+ 

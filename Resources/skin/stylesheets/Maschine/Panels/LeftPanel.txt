@@ -1,0 +1,237 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Left Panel
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Note : this stylesheet gathers the Bar#pLeft sections of :
+//      - the SongPanel
+//      - the ParameterArea
+//      - the GroupPanel
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// BASIC BACKGROUND STYLING
+//-----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pSongPanel Bar#pLeft,
+Bar#m_pGroupPanel Bar#pLeft,
+Bar#m_pChain Bar#m_pLeft    // Modulation Area
+{
+    background-color:                   $LightBackgroundGrey;
+    width:                              27;
+}
+
+
+
+// NEXT TO SONG PANEL
+Bar#m_pSongPanel Bar#pLeft
+{
+    width:                              27;
+    fixed-top:                          4;
+    fixed-bottom:                       4;
+    margin-top:                         0;
+}
+
+
+
+
+// NEXT TO GROUP PANEL
+Bar#m_pGroupPanel Bar#pLeft
+{
+    margin-top:                         7;
+    margin-bottom:                      0;
+    width:                              27;
+}
+
+Bar#m_pGroupPanel Bar#pLeft Bar#m_pLeftLower
+{
+    margin-top:                         3;
+}
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// ARRANGER PANEL
+//-----------------------------------------------------------------------------------------------------------------------
+
+// BUTTONS
+//-----------------------------------------------------------------------------------------------------------------------
+
+// LINEAR ARRANGER
+Bar#m_pSongPanel Bar#pLeft Button#m_linearArrangerVisible
+{
+    image:                              url("Maschine/LeftPanel/LP_BTN_SongClipLayer.png");
+    animations:                         7;
+    outer-margin-left:                  0;
+    outer-margin-top:                   2;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// MIDDLE AREA
+//-----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pChainPanel Bar#m_pLeft
+{
+    image:                              url("Maschine/LeftPanel/LP_BG_MidArea.png");
+    picture-includes-margin:            true;
+    margin-right:                       1;
+    margin-bottom:                      0;
+    width:                              27;
+}
+
+
+
+
+// MIDAREA BUTTONS
+//-----------------------------------------------------------------------------------------------------------------------
+
+// CHANNEL MODE
+Bar#m_pChainPanel Bar#m_pLeft Button#m_pChannelMode
+{
+    image:                              url("Maschine/LeftPanel/LP_BTN_ChannelMode.png");
+    animations:                         7;
+    outer-margin-top:                   5;
+    outer-margin-left:                  1;
+    outer-margin-right:                 1;
+}
+
+
+
+// PLUGIN MODE
+Bar#m_pChainPanel Bar#m_pLeft Button#m_pPluginMode
+{
+    image:                              url("Maschine/LeftPanel/LP_BTN_PluginMode.png");
+    animations:                         7;
+    outer-margin-left:                  1;
+    outer-margin-right:                 1;
+    outer-margin-top:                   3;
+}
+
+
+
+// SPACER LABEL
+Bar#m_pChainPanel Bar#m_pLeft Label#pDummy
+{
+    height:                             54;
+}
+
+
+
+// EXPAND / COLLAPSE
+Bar#m_pChainPanel Bar#m_pLeft Button#m_pShowHideLowerArea
+{
+    image:                              url("Maschine/SharedButtons/SHARED_BTN_Extend.png");
+    animations:                         7;
+    outer-margin-left:                  1;
+    outer-margin-right:                 1;
+}
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// GROUP PANEL
+//-----------------------------------------------------------------------------------------------------------------------
+
+// BUTTONS
+//-----------------------------------------------------------------------------------------------------------------------
+
+// NORMAL PATTERN EDITOR VIEW
+Bar#m_pGroupPanel Bar#pLeft Button#m_pDrumGridVisible
+{
+    image:                              url("Maschine/LeftPanel/LP_BTN_Menu.png");
+    animations:                         7;
+    outer-margin-left:                  1;
+}
+
+
+
+// PIANOROLL
+Bar#m_pGroupPanel Bar#pLeft Button#m_pPianorollVisible
+{
+    image:                              url("Maschine/LeftPanel/LP_BTN_PianoRoll.png");
+    animations:                         7;
+    outer-margin-top:                   4;
+    outer-margin-left:                  1;
+    outer-margin-right:                 1;
+}
+
+
+
+// SEPARATOR LABEL
+Bar#m_pGroupPanel Bar#pLeft Label#m_pSeparator,
+Bar#m_pGroupPanel Bar#pLeft Label#m_pSeparator2,
+Bar#m_pGroupPanel Bar#pLeft Label#m_pSeparator3
+{
+    image:                              url("Maschine/LeftPanel/LP_LBL_Separator.png");
+    outer-margin-left:                  4;
+    outer-margin-top:                   5;
+}
+
+
+
+// SAMPLING
+Bar#m_pGroupPanel Bar#pLeft Button#m_pSamplingVisible
+{
+    image:                              url("Maschine/LeftPanel/LP_BTN_Sampling.png");
+    animations:                         7;
+    outer-margin-top:                   4;
+    outer-margin-left:                  1;
+    outer-margin-right:                 1;
+}
+
+
+// SPLITTER LINE
+Bar#m_pGroupPanel Bar#pLeft Splitter#m_pLeftLowerUpperSplitter
+{
+    height:                             1;
+    background-color:                   $colorBlack;
+
+}
+
+
+
+// SHOW / HIDE MODULATION LANE
+Bar#m_pGroupPanel Bar#pLeft Button#m_pShowHideLowerArea
+{
+    image:                              url("Maschine/LeftPanel/LP_BTN_ExtendUp.png");
+    animations:                         7;
+}
+
+
+
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// MODULATION PANEL
+//-----------------------------------------------------------------------------------------------------------------------
+
+// BUTTONS
+//-----------------------------------------------------------------------------------------------------------------------
+
+// MIDI
+Bar#m_pGroupPanel Bar#pLeft Bar#m_pLeftLower Button#m_pVelocity
+{
+    image:                              url("Maschine/LeftPanel/LP_BTN_Midi.png");
+    animations:                         7;
+    foreground-color:                   no;
+     outer-margin-left:                  1;
+    outer-margin-right:                 1;
+}
+
+
+
+// MODULATION
+Bar#m_pGroupPanel Bar#pLeft Bar#m_pLeftLower Button#m_pModulation
+{
+    image:                              url("Maschine/LeftPanel/LP_BTN_Modulation.png");
+    animations:                         7;
+    foreground-color:                   no;
+    outer-margin-left:                  1;
+    outer-margin-right:                 1;
+    outer-margin-top:                   4;
+}

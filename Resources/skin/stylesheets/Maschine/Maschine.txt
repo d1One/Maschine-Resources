@@ -1,0 +1,197 @@
+// Definitions
+
+@import url("Maschine/Definitions/Metrics.txt");
+@import url("Maschine/Definitions/Colors.txt");
+@import url("Shared/SW/Definitions/Colors.txt");
+@import url("Maschine/Definitions/Fonts.txt");
+@import url("Maschine/Definitions/Cursors.txt");
+@import url("Maschine/Definitions/Animations.txt");
+@import url("Maschine/Definitions/PluginIcons.txt");
+
+
+
+// Standard widgets
+
+@import url("Maschine/Standard/Stacks.txt");
+@import url("Maschine/Standard/Bars.txt");
+@import url("Maschine/Standard/Splitters.txt");
+@import url("Maschine/Standard/Labels.txt");
+@import url("Maschine/Standard/Buttons.txt");
+@import url("Maschine/Standard/ButtonMenu.txt");
+@import url("Maschine/Standard/EnumParameterWidgets.txt");
+@import url("Maschine/Standard/Switchers.txt");
+@import url("Maschine/Standard/Draggers.txt");
+@import url("Maschine/Standard/DraggerableValueEdits.txt");
+@import url("Maschine/Standard/TextEdits.txt");
+@import url("Maschine/Standard/Sliders.txt");
+@import url("Maschine/Standard/ScrollableWidgets.txt");
+@import url("Maschine/Standard/Scrollbars.txt");
+@import url("Maschine/Standard/Vectors.txt");
+@import url("Maschine/Standard/Trees.txt");
+@import url("Maschine/Standard/PopupMenus.txt");
+@import url("Maschine/Standard/ZoomSlider.txt");
+@import url("Maschine/Standard/DraggerXY.txt");
+@import url("Maschine/Standard/RichTextItem.txt");
+
+
+
+// Custom widgets
+
+@import url("Maschine/Custom/WidgetXY.txt");
+@import url("Maschine/Custom/DragAndDrop.txt");
+@import url("Maschine/Custom/ColorPicker.txt");
+@import url("Maschine/Custom/ParameterDragger.txt");
+@import url("Maschine/Custom/AutocompletionTextEdits.txt");
+@import url("Maschine/Custom/AutocompletionPopups.txt");
+@import url("Maschine/Custom/IconButton.txt");
+@import url("Maschine/Custom/WaveDisplays.txt");
+@import url("Maschine/Custom/Meters.txt");
+@import url("Maschine/Custom/MatrixWidget.txt");
+@import url("Maschine/Custom/BankManager.txt");
+@import url("Maschine/Custom/Cursors.txt");
+@import url("Maschine/Custom/CompactParameterWidget.txt");
+
+
+
+// DIALOGS&MESSAGES
+@import url("Shared/SW/Components/DragDropHighlight.txt");
+@import url("Shared/SW/Instructions.txt");
+@import url("Shared/Dialogs/NewFirmware.txt");
+
+// SHARED ELEMENTS
+@import url("Maschine/Dialogs/DialogControls.txt");
+@import url("Maschine/Dialogs/DialogBasicPanelStyling.txt");
+@import url("Maschine/Dialogs/DialogFileLists.txt");
+
+// PANELS
+@import url("Maschine/Dialogs/SplashScreen.txt");
+@import url("Maschine/Dialogs/Demo.txt");
+@import url("Maschine/Dialogs/ExportAudio.txt");
+@import url("Maschine/Dialogs/CollateAudio.txt");
+@import url("Maschine/Dialogs/Preferences.txt");
+@import url("Maschine/Dialogs/Progress.txt");
+@import url("Maschine/Dialogs/MpcImport.txt");
+@import url("Maschine/Dialogs/PluginWindowKPI_Root.txt");
+@import url("Maschine/Dialogs/SavePreset.txt");
+@import url("Maschine/Dialogs/MissingPlugins.txt");
+@import url("Maschine/Dialogs/NonMigratedPlugins.txt");
+@import url("Maschine/Dialogs/UpgradedPlugins.txt");
+@import url("Maschine/Dialogs/MIDIChange.txt");
+@import url("Maschine/Dialogs/GeneratePreviews.txt");
+@import url("Maschine/Dialogs/WelcomeScreen.txt");
+@import url("Shared/Dialogs/About.txt");
+@import url("Shared/Dialogs/PreviewLibrary.txt");
+@import url("Shared/Dialogs/DialogMessage.txt");
+
+// Panels
+
+@define $metricColumnEditors            530;
+@define $metricPaneHeightChainPanelNorm 155;
+@define $metricPaneHeightChainPanelMax  199;
+
+@import url("Maschine/Panels/TopLevel.txt");
+@import url("Maschine/Panels/SongGroupPanelShared.txt");
+@import url("Maschine/Panels/Header.txt");
+@import url("Maschine/Panels/Arranger.txt");
+@import url("Maschine/Panels/IdeaSpace.txt");
+@import url("Maschine/Panels/PatternEditor.txt");
+@import url("Maschine/Panels/ZoneEditor.txt");
+@import url("Maschine/Panels/PatternEditorShared.txt");
+@import url("Maschine/Panels/ParameterArea.txt");
+@import url("Maschine/Panels/LeftPanel.txt");
+@import url("Maschine/Panels/SongPanel.txt");
+@import url("Maschine/Panels/BrowserPanel.txt");
+@import url("Maschine/Panels/GroupPanel.txt");
+@import url("Maschine/Panels/Mixer.txt");
+@import url("Maschine/Panels/KPIPanel.txt");
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// Internal Modules
+//-----------------------------------------------------------------------------------------------------------------------
+
+// Definitions
+//-----------------------------------------------------------------------------------------------------------------------
+
+// GENERIC DEFINITIONS
+@import url("Shared/InternalModules/InternalModuleColors.txt");
+@import url("Maschine/InternalModules/InternalModuleMetrics.txt");
+@import url("Shared/InternalModules/InternalModuleControls.txt");
+@import url("Shared/InternalModules/ZoomSliders.txt");
+@import url("Maschine/InternalModules/InternalModuleBasicPanelStyling.txt");
+@import url("Maschine/InternalModules/KPIModulePlaceholder.txt");
+@import url("Maschine/InternalModules/FX/SideChain.txt");
+
+// FX DEFINITIONS
+@import url("Maschine/InternalModules/FX/FXMetrics.txt");
+@import url("Maschine/InternalModules/FX/FXBasicPanelStyling.txt");
+
+// DRUMS DEFINITIONS
+@import url("Maschine/InternalModules/Drums/DrumsMetrics.txt");
+@import url("Maschine/InternalModules/Drums/DrumsBasicPanelStyling.txt");
+
+// SAMPLER DEFINITIONS
+@import url("Maschine/InternalModules/Sampler/SamplerMetrics.txt");
+
+
+// Modules
+//-----------------------------------------------------------------------------------------------------------------------
+
+// FX MODULES
+@import url("Maschine/InternalModules/FX/BeatDelay.txt");
+@import url("Maschine/InternalModules/FX/Cabinet.txt");
+@import url("Maschine/InternalModules/FX/Chorus.txt");
+@import url("Maschine/InternalModules/FX/Compressor.txt");
+@import url("Maschine/InternalModules/FX/Distortion.txt");
+@import url("Maschine/InternalModules/FX/EQ.txt");
+@import url("Maschine/InternalModules/FX/Filter.txt");
+@import url("Maschine/InternalModules/FX/Flanger.txt");
+@import url("Maschine/InternalModules/FX/FM.txt");
+@import url("Maschine/InternalModules/FX/FreqShifter.txt");
+@import url("Maschine/InternalModules/FX/Gate.txt");
+@import url("Maschine/InternalModules/FX/GrainDelay.txt");
+@import url("Maschine/InternalModules/FX/GrainStretch.txt");
+@import url("Maschine/InternalModules/FX/Iceverb.txt");
+@import url("Maschine/InternalModules/FX/Limiter.txt");
+@import url("Maschine/InternalModules/FX/LoFi.txt");
+@import url("Maschine/InternalModules/FX/Maximizer.txt");
+@import url("Maschine/InternalModules/FX/Metaverb.txt");
+@import url("Maschine/InternalModules/FX/Phaser.txt");
+@import url("Maschine/InternalModules/FX/Reflex.txt");
+@import url("Maschine/InternalModules/FX/Resochord.txt");
+@import url("Maschine/InternalModules/FX/Reverb.txt");
+@import url("Maschine/InternalModules/FX/ReverbLegacy.txt");
+@import url("Maschine/InternalModules/FX/Saturator.txt");
+@import url("Maschine/InternalModules/FX/TransientDesigner.txt");
+
+// DRUM MODULES
+@import url("Maschine/InternalModules/Drums/Kick.txt");
+@import url("Maschine/InternalModules/Drums/Snare.txt");
+@import url("Maschine/InternalModules/Drums/HiHat.txt");
+@import url("Maschine/InternalModules/Drums/Tom.txt");
+@import url("Maschine/InternalModules/Drums/Percussion.txt");
+@import url("Maschine/InternalModules/Drums/Cymbal.txt");
+
+// PERFORM FX
+@import url("Maschine/InternalModules/PerformFX/PerformFX.txt");
+
+// BASS SYNTH
+@import url("Maschine/InternalModules/BassSynth/BassSynth.txt");
+
+// SAMPLER MODULE
+@import url("Maschine/InternalModules/Sampler/Sampler.txt");
+
+// AUDIO MODULE
+@import url("Shared/InternalModules/Audio/AudioModule.txt");
+
+// SAMPLER & AUDIO MODULE WAVE DISPLAYS
+@import url("Shared/InternalModules/WaveDisplayWidget.txt");
+
+// POLYSYNTH
+@import url("Maschine/InternalModules/PolySynth/PolySynth.txt");
+
+// GENERIC VST / AU MODULE
+@import url("Maschine/InternalModules/PluginHost.txt");
+
+// DEVELOPER
+@import url("Shared/Developer/Developer.txt");

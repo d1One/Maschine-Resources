@@ -1,0 +1,481 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// BUTTON BAR
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Bar.HeadRow
+{
+    height:                         35;
+    background-color:               $colorStandardBGColor;
+
+    margin-top:                     4;
+    margin-left:                    0;
+    spacing:                        0;
+}
+
+// Grid pages button bar height adjustment
+Bar#SelectPageStudioScreenRight Bar#ButtonBar,
+Bar#SoloPageStudioScreenRight Bar#ButtonBar,
+Bar#MutePageStudioScreenRight Bar#ButtonBar,
+Bar#DuplicatePageStudioScreenRight Bar#ButtonBar,
+Bar#PadModePageStudioScreenRight Bar#ButtonBar,
+Bar#PadModePageMK3ScreenRight Bar#ButtonBar,
+Bar#SnapshotsPageStudioScreenRight Bar#ButtonBar,
+Bar#ScenePageStudioScreenRight Bar#ButtonBar,
+Bar#SectionsPageStudioScreenRight Bar#ButtonBar,
+Bar#PatternPageStudioPatternScreenRight Bar#ButtonBar,
+Bar#ClipPageStudioScreenRight Bar#ButtonBar,
+Bar#NavigatePagePageNavStudioScreenRight Bar#ButtonBar,
+Bar#NavigatePageMH1071ScreenRight Bar#ButtonBar,
+Bar#SamplingPageSliceApplyStudioScreenRight Bar#ButtonBar,
+Bar#GridPageStudioScreenRight Bar#ButtonBar,
+Bar#SaveAsPageScreenRight Bar#ButtonBar
+{
+    height:                         35;
+}
+
+
+// Simple
+Button.PerformToggle
+{
+    image:                          url("Shared/HW/Studio/Standard/std_button_headPin.png");
+    animations:                     3;
+
+    background-color:               $headButtonGrey;
+    foreground-color:               $colorBlack;
+    outer-margin-right:             0;
+}
+
+Button.PerformToggle:selected
+{
+    background-color:               rgb(0,205,255);
+    foreground-color:               $colorBlack;
+}
+
+
+// HeadPin
+Button.HeadPin
+{
+    image:                          url("Shared/HW/Studio/Standard/std_button_headPin.png");
+    animations:                     3;
+    animation-index:                0;
+
+    foreground-color:               $colorWhite90;
+    outer-margin-left:              4;
+}
+
+Button.HeadPin:selected
+{
+    animation-index:                1;
+    foreground-color:               $colorBlack;
+}
+
+Button.HeadPin:!enabled
+{
+    animation-index:                2;
+}
+
+
+// HeadFixed (like pinned, but disabled, LED off)
+Button.HeadFixed
+{
+    image:                          url("Shared/HW/Studio/Standard/std_button_headPin.png");
+    animations:                     3;
+    animation-index:                1;
+
+    foreground-color:               $colorBlack;
+    outer-margin-left:              4;
+}
+
+
+
+// HeadTab
+// Left
+Button.HeadTabLeft
+{
+    image:                          url("Shared/HW/Studio/Standard/std_button_headTabLeft.png");
+    animations:                     4;
+
+    background-color:               $colorStandardBGColor;              //$headButtonGrey;
+    foreground-color:               $colorWhite90;
+    outer-margin-right:             0;
+    outer-margin-left:              4;
+    margin-right:                   2;
+
+    picture-includes-margin:        true;
+
+    animation-index:                0;
+}
+
+Button.HeadTabLeft:selected
+{
+    background-color:               no;
+    animation-index:                1;
+    foreground-color:               $colorBlack;
+}
+
+// Center
+Button.HeadTabCenter
+{
+    image:                          url("Shared/HW/Studio/Standard/std_button_headTabCenter.png");
+    animations:                     4;
+
+    background-color:               $colorStandardBGColor;
+    foreground-color:               $colorWhite90;
+    outer-margin-right:             0;
+    outer-margin-left:              0;
+    margin-left:                    2;
+    margin-right:                   2;
+    height:                         24;
+
+    animation-index:                0;
+}
+
+Button.HeadTabCenter:selected
+{
+    background-color:               no;
+    animation-index:                1;
+    foreground-color:               $colorBlack;
+}
+
+
+// Right
+Button.HeadTabRight
+{
+    image:                          url("Shared/HW/Studio/Standard/std_button_headTabRight.png");
+    animations:                     4;
+
+    background-color:               $colorStandardBGColor;
+    foreground-color:               $colorWhite90;
+    outer-margin-right:             0;
+    outer-margin-left:              0;
+    foreground-relative-left:       1;
+    margin-left:                    1;
+
+    animation-index:                0;
+}
+
+Button.HeadTabRight:selected
+{
+    background-color:               no;
+    foreground-color:               $colorBlack;
+    animation-index:                1;
+}
+
+// HeadPinTab
+//Left
+Button.HeadPinTabLeft
+{
+    image:                          url("Shared/HW/Studio/Standard/std_button_headTabLeft.png");
+    animations:                     4;
+
+    background-color:               $colorStandardBGColor;              //$headButtonGrey;
+    foreground-color:               $colorWhite90;
+    outer-margin-right:             0;
+    outer-margin-left:              4;
+    margin-right:                   2;
+
+    picture-includes-margin:        true;
+
+    animation-index:                2;
+}
+
+Button.HeadPinTabLeft:selected
+{
+    background-color:               no;
+    foreground-color:               $colorBlack;
+    animation-index:                1;
+}
+
+Button.HeadPinTabLeft:!enabled
+{
+    animation-index:                0;
+}
+
+// Right
+Button.HeadPinTabRight
+{
+    image:                          url("Shared/HW/Studio/Standard/std_button_headTabRight.png");
+    animations:                     4;
+
+    background-color:               $colorStandardBGColor;
+    foreground-color:               $colorWhite90;
+    outer-margin-right:             0;
+    outer-margin-left:              0;
+    foreground-relative-left:       1;
+    margin-left:                    1;
+
+    animation-index:                2;
+}
+
+Button.HeadPinTabRight:selected
+{
+    background-color:               no;
+    foreground-color:               $colorBlack;
+    animation-index:                1;
+}
+
+
+// HeadButton
+Button.PreviousButton
+{
+    image:                          url("Shared/HW/Studio/Standard/std_button_headButton.png");
+    animations:                     3;
+
+    background-color:               $headButtonGrey;
+    foreground-color:               $colorWhite90;
+
+    margin:                         0;
+    outer-margin-left:              0;
+}
+
+Button.HeadButton,
+Button.NextButton
+{
+    image:                          url("Shared/HW/Studio/Standard/std_button_headButton.png");
+    animations:                     3;
+
+    background-color:               $headButtonGrey;
+    foreground-color:               $colorWhite90;
+
+    margin:                         0;
+    outer-margin-left:              4;
+}
+
+Button.HeadButton:selected,
+Button.PreviousButton:selected,
+Button.NextButton:selected
+{
+    background-color:               $colorWhite70;
+    foreground-color:               $colorBlack;
+}
+
+Button.HeadButton:!enabled,
+Button.PreviousButton:!enabled,
+Button.NextButton:!enabled
+{
+    animation-index:                2;
+    background-color:               rgb(41,41,41);
+    foreground-color:               rgb(41,41,41);
+}
+
+
+
+
+// ArrowButtonBar
+Bar.ArrowOff
+{
+    background-color:               no;
+    margin:                         0;
+    outer-margin:                   0;
+
+    spacing:                        0;
+
+    width:                          234;
+    height:                         24;
+
+    outer-margin-right:             0;
+    outer-margin-left:              4;
+}
+
+
+Bar.ArrowOn
+{
+    background-color:               $colorWhite;
+    spacing:                        0;
+
+    width:                          234;
+    height:                         24;
+
+    outer-margin-right:             0;
+    outer-margin-left:              4;
+    margin-top:                     0;
+}
+
+
+// Left
+Bar.ArrowOn Button.ArrowLeft
+{
+    background-color:               no;
+    image:                          no;
+
+    width:                          22;
+    height:                         22;
+
+    outer-margin-left:              3;
+    outer-margin-right:             0;
+    outer-margin-top:               1;
+}
+
+Bar.ArrowOn Button.ArrowLeft:!enabled
+{
+    background-color:               rgb(71,71,71);
+}
+
+
+Bar.ArrowOff Button.HeadButton
+{
+    width:                          110;
+    outer-margin:                   0;
+}
+
+
+// Right
+Bar.ArrowOn Button.ArrowRight
+{
+    background-color:               no;
+    image:                          no;
+
+    width:                          16;
+    height:                         22;
+
+    outer-margin-left:              190;
+    outer-margin-right:             0;
+    outer-margin-top:               1;
+    z-index:                        0;
+}
+
+Bar.ArrowOn Button.ArrowRight:!enabled
+{
+    background-color:               rgb(71,71,71);
+}
+
+Bar.ArrowOff Button.HeadButton
+{
+    width:                          110;
+    outer-margin:                   0;
+}
+
+
+// Label
+Bar.ArrowOn Label.ArrowLabel
+{
+    image:                          url("Shared/HW/Studio/Standard/std_frame_arrow.png");
+    picture-includes-margin:        true;
+    height:                         24;
+
+    background-color:               no;
+    foreground-color:               $colorWhite90;
+
+    font-name:                      $fontPragmatica;
+    font-size:                      $headButtonFontSize;
+    horizontal-alignment:           center;
+    vertical-alignment:             top;
+
+    margin-top:                     4;
+    margin-left:                    27;
+    margin-right:                   27;
+    z-index:                        1;
+}
+
+
+
+
+// Browse Button
+Button.BrowseIcon
+{
+    foreground-color:               no;
+    background-color:               $headButtonGrey;
+
+    image:                          url("Shared/HW/Studio/Standard/std_button_browse.png");
+    animations:                     3;
+
+    outer-margin-top:               0;
+    outer-margin-left:              4;
+}
+
+Button.BrowseIcon:selected
+{
+    background-color:               $colorWhite70;
+    foreground-color:               no;
+}
+
+Button.BrowseIcon[Overridden=true]
+{
+    image:                          url("Shared/HW/Studio/Standard/std_button_headButton.png");
+    animations:                     3;
+
+    background-color:               $headButtonGrey;
+    foreground-color:               $colorWhite90;
+
+    outer-margin-top:               0;
+    outer-margin-right:             0;
+}
+
+Button.BrowseIcon[Overridden=true]:selected
+{
+    background-color:               $colorWhite70;
+    foreground-color:               $colorBlack;
+}
+
+Button.BrowseIcon:!enabled
+{
+    animation-index:                2;
+    background-color:               rgb(41,41,41);
+    foreground-color:               no;
+}
+
+// Fav Filter Button
+Button#Button7[FavoritesFilter=true]
+{
+    image:                          url("Shared/HW/Studio/Standard/std_button_favfilter.png");
+    animations:                     3;
+
+    height:                         24;
+
+    outer-margin-top:               0;
+    outer-margin-right:             0;
+}
+
+Button#Button7[FavoritesFilter=true]:selected
+{
+    animation-index:                1;
+}
+
+Button#Button7[FavoritesFilter=false]
+{
+    foreground-color:               $colorWhite;
+
+    animation:                      2;
+}
+
+
+
+
+// Custom margins on several pages
+Bar#SamplingPageStudioScreenRight Bar#ButtonBar
+{
+    spacing:                        4;
+    margin-left:                    4;
+}
+
+Bar#SamplingPageStudioScreenRight Bar#ButtonBar Button#Button8
+{
+    outer-margin-left:              4;
+}
+
+Bar#SamplingPageStudioScreenRight Bar#ButtonBar Bar#ArrowButtonBar Button.ArrowRight
+{
+    outer-margin-left:              190;
+}
+
+Bar#SamplingPageStudioScreenRight Bar#ButtonBar Button#Button5,
+Bar#PadModePageMK3ScreenRight Bar#ButtonBar Bar#ArrowButtonBar Button#Button7,
+Bar#SamplingPageStudioScreenRight Bar#ButtonBar Button#Button7,
+Bar#BrowsePageStudioScreenRight Bar#ButtonBar Button#Button5,
+Bar#BrowsePageStudioScreenLeft Bar#ButtonBar Button#Button1,
+Bar#BrowsePageStudioScreenRight Bar#ButtonBar Bar#ArrowButtonBar,
+Bar#BrowsePageStudioScreenLeft Bar#ButtonBar Bar#ArrowButtonBar,
+Bar#SamplingPageStudioScreenRight Bar#ButtonBar Bar#ArrowButtonBar
+{
+    outer-margin-left:              0;
+}
+
+
+Bar#BrowsePageStudioScreenRight Bar#ButtonBar,
+Bar#ModulePageStudioScreenRight Bar#ButtonBar,
+Bar#ScaleChordPageScreenLeft Bar#ButtonBar,
+Bar#BrowsePageStudioScreenLeft Bar#ButtonBar,
+Bar#ArpPageScreenLeft Bar#ButtonBar
+{
+    margin-left:                    4;
+}

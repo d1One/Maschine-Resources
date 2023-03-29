@@ -1,0 +1,45 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Song Panel
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Bar#m_pSongPanel
+{
+    background-color:                   $colorBlack;
+    spacing:                            1;
+}
+
+// Vertical Splitter between the Column Manager and the Column Editor
+Bar#m_pSongPanel Splitter#pSplitter
+{
+    background-color:                   rgb(0,0,0);
+    width:                              1;
+}
+
+
+//======================================================================================================================
+// Group Manager
+//======================================================================================================================
+
+
+Bar#m_pSongPanel Bar#m_pColumnsManager Bar#pTitle Label#pDummy
+{
+    min-width:                              60;
+}
+
+
+//======================================================================================================================
+// Scene Manager
+//======================================================================================================================
+
+// PopUp
+Bar#m_pSongPanel Button#m_pPopupButton
+{
+    image:                              url("Maschine/Arranger/ARR_BTN_PopUp.png");
+    animations:                         7;
+    background-color-palette:           no;
+    background-color:                   no;
+
+    outer-margin-top:                   8;
+    outer-margin-right:                 8;
+    outer-margin-bottom:                5;
+}

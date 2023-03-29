@@ -1,0 +1,218 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Default
+//----------------------------------------------------------------------------------------------------------------------
+
+ButtonMenu
+{
+    image:                              url("Shared/Global/Button_18.png");
+    picture-includes-margin:            true;
+    animations:                         7;
+    animation-index:                    0;
+    fixed-left:                         4;
+    fixed-right:                        4;
+    fixed-top:                          4;
+    fixed-bottom:                       4;
+    foreground-color:                   $colorWidgetText;
+    font-name:                          $fontPragmatica;
+    font-size:                          $fontRaldoSize;
+    horizontal-alignment:               center;
+//     margin:                             2;
+//     margin-left:                        5;
+//     margin-right:                       4;
+    min-width:                          $defaultWidth;
+    height:                             $metricGrid;
+}
+
+ButtonMenu:selected
+{
+    animation-index:                    1;
+    foreground-color:                   $colorWidgetTextSelected;
+}
+
+ButtonMenu:down
+{
+    animation-index:                    2;
+}
+
+ButtonMenu:selected:down
+{
+    animation-index:                    3;
+    foreground-color:                   $colorWidgetTextSelected;
+}
+
+ButtonMenu:over
+{
+    animation-index:                    4;
+}
+
+ButtonMenu:over:selected
+{
+    animation-index:                    5;
+}
+
+ButtonMenu:!enabled
+{
+    animation-index:                    6;
+    foreground-color:                   $colorWidgetTextDisabled;
+}
+
+ButtonMenu.Text
+{
+    width:                              $defaultWidth;
+}
+
+ButtonMenu[color=color1]                { foreground-color: $color1; }
+ButtonMenu[color=color2]                { foreground-color: $color2; }
+ButtonMenu[color=color3]                { foreground-color: $color3; }
+ButtonMenu[color=color4]                { foreground-color: $color4; }
+ButtonMenu[color=color5]                { foreground-color: $color5; }
+ButtonMenu[color=color6]                { foreground-color: $color6; }
+ButtonMenu[color=color7]                { foreground-color: $color7; }
+ButtonMenu[color=color8]                { foreground-color: $color8; }
+ButtonMenu[color=color9]                { foreground-color: $color9; }
+ButtonMenu[color=color10]               { foreground-color: $color10; }
+ButtonMenu[color=color11]               { foreground-color: $color11; }
+ButtonMenu[color=color12]               { foreground-color: $color12; }
+ButtonMenu[color=color13]               { foreground-color: $color13; }
+ButtonMenu[color=color14]               { foreground-color: $color14; }
+ButtonMenu[color=color15]               { foreground-color: $color15; }
+ButtonMenu[color=color16]               { foreground-color: $color16; }
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Style PatternManager
+//----------------------------------------------------------------------------------------------------------------------
+
+ButtonMenu.PatternManager
+{
+    menu-offset-x:                      8;
+    menu-offset-y:                      -12;
+    width:                              $defaultWidth;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Style SectionManager
+//----------------------------------------------------------------------------------------------------------------------
+
+ButtonMenu.SectionManager
+{
+    menu-offset-x:                      8;
+    menu-offset-y:                      -12;
+    image:                              no;
+    background-color:                   no;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// Style BrowserBank_0
+//----------------------------------------------------------------------------------------------------------------------
+
+ButtonMenu.BrowserBank_0
+{
+    foreground-color:                   no;
+    height:                             47;
+    outer-margin:                       0;
+//         menu-offset-x:                      8;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Style Browser Edit Tab
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget ButtonMenu
+{
+    image:                                      url("Maschine/Browser/BRWS_BTN_TagEditAutoCompletionTextEdit.png");
+    picture-includes-margin:                    true;
+    animations:                                 7;
+    fixed-left:                                 3;
+    fixed-right:                                15;
+
+    horizontal-alignment:                       left;
+
+    background-color:                           no;
+    foreground-color:                           $colorWhite75;
+
+    background-border-color:                    no;
+
+    menu-offset-x:                              20;
+    menu-offset-y:                              0;
+
+    foreground-relative-top:                    1;
+    margin-left:                                6;
+    margin-top:                                 3;
+    margin-bottom:                              3;
+}
+
+Bar#m_pBrowserPanel Bar#m_pEditorWidget ButtonMenu:!enabled
+{
+    animation-index:                            6;
+    foreground-color:                           $colorWhite30;
+}
+
+
+
+//======================================================================================================================
+// MIDDLE AREA - Assignment Area
+//======================================================================================================================
+
+// TO DO: Maybe move to Parameter are, because it's only used there...
+
+//----------------------------------------------------------------------------------------------------------------------
+// Breadcrumb Buttons
+//----------------------------------------------------------------------------------------------------------------------
+
+ButtonMenu#m_aBreadcrumbButtons
+{
+    image:                              url("Maschine/ParameterArea/pa_button_breadcrumb.png");
+    picture-includes-margin:            true;
+    fixed-left:                         4;
+    fixed-right:                        16;
+    animations:                         15;
+    animation-index:                    0;
+
+    background-color:                   no;
+    foreground-color:                   $colorWhite70;
+    font-name:                          $fontPragmatica;
+    font-size:                          $fontRegSize;
+
+    horizontal-alignment:               left;
+    vertical-alignment:                 center;
+    margin-left:                        8;
+    margin-right:                       20;
+    margin-top:                         1;
+    min-width:                          24;
+    max-width:                          150;
+}
+
+
+ButtonMenu#m_aBreadcrumbButtons[position=alone]                {animation-index: 0;}
+ButtonMenu#m_aBreadcrumbButtons[position=alone]:over           {animation-index: 1; foreground-color: $colorWhite85;}
+ButtonMenu#m_aBreadcrumbButtons[position=alone]:selected       {animation-index: 2; foreground-color: $colorWhite;}
+ButtonMenu#m_aBreadcrumbButtons[position=alone]:selected:over  {animation-index: 2; foreground-color: $colorWhite;}
+ButtonMenu#m_aBreadcrumbButtons[position=alone]:selected:down  {animation-index: 2; foreground-color: $colorWhite;}
+
+ButtonMenu#m_aBreadcrumbButtons[position=first]                {animation-index: 3;}
+ButtonMenu#m_aBreadcrumbButtons[position=first]:over           {animation-index: 4; foreground-color: $colorWhite85;}
+ButtonMenu#m_aBreadcrumbButtons[position=first]:selected       {animation-index: 5; foreground-color: $colorWhite;}
+ButtonMenu#m_aBreadcrumbButtons[position=first]:selected:over  {animation-index: 5; foreground-color: $colorWhite;}
+ButtonMenu#m_aBreadcrumbButtons[position=first]:selected:down  {animation-index: 5; foreground-color: $colorWhite;}
+
+ButtonMenu#m_aBreadcrumbButtons[position=middle]               {animation-index: 6;}
+ButtonMenu#m_aBreadcrumbButtons[position=middle]:over          {animation-index: 7; foreground-color: $colorWhite85;}
+ButtonMenu#m_aBreadcrumbButtons[position=middle]:selected      {animation-index: 8; foreground-color: $colorWhite;}
+ButtonMenu#m_aBreadcrumbButtons[position=middle]:selected:over {animation-index: 8; foreground-color: $colorWhite;}
+ButtonMenu#m_aBreadcrumbButtons[position=middle]:selected:down {animation-index: 8; foreground-color: $colorWhite;}
+
+ButtonMenu#m_aBreadcrumbButtons[position=last]                 {animation-index: 9;}
+ButtonMenu#m_aBreadcrumbButtons[position=last]:over            {animation-index: 10; foreground-color: $colorWhite85;}
+ButtonMenu#m_aBreadcrumbButtons[position=last]:selected        {animation-index: 11; foreground-color: $colorWhite;}
+ButtonMenu#m_aBreadcrumbButtons[position=last]:selected:over   {animation-index: 11; foreground-color: $colorWhite;}
+ButtonMenu#m_aBreadcrumbButtons[position=last]:selected:down   {animation-index: 11; foreground-color: $colorWhite;}
+
+ButtonMenu#m_aBreadcrumbButtons[position=add]                  {animation-index: 12;}
+ButtonMenu#m_aBreadcrumbButtons[position=add]:over             {animation-index: 13;}
+ButtonMenu#m_aBreadcrumbButtons[position=add]:selected         {animation-index: 14;}
+ButtonMenu#m_aBreadcrumbButtons[position=add]:selected:over    {animation-index: 14;}
+ButtonMenu#m_aBreadcrumbButtons[position=add]:selected:down    {animation-index: 14;}

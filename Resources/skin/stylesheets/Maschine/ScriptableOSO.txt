@@ -1,0 +1,30 @@
+//----------------------------------------------------------------------------------------------------------------------
+// SCRIPTABLE OSO STYLESHEET IMPORTS
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// IMPORTANT
+
+// The order of entries in this list is the order of how the stylesheets will be loaded,
+// Definitions have to be on top of the list!
+
+
+
+// DEFINITIONS
+@import url("Maschine/Definitions/Metrics.txt");
+@import url("Maschine/Definitions/Colors.txt");
+@import url("Maschine/Definitions/Fonts.txt");
+@import url("Maschine/Definitions/Cursors.txt");
+@import url("Maschine/Definitions/Animations.txt");
+@import url("Shared/Developer/Developer.txt");
+
+
+// DEVELOPMENT RESOURCES
+@import url("Maschine/Standard/Labels.txt");
+
+
+Bar#ScriptablePanel
+{
+    background-color: rgba(0, 0, 0, 50);
+}
+

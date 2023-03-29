@@ -1,0 +1,561 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Arranger
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// ARRANGER PANEL MAIN CONTAINER
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pSongPanel Bar#pColumnEditors
+{
+    background-color:           rgb(0,0,0);
+    spacing:                    0;
+}
+
+
+Bar#m_pSongPanel Bar#m_pArrangerPanel
+{
+    background-color:           no;
+    background-border-color:    no;
+    margin:                     0;
+    spacing:                    0;
+    min-height:                 22;
+    min-bars:                   16;
+}
+
+
+Bar#m_pSongPanel Bar#m_pBody
+{
+    background-color:           no;
+    spacing:                    0;
+}
+
+
+// PLAYHEAD
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pSongPanel Bar#pColumnEditors Label#m_pPlayHead
+{
+    background-color:           $colorWhite;
+    width:                      1;
+    min-height:                 0;
+}
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// ARRANGER TIMELINE
+//----------------------------------------------------------------------------------------------------------------------
+
+// CONTAINER
+Bar#m_pTimelineHolder
+{
+    image:                      no;
+    height:                     18;
+}
+
+// TOP SHADOW OVERLAY
+SongTimeline Label#m_pShadowOverlay
+{
+    image:                      url("Maschine/Arranger/ARR_SHDW_Top.png");
+    fixed-left:                 20;
+    fixed-right:                20;
+}
+
+// TIMELINE BASIC STYLE
+//----------------------------------------------------------------------------------------------------------------------
+SongTimeline
+{
+    background-color:           $StandardBackgroundGrey;
+
+    bg-out-overlay-color:       no;
+    border-color:               $colorBlack;       // horizontal borders on top and bottom of the Timeline bar.
+
+    font-name:                  $fontPragmatica;
+    font-size:                  11;
+
+    vertical-alignment:         center;
+
+    min-width:                  $defaultWidth;
+    height:                     18;
+
+    left-text-offset:           6;
+    top-text-offset:            0;
+
+    // BAR GRID - DEFAULT
+    bar-line-color:             rgb(132,132,132);
+    bar-number-color:           $colorWhite40;
+    beat-line-color:            $colorWhite40;
+    beat-number-color:          $colorWhite40;
+}
+
+
+// LOOP OFF
+SongTimeline[LoopActive=false]
+{
+    loop-fill-color:            $colorWhite7;
+    bar-line-loop-color:        $colorWhite40;
+    bar-number-loop-color:      $colorWhite40;
+    beat-line-loop-color:       $colorWhite40;
+    beat-number-loop-color:     $colorWhite40;
+}
+
+// LOOP ON
+SongTimeline[LoopActive=true]
+{
+    loop-fill-color:            $colorWhite40;
+    bar-line-loop-color:        $colorBlack85;
+    bar-number-loop-color:      $colorBlack85;
+    beat-line-loop-color:       $colorBlack85;
+    beat-number-loop-color:     $colorBlack85;
+}
+
+
+
+
+// SCENE DRAG LABEL
+SongTimeline Label#m_pSceneEndDraggerLabel
+{
+    foreground-color:           no;
+    image:                      url("Maschine/Arranger/ARR_HNDL_SceneEnd.png");
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// SCENE HEADERS
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pSongPanel Bar#m_pScenesHolder
+{
+    background-color:           no;
+    spacing:                    0;
+}
+
+
+
+// SCENE HEADER WIDGET
+Bar#m_pArrangerPanel ArrangerHeader
+{
+    height:                       24;
+
+    background-color:             $StandardBackgroundGrey;
+    border-color:                 rgb(50,50,50);
+
+    color-palette:                1;
+    noScene-foreground-color:         no;
+    noScene-foreground-color-focused: no;
+    font-name:                    $fontPragmatica;
+    font-size:                    11;
+
+    clip-text-left-margin:        7;
+    clip-text-right-margin:       8;
+    clip-text-top-margin:         0;
+
+    clip-background-color:         rgb(50,50,50);
+    clip-border-color:             rgb(50,50,50);
+    focused-clip-background-color: rgb(70,70,70);
+    focused-clip-border-color:     rgb(79,79,79);
+
+    grip-color:                 $colorBlack; // Sets black divider line between the scenes
+
+    clip-text-truncation-indicator-margin: 1;
+    clip-truncation-indicator-width: 12;
+
+    focus-line-size:            3;
+
+    // LOOP RANGE BORDERS
+    loop-left-color:            no;
+    loop-right-color:           no;
+}
+
+
+
+//ADD SCENE BUTTON
+ArrangerHeader Button#m_pPlusButton
+{
+    image:                      url("Maschine/Arranger/ARR_BTN_AddScene.png");
+    animations:                 7;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// ARRANGER GRID WIDGET
+//----------------------------------------------------------------------------------------------------------------------
+
+// SHADOW BELOW SCENE HEADER
+Bar#m_pArrangerPanel Bar#m_pBody Label#m_pTopShadowOverlay
+{
+    image:                      url("Maschine/SharedTexture/SHARED_LBL_ShadowGridHeader.png");
+    fixed-left:                 20;
+    fixed-right:                20;
+}
+
+
+// ARRANGER ROW CONTAINER
+Bar#m_pArrangerPanel Vector<ArrangerTrack>::Bar#widgets
+{
+    background-color:           rgb(50,50,50);
+    spacing:                    -2;
+    allow-negative-spacing:     yes;
+}
+
+
+// DARK OVERLAY FOR NO-SCENE AREA
+Bar#m_pArrangerPanel Label#m_pSceneModeShade
+{
+    background-color:           rgba(0,0,0,50);
+    min-width:                  0;
+}
+
+
+// ARRANGER ROW
+ArrangerTrack
+{
+    height: 23;
+    background-color: $StandardBackgroundGrey;
+    border-color: rgb(30,30,30); // color of the spaces between pattern rows
+
+    focused-group-highlight-color: $colorWhite5;
+
+    scene-end-fill-color: rgba(40,40,40,138);
+
+    clip-right-offset: 1;      // fixes 2px horizontal gap between clips
+}
+
+ArrangerTrack::GridLane
+{
+    x: 0;
+    y: 1;
+    height: 22;
+}
+
+ArrangerTrack::PatternLane,
+ArrangerTrack::ClipLane
+{
+    x: 0;
+    y: 0;
+    height: 23;
+
+    // RESIZING MOUSE CURSORS
+    cursor-mouse-move-start-picture-hotspot-x:  6;
+    cursor-mouse-move-start-picture-hotspot-y:  5;
+    cursor-mouse-move-start-picture:            url("Maschine/Cursor/CURSOR_ResizeMidiNoteLeft.png");
+    cursor-mouse-move-end-picture-hotspot-x:    4;
+    cursor-mouse-move-end-picture-hotspot-y:    5;
+    cursor-mouse-move-end-picture:              url("Maschine/Cursor/CURSOR_ResizeMidiNoteRight.png");
+}
+
+GridLane
+{
+    bar-color:  $colorV-GridMainLine;
+    beat-color: $colorV-GridSubLine;
+}
+
+
+
+
+// Pattern, Song Mode
+// -----------------------
+
+ArrangerTrack::PatternLane::Pattern
+{
+    dye-mask: url("Maschine/Arranger/ARR_Pattern_Mask_Rect.png");
+    dye-mask-animations: 5;
+
+    dye-color-palette: 1;
+
+    image: url("Maschine/Arranger/ARR_Pattern_Overlay_Rect.png");
+    animations: 16;
+
+    font-name: $fontPragmatica;
+    font-size: 11;
+    foreground-color: $colorBlack75;
+    foreground-color-palette: no;
+
+    fixed-left: 2;
+    fixed-right: 2;
+    fixed-top: 2;
+    fixed-bottom: 3;
+
+    picture-includes-margin: true;
+    margin-left: 7;
+    margin-right: 7;
+}
+
+// Default
+ArrangerTrack::PatternLane::Pattern
+{
+    dye-mask-animation-index: 0;
+    animation-index: 0;
+}
+
+ArrangerTrack::PatternLane::Pattern[Iteration=first]
+{
+    dye-mask-animation-index: 1;
+    animation-index: 1;
+}
+
+ArrangerTrack::PatternLane::Pattern[Iteration=middle]
+{
+    dye-mask-animation-index: 2;
+    animation-index: 2;
+}
+
+ArrangerTrack::PatternLane::Pattern[Iteration=last]
+{
+    dye-mask-animation-index: 3;
+    animation-index: 3;
+}
+
+// Focus
+ArrangerTrack[HasFocus=true]::PatternLane::Pattern[HasFocus=true]
+{
+    dye-mask-animation-index: 0;
+    animation-index: 4;
+}
+
+ArrangerTrack[HasFocus=true]::PatternLane::Pattern[Iteration=first][HasFocus=true]
+{
+    dye-mask-animation-index: 1;
+    animation-index: 5;
+}
+
+ArrangerTrack[HasFocus=true]::PatternLane::Pattern[Iteration=middle][HasFocus=true]
+{
+    dye-mask-animation-index: 2;
+    animation-index: 6;
+}
+
+ArrangerTrack[HasFocus=true]::PatternLane::Pattern[Iteration=last][HasFocus=true]
+{
+    dye-mask-animation-index: 3;
+    animation-index: 7;
+}
+
+// Muted
+ArrangerTrack[Muted=true]::PatternLane::Pattern
+{
+    dye-mask-animation-index: 4;
+    animation-index: 8;
+}
+
+ArrangerTrack[Muted=true]::PatternLane::Pattern[Iteration=first]
+{
+    dye-mask-animation-index: 4;
+    animation-index: 9;
+}
+
+ArrangerTrack[Muted=true]::PatternLane::Pattern[Iteration=middle]
+{
+    dye-mask-animation-index: 4;
+    animation-index: 10;
+}
+
+ArrangerTrack[Muted=true]::PatternLane::Pattern[Iteration=last]
+{
+    dye-mask-animation-index: 4;
+    animation-index: 11;
+}
+
+
+// Muted Focus
+ArrangerTrack[Muted=true][HasFocus=true]::PatternLane::Pattern[HasFocus=true]
+{
+    dye-mask-animation-index: 4;
+    animation-index: 12;
+}
+
+ArrangerTrack[Muted=true][HasFocus=true]::PatternLane::Pattern[Iteration=first][HasFocus=true]
+{
+    dye-mask-animation-index: 4;
+    animation-index: 13;
+}
+
+ArrangerTrack[Muted=true][HasFocus=true]::PatternLane::Pattern[Iteration=middle][HasFocus=true]
+{
+    dye-mask-animation-index: 4;
+    animation-index: 14;
+}
+
+ArrangerTrack[Muted=true][HasFocus=true]::PatternLane::Pattern[Iteration=last][HasFocus=true]
+{
+    dye-mask-animation-index: 4;
+    animation-index: 15;
+}
+
+
+
+// CLIPS
+//----------------------------------------------------------------------------------------------------------------------
+
+ArrangerTrack::ClipLane::Clip
+{
+    dye-mask: url("Maschine/Arranger/ARR_Clip_Mask_3px.png");
+    dye-mask-animations: 2;
+
+    dye-color-palette: 1;
+
+    image: url("Maschine/Arranger/ARR_Clip_Overlay_3px.png");
+    animations: 4;
+
+    font-name: $fontPragmatica;
+    font-size: 11;
+    foreground-color: $colorBlack75;
+    foreground-color-palette: no;
+
+    fixed-left: 5;
+    fixed-right: 5;
+    fixed-top: 5;
+    fixed-bottom: 5;
+
+    picture-includes-margin: true;
+    margin-left: 7;
+    margin-right: 7;
+
+    dye-mask-animation-index: 0;
+    animation-index: 0;
+}
+
+// use same style for "focused" and "selected" states
+ArrangerTrack::ClipLane::Clip[SelectionMode=Focused],
+ArrangerTrack::ClipLane::Clip[SelectionMode=Selected]
+{
+    animation-index: 1;
+}
+
+ArrangerTrack[Muted=true]::ClipLane::Clip
+{
+    animation-index: 2;
+}
+
+ArrangerTrack[Muted=true]::ClipLane::Clip[SelectionMode=Focused],
+ArrangerTrack[Muted=true]::ClipLane::Clip[SelectionMode=Selected]
+{
+    animation-index: 3;
+    dye-mask-animation-index: 1;
+}
+
+
+
+// OVERLAY FOR PATTERN DRAG & DROP,
+// Patterns in groups that cannot be dropped into are greyed out
+ArrangerTrack Label#overlay
+{
+    height:                             20;
+    background-color:                   rgba(43,43,43,179);
+}
+
+Bar#m_pArrangerPanel Label#m_pHeightCompensationSpacer
+{
+    background-color:           $StandardBackgroundGrey;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// SCENE BACKGROUNDS AND SCENE HEADERS
+//----------------------------------------------------------------------------------------------------------------------
+
+SceneBGWidget
+{
+    // Animation Indices (build your own property out of these:
+    // animidx-focusedG-focusedS-header-referenced-truncated-noScene(-mask)
+    // ! OBEY THE ORDER !
+
+    // DEFAULT
+
+    // Default
+    animidx-default:                    0;
+
+    // Default Group Focus Row
+    animidx-focusedG:                   1;
+
+
+    // FOCUSED
+
+    // Default Focused
+    animidx-focusedS:                   4;
+
+    // Default Group Focus
+    animidx-focusedG-focusedS:          5;
+
+
+
+    // DEFAULT COLORED MASKS
+
+    // Default
+    animidx-default-mask:               8;
+
+    // Default Focused Row
+    animidx-focusedG-mask:              9;
+
+
+
+    // FOCUS COLORED MASKS
+
+    // Default Focus
+    animidx-focusedS-mask:              12;
+
+    // Default Focused Row
+    animidx-focusedG-focusedS-mask:     13;
+
+
+
+
+    // SCENE HEADERS
+
+    // Masks
+    animidx-header-mask:                                16;
+    animidx-focusedS-header-mask:                       16;
+    animidx-header-referenced-mask:                     16;
+    animidx-focusedS-header-referenced-mask:            16;
+    animidx-header-truncated-mask:                      17;
+    animidx-focusedS-header-truncated-mask:             17;
+    animidx-header-referenced-truncated-mask:           17;
+    animidx-focusedS-header-referenced-truncated-mask:  17;
+
+    // Overlays
+    animidx-header:                                 18;
+    animidx-focusedS-header:                        19;
+
+    animidx-header-truncated:                       20;
+    animidx-focusedS-header-truncated:              21;
+
+    animidx-focusedS-header-referenced:             22;
+    animidx-focusedS-header-referenced-truncated:   23;
+
+    animidx-header-referenced:                      24;
+    animidx-header-referenced-truncated:            25;
+
+    animidx-header-noScene:                         28;
+    animidx-focusedS-header-noScene:                29;
+}
+
+
+SceneBGWidget
+{
+    image:                      url("Maschine/Arranger/ARR_BG_Scene.png");
+    animations:                 30;
+    fixed-left:                 2;
+    fixed-right:                9;
+    fixed-top:                  9;
+    fixed-bottom:               3;
+
+    scene-bg-color-palette:     2;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// FOOTER
+//----------------------------------------------------------------------------------------------------------------------
+
+Bar#m_pArrangerPanel Bar#m_pFoot
+{
+    image:                      url("Maschine/Arranger/ARR_BG_ZoomSlider.png");
+    picture-includes-margin:    true;
+    fixed-left:                 15;
+    fixed-right:                15;
+}

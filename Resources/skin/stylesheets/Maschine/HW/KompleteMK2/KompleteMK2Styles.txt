@@ -1,0 +1,10 @@
+@import url("Maschine/Definitions/PluginIcons.txt");
+
+@import url("Shared/HW/KompleteMK2/KompleteMK2Styles.txt");
+
+@import url("Maschine/HW/MaschineStudio/ArrangerPage.txt");
+@import url("Maschine/HW/MaschineStudio/Elements.txt");
+@import url("Maschine/HW/MaschineStudio/MixerPage.txt");
+@import url("Maschine/HW/MaschineStudio/ModulePage.txt");
+
+@import url("Shared/HW/MaschineStudio/IdeaSpace.txt");
